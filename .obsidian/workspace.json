@@ -4,15 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "bbe3ac515ca4adee",
+        "id": "39e85f97faffb107",
         "type": "tabs",
         "children": [
           {
-            "id": "7180d049d4ba437e",
+            "id": "2c5a7fce00014975",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "pdf",
+              "state": {
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf"
+              }
             }
           }
         ]
@@ -65,7 +67,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 260.5
+    "width": 307.5
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -81,6 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +122,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf"
+              }
             }
           }
         ]
@@ -138,19 +144,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7180d049d4ba437e",
+  "active": "bdeffa0d64163e59",
   "lastOpenFiles": [
-    "Strategia Organizzazione e Mercati/appunti-riassunto.pdf",
-    "Strategia Organizzazione e Mercati/appunti-riassunto.pdf.crdownload",
-    "Strategia Organizzazione e Mercati/libro.pdf",
-    "Strategia Organizzazione e Mercati/libro.pdf.crdownload",
-    "Basi di Dati/pdf/12-progettazione-logica.pdf",
-    "Basi di Dati/pdf/12-progettazione-logica.pdf.crdownload",
-    "Basi di Dati/pdf/13-normalizzazione.pdf",
-    "Basi di Dati/pdf/13-normalizzazione.pdf.crdownload",
-    "Basi di Dati/pdf/14-intro-wis.pdf",
-    "Basi di Dati/pdf/14-intro-wis.pdf.crdownload",
-    "Basi di Dati/pdf/15-intro-php.pdf",
+    "Introduzione Apprendimento Automatico/riassunto.xopp~",
+    "Introduzione Apprendimento Automatico/riassunto.xopp",
+    "Introduzione Apprendimento Automatico/pdf/00-introduzione.pdf",
+    "Introduzione Apprendimento Automatico/riassunto.pdf",
+    "Tecnologie Web/pdf/02-uri.pdf",
+    "Tecnologie Web/pdf/02-mime.pdf",
+    "Introduzione Apprendimento Automatico/pdf/slides.pdf",
+    "Basi di Dati/pdf/0_intro.pdf",
+    "Basi di Dati/pdf/0_intro.pdf.crdownload",
+    "Basi di Dati/pdf",
+    "Basi di Dati/pdf/01-intro-dbms.pdf",
     "Welcome.md"
   ]
 }
