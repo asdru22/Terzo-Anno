@@ -13,7 +13,7 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Tecnologie Web/riassunto.pdf"
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf"
               }
             }
           }
@@ -83,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Tecnologie Web/riassunto.pdf",
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Tecnologie Web/riassunto.pdf",
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tecnologie Web/riassunto.pdf"
+                "file": "Introduzione Apprendimento Automatico/riassunto.pdf"
               }
             }
           }
@@ -146,9 +146,8 @@
   },
   "active": "2c5a7fce00014975",
   "lastOpenFiles": [
+    "Tecnologie Web/riassunto.pdf",
     "Tecnologie Web/riassunto.xopp~",
-    "Tecnologie Web/riassunto.pdf",
-    "Tecnologie Web/riassunto.pdf",
     "Introduzione Apprendimento Automatico/riassunto.pdf",
     "Tecnologie Web/pdf/03a-HTTP.pdf",
     "Tecnologie Web/pdf/03a-HTTP.pdf.crdownload",
