@@ -11,9 +11,11 @@
             "id": "2c5a7fce00014975",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Introduzione Apprendimento Automatico/riassunto.pdf"
+                "file": "Strategia Organizzazione e Mercati/Importante.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -62,12 +64,23 @@
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "c302a7019767a9ad",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Strategia Organizzazione e Mercati/Importante.md"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 247.5
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -83,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Introduzione Apprendimento Automatico/riassunto.pdf",
+                "file": "Strategia Organizzazione e Mercati/Importante.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Introduzione Apprendimento Automatico/riassunto.pdf",
+                "file": "Strategia Organizzazione e Mercati/Importante.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,18 +129,9 @@
                 "useHierarchy": true
               }
             }
-          },
-          {
-            "id": "c302a7019767a9ad",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Introduzione Apprendimento Automatico/riassunto.pdf"
-              }
-            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -146,16 +150,24 @@
   },
   "active": "2c5a7fce00014975",
   "lastOpenFiles": [
-    "Tecnologie Web/riassunto.pdf",
-    "Tecnologie Web/riassunto.xopp~",
-    "Introduzione Apprendimento Automatico/riassunto.pdf",
-    "Tecnologie Web/pdf/03a-HTTP.pdf",
-    "Tecnologie Web/pdf/03a-HTTP.pdf.crdownload",
-    "Tecnologie Web/pdf/01-www-intro.pdf",
-    "Introduzione Apprendimento Automatico/riassunto.xopp~",
-    "Introduzione Apprendimento Automatico/riassunto.xopp",
-    "Introduzione Apprendimento Automatico/pdf/00-introduzione.pdf",
-    "Tecnologie Web/pdf/02-uri.pdf",
+    "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
+    "Strategia Organizzazione e Mercati/img/make-or-buy.svg",
+    "Strategia Organizzazione e Mercati/img",
+    "Strategia Organizzazione e Mercati/Nuova cartella",
+    "Strategia Organizzazione e Mercati/riassunto.xopp~",
+    "Strategia Organizzazione e Mercati/Appunti.md",
+    "Strategia Organizzazione e Mercati/Importante.md",
+    "Basi di Dati/Es/SQL.md",
+    "Strategia Organizzazione e Mercati/Pasted image 20241009002408.png",
+    "Basi di Dati/pdf/0_intro.pdf",
+    "2024-10-09.md",
+    "Strategia Organizzazione e Mercati/capitoli/capitolo_3.pdf",
+    "Basi di Dati/Es",
+    "Tecnologie Web/esercizi/Ristorante.md",
+    "Tecnologie Web/esercizi/giochi.md",
+    "Tecnologie Web/esercizi/Ristorante.xopp",
+    "Tecnologie Web/esercizi/giochi.pdf",
+    "Tecnologie Web/esercizi/Ristorante.pdf",
     "Welcome.md"
   ]
 }
