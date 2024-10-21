@@ -1,0 +1,20 @@
+table, td, th{
+  border: 1px solid black
+}
+
+.dist{
+  font-weight: bold;
+  text-align: center;
+}
+
+.red{
+  background-color: red;
+}
+
+.yellow{
+  background-color: yellow;
+}
+
+tr, td, th{
+  padding:10px
+}
