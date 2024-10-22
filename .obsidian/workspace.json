@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/Importante.md",
+                "file": "Basi di Dati/MySQL.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "MySQL"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           },
           {
@@ -71,12 +79,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/Importante.md"
-              }
+                "file": "Basi di Dati/MySQL.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of MySQL"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -104,7 +113,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Importante"
             }
           },
           {
@@ -116,7 +127,9 @@
                 "file": "Strategia Organizzazione e Mercati/Importante.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Importante"
             }
           },
           {
@@ -127,7 +140,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           }
         ],
@@ -150,24 +165,27 @@
   },
   "active": "2c5a7fce00014975",
   "lastOpenFiles": [
+    "Basi di Dati/laboratorio/es1.sql",
+    "Basi di Dati/laboratorio/test.sql",
+    "Basi di Dati/laboratorio/prova/prova.sqlproj",
+    "Basi di Dati/laboratorio/prova",
+    "Basi di Dati/laboratorio",
+    "Basi di Dati/Nuova cartella",
+    "Strategia Organizzazione e Mercati/Importante.md",
+    "Basi di Dati/MySQL.md",
+    "Untitled.md",
     "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
     "Strategia Organizzazione e Mercati/img/make-or-buy.svg",
     "Strategia Organizzazione e Mercati/img",
     "Strategia Organizzazione e Mercati/Nuova cartella",
     "Strategia Organizzazione e Mercati/riassunto.xopp~",
     "Strategia Organizzazione e Mercati/Appunti.md",
-    "Strategia Organizzazione e Mercati/Importante.md",
     "Basi di Dati/Es/SQL.md",
     "Strategia Organizzazione e Mercati/Pasted image 20241009002408.png",
     "Basi di Dati/pdf/0_intro.pdf",
     "2024-10-09.md",
-    "Strategia Organizzazione e Mercati/capitoli/capitolo_3.pdf",
-    "Basi di Dati/Es",
     "Tecnologie Web/esercizi/Ristorante.md",
     "Tecnologie Web/esercizi/giochi.md",
-    "Tecnologie Web/esercizi/Ristorante.xopp",
-    "Tecnologie Web/esercizi/giochi.pdf",
-    "Tecnologie Web/esercizi/Ristorante.pdf",
     "Welcome.md"
   ]
 }

@@ -149,6 +149,7 @@ Sono i costi legati al coordinamento e alla protezione delle informazioni
 - $C$: costo variabile medio
 - $Q$: quantità prodotta
 $$I\text{ specifico}\implies P^*>P_m \implies (P^*-C)\times Q-I>(P_m-C)\times Q-I$$
+> **Esempio**: L'azienda A fa un contratto con il porto per la fornitura di un bocchettone specializzato, con un profitto di 10€ al minuto in cui viene utilizzato. Tuttavia l'azienda A si tira in dietro (hold-up). Allora il porto si rivolge all'azienda B (second best client), ma per lei quel bocchettone già prodotto è due volte più lento rispetto all'azienda A. Quindi per B il valore sarà equivalente a quello di A solo se compra il bocchettone a 5€/min. 
 #### 4.4.7 Attività a elevata specificità
 Quando una transazione comporta attività specifiche, le parti in causa non possono cambiare partner commerciale senza andare incontro a una diminuzione del valore delle attività stesse. Ci sono 4 forme di attività specifica:
 - specificità localizzativa: attività vicine per risparmiare sui trasporti o sui costi di magazzino
@@ -157,15 +158,16 @@ Quando una transazione comporta attività specifiche, le parti in causa non poss
 - specificità del capitale umano: un gruppo di lavoratori hanno acquisito competenze che hanno maggior valore in un certo contesto lavorativo piuttosto che altri.
 
 #### 4.4.8 Rendite e quasi rendite
-> **Trasformazione fondamentale**: dopo che le parti hanno investito in attività specifiche, la relazione passa da una concorrenza su grandi numeri a una contrattazione su piccoli numeri
+> **Trasformazione fondamentale**: dopo che le parti hanno investito in attività specifiche, la relazione passa da una concorrenza su grandi numeri a una contrattazione su piccoli numeri. Da una situazione iniziale competitiva si passa a una co-dipendenza.
 
 La trasformazione fondamentale ha conseguenze per l'economia della contrattazione tra compratore e venditore che a sua volta influenza i costi delle transazioni basate sulla libera concorrenza.
 **Rendita**: profitto che si prevede di ottenere quando si costruisce l'impianto. Per poter investire in un attività ci si aspetta che questa abbia rendite positive.
 **Quasi-Rendita**: profitto extra che un'azienda o un individuo può ottenere in una situazione in cui una relazione commerciale o contrattuale va avanti come previsto, rispetto al profitto che otterrebbe se fosse costretto a scegliere una migliore alternativa disponibile. 
 In un'attività a bassa specificità la quasi-rendita è nulla, in un'attività ad alta specificità la quasi-rendita è positiva.
 Questo concetto è particolarmente rilevante quando ci sono investimenti fatti per una particolare relazione contrattuale, e si lega direttamente all'*hold-up problem*.
+Infatti, la quasi-rendita equivale alla differenza tra la rendite con il cliente specifico e il secondo migliore. Si chiama quasi-rendita perché dipende dal comportamento dei clienti, e non dell'azienda stessa.
 #### 4.4.9 Hold-up problem (problema del ricatto)
-Se la quasi rendita è elevata l'impresa avrebbe molto da perdere e questo può consentire a uno dei partner di ricattare un altro tentando di rinegoziare i termini di un accordo.
+Se la quasi rendita è elevata (specificità elevata) l'impresa ha molto da perdere se uno dei clienti si tira fuori dal contratto, oppure ricatta l'azienda per ridurre il prezzo.
 Il problema del ricatto fa salire il costo di transazioni, portando a:
 - trattative più difficili e rinegoziazioni più frequenti. Se entrambe le parti prevedono un ricatto, le trattative iniziali diventano più costose.
 - investimenti per migliorare dopo il contratto: le parti possono essere indotte a fare investimenti che migliorino le proprie condizioni di contrattazione ex-post (dopo il fatto/contratto). Ad esempio acquisendo impianti di riserva e fonti alternative.
@@ -175,3 +177,4 @@ Il problema del ricatto fa salire il costo di transazioni, portando a:
 
 ![[make-or-buy.svg]]
 ## 5. L'integrazione verticale e le sue alternative
+L'integrazione verticale è molto costosa, e si ricorre ad essa solo quando non ci sono alternative (contratti o *joint venture*).
