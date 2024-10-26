@@ -178,3 +178,75 @@ Il problema del ricatto fa salire il costo di transazioni, portando a:
 ![[make-or-buy.svg]]
 ## 5. L'integrazione verticale e le sue alternative
 L'integrazione verticale è molto costosa, e si ricorre ad essa solo quando non ci sono alternative (contratti o *joint venture*).
+### 5.1 Teoria dei diritti di proprietà dell'impresa di *Grossman*, *Heart* e *Moore*
+L'integrazione implica il trasferimento dei diritti di proprietà che erano in mano ai fornitori.
+> GHM: L'integrazione determina la proprietà e il controllo delle risorse ed è attraverso la proprietà e il controllo che le imprese possono sfruttare i contratti incompleti (diritti residuali di contratto).
+
+La scelta tra produrre o acquistare determina il diritto legale a gestire le risorse e distribuire i ricavi. Il diritto di proprietà implica il trasferimento dei diritti residuali
+- di controllo: diritti non esplicitamente definiti del contratto
+- a decidere come utilizzare le risorse dove i termini di un contratto non sono chiari
+- alla distribuzione degli utili derivanti dal utilizzo delle risorse.
+
+GHM analizza come la proprietà influenza le decisioni dei contraenti su investimenti in attività ad alta specificità. Secondo essa, due imprese non possono stabilire un contratto dove tutte le decisioni operative da intraprendere siano specificate a priori. Dovranno essere negoziate nel corso della transazione. La proprietà influenza il risultato di queste negoziazioni e di conseguenza anche l'efficienza della produzione.
+GHM permette di individuare soluzioni pratiche intermedie fa l'integrazione verticale e la transazione di mercato.
+I sistemi di governance servono per assegnare i diritti decisionali e il controllo delle risorse all'interno di un'impresa. Il successo dell'integrazione dipende dall'abilità della direzione di premiare o punire i comportamenti non previsti dai contratti. La direzione deve essere in grado di delegare, ovvero determinare quali decisioni saranno prese direttamente e quali saranno lasciate ai dipendenti. 
+Con l'approccio GHM si riesce a capire quali sono le decisioni delegabili. I diritti decisionali centrali vanno assegnati ai manager le cui decisioni hanno il maggior impatto sulle prestazioni dell'attività.
+Esempio di passaggio dell'autorità nel caso di fusione tra due aziende A e B:
+- Il valore dipende da conoscenze del direttivo di B: l'autorità decisionale è di B. Dunque proprietà e controllo delle risorse di A sarà nelle mani di B.
+- Il valore dipende dalle sinergie delle conoscenze di A e B: l'autorità sarà centralizzata
+- Il successo dipende in ugual modo dalle conoscenze specialistiche di entrambi i direttivi e non esistono sinergie derivanti dall'unione delle risorse: A e B rimangono indipendenti.
+
+### 5.2 Efficienza tecnica ed efficienza di agenzia
+**Efficienza tecnica**: indica se l'impresa sta utilizzando il processo produttivo meno costoso
+**Efficienza di agenzia**: indica se lo scambio di merci e servizi è stato organizzato per ridurre al minimo i costi di coordinamento, agenzia e transazione. Se un processo di scambio aumenta i costi di produzione, può essere classificato come inefficienza di agenzia e non di tecnica.
+
+> C'è un *tradeoff* tra efficienza tecnica ed efficienza di agenzia. Migliorare una di queste efficienze può compromettere l'altra. Maggiore efficienza tecnica può aumentare i costi di agenzia, mentre ridurre i costi di agenzia può ridurre la flessibilità necessaria per ottimizzare l'efficienza tecnica.
+
+Nel caso di produzione di un prodotto ad alta specificità, ci saranno clienti ridotti e non si potranno fare economie di scala. Per i clienti la differenza di costo di produzione interno ed esterno diminuisce. Il prezzo esterno è elevato a causa dell'elevata specificità, allora produrre internamente avrebbe un costo simile ma con efficienza di agenzia maggiore.
+Nel caso di produzione di un prodotto a bassa specificità, ci sarà un numero di clienti maggiore e quindi diventa possibile fare economie di scala. Dunque per il cliente la differenza di costo tra produzione interna ed esterna aumenta (non gli conviene produrre internamente).
+
+### 5.3 Alternative all'integrazione
+#### 5.3.1 Integrazione parziale
+Misto tra integrazione verticale e transazione di mercato.
+
+| Vantaggi                                                                                                                                                                                                                                                                                                                                               | Svantaggi                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| <br>Può sfruttare le informazioni sul conto e sulla redditività dei canali interni per negoziare meglio i contratti con imprese indipendenti.                                                                                                                                                                                                          | Problemi di coordinamento sulle specifiche dei prodotti e sui tempi di consegna.                                                             |
+| Espande i canali in entrata e uscita.                                                                                                                                                                                                                                                                                                                  | Problemi di pianificazione e raggiungimento della scala efficiente, ovvero il livello di produzione in cui i costi unitari sono minimizzati. |
+| Può far capire alle sue divisioni interne che, se non migliorano le proprie prestazioni o non lavorano in modo efficiente, l'azienda potrebbe rivolgersi maggiormente a fornitori esterni o ad altre aziende per ottenere ciò di cui ha bisogno. Questo serve come forma di pressione per mantenere alta la qualità e l'efficienza dei canali interni. |                                                                                                                                              |
+
+#### 5.3.2 Franchising
+Quando un'attività locale ha successo, il manager può pensare di espandersi su nuovi mercati. Diventando affiliante cede parte dei diritti di proprietà a un affiliato. Gli affiliati forniscono il capitale per il funzionamento del proprio negozio e pagano una quota al proprietario per usare il suo nome e modello imprenditoriale.
+Il franchising consente di sfruttare i benefici dell'integrazione verticale mantenendo il controllo su aspetti chiave come il marchio e gli acquisti su larga scala, riducendo i costi attraverso le economie di scala. Allo stesso tempo, permette agli affiliati di gestire le operazioni locali e trattenere i profitti residui, il che li incentiva a investire e ottimizzare le loro attività per il mercato locale. Questa combinazione di controllo centrale e autonomia locale è ciò che rende il franchising un modello attraente per entrambe le parti.
+
+#### 5.3.3 Alleanze strategiche e *joint-venture*
+Le alleanza sono un modo per organizzare transazioni complesse senza sacrificare l'autonomia delle imprese. Alleanze orizzontali prevedono la collaborazione tra due imprese dello stesso settore, oppure si possono coinvolgere imprese dello stesso settore non integrate verticalmente.
+Le *joint-venture* sono un tipo di alleanza strategica dove due o più imprese creano una nuova organizzazione indipendente di proprietà comune che può impiegare dipendenti di una o più delle imprese madri, oppure assumere nuovo personale. Sono una via di mezzo tra transazione di mercato e integrazione verticale.
+Condizioni favorevoli alla nascita di *joint-venture* sono:
+- Transazioni con impedimenti alla realizzazione di contratti completi.
+- Transazioni complesse dove il diritto ordinario incontrerebbe problemi a colmare le lacune dei contratti incompleti.
+- Le transazioni comportano la creazione di attività specifiche da entrambe le parti, le quali possono ricorrere all'*holdup*.
+- Per una delle due parti è troppo costoso acquisire tutte le competenze necessarie per portare termine in autonomia tutte le attività a causa di indivisibilità o curva di apprendimento.
+- L'opportunità di mercato che crea l'esigenza della transazione è transitoria o non duratura. Questo non incentiva le parti ad attuare una fusione o un contratto a lungo termine.
+- La transazione, o l'opportunità di mercato si verifica in un'ambiente contrattuale o di regolamentazione caratterizzato da aspetti unici, tali da richiedere un partner locale.
+
+Da un lato uniscono gli aspetti migliori del *make* e del *buy*, ma sono anche soggette a:
+- Fughe di notizie
+- Assenza di meccanismi formali per prendere decisioni
+- Costi di agenzia: i frutti degli sforzi dell'alleanza sono suddivisi fra due o più imprese
+- Costi d'influenza: l'assenza di una gerarchia formale e di un sistema amministrativo può incentivare attività di influenza (lobbying).
+
+#### 5.3.4 Contratti impliciti e relazioni di lungo termine
+Un contratto implicito è un accordo non scritto tra due parti indipendenti. Perché l'accordo funzioni, le due parti devono affidarsi alla minaccia che uno dei contraenti possa perdere qualunque affare futuro con l'altro se viola il contratto implicito.
+
+#### 5.3.5 Gruppi aziendali
+Sono un sistema di relazioni semi-formali a lungo termine tra le imprese della catena verticale sorte nell'ultima metà del Ventesimo secolo.
+##### 5.3.5.1 *keiretsu*
+Nati in Giappone nel periodo di crescita dopo la seconda guerra mondiale. Sono una rete fluida di legami istituzionali formalizzati. Favoriscono i membri con le performance migliori.
+##### 5.3.5.2 *Chaebol*
+Nati nella Corea del Sud nel periodo di crescita che seguì la guerra di Corea. Alcuni sono relazioni strette fra imprese indipendenti, altri sono centralizzati e controllati da gruppi familiari che si assicurano un coordinamento molto solido e investimenti in attività ad alta specificità.
+##### 5.3.5.3 *Tata*
+Il gruppo aziendale *Tata* è il più grande datore di lavoro in India, con diversificazione orizzontale. Controlla 98 imprese in 7 settori.
+
+Questi gruppi aziendali possono trarre vantaggio anche da stretti legami con i governi nazionali, che promuovono un ambiente normativo a loro favorevole. Uno dei grossi vantaggi dei gruppi aziendali emergenti in India e in Cina è la manodopera a basso costo, ma non sono ricchi di manager di alto livello.
+## 6 Concorrenti e concorrenza

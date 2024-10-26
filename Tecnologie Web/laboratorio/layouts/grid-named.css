@@ -1,0 +1,25 @@
+#layout {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-areas: "menus menus"
+						 "sidebar main"
+						 "disclaimer disclaimer"
+}
+
+nav {
+	grid-area: menus;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+#sidebar {
+	grid-area: sidebar;
+}
+
+#main {
+	grid-area: main;
+}
+
+footer {
+	grid-area: disclaimer;
+}

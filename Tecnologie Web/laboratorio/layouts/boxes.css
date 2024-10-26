@@ -1,0 +1,40 @@
+body {
+	font-family: Verdana;
+}
+
+nav, footer, #central, #sidebar, #main, nav div {
+	border: 1px solid gray;
+}
+
+footer {
+	background-color: #DE9999;
+	text-align: center;
+}
+
+nav div {
+	text-align: center;
+	padding: 20px;
+	background-color: #FAEABE;
+}
+
+#sidebar {
+	background-color: #B4E08D;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#main {
+	background-color: #B3D1E8;
+}
+
+span.parola {
+	background-color: #EEEEEE;
+}
+
+span#absolute-text {
+	background-color:red;
+}
+
+span#relative-text {
+	background-color:yellow;
+}

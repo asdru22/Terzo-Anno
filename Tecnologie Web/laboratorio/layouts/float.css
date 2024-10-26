@@ -1,0 +1,29 @@
+body {
+	padding: 0px;
+	margin: 0px;
+} 
+* {
+	box-sizing: border-box;
+} 
+
+nav, footer {
+	float: left;
+	width: 100%;
+}
+
+nav div {
+	float: left;
+	width:25%;
+}
+
+#sidebar {
+	float: left;
+	width: 20%;
+	height: 75vh;
+}
+
+#main {
+	float: left;
+	width: 80%;
+	height: 75vh;
+}

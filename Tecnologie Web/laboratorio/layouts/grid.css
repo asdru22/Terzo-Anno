@@ -1,0 +1,28 @@
+#layout {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+
+}
+
+nav {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#sidebar {
+	grid-column: 1 / 2;
+}
+
+#main {
+	grid-column: 2 / span 3;
+}
+
+footer {
+	grid-column: 1 / 5;
+	grid-area: "footer";
+}

@@ -1,0 +1,40 @@
+#sidebar {
+ position: relative;
+ top: 20px;
+ left: 30px;
+}
+
+#relative-text {
+	position: relative;
+	top: 50px;
+	right: 50px;
+	background-color:yellow;
+}
+
+#absolute-text {
+	position: absolute; //position:fixed;
+	top: 50px;
+	right: 50px;
+	background-color:red;
+	color: white;
+}
+
+#main {
+	position:relative; //position:static;
+}
+
+	span.parola {
+		position: relative;
+	}
+
+	span.tooltip {
+		visibility:hidden;
+		position: absolute;
+		background-color: #FFFFCC;
+		top: 20px;
+		z-index: 1;
+	}
+
+	span.parola:hover span.tooltip {
+		visibility: visible;
+	}
