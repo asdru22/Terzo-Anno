@@ -250,3 +250,112 @@ Il gruppo aziendale *Tata* è il più grande datore di lavoro in India, con dive
 
 Questi gruppi aziendali possono trarre vantaggio anche da stretti legami con i governi nazionali, che promuovono un ambiente normativo a loro favorevole. Uno dei grossi vantaggi dei gruppi aziendali emergenti in India e in Cina è la manodopera a basso costo, ma non sono ricchi di manager di alto livello.
 ## 6 Concorrenti e concorrenza
+I concorrenti sono le imprese le cui scelte strategiche hanno effetti diretti le une sulle altre. Le imprese concorrono sia sul mercato degli input che degli output. I concorrenti e la natura della concorrenza sono diversi. 
+Gli *antitrust* si occupano di impedire che nuove imprese adottano una condotta anticoncorrenziale. Analizzano il mercato per capire se le nuove fusioni lo monopolizzano e se i monopolisti già presenti stanno abusando del proprio potere.
+> Un **mercato** è ben definito e tutti i concorrenti al suo interno sono identificati se una fusione tra di essi porterebbe a un piccolo ($<5\%$) ma significativo aumento non temporaneo (dura meno di un anno) dei prezzi (SSNIP).
+
+Il test SSNIP si basa sul concetto economico di beni succedanei.
+> Due prodotti $X$ e $Y$ sono **succedanei** (o sostituti) se all'aumentare del prezzo di $X$, quello di $Y$ rimane invariato, e se le vendite di $X$ calano, quelle di $Y$ aumentano.
+
+I prodotti tendono ad essere succedanei se:
+- hanno le stesse caratteristiche di prestazione del prodotto
+- hanno le stesse occasioni d'uso
+- sono venduti sullo stesso mercato geografico
+
+### 6.1 Approccio empirico per identificare i concorrenti
+Si rafforza l'approccio intuitivo con dati empirici. 
+#### 6.1.1 Elasticità incrociata
+Il grado di sostituibilità tra prodotti è misurato dall'elasticità incrociata della domanda al prezzo
+L'elasticità incrociata della domanda rispetto al prezzo misura come varia la quantità domandata di un bene in risposta a una variazione del prezzo di un altro bene. La formula è:
+
+$$
+\eta_{Q_x,P_y} = \frac{\%\ \Delta Q_x}{\%\ \Delta P_y} = \frac{\Delta Q_x / Q_x}{\Delta P_y / P_y}$$
+
+dove:
+- $E_{Q_x,P_y}$ è l'elasticità incrociata della domanda del bene $x$ rispetto al prezzo del bene $y$,
+- $Q_x$ è la quantità domandata del bene $x$,
+- $P_y$ è il prezzo del bene $y$,
+- $\Delta Q_x$ è la variazione nella quantità domandata del bene $x$,
+- $\Delta P_y$ è la variazione del prezzo del bene $y$.
+
+$\eta_{Q_x,P_y} > 0$: i beni $x$ e $y$ sono **sostituti/succedanei** (ad esempio, se il prezzo della Pepsi aumenta, la domanda di Coca-Cola potrebbe aumentare).
+ $\eta_{Q_x,P_y} < 0$: i beni $x$ e $y$ sono **complementari** (ad esempio, se il prezzo delle console di videogiochi aumenta, la domanda di giochi per console potrebbe diminuire).
+$\eta_{Q_x,P_y} = 0$: i beni $x$ e $y$ sono **indipendenti** e non hanno alcuna relazione significativa.
+#### 6.1.2 *Standard Industrial Classification* (SIC)
+La SIC identifica prodotti e servizi con un codice a sette cifre. Se si usa la categorizzazione SIC per identificare i propri concorrenti bisogna prestare attenzione perché non è sempre decisa nel modo corretto. Si possono usare i censimenti delle aree geografiche per delineare la concorrenza.
+### 6.2 La misura della struttura di mercato
+La struttura di mercato si riferisce al numero e alla distribuzione delle imprese in un mercato. Una misura della struttura di mercato è il rapporto di concentrazione di $N$ imprese, che fornisce la quota di mercato cumulata delle $N$ più grandi imprese del mercato. In questo modo però non è possibile rilevare l'impatto della variazione delle dimensioni delle imprese più grandi. Questo problema viene risolto con l'indice di Herfindahl (HHI)
+$$HHI=\sum_{i=1}^{N} s_i^2$$
+dove:
+- $s_i$ è la quota di mercato dell'impresa $i$, espressa come percentuale (o frazione),
+- $N$ è il numero totale di imprese nel mercato.
+
+L'indice di Herfindahl-Hirschman (HHI) misura il livello di concentrazione di mercato e quindi il grado di concorrenza. È calcolato sommando i quadrati delle quote di mercato di ciascuna impresa presente nel mercato.
+- **HHI < 15%**: mercato poco concentrato o competitivo.
+- **HHI tra 15% e 25%**: mercato moderatamente concentrato.
+- **HHI > 25\%**: mercato altamente concentrato.
+
+La struttura di un mercato può influenzare la condotta e la performance finanziaria delle sue imprese. Questa connessione casuale è nota come paradigma struttura-condotta-performance.
+#### 6.2.1 Concorrenza Perfetta
+I prezzi del mercato scendono quando si verificano almeno due di queste condizioni:
+- i venditori sono numerosi
+- il prodotto è omogeneo agli occhi dei consumatori
+- c'è un eccesso di capacità produttiva.
+
+Se il numero di venditori aumenta, i prezzi tendono ad abbassarsi per tre motivi:
+- varietà di scelte di prezzo
+- minori acquisti da parte dei consumatori, dunque alcuni venditori sono costretti a ridurre la produzione per sostenere prezzi elevati.
+- alcuni venditori possono barare abbassando il prezzo e aumentando la produzione.
+
+Quando un'impresa ricuce il prezzo, si aspetta di aumentare le vendite per le seguenti ragioni:
+- maggiori vendite ai consumatori che avevano intenzione di acquistare una minore quantità dall'impresa.
+- si vende a consumatori che non avevano intenzione di acquistare né dall'impresa né dai concorrenti.
+- si vende a consumatori che avevano intenzione did acquistare da un concorrente, ma hanno cambiato fornitore di fronte al prezzo minore.
+
+I clienti sono più propensi a cambiare fornitore quando i prodotti sono **omogenei**, cioè se le caratteristiche del prodotto non variano da un fornitore all'altro.
+Le imprese possono scegliere se uscire dal mercato piuttosto che sostenere perdite economiche di lungo periodo. Se la domanda non cresce, l'industria può soffrire un periodo duraturo di eccesso di capacità, con prezzi inferiori ai costi medi.
+#### 6.2.2 Monopolio
+Un'impresa si dice monopolista se ha una concorrenza modesta o nulla, sul mercato dei suoi prodotti.
+Un'impresa monopolista si muove lungo una curva del mercato inclinata negativamente, dunque se aumenta i prezzi vende meno unità. Le imprese monopoliste non hanno il controllo totale della domanda.
+Il privilegio del monopolio è quello di poter imporre prezzi senza preoccuparsi di come potrebbero rispondere le altre imprese.
+Un monopolista seleziona il prezzo in modo che il ricavo marginale proveniente dall'ultima unità di bene venduto sia uguale al costo marginale di produzione.
+#### 6.2.3 Concorrenza monopolistica
+Il termine fu introdotto da Chamberlin per indicare mercati caratterizzati da
+- numerosi venditori, ognuno dei quali ritiene che le sue azioni non abbiano effetti sugli altri
+- i prodotti in vendita sono differenziati
+
+> Due prodotti A e B sono **differenziati** se esiste un prezzo al quale alcuni preferiscono acquistare A, e altri B.
+
+**Differenziazione del prodotto**: i consumatori compiono le loro scelte tra prodotti sulla base di fattori diversi dal prezzo.
+Mentre nella concorrenza perfetta i prodotti sono omogenei, in quella monopolistica il venditore di un bene differenziato non perderà tutti i suoi clienti se decide di aumentare il prezzo del bene.
+##### 6.2.3.1 Differenziazione Verticale
+Un prodotto è verticalmente differenziato se le sue caratteristiche sono definibili empiricamente come migliori o peggiori di quelle dei concorrenti
+Il grado di differenziazione verticale dipende da quanto sia difficile per il consumatore conoscere le alternative.
+##### 6.2.3.2 Differenziazione Orizzontale
+Un prodotto è orizzontalmente differenziato quando alcuni consumatori lo preferiscono a beni sostituti (succedanei), a parità di prezzo.
+La differenziazione orizzontale si forma quando i clienti hanno preferenze proprie (idiosincratiche).
+
+Nel modello di Chamberlin l'entrata nei mercati differenziati si considera eccessiva perché causa un aumento dei costi fissi. Se i consumatori valorizzano la varietà, allora l'entrata in un mercato di concorrenza monopolistica non sarà eccessiva.
+
+#### 6.2.4 Oligopolio
+L'oligopolio è una struttura di mercato caratterizzata dalla presenza di un numero limitato di imprese che dominano un determinato settore. In un mercato oligopolistico, poche aziende controllano la maggior parte dell'offerta di un bene o servizio, e le loro decisioni sono fortemente interdipendenti: le azioni di una singola impresa (come variazioni di prezzo o nuove campagne di marketing) possono influenzare le altre, inducendole a reagire.
+Ci sono due modelli di oligopolio: quello di Cournot e quello di Bertrand
+##### 6.2.4.1 Concorrenza sulla qualità: modello di Cournot
+Egli considerò un mercato formato da due sole imprese che producono beni perfetti sostituti. La sola scelta strategica di ogni impresa riguarda la quantità da produrre ($Q_1$ e $Q_2$). Successivamente fissano il prezzo necessario a "sparecchiare" il mercato, ovvero il prezzo al quale i consumatori sono disposti ad acquistare l'intera produzione $Q_1+Q_2$. Il prezzo di mercato è il prezzo che consente a entrambe le imprese di vendere tutti i loro prodotti. Ogni impresa formula un'ipostesi sulla quantità ottimale che sarà prodotta dall'impresa rivale assumendo che la quantità non verrà modificata. Secondo Cournot il livello di produzione ottimale di entrambe le imprese è la risposta ottimale all'aspettativa del livello di produzione scelto dal rivale.
+Un equilibrio di Cournot è indicato da due output e un prezzo tali che
+- $P^*$ è il prezzo che sparecchia il mercato, dati i livelli di produzione delle imprese
+- $Q_1^*$ è la quantità che massimizza il profitto dell'impresa 1, ipotizzando un output $Q^*_2$ da parte dell'impresa 2
+- $Q_2^*$ è la quantità che massimizza il profitto dell'impresa 2, ipotizzando un output $Q^*_1$ da parte dell'impresa 1
+
+Tutte le imprese scelgono il proprio livello di produzione allo stesso tempo, e ognuna di esse fa una congettura corretta sulla produzione dell'avversario.
+L'equilibrio di Cournot non massimizza il profitto complessivo dell’industria, ma rappresenta piuttosto una situazione in cui ogni impresa, agendo in modo indipendente per massimizzare il proprio profitto, finisce per produrre una quantità complessiva più alta rispetto a quella di un accordo collusivo, riducendo quindi i potenziali ricavi totali del settore.
+##### 6.2.4.2 Concorrenza di prezzo: modello di Bertrand
+Ogni impresa considera invariabile il prezzo dell'impresa rivale. La rivalità tra due imprese risulta sufficiente al raggiungimento del risultato di concorrenza perfetta. La concorrenza di prezzo risulta particolarmente intensa perché i beni prodotti sono perfetti sostituti. La concorrenza di Bertrand può essere instabile in mercati dove le imprese richiedono investimenti anticipati da impianti e attrezzature. 
+In mercati oligopolistici con prodotti simili ma non identici (succedanei stretti), il modello di Bertrand (che si basa su una competizione di prezzo pura) non riesce a rappresentare completamente il comportamento delle imprese. In mercati con prodotti differenziati orizzontalmente, le imprese mantengono parte della clientela anche se i concorrenti abbassano i prezzi. In altre parole, *la domanda per ciascuna impresa diminuisce gradualmente invece di crollare bruscamente se i concorrenti riducono i prezzi*. Per calcolare l’equilibrio nel modello di Bertrand con prodotti differenziati, servono informazioni dettagliate sia sulla domanda (per capire come reagiscono i consumatori alle variazioni di prezzo) sia sui costi marginali (per stabilire la convenienza di ridurre i prezzi).
+##### 6.2.4.3 Differenze tra il modello di Cournot e Bertrand
+I due modelli offrono predizioni diverse sulle quantità, prezzi e profitti derivanti da una situazione di oligopolio. Per conciliare le differenze tra di loro bisogna riconoscere che
+- i due tipi di concorrenza si verificano in diverse strutture temporali
+- le assunzioni sulle aspettative che ogni impresa formula sulle reazioni dell'impresa rivale sono diverse
+
+Cournot si applica ai mercati nei quali le imprese devono formulare decisioni di produzione in anticipo e le proveranno a vendere l'intera produzione e si aspetteranno che i concorrenti mantengano le vendite pari ai volumi di produzione programmati. L'equilibrio di Cournot risulta in profitti positivi e prezzo superiore al costo marginale e al costo medio.
+Bertrand si applica nei mercati dove la capacità è abbastanza flessibile da consentire alle imprese di soddisfare tutta la domanda derivante dai prezzi annunciati. I beni sono perfetti sostituti, allora ogni concorrente è convinto di poter sottrarre quote di mercato ai concorrenti attraverso riduzioni di prezzo. 
