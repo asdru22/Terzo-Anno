@@ -15,6 +15,8 @@ $$C_{ma}(Q)=\frac{CT(Q+\Delta Q)-CT(Q)}{\Delta Q}$$
 Quando il costo medio è funzione decrescente dell'output il costo marginale è inferiore al costo medio. 
 > Quando il costo marginale è inferiore al costo medio, significa che produrre un'unità aggiuntiva costa meno rispetto alla media del costo di tutte le unità prodotte fino a quel momento. Questo si traduce in una riduzione del costo medio quando la produzione aumenta.
 
+**Ricavo Marginale**: tasso di variazione del ricavo totale risultante dalla vendita di unità addizionali di output.
+$$R_{ma}(Q)=\frac{RT(Q+\Delta Q)-RT(Q)}{\Delta Q}=P(1-\frac{1}{\eta})$$
 Quando il costo medio non è né crescente ne decrescente con l'output il costo marginale è uguale al costo medio.
 Quando il costo medio è funzione decrescente dell'output, il costo marginale è maggiore del costo medio.
 **Funzione di Costo di Breve Periodo**: indica i costi totali che un'azienda sostiene per produrre un certo livello di output quando almeno uno dei fattori di produzione è fisso. Questo concetto è importante perché, nel breve periodo, l'azienda non può variare tutti i suoi input liberamente, come ad esempio macchinari o edifici, che richiedono tempo per essere modificati.

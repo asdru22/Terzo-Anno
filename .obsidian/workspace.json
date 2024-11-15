@@ -47,6 +47,18 @@
             }
           },
           {
+            "id": "c302a7019767a9ad",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Strategia Organizzazione e Mercati/capitoli/capitolo_7.pdf"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of capitolo_7"
+            }
+          },
+          {
             "id": "709555d3812293af",
             "type": "leaf",
             "state": {
@@ -72,21 +84,8 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
-          },
-          {
-            "id": "c302a7019767a9ad",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Strategia Organizzazione e Mercati/Importante.md"
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Importante"
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -166,21 +165,22 @@
   },
   "active": "1bb9d798ef59e3bc",
   "lastOpenFiles": [
+    "Strategia Organizzazione e Mercati/capitoli/concetti_base.xopp~",
+    "Strategia Organizzazione e Mercati/Appunti.md",
+    "Strategia Organizzazione e Mercati/capitoli/capitolo_7.pdf",
+    "Strategia Organizzazione e Mercati/capitoli/concorrenti_e_concorrenza.xopp~",
+    "Strategia Organizzazione e Mercati/capitoli/concorrenti_e_concorrenza.xopp",
+    "Strategia Organizzazione e Mercati/capitoli/capitolo_6.pdf",
+    "Strategia Organizzazione e Mercati/capitoli/capitolo_5.pdf",
+    "Strategia Organizzazione e Mercati/capitoli/capitolo_1.pdf",
+    "Strategia Organizzazione e Mercati/Importante.md",
     "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
     "Basi di Dati/MySQL.md",
     "Basi di Dati/laboratorio/es1.sql",
     "Basi di Dati/laboratorio/test.sql",
     "Basi di Dati/laboratorio/prova/prova.sqlproj",
-    "Basi di Dati/laboratorio/prova",
-    "Basi di Dati/laboratorio",
-    "Basi di Dati/Nuova cartella",
-    "Strategia Organizzazione e Mercati/Importante.md",
     "Untitled.md",
     "Strategia Organizzazione e Mercati/img/make-or-buy.svg",
-    "Strategia Organizzazione e Mercati/img",
-    "Strategia Organizzazione e Mercati/Nuova cartella",
-    "Strategia Organizzazione e Mercati/riassunto.xopp~",
-    "Strategia Organizzazione e Mercati/Appunti.md",
     "Basi di Dati/Es/SQL.md",
     "Strategia Organizzazione e Mercati/Pasted image 20241009002408.png",
     "2024-10-09.md",
