@@ -52,10 +52,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/capitoli/capitolo_7.pdf"
+                "file": "Strategia Organizzazione e Mercati/Importante.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of capitolo_7"
+              "title": "Outline of Importante"
             }
           },
           {
@@ -85,7 +85,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -163,8 +164,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1bb9d798ef59e3bc",
+  "active": "c302a7019767a9ad",
   "lastOpenFiles": [
+    "Untitled",
+    "Strategia Organizzazione e Mercati/capitoli/entrata_e_uscita.xopp~",
+    "Strategia Organizzazione e Mercati/Esercizi.xopp~",
+    "Introduzione Apprendimento Automatico/pdf/slides4.pdf",
+    "Introduzione Apprendimento Automatico/riassunto.pdf",
+    "Strategia Organizzazione e Mercati/Importante.md",
     "Strategia Organizzazione e Mercati/capitoli/concetti_base.xopp~",
     "Strategia Organizzazione e Mercati/Appunti.md",
     "Strategia Organizzazione e Mercati/capitoli/capitolo_7.pdf",
@@ -172,13 +179,7 @@
     "Strategia Organizzazione e Mercati/capitoli/concorrenti_e_concorrenza.xopp",
     "Strategia Organizzazione e Mercati/capitoli/capitolo_6.pdf",
     "Strategia Organizzazione e Mercati/capitoli/capitolo_5.pdf",
-    "Strategia Organizzazione e Mercati/capitoli/capitolo_1.pdf",
-    "Strategia Organizzazione e Mercati/Importante.md",
-    "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
     "Basi di Dati/MySQL.md",
-    "Basi di Dati/laboratorio/es1.sql",
-    "Basi di Dati/laboratorio/test.sql",
-    "Basi di Dati/laboratorio/prova/prova.sqlproj",
     "Untitled.md",
     "Strategia Organizzazione e Mercati/img/make-or-buy.svg",
     "Basi di Dati/Es/SQL.md",
