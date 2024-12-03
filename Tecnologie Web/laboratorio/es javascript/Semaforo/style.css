@@ -1,0 +1,28 @@
+body{
+  background-color: gray;
+}
+
+#rect{
+  width:100px;
+  height:303px;
+  border: 1px solid black;
+}
+
+.circle{
+  width:100px;
+  height:100px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+#red{
+  background-color: red;
+}
+
+#green{
+  background-color: green;
+}
+
+#orange{
+  background-color: orange;
+}
