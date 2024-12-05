@@ -53,6 +53,7 @@ class QuizApp:
     def resume_quiz(self):
         unanswered = [q for q in self.questions if str(q["number"]) not in self.progress]
         if unanswered:
+            random.shuffle(unanswered)  # Shuffle the remaining questions here
             self.questions = unanswered
         else:
             messagebox.showinfo("Quiz completato", "Hai già risposto a tutte le domande!")
