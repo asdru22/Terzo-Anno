@@ -1,0 +1,1211 @@
+[
+    {
+        "number": 1,
+        "question": "Selezionare l'affermazione corretta sugli alberi di decisione:",
+        "right": [
+            "Possono esprimere qualunque funzione di classificazione"
+        ],
+        "wrong": [
+            "Possono essere utilizzati solo con features discrete",
+            "Non presentano problemi di overfitting",
+            "Il costo computazionale della produzione è piuttosto elevato"
+        ],
+        "category": "Alberi di decisione"
+    },
+    {
+        "number": 2,
+        "question": "Selezionare la sentenza erronea riguardo gli alberi di decisione",
+        "right": [
+            "Possono essere utilizzati solo con features discrete"
+        ],
+        "wrong": [
+            "Il costo computazionale è molto basso",
+            "Hanno una forte tendenza all'overfitting",
+            "Possono esprimere qualunque funzione di classificazione"
+        ],
+        "category": "Alberi di decisione"
+    },
+    {
+        "number": 3,
+        "question": "Nel caso di un albero di decisione con features discrete, cosa si può dire della profondità dell'albero?",
+        "right": [
+            "È minore o uguale al numero delle features"
+        ],
+        "wrong": [
+            "Non si può dire nulla",
+            "È minore o uguale al numero delle classe",
+            "È sicuramente maggiore del logaritmo in base due del numero dei dati"
+        ],
+        "category": "Random forest"
+    },
+    {
+        "number": 4,
+        "question": "Selezionare la sentenza errata relativa alle random forest (foreste di alberi decisionali)",
+        "right": [
+            "Tendono a migliorare l'explainability (spiegabilità) degli alberi di decisione riducendo l'instabilità nella selezione degli attributi"
+        ],
+        "wrong": [
+            "Richiedono tecniche opportune per la creazione di alberi di decisione diversi relativi ad uno stesso dataset",
+            "Tentano di mitigare il fenomeno dell'overfitting tipico degli alberi di decisione",
+            "È una tecnica di apprendimento ad \"ensemble\" basata su una combinazione di alberi di decisione"
+        ],
+        "category": "AlexNet"
+    },
+    {
+        "number": 5,
+        "question": "AlexNet, la prima rete convoluzionale profonda vincitrice della ImageNet competition è stata realizzata in quale anno:",
+        "right": [
+            "2012"
+        ],
+        "wrong": [
+            "1993",
+            "1971",
+            "2019"
+        ],
+        "category": "Apprendimento supervisionato"
+    },
+    {
+        "number": 6,
+        "question": "Selezionare la sentenza errata riguardo all'apprendimento supervisionato",
+        "right": [
+            "Richiede la costante supervisione di un esperto durante il training"
+        ],
+        "wrong": [
+            "Può comprendere sia problemi di regressione che di classificazione",
+            "Si riferisce all'apprendimento di funzioni basato su esempi di training composti da coppie di input-output",
+            "La definizione della ground truth può richiedere l'intervento umano ed essere onerosa"
+        ],
+        "category": "Apprendimento supervisionato"
+    },
+    {
+        "number": 7,
+        "question": "Che cosa si intende con apprendimento supervisionato?",
+        "right": [
+            "Apprendimento di funzioni basato su esempi di training composti da coppie input-output"
+        ],
+        "wrong": [
+            "Apprendimento sotto la supervisione diretta di un esperto",
+            "Apprendimento che tende ad imitare il comportamento di un esperto",
+            "Apprendimento che non fa uso di tecniche statistiche o probabilistiche"
+        ],
+        "category": "Apprendimento supervisionato"
+    },
+    {
+        "number": 8,
+        "question": "In che situazioni si parla di apprendimento auto-supervisionato? (self supervised)",
+        "right": [
+            "Qualora i dati di input possano essere considerati come annotazioni (labels) per guidare l'apprendimento, come nel caso degli autoencoders"
+        ],
+        "wrong": [
+            "Quando il modello è in grado di configurare in modo automatico la propria architettura",
+            "Quando il modello è supposto contribuire alla creazione di nuovi dati di training",
+            "Quando l'apprendimento prevede una sinergia tra l'uomo e la macchina"
+        ],
+        "category": "Autoencoders"
+    },
+    {
+        "number": 9,
+        "question": "Quale delle seguenti sentenze relative agli autoencoders è scorretta?",
+        "right": [
+            "Gli autoencoders richiedono l'uso di livelli densi"
+        ],
+        "wrong": [
+            "Possono essere utilizzate per la rimozione di rumore (denoising)",
+            "L'encoder e il decoder non devono essere necessariamente simmetrici",
+            "La rappresentazione interne prodotta dall'encoder abitualmente ha una dimensione ridotta rispetto a quella di partenza"
+        ],
+        "category": "Autoencoders"
+    },
+    {
+        "number": 10,
+        "question": "Quale delle seguenti sentenze relative agli autoencoders è corretta?",
+        "right": [
+            "La rappresentazione interna prodotta abitualmente ha una dimensione ridotta rispetto a quella di partenza"
+        ],
+        "wrong": [
+            "Gli autoencoders richiedono l'uso di livelli densi",
+            "L'encoder e il decoder devono essere strettamente simmetrici",
+            "È una rete neurale che codifica se stessa"
+        ],
+        "category": "Autoencoders"
+    },
+    {
+        "number": 11,
+        "question": "Quale delle seguenti non è una applicazione tipica degli autoencoders?",
+        "right": [
+            "Segmentazione di immagini (semantic segmentation)"
+        ],
+        "wrong": [
+            "Rimozione del rumore (denoising)",
+            "Riduzione delle dimensioni (dimensionality reduction)",
+            "Rilevamento di anomalie ( anomaly detection)"
+        ],
+        "category": "backpropagation per reti neurali"
+    },
+    {
+        "number": 12,
+        "question": "Selezionare la sentenza scorretta relativa alla backpropagation per reti neurali",
+        "right": [
+            "Si basa tipicamente su algoritmi di tipo generico"
+        ],
+        "wrong": [
+            "Richiede la memorizzazione delle attivazioni di tutti i neuroni della rete durante la forward pass",
+            "Ha un costo computazionale paragonabile a quello del calcolo \"in avanti\" (inference) lungo la rete",
+            "Tipicamente, si effettua solo durante la fase di \"training\" della rete"
+        ],
+        "category": "backpropagation per reti neurali"
+    },
+    {
+        "number": 13,
+        "question": "Quale delle seguenti affermazioni relative alla backpropagation è corretta?",
+        "right": [
+            "Si effettua solo durante il \"training\""
+        ],
+        "wrong": [
+            "Viene fatta sia durante la fase di \"inference\" (calcolo in avanti) che in quella di \"training\"",
+            "È molto più costosa, in termini di tempo, del calcolo in avanti lungo la rete",
+            "Viene effettuata unicamente lungo le skip connections delle reti residuali, per evitare perdita del gradiente"
+        ],
+        "category": "backpropagation per reti neurali"
+    },
+    {
+        "number": 14,
+        "question": "Selezionare la sentenza scorretta relativa alla backpropagation per reti neurali",
+        "right": [
+            "Tipicamente, il gradiente viene artificialmente rinforzato ad ogni layer attraversato per contrastare il fenomeno della sua scomparsa (vanishing)"
+        ],
+        "wrong": [
+            "È l'algoritmo per il calcolo della derivata parziale della loss rispetto a ogni parametro della rete",
+            "Si riduce a semplici calcoli algebrici facilmente parallelizzabili in strutture di calcolo tipo GPU",
+            "L'algoritmo calcola il gradiente un layer alla volta, sfruttando la regola matematica per la derivazione di funzioni composte"
+        ],
+        "category": "Learning rate"
+    },
+    {
+        "number": 15,
+        "question": "Selezionare la sentenza errata relativa al learning rate",
+        "right": [
+            "È una metrica che misura la capacità di apprendimento del modello"
+        ],
+        "wrong": [
+            "Un learning rate alto tipicamente velocizza il training ma potrebbe saltare sopra al minimo",
+            "È un iper-parametro che definisce la lunghezza del passo durante la discesa del gradiente",
+            "Il learning rate può variare durante il training"
+        ],
+        "category": "Campo recettivo (receptive field) di un neurone di una CNN"
+    },
+    {
+        "number": 16,
+        "question": "Selezionare la sentenza scorretta relativa al campo ricettivo di un neurone di una CNN:",
+        "right": [
+            "È sempre almeno pari alla dimensione spaziale del dato di input"
+        ],
+        "wrong": [
+            "Definisce la porzione dell'input che influenza l'attivazione di un determinato neurone",
+            "Dipende dalla profondità del layer in cui si trova il neurone e dalle dimensioni e gli striders dei kernel dei layers precedenti",
+            "Aumenta rapidamente con l'attraversamento di livelli con downsampling"
+        ],
+        "category": "Campo recettivo (receptive field) di un neurone di una CNN"
+    },
+    {
+        "number": 17,
+        "question": "Il campo ricettivo (receptive field) di un neurone di una CNN dipende da:",
+        "right": [
+            "La profondità del layer in cui si trova il neurone e le dimensioni e gli striders dei kernel dei layers precedenti"
+        ],
+        "wrong": [
+            "La profondità del layer in cui si trova il neurone e le dimensioni dei kernel dei layers precedenti, ma non dai loro striders",
+            "La dimensione del kernel e il numero dei canali del layer in cui si trova il neurone",
+            "Unicamente dalla profondità del layer a cui si trova il neurone"
+        ],
+        "category": "Campo recettivo (receptive field) di un neurone di una CNN"
+    },
+    {
+        "number": 18,
+        "question": "Componendo due layer Conv2D con stride 1, il primo con kernel 5x5 e il secondo con kernel 3x3 quale sarà il campo ricettivo dei neuroni finali?",
+        "right": [
+            "7"
+        ],
+        "wrong": [
+            "8",
+            "Dipende dal padding",
+            "3"
+        ],
+        "category": "classificazione lineare"
+    },
+    {
+        "number": 19,
+        "question": "In quale di questi casi una tecnica di classificazione lineare potrebbe non fornire risultati soddisfacenti?",
+        "right": [
+            "Quando la classificazione dipende da un confronto tra features"
+        ],
+        "wrong": [
+            "Quando le features sono indipendenti tra loro, data la classe",
+            "Quando non tutte le features di input sono rilevanti ai fini della classificazione",
+            "Quando esiste una elevata correlazione tra le features"
+        ],
+        "category": "Dadi / monete / probabilità"
+    },
+    {
+        "number": 20,
+        "question": "Ci sono due dadi, uno normale e uno truccato che restituisce 6 con probabilità 0.5 e gli altri valori con probabilità 0.1. Faccio tre lanci con lo stesso dado e osservo un 3, un 6 e un 2, cosa posso concludere?",
+        "right": [
+            "È più probabile che il dado sia truccato"
+        ],
+        "wrong": [
+            "La probabilità di usare uno o l'altro dei dadi è esattamente la stessa",
+            "Nulla",
+            "È più probabile che il dado sia normale"
+        ],
+        "category": "Dadi / monete / probabilità"
+    },
+    {
+        "number": 21,
+        "question": "Ci sono due dadi, uno normale e uno truccato che restituisce 6 con probabilità 0.5 e gli altri valori con probabilità 0.1. Faccio tre lanci con lo stesso dado e osservo un 3 e un 6 cosa posso concludere?",
+        "right": [
+            "È più probabile che il dado sia truccato"
+        ],
+        "wrong": [
+            "La probabilità di usare uno o l'altro dei dadi è esattamente la stessa",
+            "Nulla",
+            "È più probabile che il dado sia normale"
+        ],
+        "category": "Dadi / monete / probabilità"
+    },
+    {
+        "number": 22,
+        "question": "Ci sono due monete, una normale e una che restituisce testa con probabilità ¾ e croce con probabilità ¼. Faccio due lanci con la stessa moneta e osservo una testa e una croce. Che cosa posso concludere?",
+        "right": [
+            "È più probabile che la moneta sia normale"
+        ],
+        "wrong": [
+            "Nulla",
+            "È più probabile che la moneta sia truccata",
+            "La probabilità di usare uno o l'altra moneta è esattamente la stessa"
+        ],
+        "category": "dataset / recall del modello"
+    },
+    {
+        "number": 23,
+        "question": "Un dataset contiene 1/3 di positivi e 2/3 di negativi. La recall del modello è di 2/3. Che percentuale dei dati sono i falsi positivi?",
+        "right": [
+            "Non può essere stabilito"
+        ],
+        "wrong": [
+            "2/9",
+            "1/9",
+            "1/3"
+        ],
+        "category": "dataset / recall del modello"
+    },
+    {
+        "number": 24,
+        "question": "Un dataset contiene 1/3 di positivi e 2/3 di negativi. La recall del modello è di 2/3. Che percentuale dei dati sono i falsi negativi?",
+        "right": [
+            "1/9"
+        ],
+        "wrong": [
+            "2/9",
+            "1/3",
+            "Non può essere stabilito"
+        ],
+        "category": "dataset / recall del modello"
+    },
+    {
+        "number": 25,
+        "question": "Un dataset contiene 2/3 di positivi e 1/3 di negativi. La precisione del modello è 9/10. Che percentuale dei dati totali sono falsi positivi?",
+        "right": [
+            "Non può essere stabilito"
+        ],
+        "wrong": [
+            "1/9",
+            "2/27",
+            "1/10"
+        ],
+        "category": "Deep features"
+    },
+    {
+        "number": 26,
+        "question": "Cosa si intende con \"deep\" features?",
+        "right": [
+            "Features sintetizzate in modo automatico a partire da altre features"
+        ],
+        "wrong": [
+            "Features ottenute mediante utilizzo di sensori ottici di profondità",
+            "Features relative a dati in 2 o più dimensioni",
+            "Features soggette a una approfondita supervisione da parte umana"
+        ],
+        "category": "Distribuzione congiunta di probabilità"
+    },
+    {
+        "number": 27,
+        "question": "Selezionare la sentenza corretta relativa alla distribuzione congiunta di probabilità",
+        "right": [
+            "Il suo calcolo presenta problemi di scalabilità all'aumentare delle features"
+        ],
+        "wrong": [
+            "Non permette il calcolo di eventi condizionali",
+            "Non permette di fare nessun tipo di predizione",
+            "Non consente una visione distinta delle singole features"
+        ],
+        "category": "Distribuzione congiunta di probabilità"
+    },
+    {
+        "number": 28,
+        "question": "Selezionare la sentenza errata relativa alla distribuzione congiunta di probabilità per N variabili aleatorie discrete",
+        "right": [
+            "Richiede il calcolo di un numero esponenziale di parametri",
+            "Non permette il calcolo di probabilità condizionali tra le features"
+        ],
+        "wrong": [
+            "È la distribuzione di probabilità di tutte le possibili tuple di valori per le variabili",
+            "Consente il calcolo delle probabilità marginali delle singole features"
+        ],
+        "category": "Probabilità condizionata"
+    },
+    {
+        "number": 29,
+        "question": "Selezionare le sentenza corretta relativa alla probabilità condizionata P(A|B) tra due eventi A e B",
+        "right": [
+            "P(A|B) è sicuramente maggiore o uguale di P(A and B)"
+        ],
+        "wrong": [
+            "P(A|B) è sicuramente maggiore o uguale di P(A)",
+            "P(A|B) è sicuramente minore o uguale di P(A and B)",
+            "P(A|B) è sicuramente minore o uguale a P(A)"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 30,
+        "question": "Se un modello calcola una distribuzione di probabilità, aggiungere alla funzione obiettivo una componente tesa a diminuire l'entropia avrà l'effetto di:",
+        "right": [
+            "Focalizzare le scelte sui casi più probabili"
+        ],
+        "wrong": [
+            "Nessun effetto concreto",
+            "Ridistribuire le probabilità in bodo più bilanciato tra tutti i casi",
+            "Favorire l'uscita da minimi locali"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 31,
+        "question": "Se un modello calcola una distribuzione di probabilità, aggiungere alla funzione obiettivo una componente tesa ad aumentare l'entropia avrà l'effetto di:",
+        "right": [
+            "Ridistribuire le probabilità in bodo più bilanciato tra tutti i casi"
+        ],
+        "wrong": [
+            "Nessun effetto concreto",
+            "Focalizzare le scelte sui casi più probabili",
+            "Favorire l'uscita da minimi locali"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 32,
+        "question": "Selezionare la sentenza corretta relativa alla crossentropy H(P,Q) tra P e Q",
+        "right": [
+            "È uguale alla divergenza di kullback-Leibler KL(P,Q) più l'entropia H(P) di P"
+        ],
+        "wrong": [
+            "Misura la logilikelihood di P data la distribuzione di Q",
+            "Ha un valore massimo quando P=Q",
+            "È una funzione simmetrica H(P,Q)=H(Q,P)"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 33,
+        "question": "Selezionare la sentenza erronea relativa alla crossentropy H(P,Q) tra P e Q",
+        "right": [
+            "È una funzione simmetrica H(P,Q)=H(Q,P)"
+        ],
+        "wrong": [
+            "È uguale alla divergenza di kullback-Leibler KL(P,Q) più l'entropia H(P) di P",
+            "Misura la logilikelihood di Q data la distribuzione di P",
+            "Ha un valore minimo quando P=Q"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 34,
+        "question": "Selezionare la sentenza errata relativa all'entropia per la distribuzione di probabilità di una variabile aleatoria discreta",
+        "right": [
+            "Il suo valore è minimo (e uguale a 0) quando la probabilità è equamente distribuita tra tutte le classi"
+        ],
+        "wrong": [
+            "Il suo valore è minimo (e uguale a 0) quando la probabilità è tutta concentrata in una classe",
+            "Il range del suo valore è tra 0 e log n dove n sono i possibili valori di X",
+            "È una misura del grado di disordine della variabile aleatoria"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 35,
+        "question": "Il range dell'entropia per la distribuzione di probabilità di una variabile aleatoria discreta è",
+        "right": [
+            "Tra 0 e log n dove n sono i possibili valori di x"
+        ],
+        "wrong": [
+            "Tra 0 e 1",
+            "Tra 0 e infinito",
+            "Tra -1 e 1"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 36,
+        "question": "Una variabile aleatoria discreta con valori a,b e c ha la seguente distribuzione di probabilità: P(a)=1/4, P(b)=1/2, P(c)=1/4. Qual è la sua entropia?",
+        "right": [
+            "3/2"
+        ],
+        "wrong": [
+            "Log(3)",
+            "4/5",
+            "5/4"
+        ],
+        "category": "entropia / crossentropy"
+    },
+    {
+        "number": 37,
+        "question": "Siano date le seguenti distribuzioni di probabilità P e Q: P(0)=3/8, P(1)=1/2, P(2)=1/8 and Q(0)=1/2, Q(1)=1/4, Q(2)=1/4. Quanto vale la crossentropy H(P|Q) tra P e Q?",
+        "right": [
+            "13/8"
+        ],
+        "wrong": [
+            "3/2+log(3)",
+            "5/2-log(3)/2",
+            "2"
+        ],
+        "category": "Funzione logistica"
+    },
+    {
+        "number": 38,
+        "question": "Selezionare la sentenza errata relativa alla derivata della funzione logistica",
+        "right": [
+            "È una funzione monotona",
+            "È una funzione simmetrica"
+        ],
+        "wrong": [
+            "Tende a 0 quando x tende a -inf",
+            "Ha il suo massimo in corrispondenza dello 0"
+        ],
+        "category": "Funzione logistica"
+    },
+    {
+        "number": 39,
+        "question": "La derivata della funzione logistica δ(x) è",
+        "right": [
+            "δ(x) * (1 – δ(x))"
+        ],
+        "wrong": [
+            "δ(x)/ δ(1-x)",
+            "δ(x) / (1 – δ(x))",
+            "δ(x) * δ(1-x)"
+        ],
+        "category": "funzione loss in rete neurale"
+    },
+    {
+        "number": 40,
+        "question": "Quale funzione di loss è tipicamente utilizzata in una rete neurale per classificazione binaria che utilizza una sigmoid come attivazione finale?",
+        "right": [
+            "Binary crossentropy"
+        ],
+        "wrong": [
+            "Categorical crossentropy",
+            "Absolute error",
+            "Mean squared error"
+        ],
+        "category": "funzione loss in rete neurale"
+    },
+    {
+        "number": 41,
+        "question": "Quale funzione di loss è tipicamente utilizzata in una rete neurale per classificazione a categorie multiple che utilizza softmax come attivazione finale?",
+        "right": [
+            "Categorical crossentropy"
+        ],
+        "wrong": [
+            "Binary crossentropy",
+            "Absolute error",
+            "Mean squared error"
+        ],
+        "category": "GAN"
+    },
+    {
+        "number": 42,
+        "question": "Selezionare la sentenza corretta:",
+        "right": [
+            "Le GAN possono soffrire del fenomeno di \"mode collapse\" cioè la tendenza a focalizzare la generazione su un unico o pochi esempi"
+        ],
+        "wrong": [
+            "Una GAN è una rete che permette di generare attacchi per un qualunque modello predittivo",
+            "Le GAN hanno una struttura encoder-decoder simile a quella di un autoencoder",
+            "Le GAN basano il loro training su una funzione di logilikelihood relativa ai dati generali"
+        ],
+        "category": "layer convolutivo 2D"
+    },
+    {
+        "number": 43,
+        "question": "Il tensore di input di un layer convolutivo 2D ha dimensione (16,16,32). Sintetizzo 8 kernel con dimensione spaziale (3,3), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?",
+        "right": [
+            "(7,7,8)"
+        ],
+        "wrong": [
+            "(7,7,15)",
+            "(8,8,8)",
+            "(8,8,32)"
+        ],
+        "category": "layer convolutivo 2D"
+    },
+    {
+        "number": 44,
+        "question": "Il tensore di input di un layer convolutivo 2D ha dimensione (32,32,8). Sintetizzo un unico kernel con dimensione spaziale (4,4), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?",
+        "right": [
+            "(15,15,1)"
+        ],
+        "wrong": [
+            "(16,16,1)",
+            "(16,16,8)",
+            "(15,15,8)"
+        ],
+        "category": "layer convolutivo 2D"
+    },
+    {
+        "number": 45,
+        "question": "Il tensore di input di un layer convolutivo 2D ha dimensione (16,16,8). Sintetizzo 4 kernel con dimensione spaziale (5,5), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?",
+        "right": [
+            "(6,6,4)"
+        ],
+        "wrong": [
+            "(8,8,8)",
+            "(7,7,4)",
+            "(7,7,8)"
+        ],
+        "category": "layer convolutivo 2D"
+    },
+    {
+        "number": 46,
+        "question": "Un layer convolutivo 2D con stride 1, kernel size 3x3, e senza padding prende in input un layer con dimensioni (32,32,3) e restituisce un layer di dimensione (32,32,16). Quanti sono i suoi parametri?",
+        "right": [
+            "448"
+        ],
+        "wrong": [
+            "160",
+            "28",
+            "432"
+        ],
+        "category": "layer convolutivo 2D"
+    },
+    {
+        "number": 47,
+        "question": "Il numero dei parametri di un layer convolutivo dipende da:",
+        "right": [
+            "La dimensione spaziale dei kernel e il numero dei canali di input e output"
+        ],
+        "wrong": [
+            "Unicamente dalle dimensioni dei layer di input e di output",
+            "Lo stride dei kernel e di tutte le dimensioni di input e output, compresi i canali",
+            "Lo stride dei kernel e le dimensioni spaziali di input e output"
+        ],
+        "category": "layer convolutivo 2D"
+    },
+    {
+        "number": 48,
+        "question": "Un layer convolutivo 2D con stride 1, kernel size 1x1, e senza padding prende in input un layer con dimensioni (32,32,16) e restituisce un layer di dimensione (32,32,4). Quanti sono i suoi parametri?",
+        "right": [
+            "68"
+        ],
+        "wrong": [
+            "2",
+            "8",
+            "64"
+        ],
+        "category": "Long-short term memory models (LSTMs)"
+    },
+    {
+        "number": 49,
+        "question": "Selezionare la sentenza scorretta relativa ai Long-Short Term Memory Models (LSTMs):",
+        "right": [
+            "Sono prevalentemente utilizzati per la segmentazione di immagini mediche"
+        ],
+        "wrong": [
+            "Utilizzano delle particolari porte (gates) per gestire l'evoluzione della cella di memoria durante l'elaborazione di una sequenza di dati",
+            "Sono una particolare tipologia di Rete Ricorrente",
+            "Sono prevalentemente utilizzati per l'elaborazione di sequenze di dati"
+        ],
+        "category": "Long-short term memory models (LSTMs)"
+    },
+    {
+        "number": 50,
+        "question": "I long-short term memory models (LSTMs) sono modelli utilizzati prevalentemente per:",
+        "right": [
+            "Elaborazione di sequenze di dati"
+        ],
+        "wrong": [
+            "Segmentazione per immagini mediche",
+            "Predirre traiettorie per agenti a guida autonoma",
+            "Elaborazione di immagini"
+        ],
+        "category": "MaxPooling (derivata)"
+    },
+    {
+        "number": 51,
+        "question": "Qual è la derivata della funzione di MaxPooling?",
+        "right": [
+            "1 in corrispondenza del massimo e 0 altrove"
+        ],
+        "wrong": [
+            "L'identità",
+            "Non è una funzione derivabile",
+            "1 ovunque"
+        ],
+        "category": "Minibatch"
+    },
+    {
+        "number": 52,
+        "question": "Qual è l'effetto tipico dell'aumento della dimensione del minibatch durante il training?",
+        "right": [
+            "La backpropagation è effettuata meno frequentemente ma l'aggiornamento dei parametri è più accurato"
+        ],
+        "wrong": [
+            "La backpropagation è effettuata più frequentemente e l'aggiornamento dei parametri è più accurato",
+            "La backpropagation è effettuata più frequentemente ma l'aggiornamento dei parametri è meno accurato",
+            "La backpropagation è effettuata meno frequentemente e l'aggiornamento dei parametri è meno accurato"
+        ],
+        "category": "Minibatch"
+    },
+    {
+        "number": 53,
+        "question": "Qual è l'effetto tipico della riduzione della dimensione del minibatch durante il training?",
+        "right": [
+            "La backpropagation è effettuata più frequentemente ma l'aggiornamento dei parametri è meno accurato"
+        ],
+        "wrong": [
+            "La backpropagation è effettuata più frequentemente e l'aggiornamento dei parametri è più accurato",
+            "La backpropagation è effettuata meno frequentemente e l'aggiornamento dei parametri è meno accurato",
+            "La backpropagation è effettuata meno frequentemente ma l'aggiornamento dei parametri è più accurato"
+        ],
+        "category": "modelli generativi"
+    },
+    {
+        "number": 54,
+        "question": "Selezionare la sentenza scorretta riguardo i modelli generativi",
+        "right": [
+            "Sono modelli meta-teorici rivolti alla automatizzazione della generazione di reti neurali"
+        ],
+        "wrong": [
+            "Un tipico esempio di tecnica generativa è Naive Bayes",
+            "Sono modelli che cercano di apprendere la distribuzione di probabilità dei dati",
+            "Generative adversarial networks, variational autoencoders e diffusion models sono esempi di tecniche generative profonde"
+        ],
+        "category": "modelli generativi"
+    },
+    {
+        "number": 55,
+        "question": "Con modelli generativi si intende:",
+        "right": [
+            "Modelli che cercano di apprendere la distribuzione di probabilità dei dati"
+        ],
+        "wrong": [
+            "Il processo di automatizzazione della generazione di reti neurali",
+            "L'uso di attacchi avversariali allo scopo di aumentare la robustezza di modelli",
+            "L'applicazione di tecniche genetiche al deep learning"
+        ],
+        "category": "mutua informazione (information gain)"
+    },
+    {
+        "number": 56,
+        "question": "Selezionare la risposta scorretta relativa alla mutua informazione I(X,Y) tra due variabili aleatorie X e Y (anche detta Information Gain nel contesto degli alberi di decisione)",
+        "right": [
+            "Coincide con l'entropia H(Y|X) di Y dato X"
+        ],
+        "wrong": [
+            "È una funzione simmetrica I(X,Y)=I(Y,X)",
+            "Può essere utilizzata per guidare la selezione degli attributi durante la costituzione di un albero di decisione",
+            "Misura il guadagno di informazione su Y dopo aver osservato X"
+        ],
+        "category": "Naive Bayes"
+    },
+    {
+        "number": 57,
+        "question": "Selezionare la sentenza errata relativa alla tecnica Naive Bayes",
+        "right": [
+            "Non può essere utilizzata se le features non sono tra loro indipendenti, date le classi"
+        ],
+        "wrong": [
+            "È una tecnica di tipo generativo in quanto cerca di determinare la distribuzione delle varie categorie dei dati",
+            "Deriva dall'ipotesi teorica semplificativa che le features sono indipendenti tra loro, date le classi",
+            "Fornisce un modo computazionalmente efficiente per approssimare la distribuzione congiunta di probabilità delle features"
+        ],
+        "category": "Naive Bayes"
+    },
+    {
+        "number": 58,
+        "question": "Perché la tecnica Naive Bayes è detta \"Naive\" (ingenua)?",
+        "right": [
+            "Perché suppone ingenuamente che le features siano indipendenti tra loro, date le classi"
+        ],
+        "wrong": [
+            "Perché suppone ingenuamente che i dati di training rispecchino i dati reali",
+            "Perché fornisce un modo semplice ma preciso di calcolare la distribuzione congiunta di probabilità delle features",
+            "Perché suppone ingenuamente che la teoria possa avere applicazioni pratiche"
+        ],
+        "category": "Naive Bayes"
+    },
+    {
+        "number": 59,
+        "question": "Avendo 5 categorie di dati e 3 features di input booleane, quanti parametri indipendenti devono essere stimati secondo la tecnica Naive Bayes (compresi i priors)",
+        "right": [
+            "19"
+        ],
+        "wrong": [
+            "15",
+            "16",
+            "20"
+        ],
+        "category": "neuroni artificiali"
+    },
+    {
+        "number": 60,
+        "question": "Selezionare la sentenza scorretta relativa ai neuroni artificiali",
+        "right": [
+            "Un neurone artificiale può apprendere qualunque funzione dei suoi input"
+        ],
+        "wrong": [
+            "Un neurone artificiale tipicamente calcola una combinazione lineare dei suoi input, seguita dalla applicazione di una funzione di attivazione non lineare",
+            "Il numero dei parametri di un neurone artificiale è lineare nel numero dei suoi input",
+            "Un neurone artificiale definisce un semplice modello matematico che simula il neurone biologico"
+        ],
+        "category": "neuroni artificiali"
+    },
+    {
+        "number": 61,
+        "question": "Selezionare la sentenza corretta",
+        "right": [
+            "Un neurone artificiale tipicamente calcola una combinazione lineare dei suoi input, seguita dalla applicazione di una funzione di attivazione non lineare"
+        ],
+        "wrong": [
+            "Il numero dei parametri di un neurone artificiale è quadratico nella dimensione dei suoi input",
+            "Un neurone artificiale può apprendere qualunque funzione dei suoi input",
+            "Un neurone artificiale può apprendere solo funzioni lineari"
+        ],
+        "category": "Overfitting"
+    },
+    {
+        "number": 62,
+        "question": "Quale delle seguenti tecniche non può essere utilizzata per contrastare l'overfitting?",
+        "right": [
+            "Aggiunta di skip connections"
+        ],
+        "wrong": [
+            "Early stopping",
+            "Data augmentation",
+            "Introduzione di dropout layers"
+        ],
+        "category": "Overfitting"
+    },
+    {
+        "number": 63,
+        "question": "Quale delle seguenti situazioni non è particolarmente problematica dal punto di vista dell'overfitting?",
+        "right": [
+            "Avere dati molto rumorosi"
+        ],
+        "wrong": [
+            "Avere pochi dati di training",
+            "Disporre di un modello molto espressivo",
+            "Effettuare un training molto prolungato"
+        ],
+        "category": "regressione logistica"
+    },
+    {
+        "number": 64,
+        "question": "Selezionare la sentenza scorretta riguardo alla regressione logistica",
+        "right": [
+            "I parametri del modello possono essere tipicamente calcolati in forma chiusa, mediante una forma esplicita"
+        ],
+        "wrong": [
+            "Permette di associare una probabilità alla predizione della classe",
+            "Il calcolo della predizione si basa sulla logilikelihood dei dati di training",
+            "La predizione dipende dal bilanciamento dei dati di training rispetto alle classi"
+        ],
+        "category": "regressione logistica"
+    },
+    {
+        "number": 65,
+        "question": "Selezionare la sentenza errata riguardo alla regressione logistica",
+        "right": [
+            "Non dipende dal bilanciamento dei dati di training rispetto alle classi"
+        ],
+        "wrong": [
+            "Si basa su una combinazione lineare delle features in input",
+            "La probabilità della predizione cresce se ci si allontana dalla superficie di confine tra le classi",
+            "Nel caso di classificazione binaria la superficie di confine tra le classi è un iperpiano"
+        ],
+        "category": "regressione logistica"
+    },
+    {
+        "number": 66,
+        "question": "In quali di questi casi la regressione logistica potrebbe essere in difficoltà?",
+        "right": [
+            "Quando la classificazione dipende da un confronto tra le features"
+        ],
+        "wrong": [
+            "Quando non tutte le features di input sono rilevanti ai fini della classificazione",
+            "Quando esiste una elevata correlazione tra le features",
+            "Quando le features sono indipendenti tra loro, data la classe"
+        ],
+        "category": "regressione logistica"
+    },
+    {
+        "number": 67,
+        "question": "Selezionare la sentenza corretta riguardo la regressione logistica",
+        "right": [
+            "I parametri del modello sono tipicamente calcolati mediante discesa del gradiente"
+        ],
+        "wrong": [
+            "La predizione non dipende dal bilanciamento dei dati di training rispetto alle classi",
+            "I parametri del modello possono essere tipicamente calcolati in forma chiusa, mediante una formula esplicita",
+            "Il calcolo della predizione non si basa sulla logilikelihood dei dati di training, in quanto si tratta di una tecnica discriminativa"
+        ],
+        "category": "regressione multinomiale"
+    },
+    {
+        "number": 68,
+        "question": "Riguardo alla regressione multinomiale , selezionare la sentenza corretta tra le seguenti:",
+        "right": [
+            "Il peso con cui è valutata ogni feature è tipicamente diverso per ogni classe"
+        ],
+        "wrong": [
+            "Per n features di input e m classi, il numero dei parametri del modello cresce come O(n+m)",
+            "I pesi delle features sono sempre tutti positivi, i bias possono essere negativi",
+            "Per ogni input, esiste almeno una classe con probabilità >0.5"
+        ],
+        "category": "regressione multinomiale"
+    },
+    {
+        "number": 69,
+        "question": "Riguardo alla regressione multinomiale , selezionare la sentenza errata tra le seguenti:",
+        "right": [
+            "Per ogni input, esiste almeno una classe con probabilità >0.5"
+        ],
+        "wrong": [
+            "Per n features di input e m classi, il numero dei parametri del modello è n x m + m",
+            "Il peso con cui è valutata ogni feature è tipicamente diverso per ogni classe",
+            "Il peso delle features indica la loro importanza ai fini della classificazione"
+        ],
+        "category": "Regressione lineare"
+    },
+    {
+        "number": 70,
+        "question": "Selezionare la sentenza errata relativa alla regressione lineare",
+        "right": [
+            "Cerca di determinare un iperpiano di separazione tra due categorie di dati"
+        ],
+        "wrong": [
+            "Il problema di ottimizzazione ammette una soluzione in forma chiusa",
+            "La funzione di loss è tipicamente una distanza quadratica tra i valori predetti e quelli osservati",
+            "cerca di stabilire una relazione tra i valori di una variabile di output e i valori di una o più features di input"
+        ],
+        "category": "reti per classificazione di immagini"
+    },
+    {
+        "number": 71,
+        "question": "Quale di queste reti non è stata progettata per classificare immagini?",
+        "right": [
+            "U-Net"
+        ],
+        "wrong": [
+            "Inception – v3",
+            "VGG19",
+            "ResNet"
+        ],
+        "category": "reti per classificazione di immagini"
+    },
+    {
+        "number": 72,
+        "question": "Quale è la tipica struttura per una rete neurale di classificazione delle immagini?",
+        "right": [
+            "Una sequenza alternata di convoluzioni e downsampling seguita da flattening e pochi livelli densi finali"
+        ],
+        "wrong": [
+            "Solo livelli densi",
+            "Un encoder seguito da un decoder",
+            "Una sequenza di convoluzioni che preservano la dimensione spaziale dell'input"
+        ],
+        "category": "ReLU(x) (Rectified linear unit)"
+    },
+    {
+        "number": 73,
+        "question": "Selezionare la sentenza errata relativa alla funzione ReLU(x) (rectified linear unit)",
+        "right": [
+            "Non può essere usata per layer convoluzionali"
+        ],
+        "wrong": [
+            "Lei o le sue varianti sono tipicamente utilizzate per i livelli interni delle reti neurali profonde",
+            "La sua derivata è una funzione a gradino",
+            "È una funzione monotona non decrescente"
+        ],
+        "category": "scomparsa del gradiente (vanishing gradient)"
+    },
+    {
+        "number": 74,
+        "question": "Selezionare la sentenza scorretta relativa al problema della scomparsa del gradiente (vanishing gradient)",
+        "right": [
+            "Se il gradiente tende a zero anche i parametri e le attivazioni dei neuroni tendono a zero"
+        ],
+        "wrong": [
+            "Se il gradiente tende a zero i parametri non sono più aggiornati e la rete smette di apprendere",
+            "Il problema è mitigato dall'uso di link residuali all'interno della rete",
+            "Il problema è fortemente attenuato dall'uso di ReLU (o sue varianti) come funzione di attivazione per i livelli nascosti della rete"
+        ],
+        "category": "scomparsa del gradiente (vanishing gradient)"
+    },
+    {
+        "number": 75,
+        "question": "Il problema della scomparsa del gradiente (vanishing gradient) si riferisce ad una progressiva diminuzione dell'intensità del gradiente dovuta a",
+        "right": [
+            "Backpropagation in reti profonde"
+        ],
+        "wrong": [
+            "Dati troppo rumorosi o malamente processati",
+            "Troppi pochi dati di training a disposizione",
+            "Training eccessivamente lungo"
+        ],
+        "category": "Softmax"
+    },
+    {
+        "number": 76,
+        "question": "Selezionare la sentenza corretta relativa alla funzione softmax",
+        "right": [
+            "Restituisce una distribuzione di probabilità sulle classi"
+        ],
+        "wrong": [
+            "Non può essere utilizzata nel caso di una classificazione binaria",
+            "Per una data classe, la somma dei valori su tutti gli input di un minibatch è sempre 1",
+            "Produce valori compresi nell'intervallo [-1,1]"
+        ],
+        "category": "Softmax"
+    },
+    {
+        "number": 77,
+        "question": "Selezionare la sentenza errata relativa alla funzione softmax",
+        "right": [
+            "Produce valori compresi nell'intervallo [-1,1]"
+        ],
+        "wrong": [
+            "Generalizza la funzione logistica al caso multiclasse",
+            "Permette di calcolare una distribuzione di probabilità sulle classi",
+            "Per una dato input, la somma dei suoi valori su tutte le classi è sempre 1"
+        ],
+        "category": "stride in un layer convolutivo"
+    },
+    {
+        "number": 78,
+        "question": "Qual è l'effetto di uno stride non unitario (>1) in un layer convolutivo?",
+        "right": [
+            "La dimensione spaziale diminuisce"
+        ],
+        "wrong": [
+            "Nessun effetto spaziale, il numero dei canali decresce",
+            "La dimensione spaziale aumenta",
+            "Nessun effetto spaziale, il numero dei canali aumenta"
+        ],
+        "category": "tecniche discriminative"
+    },
+    {
+        "number": 79,
+        "question": "Selezionare la sentenza corretta relativa alle tecniche discriminative",
+        "right": [
+            "Si focalizzano sulla definizione delle frontiere di decisione (decision boundaries)"
+        ],
+        "wrong": [
+            "Cercano di determinare le distribuzioni di probabilità delle varie classi di dati",
+            "Si applicano per lo più in ambito di apprendimento non supervisionato",
+            "Sono tipicamente meno espressive delle tecniche generative"
+        ],
+        "category": "tecniche discriminative"
+    },
+    {
+        "number": 80,
+        "question": "Cosa si intende con tecniche discriminative?",
+        "right": [
+            "Tecniche di classificazione che si focalizzano sulla definizione delle frontiere di decisione (decision boundaries)"
+        ],
+        "wrong": [
+            "Tecniche tipiche di unsupervised learning che tentano di separare dati in cluster distinti",
+            "Tecniche che cercano di discriminare i dati in base alle diverse distribuzioni di probabilità delle varie classi",
+            "tecniche che cercano di identificare gli outliers all'interno dei data set"
+        ],
+        "category": "tecnica a discesa del gradiente"
+    },
+    {
+        "number": 81,
+        "question": "selezionare la sentenza corretta relativa alla tecnica a discesa del gradiente",
+        "right": [
+            "potrebbe convergere ad un minimo locale"
+        ],
+        "wrong": [
+            "permette sempre di individuare il minimo globale, se questo esiste",
+            "il risultato non dipende dalla inizializzazione dei parametri del modello",
+            "può essere applicata solo se la funzione da minimizzare ha una superficie concava"
+        ],
+        "category": "tecnica a discesa del gradiente"
+    },
+    {
+        "number": 82,
+        "question": "Selezionare la sentenza scorretta relativa alla tecnica a discesa del gradiente",
+        "right": [
+            "Può essere applicata solo se la funzione da minimizzare ha una superficie concava"
+        ],
+        "wrong": [
+            "Potrebbe convergere ad un minimo locale",
+            "Il risultato può dipendere dalla inizializzazione dei parametri del modello",
+            "È opportuno decrementare il learning rate verso la fine dell'apprendimento"
+        ],
+        "category": "transposed convolutions"
+    },
+    {
+        "number": 83,
+        "question": "Selezionare la sentenza errata relativa alle transposed convolutions",
+        "right": [
+            "Richiedono la trasposizione dell'input prima di calcolare la convoluzione dei kernel"
+        ],
+        "wrong": [
+            "Possono essere interpretate come convoluzioni normali con stride subunitario",
+            "Sono prevalentemente utilizzate in architetture per Image-to-Image processing, come autoencoders o U-Nets",
+            "Sono essenzialmente equivalenti alla applicazione di un livello di upsampling seguito da una convoluzione normale"
+        ],
+        "category": "U-net"
+    },
+    {
+        "number": 84,
+        "question": "Selezionare la sentenza scorretta relativa alla U-Net",
+        "right": [
+            "Viene spesso utilizzata nell'ambito della classificazione dei generi musicali"
+        ],
+        "wrong": [
+            "È un componente tipico dei modelli generativi a diffusione",
+            "È spesso impiegata per problemi di segmentazione semantica di immagini",
+            "Può essere usata per la rimozione del rumore (denoising) di immagini"
+        ],
+        "category": "U-net"
+    },
+    {
+        "number": 85,
+        "question": "Quale tra i seguenti è un tipico campo di applicazione della U-Net?",
+        "right": [
+            "Segmentazione semantica"
+        ],
+        "wrong": [
+            "Generazione musicale",
+            "Object detection",
+            "Natural Language Processing"
+        ],
+        "category": "Inception module"
+    },
+    {
+        "number": 86,
+        "question": "Selezionare la sentenza errata relativa all' \"inception module\"",
+        "right": [
+            "Utilizza al proprio interno delle skip-connections per bypassare l'applicazione di parte dei kernel"
+        ],
+        "wrong": [
+            "Sfrutta kernel di dimensione diversa",
+            "Tende a ridurre il costo computazionale sfruttando convoluzioni unitarie per diminuire il numero dei canali",
+            "È un componente tipico della rete Inception-v3"
+        ],
+        "category": "Minimi locali – fase training"
+    },
+    {
+        "number": 87,
+        "question": "Quale delle seguenti tecniche non può aiutare ad uscire dai minimi locali durante la fase di training?",
+        "right": [
+            "Fare clipping del gradiente in un range prefissato"
+        ],
+        "wrong": [
+            "Ridurre la dimensione del minibatch",
+            "Aumentare il learning rate",
+            "Aggiungere un \"momento\" al gradiente, cioè parte del gradiente del passo precedente"
+        ],
+        "category": "Intersection over Union (IoU)"
+    },
+    {
+        "number": 88,
+        "question": "Selezionare la sentenza SCORRETTA relativa alla Intersection overUnion (IoU)",
+        "right": [
+            "Non è una funzione simmetrica dei suoi input"
+        ],
+        "wrong": [
+            "E' frequentemente utilizzata come misura di similitudine tra bounding boxes",
+            "Restituisce un valore nel range [0,1]",
+            "E' una metrica principalmente utilizzata nel campo della Object Detection"
+        ],
+        "category": "Transformers"
+    },
+    {
+        "number": 89,
+        "question": "Quale è l'obiettivo principale dell'algoritmo di clustering K-means?",
+        "right": [
+            "Raggruppare i punti di un cluster attorno al loro centroide"
+        ],
+        "wrong": [
+            "Ridurre il numero di clusters al minimo",
+            "Trovare il punto medio del dataset",
+            "Ottimizzare il numero dei clusters basandosi sulla distribuzione gaussiana dei dati"
+        ],
+        "category": "Transformers"
+    },
+    {
+        "number": 90,
+        "question": "Qual'è lo scopo dell'optimizer in Tensorflow/Keras?",
+        "right": [
+            "Definire l'algoritmo che calcola i gradienti della loss e aggiorna i pesi del modello"
+        ],
+        "wrong": [
+            "Salvare i migliori pesi del modello durante il processo di training",
+            "Contrastare l'overfitting",
+            "Aggiungere una pentalità ai pesi del layer su cui viene istanziato"
+        ],
+        "category": "Transformers"
+    },
+    {
+        "number": 91,
+        "question": "Selezionare la sentenza errata relativa ai transformers",
+        "right": [
+            "Aggiungono ad ogni livello della rete un encoding posizionale"
+        ],
+        "wrong": [
+            "Hanno una tipica struttura encoder-decoder, ognuno formato da uno stack di sottocomponenti modulari",
+            "Sono alla base delle reti della famiglia BERT e GPT",
+            "Utilizzano pesantemente il meccanismo di attenzione"
+        ],
+        "category": "Transformers"
+    },
+    {
+        "number": 92,
+        "question": "Selezionare la sentenza SCORRETTA relativa all'overfitting",
+        "right": [
+            "L'acquisizione di nuovi dati di training non può che peggiorare la situazione"
+        ],
+        "wrong": [
+            "Può essere particolarmente pericolosa per i modelli altamenti espressivi",
+            "Può essere contrastata con tecniche di regolarizzazione",
+            "Può essere contrastata con la tecnica di early stopping durante la fase di training"
+        ],
+        "category": "Transformers"
+    },
+    {
+        "number": 93,
+        "question": "Un traning set è composto da 10000 dati. Se la batchsize è 50, quante volte verrà effettuata la backpropagation durante una singola epoca?",
+        "right": [
+            "200"
+        ],
+        "wrong": [
+            "50",
+            "10000",
+            "Nessuna delle altre risposte è corretta"
+        ],
+        "category": "Transformers"
+    }
+]

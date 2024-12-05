@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/Importante.md",
+                "file": "Introduzione Apprendimento Automatico/esame/Domande.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Importante"
+              "title": "Domande"
             }
           }
         ]
@@ -52,10 +52,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/Importante.md"
+                "file": "Introduzione Apprendimento Automatico/esame/Domande.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Importante"
+              "title": "Outline of Domande"
             }
           },
           {
@@ -85,8 +85,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -164,21 +163,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1bb9d798ef59e3bc",
+  "active": "bdeffa0d64163e59",
   "lastOpenFiles": [
-    "Strategia Organizzazione e Mercati/Esercizi.xopp~",
-    "Tecnologie Web/appunti/12-Node.xopp~",
-    "Tecnologie Web/pdf/12-Node.pdf",
-    "Tecnologie Web/pdf/12-Node.pdf.crdownload",
-    "Strategia Organizzazione e Mercati/capitoli/confini_verticali.xopp",
-    "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
-    "Strategia Organizzazione e Mercati/img/complementi-e-sostituti-strategici.svg",
-    "Strategia Organizzazione e Mercati/capitoli/concorrenza_nel_tempo.xopp~",
-    "Strategia Organizzazione e Mercati/capitoli/concorrenza_nel_tempo.xopp",
+    "Introduzione Apprendimento Automatico/esame/progress.json",
+    "Introduzione Apprendimento Automatico/esame/quiz.py",
+    "Introduzione Apprendimento Automatico/esame/output.json",
+    "Introduzione Apprendimento Automatico/esame/questions.json",
+    "Introduzione Apprendimento Automatico/esame/format_questions.py",
+    "Introduzione Apprendimento Automatico/esame/check_lines.py",
+    "Introduzione Apprendimento Automatico/esame/scritto-2023-testo-raggruppati.pdf",
+    "Introduzione Apprendimento Automatico/esame/Domande.md",
+    "Introduzione Apprendimento Automatico/esame/scritto-2023-02-12-soluzione.pdf",
+    "Introduzione Apprendimento Automatico/esame/scritto-2023-01-16-soluzione.pdf",
+    "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
+    "Introduzione Apprendimento Automatico/esame/scritto-2022-12-21-soluzione.pdf",
+    "Introduzione Apprendimento Automatico/esame/scritto-2023-02-12-soluzione.pdf.crdownload",
     "Strategia Organizzazione e Mercati/Importante.md",
-    "Introduzione Apprendimento Automatico/appunti/slides5.xopp~",
-    "Introduzione Apprendimento Automatico/appunti/slides4.xopp~",
-    "Untitled",
+    "Strategia Organizzazione e Mercati/img/complementi-e-sostituti-strategici.svg",
     "Strategia Organizzazione e Mercati/Appunti.md",
     "Basi di Dati/MySQL.md",
     "Untitled.md",
