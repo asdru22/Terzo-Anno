@@ -1,54 +1,42 @@
 [
     {
-        "question_number": 2,
-        "error_percentage": 100.0
+        "question_number": 34,
+        "error_percentage": 83.33333333333334
+    },
+    {
+        "question_number": 65,
+        "error_percentage": 83.33333333333334
+    },
+    {
+        "question_number": 73,
+        "error_percentage": 83.33333333333334
     },
     {
         "question_number": 9,
-        "error_percentage": 100.0
+        "error_percentage": 66.66666666666666
     },
     {
         "question_number": 12,
-        "error_percentage": 100.0
+        "error_percentage": 66.66666666666666
     },
     {
         "question_number": 16,
-        "error_percentage": 100.0
+        "error_percentage": 66.66666666666666
+    },
+    {
+        "question_number": 29,
+        "error_percentage": 66.66666666666666
     },
     {
         "question_number": 30,
-        "error_percentage": 100.0
-    },
-    {
-        "question_number": 34,
-        "error_percentage": 100.0
-    },
-    {
-        "question_number": 45,
-        "error_percentage": 100.0
-    },
-    {
-        "question_number": 47,
-        "error_percentage": 100.0
-    },
-    {
-        "question_number": 66,
-        "error_percentage": 100.0
-    },
-    {
-        "question_number": 68,
-        "error_percentage": 100.0
+        "error_percentage": 66.66666666666666
     },
     {
         "question_number": 76,
-        "error_percentage": 100.0
+        "error_percentage": 66.66666666666666
     },
     {
-        "question_number": 87,
-        "error_percentage": 100.0
-    },
-    {
-        "question_number": 1,
+        "question_number": 2,
         "error_percentage": 50.0
     },
     {
@@ -56,80 +44,140 @@
         "error_percentage": 50.0
     },
     {
-        "question_number": 11,
+        "question_number": 47,
         "error_percentage": 50.0
     },
     {
-        "question_number": 13,
+        "question_number": 66,
         "error_percentage": 50.0
     },
     {
-        "question_number": 17,
+        "question_number": 87,
         "error_percentage": 50.0
+    },
+    {
+        "question_number": 19,
+        "error_percentage": 33.33333333333333
     },
     {
         "question_number": 25,
-        "error_percentage": 50.0
+        "error_percentage": 33.33333333333333
     },
     {
-        "question_number": 29,
-        "error_percentage": 50.0
+        "question_number": 31,
+        "error_percentage": 33.33333333333333
     },
     {
-        "question_number": 33,
-        "error_percentage": 50.0
+        "question_number": 45,
+        "error_percentage": 33.33333333333333
     },
     {
-        "question_number": 39,
-        "error_percentage": 50.0
-    },
-    {
-        "question_number": 42,
-        "error_percentage": 50.0
+        "question_number": 49,
+        "error_percentage": 33.33333333333333
     },
     {
         "question_number": 56,
-        "error_percentage": 50.0
+        "error_percentage": 33.33333333333333
     },
     {
         "question_number": 57,
-        "error_percentage": 50.0
-    },
-    {
-        "question_number": 64,
-        "error_percentage": 50.0
-    },
-    {
-        "question_number": 65,
-        "error_percentage": 50.0
+        "error_percentage": 33.33333333333333
     },
     {
         "question_number": 67,
-        "error_percentage": 50.0
+        "error_percentage": 33.33333333333333
     },
     {
-        "question_number": 69,
-        "error_percentage": 50.0
+        "question_number": 68,
+        "error_percentage": 33.33333333333333
     },
     {
         "question_number": 70,
-        "error_percentage": 50.0
+        "error_percentage": 33.33333333333333
     },
     {
-        "question_number": 73,
-        "error_percentage": 50.0
+        "question_number": 84,
+        "error_percentage": 33.33333333333333
+    },
+    {
+        "question_number": 1,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 7,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 11,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 13,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 17,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 23,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 26,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 33,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 39,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 42,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 50,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 60,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 64,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 69,
+        "error_percentage": 16.666666666666664
     },
     {
         "question_number": 74,
-        "error_percentage": 50.0
+        "error_percentage": 16.666666666666664
     },
     {
         "question_number": 75,
-        "error_percentage": 50.0
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 78,
+        "error_percentage": 16.666666666666664
     },
     {
         "question_number": 83,
-        "error_percentage": 50.0
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 85,
+        "error_percentage": 16.666666666666664
+    },
+    {
+        "question_number": 86,
+        "error_percentage": 16.666666666666664
     },
     {
         "question_number": 3,
@@ -141,10 +189,6 @@
     },
     {
         "question_number": 6,
-        "error_percentage": 0.0
-    },
-    {
-        "question_number": 7,
         "error_percentage": 0.0
     },
     {
@@ -168,10 +212,6 @@
         "error_percentage": 0.0
     },
     {
-        "question_number": 19,
-        "error_percentage": 0.0
-    },
-    {
         "question_number": 20,
         "error_percentage": 0.0
     },
@@ -184,15 +224,7 @@
         "error_percentage": 0.0
     },
     {
-        "question_number": 23,
-        "error_percentage": 0.0
-    },
-    {
         "question_number": 24,
-        "error_percentage": 0.0
-    },
-    {
-        "question_number": 26,
         "error_percentage": 0.0
     },
     {
@@ -201,10 +233,6 @@
     },
     {
         "question_number": 28,
-        "error_percentage": 0.0
-    },
-    {
-        "question_number": 31,
         "error_percentage": 0.0
     },
     {
@@ -252,14 +280,6 @@
         "error_percentage": 0.0
     },
     {
-        "question_number": 49,
-        "error_percentage": 0.0
-    },
-    {
-        "question_number": 50,
-        "error_percentage": 0.0
-    },
-    {
         "question_number": 51,
         "error_percentage": 0.0
     },
@@ -288,10 +308,6 @@
         "error_percentage": 0.0
     },
     {
-        "question_number": 60,
-        "error_percentage": 0.0
-    },
-    {
         "question_number": 61,
         "error_percentage": 0.0
     },
@@ -316,10 +332,6 @@
         "error_percentage": 0.0
     },
     {
-        "question_number": 78,
-        "error_percentage": 0.0
-    },
-    {
         "question_number": 79,
         "error_percentage": 0.0
     },
@@ -333,18 +345,6 @@
     },
     {
         "question_number": 82,
-        "error_percentage": 0.0
-    },
-    {
-        "question_number": 84,
-        "error_percentage": 0.0
-    },
-    {
-        "question_number": 85,
-        "error_percentage": 0.0
-    },
-    {
-        "question_number": 86,
         "error_percentage": 0.0
     }
 ]

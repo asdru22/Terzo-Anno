@@ -26,7 +26,7 @@ def load_progress(questions):
             for question in questions
         )
         if all_answered:
-            # Set all answered flags to false
+            # Reset all answered flags to false
             for question in questions:
                 question_number = str(question["number"])
                 if question_number in progress:
@@ -34,26 +34,28 @@ def load_progress(questions):
                 else:
                     # Initialize progress for questions not yet in the file
                     progress[question_number] = {"correct_count": 0, "wrong_count": 0, "answered": False}
+            progress["answered_current_quiz"] = 0
     else:
         # Initialize progress for all questions if file doesn't exist
         for question in questions:
             question_number = str(question["number"])
             progress[question_number] = {"correct_count": 0, "wrong_count": 0, "answered": False}
+        progress["answered_current_quiz"] = 0
 
     # Save updated progress to file
     save_progress(progress)
     return progress
-
-
 
 class QuizApp:
     def __init__(self, root, questions):
         self.root = root
         self.root.title("Quiz")
         self.questions = questions
+        self.total_questions = len(questions)
         self.progress = load_progress(questions)
         self.current_question_index = 0
         self.current_options = []
+        self.correct_answers = 0
 
         # Selezione modalità
         if self.progress:
@@ -71,6 +73,11 @@ class QuizApp:
         self.category_label = tk.Label(self.root, text="", font=("Arial", 10, "italic"))
         self.category_label.pack(pady=5)
 
+        # Progress text
+        self.progress_label = tk.Label(self.root, text="", font=("Arial", 10))
+        self.progress_label.pack(pady=10)
+
+        self.update_progress_label()
         self.display_question()
 
     def resume_quiz(self):
@@ -83,16 +90,20 @@ class QuizApp:
             self.root.destroy()
 
     def start_new_quiz(self):
-      for question in self.questions:
-          question_number = str(question["number"])
-          if question_number not in self.progress:
-              self.progress[question_number] = {"correct_count": 0, "wrong_count": 0, "answered": False}
-          else:
-              # Reset the answered flag
-              self.progress[question_number]["answered"] = False
-      save_progress(self.progress)
-      random.shuffle(self.questions)
+        for question in self.questions:
+            question_number = str(question["number"])
+            if question_number not in self.progress:
+                self.progress[question_number] = {"correct_count": 0, "wrong_count": 0, "answered": False}
+            else:
+                # Reset the answered flag
+                self.progress[question_number]["answered"] = False
+        self.progress["answered_current_quiz"] = 0
+        save_progress(self.progress)
+        random.shuffle(self.questions)
 
+    def update_progress_label(self):
+        answered = self.progress.get("answered_current_quiz", 0)
+        self.progress_label.config(text=f"Domande risposte: {answered}/{self.total_questions}")
 
     def display_question(self):
         if self.current_question_index < len(self.questions):
@@ -112,8 +123,11 @@ class QuizApp:
                 btn.pack(fill=tk.X, padx=50, pady=5)
 
         else:
-            messagebox.showinfo("Quiz completato", "Hai terminato il quiz!")
-            self.root.destroy()
+            self.display_summary()
+
+    def display_summary(self):
+        messagebox.showinfo("Quiz completato", f"Hai terminato il quiz! Risposte corrette: {self.correct_answers}/{len(self.questions)}")
+        self.root.destroy()
 
     def check_answer(self, selected_option):
         question = self.questions[self.current_question_index]
@@ -121,6 +135,7 @@ class QuizApp:
 
         if selected_option in question["right"]:
             messagebox.showinfo("Risultato", "Risposta corretta! 🎉")
+            self.correct_answers += 1
             self.progress[question_number]["correct_count"] += 1
         else:
             correct_answer = question["right"][0]
@@ -129,7 +144,9 @@ class QuizApp:
 
         # Mark question as answered
         self.progress[question_number]["answered"] = True
+        self.progress["answered_current_quiz"] += 1
         save_progress(self.progress)
+        self.update_progress_label()
         self.next_question()
 
     def next_question(self):

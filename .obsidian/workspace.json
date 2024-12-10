@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Introduzione Apprendimento Automatico/esame/Domande.md",
+                "file": "Strategia Organizzazione e Mercati/Importante.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Domande"
+              "title": "Importante"
             }
           }
         ]
@@ -52,10 +52,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Introduzione Apprendimento Automatico/esame/Domande.md"
+                "file": "Strategia Organizzazione e Mercati/Importante.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Domande"
+              "title": "Outline of Importante"
             }
           },
           {
@@ -85,7 +85,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -163,8 +164,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bdeffa0d64163e59",
+  "active": "1bb9d798ef59e3bc",
   "lastOpenFiles": [
+    "Strategia Organizzazione e Mercati/img/value-driver-e-obiettivi-strategici.svg",
+    "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica-2.svg",
+    "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica.svg",
+    "Introduzione Apprendimento Automatico/esame/Domande.md",
     "Introduzione Apprendimento Automatico/esame/progress.json",
     "Introduzione Apprendimento Automatico/esame/quiz.py",
     "Introduzione Apprendimento Automatico/esame/output.json",
@@ -172,12 +177,10 @@
     "Introduzione Apprendimento Automatico/esame/format_questions.py",
     "Introduzione Apprendimento Automatico/esame/check_lines.py",
     "Introduzione Apprendimento Automatico/esame/scritto-2023-testo-raggruppati.pdf",
-    "Introduzione Apprendimento Automatico/esame/Domande.md",
     "Introduzione Apprendimento Automatico/esame/scritto-2023-02-12-soluzione.pdf",
     "Introduzione Apprendimento Automatico/esame/scritto-2023-01-16-soluzione.pdf",
     "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
     "Introduzione Apprendimento Automatico/esame/scritto-2022-12-21-soluzione.pdf",
-    "Introduzione Apprendimento Automatico/esame/scritto-2023-02-12-soluzione.pdf.crdownload",
     "Strategia Organizzazione e Mercati/Importante.md",
     "Strategia Organizzazione e Mercati/img/complementi-e-sostituti-strategici.svg",
     "Strategia Organizzazione e Mercati/Appunti.md",

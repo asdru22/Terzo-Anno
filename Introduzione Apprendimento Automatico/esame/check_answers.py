@@ -14,16 +14,17 @@ def calculate_error_percentages(input_file, output_file):
     error_data = []
     mistakes_data = []
     for question_number, data in progress.items():
-        total_attempts = data["correct_count"] + data["wrong_count"]
-        if total_attempts > 0:
-            error_percentage = (data["wrong_count"] / total_attempts) * 100
-        else:
-            error_percentage = 0  # Se non ci sono tentativi
-        error_data.append({
-            "question_number": int(question_number),
-            "error_percentage": error_percentage
-        })
-        mistakes_data.append((int(question_number), data["wrong_count"]))
+      if(question_number!="answered_current_quiz"):
+          total_attempts = data["correct_count"] + data["wrong_count"]
+          if total_attempts > 0:
+              error_percentage = (data["wrong_count"] / total_attempts) * 100
+          else:
+              error_percentage = 0  # Se non ci sono tentativi
+          error_data.append({
+              "question_number": int(question_number),
+              "error_percentage": error_percentage
+          })
+          mistakes_data.append((int(question_number), data["wrong_count"]))
     
     # Ordina i dati in ordine decrescente di percentuale di errori
     error_data.sort(key=lambda x: x["error_percentage"], reverse=True)
@@ -39,6 +40,7 @@ def calculate_error_percentages(input_file, output_file):
     plot_mistakes_graph(mistakes_data)
 
 def plot_mistakes_graph(mistakes_data):
+  
     # Estrai i dati per il grafico
     question_numbers = [x[0] for x in mistakes_data]
     mistakes = [x[1] for x in mistakes_data]

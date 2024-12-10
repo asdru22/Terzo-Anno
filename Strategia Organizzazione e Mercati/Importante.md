@@ -34,6 +34,11 @@ Quando il costo medio è funzione decrescente dell'output, il costo marginale è
 
 **Profitto Contabile**: $\text{Ricavi}-\text{Costi Contabili}$
 **Profitto Economico**: $\text{Ricavi}-\text{Costi Economici}$. Misura se l'azienda sta usando al meglio le sue risorse.
+
+Tasso di rotazione del capitale investito ($TRCI$)
+$$TRCI=\frac{\textup{ricavi totali}}{\textup{capitale investito}}$$
+Il tasso di profitto ha una correlazione con il valore azionario.
+![[value-driver-e-obiettivi-strategici.svg]]
 ## 2. Confini Orizzontali dell'Impresa
 >I confini orizzontali indicano la gamma dei prodotti offerti da un'azienda e la scala su cui opera. Indicano quanto grande e diversificata è un'impresa.
 
@@ -121,6 +126,7 @@ Un contratto completo:
 - definisce le responsabilità e i diritti di entrambe le parti.
 - vincola le parti a determinare linee d'azione
 - stabilisce pene per dissuadere ciascuna delle parti dall'attutare comportamenti opportunistici
+
 Questo tipo di contratto spinge i propri partner a riprodurre esattamente tutti i passaggi. La scelta tra produrre e acquistare diventa irrilevante.
 I requisiti dei contratti completi sono molto severi:
 - le parti devono essere in grado di contemplare tutte le eventualità e accordarsi su una serie di azioni che ciascuna delle due parti deve intraprendere.
@@ -129,12 +135,25 @@ I requisiti dei contratti completi sono molto severi:
 
 Nella realtà tutti i contratti sono incompleti per via di:
 - razionalità limitata
+- opportunismo
 - difficoltà di specificare o valutare la performance
 - informazione asimmetrica
 
-##### 4.4.1.2 Parziale soluzione della legislazione sui contratti
-Negli Stati Uniti, l'*Uniform Commercial Code* regola i contratti indicando una serie di misure standard applicabili a varie categorie di transazioni. Non può sostituire il contratto completo perché le norme giuridiche sono generiche. Dunque, i contratti non sono il modo migliore per dissuadere un'impresa dal adottare comportamenti opportunistici a scapito dell'intera catena verticale.
+##### 4.4.1.2 Pericoli nell'organizzazione economica
+Può essere possibile scrivere un contratto vincolante per entrambe le parti (agency theory). Non necessariamente gli agenti agiscono nell'interesse degli azionisti.
 
+![[pericoli-organizzazione-economica.svg]]
+Possono esserci delle sovrapposizioni di informazioni, oppure informazioni che nessuna delle parti conosce. Ci sono porzioni di informazioni asimmetriche, private.
+Anche se non ci fosse opportunismo, ci sono problemi a interpretare informazioni quali $I-I^A-I^B$.
+![[pericoli-organizzazione-economica-2.svg]]
+
+|                           | Limiti alla razionalità assenti | Limiti alla razionalità presenti    |
+| ------------------------- | ------------------------------- | ----------------------------------- |
+| **Opportunismo assente**  | Condizioni perfettte            | Contratto sotto "clausola generale" |
+| **Opportunismo presente** | Contratti                       | Serie difficoltà contrattuali       |
+Se non sono sicuro di essere in una relazione contrattuale vincente, è meglio internalizzare. Cosi si evitano i costi di transazione dovuti alla razionalità limitata e opportunismo.
+##### 4.4.1.3 Parziale soluzione della legislazione sui contratti
+Negli Stati Uniti, l'*Uniform Commercial Code* regola i contratti indicando una serie di misure standard applicabili a varie categorie di transazioni. Non può sostituire il contratto completo perché le norme giuridiche sono generiche. Dunque, i contratti non sono il modo migliore per dissuadere un'impresa dal adottare comportamenti opportunistici a scapito dell'intera catena verticale.
 #### 4.4.2 Coordinamento dei flussi di produzione
 I manager dei diversi livelli della catena verticale devono prendere decisioni che si incastrano con quelle degli altri, quali:
 - coordinamento dei tempi:
@@ -204,7 +223,6 @@ Esempio di passaggio dell'autorità nel caso di fusione tra due aziende A e B:
 ### 5.2 Efficienza tecnica ed efficienza di agenzia
 **Efficienza tecnica**: indica se l'impresa sta utilizzando il processo produttivo meno costoso
 **Efficienza di agenzia**: indica se lo scambio di merci e servizi è stato organizzato per ridurre al minimo i costi di coordinamento, agenzia e transazione. Se un processo di scambio aumenta i costi di produzione, può essere classificato come inefficienza di agenzia e non di tecnica.
-
 > C'è un *tradeoff* tra efficienza tecnica ed efficienza di agenzia. Migliorare una di queste efficienze può compromettere l'altra. Maggiore efficienza tecnica può aumentare i costi di agenzia, mentre ridurre i costi di agenzia può ridurre la flessibilità necessaria per ottimizzare l'efficienza tecnica.
 
 Nel caso di produzione di un prodotto ad alta specificità, ci saranno clienti ridotti e non si potranno fare economie di scala. Per i clienti la differenza di costo di produzione interno ed esterno diminuisce. Il prezzo esterno è elevato a causa dell'elevata specificità, allora produrre internamente avrebbe un costo simile ma con efficienza di agenzia maggiore.
@@ -269,10 +287,8 @@ Si rafforza l'approccio intuitivo con dati empirici.
 #### 6.1.1 Elasticità incrociata
 Il grado di sostituibilità tra prodotti è misurato dall'elasticità incrociata della domanda al prezzo
 L'elasticità incrociata della domanda rispetto al prezzo misura come varia la quantità domandata di un bene in risposta a una variazione del prezzo di un altro bene. La formula è:
-
 $$
 \eta_{Q_x,P_y} = \frac{\%\ \Delta Q_x}{\%\ \Delta P_y} = \frac{\Delta Q_x / Q_x}{\Delta P_y / P_y}$$
-
 dove:
 - $E_{Q_x,P_y}$ è l'elasticità incrociata della domanda del bene $x$ rispetto al prezzo del bene $y$,
 - $Q_x$ è la quantità domandata del bene $x$,
@@ -447,11 +463,10 @@ $55 ∗ 45 - 800 - 10 ∗ 45= 2475 - 800 - 450 = 1225$
 | Secondo | 55     | 1225                        |
 ##### 7.3.1.1 Robustezza della strategia del prezzo limite
 In un orizzonte temporale maggiore, se l'impresa mantiene il prezzo limite, e non riesce ad alzarlo per tornare al prezzo di monopolio, ad essa conviene essere un duopolista a la Cournot.
-Il prezzo limite non è un equilibrio di Nash robusto perché dipende da una serie di supposizioni strategiche che possono essere infrante quando le imprese osservano le scelte a posteriori. La mancanza di incentivi a mantenere un prezzo basso una volta che l'entrata è stata evitata crea un incentivo a deviare, violando la definizione di equilibrio di Nash. La strategia del prezzo limite è efficace se
-- Ci sono asimmetrie informative: l'entrante ha informazioni meno precise sulla curva di domanda del settore
+Il prezzo limite non è un equilibrio di Nash robusto perché dipende da una serie di supposizioni strategiche che possono essere infrante quando le imprese osservano le scelte a posteriori. La mancanza di incentivi a mantenere un prezzo basso una volta che l'entrata è stata evitata crea un incentivo a deviare, violando la definizione di equilibrio di Nash. La strategia del prezzo limite è efficacie se:
+- Ci sono asimmetrie informative: l'entrante ha informazioni meno precise sulla curva di domanda del settore.
 - L'entrante non ha informazioni precise sulla struttura dei costi dell'impresa esistente
 - Razionalità limitata nell'articolazione della sequenza di interazioni strategiche.
-
 #### 7.3.2 Prezzi predatori
 Un incumbent applica la strategia dei prezzi predatori fissando un prezzo basso per allontanare i concorrenti attuali e scoraggiare eventuali futuri rivali dall'entrare.
 L'incumbent ipotizza che eventuali perdite possano essere ricompensate in seguito ai profitti di monopolio.
@@ -548,3 +563,9 @@ Un investimento che ha la possibilità di rimandare la decisione definitiva ha u
 Le imprese possono creare opzioni reali modificando il modo in cui configurano i propri processi interni, dunque una delle competenze fondamentali di un manager deve essere quella di trovare opzioni reali che producono valore.
 Le opzioni reali spesso hanno un *trade-off*, ad esempio costi di produzione più alti in cambio di flessibilità maggiore.
 Le opzioni reali implicano anche che il momento dell'investimento dipenda dal grado di incertezza riguardo alle condizioni future del mercato. Se si rimanda la decisione di investimento, vengono posticipati anche i benefici che questa comporta, ma guadagna informazioni utili a modificare l'investimento stesso.
+
+## 9 Collegamenti
+### 9.1 I contratti come soluzione del rapporto tra stakeholder
+**Contratti incompleti**: si basa su
+1. Razionalità limitata
+2. Opportunismo
