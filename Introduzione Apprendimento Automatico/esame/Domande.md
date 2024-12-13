@@ -560,3 +560,10 @@
 + Fare clipping del gradiente in un range prefissato
 - Aumentare il learning rate
 - Aggiungere un "momento" al gradiente, cioè parte del gradiente del passo precedente
+
+# Overfitting
+3. Selezionare la sentenza SCORRETTA relativa all'overfitting
+- Può essere particolarmente pericolosa per modelli altamenti espressivi
++ L’acquisizione di nuovi dati di training non può che peggiorare la situazione
+- Può essere contrastata con tecniche di regolarizzazione
+- Può essere contrastata con la tecnica di early stopping durante la fase di training

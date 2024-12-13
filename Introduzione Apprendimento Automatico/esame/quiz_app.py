@@ -4,6 +4,8 @@ import os
 import tkinter as tk
 from tkinter import messagebox
 
+difficile = True
+
 PROGRESS_FILE = "progress.json"
 
 def load_questions(json_file):
@@ -112,8 +114,11 @@ class QuizApp:
             random.shuffle(self.current_options)
 
             # Aggiorna UI
-            self.question_label.config(text=f"{question['number']}) {question['question']}")
-            self.category_label.config(text=f"Categoria: {question['category']}")
+            if difficile:
+              self.question_label.config(text=f"{question['question']}")
+            else:
+              self.question_label.config(text=f"{question['number']}) {question['question']}")
+              self.category_label.config(text=f"Categoria: {question['category']}")
 
             for widget in self.options_frame.winfo_children():
                 widget.destroy()

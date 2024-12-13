@@ -1128,6 +1128,19 @@
             "Aumentare il learning rate",
             "Aggiungere un \"momento\" al gradiente, cioè parte del gradiente del passo precedente"
         ],
-        "category": "Minimi locali – fase training"
+        "category": "Overfitting"
+    },
+    {
+        "number": 88,
+        "question": "Selezionare la sentenza SCORRETTA relativa all'overfitting",
+        "right": [
+            "L’acquisizione di nuovi dati di training non può che peggiorare la situazione"
+        ],
+        "wrong": [
+            "Può essere particolarmente pericolosa per modelli altamenti espressivi",
+            "Può essere contrastata con tecniche di regolarizzazione",
+            "Può essere contrastata con la tecnica di early stopping durante la fase di training"
+        ],
+        "category": "Overfitting"
     }
 ]
