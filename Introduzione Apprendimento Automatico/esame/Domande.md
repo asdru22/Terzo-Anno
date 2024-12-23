@@ -111,7 +111,7 @@
 3. Componendo due layer Conv2D con stride 1, il primo con kernel 5x5 e il secondo con kernel 3x3 quale sarà il campo ricettivo dei neuroni finali?
 + 7
 - 8
-- Dipende dal padding
+- Dipende dal paddinan
 - 3
 
 # classificazione lineare

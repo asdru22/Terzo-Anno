@@ -20,6 +20,18 @@
               "icon": "lucide-file",
               "title": "Importante"
             }
+          },
+          {
+            "id": "beec92591aa3996d",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Strategia Organizzazione e Mercati/img/struttura-del-mercato.svg"
+              },
+              "icon": "lucide-image",
+              "title": "struttura-del-mercato"
+            }
           }
         ]
       }
@@ -166,8 +178,12 @@
   },
   "active": "1bb9d798ef59e3bc",
   "lastOpenFiles": [
-    "Strategia Organizzazione e Mercati/img/value-driver-e-obiettivi-strategici.svg",
+    "Strategia Organizzazione e Mercati/Importante.pdf",
+    "Strategia Organizzazione e Mercati/img/struttura-del-mercato.svg",
     "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica-2.svg",
+    "Strategia Organizzazione e Mercati/Importante.md",
+    "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
+    "Strategia Organizzazione e Mercati/img/value-driver-e-obiettivi-strategici.svg",
     "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica.svg",
     "Introduzione Apprendimento Automatico/esame/Domande.md",
     "Introduzione Apprendimento Automatico/esame/progress.json",
@@ -180,8 +196,6 @@
     "Introduzione Apprendimento Automatico/esame/scritto-2023-02-12-soluzione.pdf",
     "Introduzione Apprendimento Automatico/esame/scritto-2023-01-16-soluzione.pdf",
     "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
-    "Introduzione Apprendimento Automatico/esame/scritto-2022-12-21-soluzione.pdf",
-    "Strategia Organizzazione e Mercati/Importante.md",
     "Strategia Organizzazione e Mercati/img/complementi-e-sostituti-strategici.svg",
     "Strategia Organizzazione e Mercati/Appunti.md",
     "Basi di Dati/MySQL.md",

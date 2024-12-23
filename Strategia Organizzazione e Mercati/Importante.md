@@ -1,3 +1,4 @@
+# Riassunto Strategia, Organizzazione e Mercati
 ## 1. Definizioni di base
 $\text{Profitto}=\text{Ricavi}-CT(Q)$
 **Costi Totali**: $CT(Q)=CF+CV(Q)$
@@ -145,6 +146,7 @@ Può essere possibile scrivere un contratto vincolante per entrambe le parti (ag
 ![[pericoli-organizzazione-economica.svg]]
 Possono esserci delle sovrapposizioni di informazioni, oppure informazioni che nessuna delle parti conosce. Ci sono porzioni di informazioni asimmetriche, private.
 Anche se non ci fosse opportunismo, ci sono problemi a interpretare informazioni quali $I-I^A-I^B$.
+
 ![[pericoli-organizzazione-economica-2.svg]]
 
 |                           | Limiti alla razionalità assenti | Limiti alla razionalità presenti    |
@@ -436,6 +438,7 @@ Un'impresa può rimanere in un mercato anche se i prezzi sono inferiori ai costi
 Se non ci sono barriere all'entrata, gli incumbent possono adottare strategie predatorie per scoraggiare attivamente l'entrata. Queste hanno successo soltanto quando
 - L'impresa esistente consegue profitti più alti come monopolista che come duopolista
 - La strategia modifica le aspettative dell'entrante riguardo alla natura della concorrenza post-entrata.
+
 Ci si aspetta che l'incumbent consegua profitti maggiori se riesce a tenere fuori gli entranti. Ci sono tre modi in cui potrebbe farlo.
 #### 7.3.1 Prezzi limite
 L'incumbent fissa un prezzo basso prima che l'entrata abbia luogo per scoraggiare eventuali nuovi entranti. Se il prezzo fissato è sufficientemente basso, l'entrante concluderà che i profitti post entrata non potranno in nessun modo coprire i costi irrecuperabili sostenuti all'entrata.
@@ -494,7 +497,6 @@ L'economia del judo dimostra come i piccoli entranti possano sfruttare i limiti 
 >La grande azienda potrebbe quindi decidere di non reagire, lasciando spazio alla startup per crescere.
 
 I manager affermano di fare maggior affidamento sulle strategie che incrementano i costi di entrata rispetto a quelle che modificano le percezioni di un potenziale entrante. Inoltre sembrano molto più propensi a praticare strategie di deterrenza sui nuovi prodotti che su quelli esistenti e strategie che fanno alzare i costi di entrata.
-
 ### 7.4 Entrata in un nuovo mercato
 Il potenziale entrante dovrà valutare i profitti post entrata a fronte dei costi irrecuperabili che l'entrata stessa comporta.
 Quando si entra in un mercato
@@ -549,23 +551,78 @@ L'effetto strategico tiene conto degli effetti collaterali dell'impegno vincolan
 | Mira a evitare conflitti     | Mira a sopraffare i concorrenti                                    |
 | Favorisce profitti condivisi | Cerca di massimizzare i propri profitti anche a scapito dei rivali |
 | Strategia di convivenza      | Strategia di dominio del mercato                                   |
-### 8.1.2 Tassonomia di strategie
+## 8.2 Tassonomia di strategie
 La tassonomia delle strategie di impegno vincolante è una classificazione delle diverse strategie che un’impresa può adottare per influenzare il comportamento dei concorrenti attraverso decisioni vincolanti. Queste strategie mirano a modellare l’ambiente competitivo, rendendo certe scelte irreversibili o molto difficili da modificare. L'obiettivo è ottenere un vantaggio strategico creando condizioni favorevoli per sé e, in molti casi, sfavorevoli per i concorrenti. Questa tassonomia è basata sulla natura aggressiva o accomodante dell'impegno e la natura di complementi sostituiti o strategici assunti dalle variabili tattiche. Possono essere combinate in 4 modi diversi e l'impegno può generare un effetto strategico positivo o negativo.
 
 > Se un'impresa prende un impegno vincolante aggressivo, allora tale impegno farà si che i concorrenti si comportino in modo ancora più aggressivo. L'impegno vincolante ha effetto dannoso e l'impresa è spinta ad abbandonare del tutto il suo impegno o portarlo a un livello più basso (*puppy dog ploy*). La sua alternativa redditizia è prendere un impegno vincolante accomodante su complementi strategici (*fat cat effect*).
 
 Se le variabili tattiche sono sostituti strategici, l'impresa deve proseguire con impegni vincolanti aggressivi e non prendere impegni vincolanti accomodanti. 
-### 8.1.3 Opzioni reali
+## 8.3 Opzioni reali
 Rimandando le decisioni importanti a un secondo momento, l'impresa ha la possibilità di conoscere meglio le condizioni del mercato, ma questa non può essere una scusa per rimandare indefinitamente le decisioni importanti, perché si rischia, quando finalmente si agisce, di aver perso profitti considerevoli che non sarà possibile recuperare.
 Il momento migliore per fare un investimento strategico in condizioni di incertezza si ricava dallo studio delle opzioni reali.
 Un opzione reale esiste quando chi prende decisioni ha l'opportunità di adattare una scelta ad alcune informazioni attualmente non conosciute, ma disponibili in futuro.
 Un investimento che ha la possibilità di rimandare la decisione definitiva ha un valore maggiore rispetto a uno in cui l'impresa debba decidere in quel momento ("ora o mai più"), poiché evita perdite all'impresa nel caso in cui il prodotto nel quale ha investito si riveli un insuccesso.
 Le imprese possono creare opzioni reali modificando il modo in cui configurano i propri processi interni, dunque una delle competenze fondamentali di un manager deve essere quella di trovare opzioni reali che producono valore.
 Le opzioni reali spesso hanno un *trade-off*, ad esempio costi di produzione più alti in cambio di flessibilità maggiore.
-Le opzioni reali implicano anche che il momento dell'investimento dipenda dal grado di incertezza riguardo alle condizioni future del mercato. Se si rimanda la decisione di investimento, vengono posticipati anche i benefici che questa comporta, ma guadagna informazioni utili a modificare l'investimento stesso.
+Le opzioni reali implicano anche che il momento dell'investimento dipenda dal grado di incertezza riguardo alle condizioni future del mercato. Se si rimanda la decisione di investimento, vengono posticipati anche i benefici che questa comporta, ma si guadagnano informazioni utili a modificare l'investimento stesso. Un'impresa dovrebbe rimandare il proprio investimento quando le condizioni sul mercato si fanno più incerte.
+## 8.4 Disciplina della concorrenza
+Bertrand, Cournot e Stackelberg affermano che i profitti totali del settore sono minori rispetto a quelli che si otterrebbero se le imprese agissero insieme come un cartello, scegliendo il prezzo e la quantità di output. 
+Le imprese preferiscono fissare il prezzo più vicino possibile al livello di monopolio.
+Chamberlin afferma che i prezzi ottenuti dalle aziende che abbassano strategicamente i prezzi sono transitori.
+Periodi di diversa lunghezza non presentano difficoltà particolari, per un impresa può essere sensato adattarsi ai prezzi delle altre.
+Quando un leader del mercato fissa un prezzo di collusione, le altre imprese lo seguiranno, ma se un'impresa tenta di abbassare i prezzi, le altre dovranno adeguare i propri ai fini di impedire una fastidiosa sottrazione di affari (*tit for tat*).
+Tit for tat garantisce buoni risultati, ma non è l'unica strategia che consente alle imprese di mantenere prezzi di monopolio come risultato di un equilibrio non cooperativo.
+Ad esempio *grim trigger* si basa sulla minaccia di una guerra dei prezzi infinita, e anche essa risulta nel prezzo di monopolio per tassi di sconto sufficientemente bassi.
+### 8.4.1 Coordinamento sul prezzo giusto
+*Folk theorem* (proprietà dei giochi dinamici): se le imprese si aspettano di interagire a tempo indeterminato, per tassi di sconto sufficientemente bassi, qualsiasi prezzo compreso tra il prezzo di monopolio e il costo marginale, sarà sostenibile come prezzo di equilibrio.
+## 8.5 Ostacoli al coordinamento
+### 8.5.1 Malintesi
+- Impresa che non conosce il vero prezzo di un concorrente
+- Impresa che non capisce le ragioni di una decisione di prezzo
 
-## 9 Collegamenti
-### 9.1 I contratti come soluzione del rapporto tra stakeholder
-**Contratti incompleti**: si basa su
-1. Razionalità limitata
-2. Opportunismo
+Strategie di prezzo indulgenti possono essere particolarmente desiderabili quando possono crearsi malintesi tra imprese rivali.
+### 8.5.2 Discontinuità negli ordini
+Se le vendite si verificano in modo relativamente concentrato, discontinue nel tempo e per grandi lotti, sono ridotte le interazioni competitive tra le imprese, rendendo il prezzo un arma più attraente per le singole imprese.
+### 8.5.3 Informazioni relative alle transazioni di vendita
+Quando le transazioni di vendita sono di dominio pubblico, è più facile notare le deviazioni da un comportamento cooperativo sui prezzi. In genere i prezzi sono negoziati segretamente, affinché per un impresa risulti difficile sapere se un concorrente abbia praticato uno sconto di prezzo.
+Le pratiche commerciali che facilitano la segretezza delle riduzioni di prezzo creano un dilemma del prigioniero: ogni impresa preferisce utilizzarle individualmente, ma l'industria si trova collettivamente in una posizione peggiore quando tutte le imprese vi fanno ricorso.
+Deviazioni di prezzo cooperativo sono difficilmente riconoscibili nel caso attributi dei prodotti siano pensati su misura per il cliente. Allora un venditore può essere in grado di accrescere la sua quota di mercato alterando il design.
+### 8.5.4 Asimmetrie tra imprese e prezzi cooperativi
+Differenze nei costi, capacità o qualità del prodotto creano a loro volta incentivi asimmetrici alle imprese per accordarsi su prezzi cooperativi.
+
+![[struttura-del-mercato.svg]]
+La struttura del mercato può influenzare la sostenibilità dei prezzi cooperativi
+
+| Elementi Strutturali                                 | Influenza sui prezzi cooperativi | Motivo                                                                                                                                                                     |
+| ---------------------------------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Elevata concentrazione                               | facilita                         | - Il coordinamento per giungere all'obiettivo è più facile<br>- aumenta il rapporto costi-benefici dell'adesione alla strategia di prezzo cooperativo                      |
+| Asimmetrie tra le imprese                            | ostacola                         | - disaccordi sul prezzo cooperativo<br>- difficoltà di coordinamento<br>- ruolo di *free riders* da parte delle piccole imprese                                            |
+| Elevata concentrazione degli acquirenti              | ostacola                         | rende difficile capire quale impresa abbia defezionato dall'accordo sul prezzo cooperativo                                                                                 |
+| Ordini discontinui                                   | ostacola                         | diminuisce la frequenza di interazioni tra i concorrenti, aumentando l'intervallo tra defezione e rappresaglia                                                             |
+| Condizioni di costo segrete                          | ostacola                         | - aumenta il tempo di ritardo perché le condizioni di prezzo dei concorrenti sono più difficili da monitorare<br>- aumenta la possibilità di malintesi                     |
+| Volatilità della domanda e delle condizioni di costo | ostacola                         | - aumenta l'intervallo tra defezione e rappresaglia, aumentando l'incertezza sulla reale esistenza della defezione e circa l'identità delle imprese che hanno defezionato. |
+| Acquirenti sensibili al prezzo                       | ostacola                         | accresce l'incentivo di tagliare i prezzi                                                                                                                                  |
+Le imprese possono rendere il conseguimento del prezzo cooperativo più facile tramite 
+-  Leadership di prezzo: supera il problema del coordinamento in un equilibrio focale. Tutte le imprese rinunciano alla propria autonomia di fissazione del prezzo cedendo il controllo dei prezzi dell'intero settore a un unica impresa. Ci sono due tipi di leadership:
+	- oligopolistica: un impresa ricopre il ruolo di leader per anni
+	- barometrica: imprese diverse sono leader di prezzo
+- Annuncio anticipato delle variazioni di prezzo: le aziende annunciano pubblicamente i prezzi che intendono fissare in futuro. Questo può anche facilitare l'aumento dei prezzi stessi e andare a danno dei consumatori.
+- Clausola del cliente più favorito: condizione in un contratto di vendita che da al compratore la sicurezza di pagare il prezzo più basso che verrà praticato dal venditore. Ci sono due varianti:
+	- contemporanea:
+	- retroattiva: il venditore si impegna a rimborsare il venditore se il prodotto è stato venduto a un prezzo inferiore da quello pagato.
+- Prezzo di consegna uniforme: in molte industrie venditori e compratori sono geograficamente separati, con costi di trasporto significativi. In tal caso il metodo con cui vengono fissati i prezzi influenza le interazioni competitive. Ci sono due politiche di prezzo: 
+	- *Free on board*: il venditore fissa un prezzo di ritiro della merce al suo impianto di produzione e le spese di spedizione per il ritiro sono a carico del compratore
+	- Prezzo di spedizione uniforme: l'impresa stabilisce un unico prezzo di consegna per tutti i compratori, assorbendo direttamente ogni spesa di trasporto.
+
+## 8.6 Teoria di Sutton
+La teoria di base relativa alla struttura e alla concentrazione di mercato nasconde due importanti regolarità empiriche: le dimensioni delle imprese variano e le asimmetrie tra loro sono forti. 
+Questo implica che molti mercati comprendono poche grandi imprese e molti concorrenti più piccoli. Nella maggior parte dei mercati dei beni di consumo c'è un oligopolio, e una serie di produttori secondari che servono le nicchie. 
+Sutton non rinnega l'importanza dei costi non recuperabili e delle economie di scala, anzi fa notare che i consumatori spesso gravitano attorno al marchio.  La DOM per i prodotti di merca può essere molto grande.
+La dimensione dell'investimento sul marchio è un costo endogeno irrecuperabile.  
+Basandosi su questa idea, Sutton può spiegare come si evolve la struttura del mercato.
+1. All’inizio del ciclo di vita di un settore, ci sono molte piccole imprese che competono alla pari. 
+2. grazie a una qualità superiore, un servizio migliore, una promozione più efficace o per pura fortuna, alcune imprese crescono più di altre. Infatti, alcune imprese, in genere quelle che già si trovano avvantaggiate sul mercato, investono per rinforzare il capitale del proprio marchio e così facendo accrescono la propria quota di mercato. Promuovere il proprio marchio è molto costoso: mentre alcune imprese stabiliscono marchi forti, altre che vogliono imitarle potrebbero non trovare spazio sul mercato.
+3. Man mano che il mercato cresce, le imprese più forti continuano ad investire sui propri marchi, alzando la posta per chiunque volesse sfidare il loro status elitario: in questo modo il numero dei marchi leader rimane fisso anche se il mercato cresce. L’unica possibilità che rimane ai potenziali sfidanti è differenziare il prodotto e coprire nicchie dove i grandi marchi non sono ancora arrivati.
+
+La teoria di Sutton spiega anche perché i mercati dei beni di consumo tendono ad essere più concentrati oggi: grazie a internet è più facile trovare nicchie e i loro clienti.
+Secondo Sutton, le spese destinate a ricerca e sviluppo sono un altro costo endogeno irrecuperabile: le grandi imprese possono fare investimenti aggressivi in R&S per spingere altre imprese a fare lo stesso per restare in competizione. Dato che i costi di R&S sono irrecuperabili, aumentano la dimensione ottima minima dell'entrata.

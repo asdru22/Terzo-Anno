@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 difficile = True
-
+difficilissima = False
 PROGRESS_FILE = "progress.json"
 
 def load_questions(json_file):
@@ -124,9 +124,8 @@ class QuizApp:
                 widget.destroy()
 
             for i, option in enumerate(self.current_options):
-                btn = tk.Button(self.options_frame, text=option, font=("Arial", 12), command=lambda o=option: self.check_answer(o))
-                btn.pack(fill=tk.X, padx=50, pady=5)
-
+              btn = tk.Button(self.options_frame, text=option, font=("Arial", 12), command=lambda o=option: self.check_answer(o))
+              btn.pack(fill=tk.X, padx=50, pady=5)
         else:
             self.display_summary()
 
