@@ -11,26 +11,12 @@
             "id": "1bb9d798ef59e3bc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Strategia Organizzazione e Mercati/Importante.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Importante"
-            }
-          },
-          {
-            "id": "beec92591aa3996d",
-            "type": "leaf",
-            "state": {
               "type": "image",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/img/struttura-del-mercato.svg"
+                "file": "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg"
               },
               "icon": "lucide-image",
-              "title": "struttura-del-mercato"
+              "title": "WhatsApp Image 2024-11-19 at 23.10.56"
             }
           }
         ]
@@ -64,10 +50,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/Importante.md"
+                "file": "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg"
               },
               "icon": "lucide-list",
-              "title": "Outline of Importante"
+              "title": "Outline of WhatsApp Image 2024-11-19 at 23.10.56"
             }
           },
           {
@@ -97,12 +83,12 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 247.5
+    "width": 247.5,
+    "collapsed": true
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -178,10 +164,15 @@
   },
   "active": "1bb9d798ef59e3bc",
   "lastOpenFiles": [
-    "Strategia Organizzazione e Mercati/Importante.pdf",
+    "Strategia Organizzazione e Mercati/Esercizi.xopp~",
+    "Strategia Organizzazione e Mercati/-Note-17-41.xopp~",
+    "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-12-02 at 17.21.07.jpeg",
+    "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-12-09 at 16.42.21.jpeg",
+    "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg",
     "Strategia Organizzazione e Mercati/img/struttura-del-mercato.svg",
-    "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica-2.svg",
     "Strategia Organizzazione e Mercati/Importante.md",
+    "Strategia Organizzazione e Mercati/Importante.pdf",
+    "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica-2.svg",
     "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
     "Strategia Organizzazione e Mercati/img/value-driver-e-obiettivi-strategici.svg",
     "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica.svg",
@@ -193,8 +184,6 @@
     "Introduzione Apprendimento Automatico/esame/format_questions.py",
     "Introduzione Apprendimento Automatico/esame/check_lines.py",
     "Introduzione Apprendimento Automatico/esame/scritto-2023-testo-raggruppati.pdf",
-    "Introduzione Apprendimento Automatico/esame/scritto-2023-02-12-soluzione.pdf",
-    "Introduzione Apprendimento Automatico/esame/scritto-2023-01-16-soluzione.pdf",
     "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
     "Strategia Organizzazione e Mercati/img/complementi-e-sostituti-strategici.svg",
     "Strategia Organizzazione e Mercati/Appunti.md",
