@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "790683405b892904",
+        "id": "4b5fda3c7725cba0",
         "type": "tabs",
         "children": [
           {
-            "id": "1bb9d798ef59e3bc",
+            "id": "3707fba1357f3d54",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg"
+                "file": "Teoria dell'impresa/Appunti.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "WhatsApp Image 2024-11-19 at 23.10.56"
+              "icon": "lucide-file",
+              "title": "Appunti"
             }
           }
         ]
@@ -38,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -50,10 +53,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg"
+                "file": "Teoria dell'impresa/Appunti.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of WhatsApp Image 2024-11-19 at 23.10.56"
+              "title": "Outline of Appunti"
             }
           },
           {
@@ -162,28 +168,31 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1bb9d798ef59e3bc",
+  "active": "3707fba1357f3d54",
   "lastOpenFiles": [
-    "Strategia Organizzazione e Mercati/Esercizi.xopp~",
-    "Strategia Organizzazione e Mercati/-Note-17-41.xopp~",
+    "Teoria dell'impresa/appunti/1-St_Merc_Pot_Merc.xopp~",
+    "Teoria dell'impresa/pdf/2-Monopolio.pdf",
+    "Teoria dell'impresa/pdf/3-Mono_P_Linari.pdf",
+    "Teoria dell'impresa/pdf/Mono_P_Linari.pdf",
+    "Teoria dell'impresa/Appunti.md",
+    "Teoria dell'impresa/appunti/1-St_Merc_Pot_Merc.xopp",
+    "Teoria dell'impresa/pdf/2- Monopolio.pdf",
+    "Teoria dell'impresa/pdf/Cap_24_Monopolio.pdf",
+    "Teoria dell'impresa/appunti",
+    "Teoria dell'impresa/Nuova cartella",
+    "Teoria dell'impresa/1 - Strutture e confini di mercato.xopp~",
+    "Teoria dell'impresa/pdf/1-St_Merc_Pot_Merc.pdf",
+    "Ingengeria del Software/Appunti.md",
+    "Stakeholder.md",
+    "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg",
     "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-12-02 at 17.21.07.jpeg",
     "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-12-09 at 16.42.21.jpeg",
-    "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg",
     "Strategia Organizzazione e Mercati/img/struttura-del-mercato.svg",
     "Strategia Organizzazione e Mercati/Importante.md",
-    "Strategia Organizzazione e Mercati/Importante.pdf",
     "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica-2.svg",
-    "Strategia Organizzazione e Mercati/riassunto_new.xopp~",
     "Strategia Organizzazione e Mercati/img/value-driver-e-obiettivi-strategici.svg",
     "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica.svg",
     "Introduzione Apprendimento Automatico/esame/Domande.md",
-    "Introduzione Apprendimento Automatico/esame/progress.json",
-    "Introduzione Apprendimento Automatico/esame/quiz.py",
-    "Introduzione Apprendimento Automatico/esame/output.json",
-    "Introduzione Apprendimento Automatico/esame/questions.json",
-    "Introduzione Apprendimento Automatico/esame/format_questions.py",
-    "Introduzione Apprendimento Automatico/esame/check_lines.py",
-    "Introduzione Apprendimento Automatico/esame/scritto-2023-testo-raggruppati.pdf",
     "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
     "Strategia Organizzazione e Mercati/img/complementi-e-sostituti-strategici.svg",
     "Strategia Organizzazione e Mercati/Appunti.md",
