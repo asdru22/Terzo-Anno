@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "4b5fda3c7725cba0",
+        "id": "ae0805235b84270c",
         "type": "tabs",
         "children": [
           {
-            "id": "3707fba1357f3d54",
+            "id": "fb40988ddb821ec8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Teoria dell'impresa/Appunti.md",
+                "file": "Storia e Politiche del Digitale/Appunti.md",
                 "mode": "source",
                 "source": false
               },
@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 247.5,
-    "collapsed": true
+    "width": 247.5
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -168,21 +167,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3707fba1357f3d54",
+  "active": "fb40988ddb821ec8",
   "lastOpenFiles": [
-    "Teoria dell'impresa/appunti/1-St_Merc_Pot_Merc.xopp~",
-    "Teoria dell'impresa/pdf/2-Monopolio.pdf",
-    "Teoria dell'impresa/pdf/3-Mono_P_Linari.pdf",
-    "Teoria dell'impresa/pdf/Mono_P_Linari.pdf",
-    "Teoria dell'impresa/Appunti.md",
-    "Teoria dell'impresa/appunti/1-St_Merc_Pot_Merc.xopp",
-    "Teoria dell'impresa/pdf/2- Monopolio.pdf",
-    "Teoria dell'impresa/pdf/Cap_24_Monopolio.pdf",
-    "Teoria dell'impresa/appunti",
-    "Teoria dell'impresa/Nuova cartella",
-    "Teoria dell'impresa/1 - Strutture e confini di mercato.xopp~",
-    "Teoria dell'impresa/pdf/1-St_Merc_Pot_Merc.pdf",
     "Ingengeria del Software/Appunti.md",
+    "Laboratorio di Applicazioni Mobili/pdf/1-LAM_Setup_Android.pdf",
+    "Laboratorio di Applicazioni Mobili/pdf/2-LAM_Kotlin.pdf",
+    "Laboratorio di Applicazioni Mobili/pdf/2-LAM_Kotlin.pdf.crdownload",
+    "Laboratorio di Applicazioni Mobili/Appunti.md",
+    "Ingengeria del Software/pdf/03 - OO modeling and UML.pdf",
+    "Laboratorio di Applicazioni Mobili/codice",
+    "Laboratorio di Applicazioni Mobili/Nuova cartella",
+    "Ingengeria del Software/pdf/02 - Analisys model.pdf",
+    "Ingengeria del Software/pdf/03 - OO modeling and UML.pdf.crdownload",
+    "Storia e Politiche del Digitale/Appunti.md",
+    "Laboratorio di Applicazioni Mobili/laboratorio",
+    "Teoria dell'impresa/riassunto.pdf",
+    "Teoria dell'impresa/Appunti.md",
     "Stakeholder.md",
     "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg",
     "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-12-02 at 17.21.07.jpeg",

@@ -1,0 +1,3 @@
+Un'applicazione mobile ibrida può essere sviluppata usando librerie native e tecnologie web per ottenere il meglio dai due. La porzione nativa dell'app può essere scritta come un'applicazione nativa.
+Applicazioni mobili basate su web app e Progressive Web Apps sono sviluppate con gli stessi strumenti usati per lo sviluppo di siti web per mobile.
+Applicazioni ibride si dividono in ibride native e ibride-web.

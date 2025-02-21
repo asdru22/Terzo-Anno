@@ -106,3 +106,41 @@ Lo scopo è rendere la vista basata su requisiti dello stakeholder dei servizi r
 Se ci sono vincoli, vanno documentati all'interno del modello.
 #### 1.3.2.6 I Requisiti vanno memorizzati
 I requisiti devono essere registrati in una forma adeguata per la gestione lungo tutto il ciclo di vita del progetto e oltre. Per progetti complessi, è consigliato l'uso di uno strumento di gestione dei requisiti, che permetta di tracciare i collegamenti tra di essi per evidenziare le relazioni.
+## 2. Modelli
+Un modello è una rappresentazione astratta della realtà, sono usati per catturare proprietà rilevanti di un sistema. Permette di catturare astrazioni e condividere conoscenze all'interno di un progetto (modelli **prescrittivi**, non descrittivi).
+I modelli possono essere espressi con linguaggi diversi da quello naturale. I linguaggi sono utilizzati per caratterizzare le entità del modello, le loro proprietà e relazioni.
+## 2.1 Paradigma *Object Oriented*
+Si caratterizza un sistema (software) non focalizzandosi sui singoli dati, ma cercando di definire la struttura in termine di entità autonome caratterizzate da uno stato e un comportamento. Uno stato è l'insieme di informazioni memorizzate nell'oggetto. Invocando metodi si attivano i comportamenti.
+### 2.1.1 Principi *Object Oriented*
+**Astrazione**: meccanismo attraverso il quale ci si focalizza sulle caratteristiche essenziali di un elemento, senza essere a conoscenza degli elementi strutturali che non ci interessano. Ci interessa solo l'interfaccia dell'oggetto, ma non come funzione internamente.
+**Incapsulamento**: non ci interessa come vengono ottenute le informazioni. Sono incapsulate nel codice..
+**Ereditarietà**: il comportamento e lo stato possono essere specializzati (con l'*override* di parte dei comportamenti della classe base). Si riusa un prototipo o classe esistente. L'istanza di una sottoclasse è un'istanza della superclasse. Un oggetto può essere sia impiegato che persona. Un'oggetto può appartenere a più tipi diversi (polimorfismo).
+**Polimorfismo**: il comportamento degli oggetti dipende da che oggetti sono.
+Il polimorfismo è legato al concetto di ereditarietà. Un oggetto può essere di due o più tipi.
+## 2.2 *Object Oriented Modelling* con UML
+UML è un linguaggio di modellazione, che usa un approccio object oriented sia per l'analisi che per la progettazione/design. L'analisi si concentra sull problema, la progettazione sulla soluzione.
+UML è un linguaggio grafico semi-formale: gli artefatti sono grafici. Semi-formale vuol dire che ha una **sintassi e semantica ben definita** (nonostante la sua natura grafica). UML è stato soggetto a una serie di revisioni per ridurre l'ambiguità nel suo utilizzo.
+Le regole sintattiche definiscono come creare diagrammi validi. Le regole semantiche indicano come creare diagrammi con significato.
+### 2.2.1 I 13 Diagrammi UML
+Sono divisi in 2 famiglie
+- Diagrammi strutturali
+- Diagrammi comportamentali
+Le frecce indicano l'ereditarietà
+### 2.2.2 Le primitive UML
+Sono elementi uguali indipendentemente dal tipo del modello.
+**Package**: raggruppano elementi e li da un namespace.
+**Annotazioni**: commenti che non hanno effetto sul modello
+**Relazioni**: linee che collegano due o più elementi di un modello
+- Associazione
+- Generalizzazione
+- Dipendenza: se cambia l'oggetto sulla punta della freccia, può riflettersi sull'oggetto da dove parte la freccia.
+- Realizzazione
+
+La loro semantica cambia in base a come vengono usate.
+**Elementi**: forme geometriche
+**Stereotipi**: parole chiave che permettono di specializzare concetti esistenti. Permettono di estendere il vocabolario di UML per creare nuovi elementi del modello. Specificano la semantica di un elemento.
+### 2.2.3 Object Constraint Language
+OCL è un linguaggio dichiarativo utilizzato per specificare vincoli che si applicano a UML. Questi vincoli possono essere
+- invarianti
+- pre-condizioni
+- post-condizioni
