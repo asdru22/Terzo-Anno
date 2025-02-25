@@ -1,3 +1,4 @@
 {
-  "accentColor": "#25c0d4"
+  "accentColor": "#25c0d4",
+  "showRibbon": false
 }

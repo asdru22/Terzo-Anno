@@ -3,6 +3,8 @@
 Coloro che hanno interesse nel progetto. Includono almeno i clienti finali e coloro che lo stanno finanziando (committenti).
 ## Elicitazione
 Estrazione di informazioni dal modello mentale dello stakeholder, tradurre il modello mentale in modello di analisi. Si elicita intervistando il committente, guardando i competitor, facendo questionari, osservando l'ambiente, simulazioni, prototipizzazione, modellistica.
+# Valore
+Produrre valore vuol dire interagire con un sistema software per giungere ad un obiettivo, determinato dal valore del prodotto.
 # 0. Introduzione
 **Software engineering**: costruzione di software multi-versione attraverso team di multi-persone.
 Per affrontare un sistema complesso si usa:
@@ -144,3 +146,97 @@ OCL è un linguaggio dichiarativo utilizzato per specificare vincoli che si appl
 - invarianti
 - pre-condizioni
 - post-condizioni
+
+# 3. UML *use case* (casi d'uso)
+## 3.1 Diagramma dei casi d'uso
+È un diagramma comportamentale che serve per descrivere un'insieme di azioni (caso d'uso) che un certo sistema deve realizzare in collaborazione con uno o più entità esterne, chiamate attori. Ogni *use case*  dovrebbe fornire un risultato osservabile e di [[#Valore]] agli attori o ad altri stakeholder.
+Ci saranno azioni che gli attori potranno operare sul sistema, e il sistema risponderà a queste azioni. I casi d'uso si limitano sempre ad interazioni osservabili.
+Il concetto di caso d'uso è indipendente dal diagramma dei casi d'uso. Il diagramma non è in grado da solo di catturare tutto quello che si vuole sapere riguardo ad un caso d'uso.
+## 3.2 Uso dei diagrammi dei casi d'uso [completare]
+- Usati per catturare i requisiti di un sistema: alternativa a documenti di requisiti software.
+-  La funzionalità offerta da un soggetto
+- Requisiti che il soggetto specificato applica nel suo ambiente.
+
+L'elemento **attore** si può rappresentare con una qualunque icona che rappresenti gli attori del sistema. L'attore è un entità esterna al sistema, che ci interagisce scambiando dati. Con gli attori si vuole catturare le classi di utenti.
+Il **soggetto** è il sistema da analizzare o progettare, sul quale si applicano gli use case. Può essere un sistema fisico o software, ed è rappresentato da un rettangolo, il cui nome è in un angolo in alto. Gli attori sono al difuori di questo rettangolo.
+Ogni **caso d'uso** è usato per descrivere una completa funzionalità che il sistema fornisce. Sono rappresentati con un'ellissi.
+La relazioni tra gli elementi del diagramma fanno parte della sintassi UML.
+Tra attori può esserci solo la relazione di **generalizzazione** (legato all'ereditarietà).
+### 3.2.1 Generalizzazione
+La relazione di generalizzazione serve a identificare che un elemento è più generico di un altro. Le frecce puntano verso l'elemento più generale, e si legge come "A è un B". A fa tutto quello che fa B, più qualcos'altro. 
+Questa struttura è tipica della programmazione object-oriented. Al posto di fare *override* di un metodo, si fa *override* del caso d'uso.
+> Non si possono riportare diagrammi che abbiano relazioni diverse da quella di generalizzazione tra attori.
+
+### 3.2.2 Associazione
+Un attore è **associato** a un caso d'uso solamente da una relazione di associazione. Quando il soggetto è tutto il sistema, viene lasciato implicito.
+Questa è l'unica relazione che può esserci tra attori e casi d'uso (relazione binaria). La rappresentazione grafica è un segmento.
+## 3.3 Relazioni tra casi d'uso
+### 3.3.1 Generalizzazione
+Il caso d'uso è una sequenza di passi di interazione che sottointendono un obiettivo.. Un attore interagisce con il sistema quando ha un obiettivo. Il caso d'uso è sempre identificato da un obiettivo. 
+![[Pasted image 20250224124551.png]]
+I nomi dei casi d'uso vengono definiti in base al loro obiettivo.
+La specializzazione (operazione inversa della generalizzazione) sono operazioni che hanno lo stesso obiettivo.
+### 3.3.2 Estensione
+Definisce un comportamento supplementare **opzionale** (e non obbligatorio come l'inclusione).
+Se un caso d'uso definisce il suo comportamento con passi di interazione, estendere un caso d'uso vuol dire aggiungere passi se è soddisfatta una certa condizione. In UML deve essere il caso base ad essere disposto ad estendere il proprio comportamento, definendo ***extension points***.
+La rappresentazione grafica di un estensione usa uno stereotipo *extends*.
+![[Pasted image 20250224125253.png]]
+L'extension point viene definito all'interno del caso d'uso.
+La freccia va dal comportamento addizionale verso il comportamento che viene esteso.
+### 3.3.3 Inclusione
+Il comportamento addizionale avviene sempre, non c'è una condizione.
+L'inclusione si usa quando:
+- ci sono parti comuni a più casi d'uso.
+- si vuole semplificare un caso d'uso dividendolo in più parti.
+
+Nella rappresentazione grafica, la freccia va dal comportamento base verso il caso d'uso incluso.
+![[Pasted image 20250224125810.png]]
+### 3.4 Come identificare i casi d'uso
+- rappresentano la più piccola unità di attività che produce risultati tangibili
+- sono definiti da obiettivi raggiungibili in una sessione d'uso, **immediatamente perseguibili**
+- hanno al massimo una dozzina di passi
+- quando un caso d'uso ha più attori con più obiettivi (ad esempio bisogna aspettare la reazione di un altro attore/utente), deve essere modellato con più casi d'uso. I casi d'uso non possono restare in attesa per un tempo indefinito. Il tempo può essere un attore.
+
+Possono esserci dei comportamenti del sistema che il caso d'uso non è in grado di catturare. Per i processi automatizzati si usa il tempo come attore, rappresentato da una clessidra. Non ci interessa come gli attori agiscono al difuori del sistema.
+## 3.5 Modello dei casi d'uso
+Il diagramma UML degli use case non è un modello degli use case. Il diagramma è un riassunto.
+I casi d'uso cominciano con l'attore che interagisce per primo. Non è mai il sistema che fa qualcosa per primo.
+Le **pre-condizioni** sono condizioni che devono essere vere affinché si possa realizzare il caso d'uso.
+Le **post-condizioni** sono i cambiamenti allo stato del sistema dopo che il caso d'uso è concluso.
+## 3.6 Notazioni più semplici per i casi d'uso
+- Id
+- Attori
+- Pre-condizioni
+- Sequenza principale
+- Sequenze alternative
+- Post-condizioni
+
+## 3.7 Scenari
+Uno scenario è un esempio possibile del caso d'uso, un possibile modo in cui il caso d'uso ha luogo. Sono **istanze** dei casi d'uso. Si può verificare la correttezza dei casi d'uso generando dei test di accettazione.
+Un modello è soggetto a più raffinamenti iterativi.
+- Stabilire l'obiettivo
+- Capire la struttura
+- Completare la prima storia
+- Completare un numero sufficiente di storie
+- Completare tutte le storie
+
+## 3.8 Esercizio
+> A blog is a web application presenting a collection of date-tagged messages (posts) on miscellaneous topics. Messages are posted by the blog owner who puts them online. The author can associate messages to one or more categories (expressed using keywords). 
+> Blog’s visitors can comment messages; the comments, if approved by a moderator (usually the blog’s owner), appear in a specific section under the original message.
+
+1. Fare il diagramma UML
+	1. Definire il sistema
+	2. Identificare gli attori (blog owner, visitor, author, moderator). Eventuali attori omessi non possono essere "immaginati", si contatta il committente. Lo stesso fare per ambiguità: blog owner e author sono la stessa categoria di utente.
+	3. Riscrivere il documento di specifica in base alle informazioni che emergono.
+	4. Identificare i casi d'uso: si guardano gli obiettivi degli attori. Contattare il committente per risolvere eventuali ambiguità (il visitatore si deve autenticare per diventare autore). 
+2. Usare un template per descrivere un use case (esempio commento)
+	- ID: UC3
+	- Actors: Visitor
+	- Precondizione: il visitatore si trova nella pagina di visualizzazione del messaggio.
+	- Postcondizione: il messaggio è aggiunto alla lista di moderazione
+	- Sequenza principale
+		1. il visitatore seleziona l'opzione per inserire il commento (interazione osservabile)
+		2. sistema mostra area per inserire il commento
+		3. visitatore inserisce commento
+		4. il sistema mostra messaggio di successo
+	- Sequenze alternative: in questo caso non ci sono
