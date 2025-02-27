@@ -13,30 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ingengeria del Software/Appunti.md",
+                "file": "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Appunti"
-            }
-          }
-        ]
-      },
-      {
-        "id": "ab0426acfa57f62f",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "949c66b8057936ad",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Ingengeria del Software/pdf/04 - Use case.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "04 - Use case"
+              "title": "Limiti e problemi di .mcfunction"
             }
           }
         ]
@@ -111,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 247.5,
-    "collapsed": true
+    "width": 247.5
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -189,9 +170,21 @@
   "active": "fb40988ddb821ec8",
   "lastOpenFiles": [
     "Ingengeria del Software/pdf/04 - Use case.pdf",
+    "Ingengeria del Software/homework/1- use case.xopp~",
+    "Ingengeria del Software/Appunti.md",
+    "Ingengeria del Software/homework/1- use case.xopp",
+    "Ingengeria del Software/homework",
+    "Ingengeria del Software/pdf/05 - Software process model.pdf",
+    "Ingengeria del Software/img/Pasted image 20250226141331.png",
+    "Ingengeria del Software/img/Pasted image 20250226135223.png",
+    "Ingengeria del Software/img/Pasted image 20250226132708.png",
+    "Ingengeria del Software/pdf/05 - Software process model.pdf.crdownload",
+    "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
+    "Laboratorio di Applicazioni Mobili/Appunti.md",
+    "Tesi+Tirocinio",
+    "Laboratorio di Applicazioni Mobili/pdf/2-LAM_Kotlin.pdf",
     "Ingengeria del Software/Pasted image 20250224125815.png",
     "Ingengeria del Software/img/Pasted image 20250224125810.png",
-    "Ingengeria del Software/Appunti.md",
     "Ingengeria del Software/img/Pasted image 20250224125253.png",
     "Ingengeria del Software/Pasted image 20250224124917.png",
     "Ingengeria del Software/img/Pasted image 20250224124551.png",
@@ -202,20 +195,10 @@
     "Teoria dell'impresa/capitoli/capitolo_5.xopp",
     "Storia e Politiche del Digitale/Appunti.md",
     "Untitled.md",
-    "Laboratorio di Applicazioni Mobili/pdf/1-LAM_Setup_Android.pdf",
-    "Laboratorio di Applicazioni Mobili/pdf/2-LAM_Kotlin.pdf",
-    "Laboratorio di Applicazioni Mobili/pdf/2-LAM_Kotlin.pdf.crdownload",
-    "Laboratorio di Applicazioni Mobili/Appunti.md",
-    "Ingengeria del Software/pdf/03 - OO modeling and UML.pdf",
-    "Laboratorio di Applicazioni Mobili/codice",
-    "Laboratorio di Applicazioni Mobili/Nuova cartella",
     "Stakeholder.md",
     "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg",
     "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-12-02 at 17.21.07.jpeg",
-    "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-12-09 at 16.42.21.jpeg",
-    "Strategia Organizzazione e Mercati/img/struttura-del-mercato.svg",
     "Strategia Organizzazione e Mercati/Importante.md",
-    "Strategia Organizzazione e Mercati/img/pericoli-organizzazione-economica-2.svg",
     "Introduzione Apprendimento Automatico/esame/Domande.md",
     "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
     "Strategia Organizzazione e Mercati/Appunti.md",

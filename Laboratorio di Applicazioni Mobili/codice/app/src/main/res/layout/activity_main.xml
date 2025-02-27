@@ -8,16 +8,18 @@
         tools:context=".MainActivity">
 
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="81dp"
+            android:layout_height="24dp"
             android:text="Hello World!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/textView" />
+            android:id="@+id/textView"
+            app:layout_constraintVertical_bias="0.323" />
 
     <Button
+
             android:text="Clicca per distruggere pavullo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,8 +28,11 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="24dp"
+            android:rotationY="-13"
+            android:rotationX="-26"
+            android:onClick="whenClicked" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

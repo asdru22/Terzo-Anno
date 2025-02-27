@@ -47,6 +47,7 @@ Servono per specificare quello che il software deve fare e i vincoli che deve ri
 - Validazione: definire i meccanismi per verificare che il sistema finito è coerente con i requisiti iniziali.
 
 Il committente ha un modello mentale non coerente e spesso difficile da spiegare. I requisiti sono **indipendenti dall'implementazione**.
+>I progetti software in genere falliscono quando la visione del committente non è allineata con quella dello sviluppatore. In genere ci si rende conto di questo solo quando il progetto è terminato.
 ### 1.3.1 Formalizzare i requisiti
 Standard ISO che indica come vanno rappresentati i requisiti e i documenti che li raccolgono:
 ##### 1.3.1.1 *Stakeholder requirements specification document*: StRS 
@@ -152,10 +153,10 @@ OCL è un linguaggio dichiarativo utilizzato per specificare vincoli che si appl
 È un diagramma comportamentale che serve per descrivere un'insieme di azioni (caso d'uso) che un certo sistema deve realizzare in collaborazione con uno o più entità esterne, chiamate attori. Ogni *use case*  dovrebbe fornire un risultato osservabile e di [[#Valore]] agli attori o ad altri stakeholder.
 Ci saranno azioni che gli attori potranno operare sul sistema, e il sistema risponderà a queste azioni. I casi d'uso si limitano sempre ad interazioni osservabili.
 Il concetto di caso d'uso è indipendente dal diagramma dei casi d'uso. Il diagramma non è in grado da solo di catturare tutto quello che si vuole sapere riguardo ad un caso d'uso.
-## 3.2 Uso dei diagrammi dei casi d'uso [completare]
+## 3.2 Uso dei diagrammi dei casi d'uso
 - Usati per catturare i requisiti di un sistema: alternativa a documenti di requisiti software.
--  La funzionalità offerta da un soggetto
-- Requisiti che il soggetto specificato applica nel suo ambiente.
+-  La funzionalità offerta da un soggetto: cosa può fare il sistema.
+- Requisiti che il soggetto specificato applica nel suo ambiente, come l'ambiente dovrebbe interagire on il soggetto affinché possa eseguire i suoi servizi.
 
 L'elemento **attore** si può rappresentare con una qualunque icona che rappresenti gli attori del sistema. L'attore è un entità esterna al sistema, che ci interagisce scambiando dati. Con gli attori si vuole catturare le classi di utenti.
 Il **soggetto** è il sistema da analizzare o progettare, sul quale si applicano gli use case. Può essere un sistema fisico o software, ed è rappresentato da un rettangolo, il cui nome è in un angolo in alto. Gli attori sono al difuori di questo rettangolo.
@@ -240,3 +241,70 @@ Un modello è soggetto a più raffinamenti iterativi.
 		3. visitatore inserisce commento
 		4. il sistema mostra messaggio di successo
 	- Sequenze alternative: in questo caso non ci sono
+
+# 5. Software process model
+Processi: serie di attività coordinate che portano ad un obiettivo.
+Processo software: l'obiettivo è produrre, rilasciare, evolvere e mantenere.
+Con evoluzione si intende un software che viene arricchito con nuove funzionalità.
+Manutenzione: interventi di portata più piccola
+## 5.1 Obiettivi del processo software
+Pianificare e organizzare un progetto software con vincoli tipo: qualità, tempo, costi. Bisogna essere in grado di ottimizzare il processo e individuare i rischi. La gestione dei rischi consiste nel fargli emergere il prima possibile e vedere se sono mitigabili.
+## 5.2 Ciclo di vita del software
+1. Attività di specifica/analisi
+2. Attività di progettazione e modello di design
+3. Implementazione
+4. Validazione (testing)
+5. Evoluzione: piccole modifiche sul software
+
+## 5.3 Artefatti (deliverables)
+Dato che il software è intangibile, per compensare l'assenza di visibilità, si producono artefatti:
+- documenti di design
+- report
+- incontri 
+- sondaggi 
+
+## 5.4 Modello a cascata
+Descrive un processo in cui le diverse fasi che operano ai diversi livelli di astrazione sono originariamente sequenziali.
+![[Pasted image 20250226132708.png]]
+- Coding: si mettono gli algoritmi dentro ai metodi
+- Testing: per vedere se soddisfa i requisiti
+- Operations: si aggiorna l'applicazione web,...
+
+Dopo aver applicato il modello a cascata può anche esserci il bisogno di risalire (da testing si può ritornare al coding). In un progetto vero e proprio è più comune risalire piuttosto che scendere.
+**Vantaggi**:
+- Facile da capire
+- Inforza buone pratiche
+- Artefatti identificabili
+- Documentazione comprensiva
+
+**Svantaggi**:
+- Irrealistico (assume che le specifiche iniziali non cambino mai)
+- Consegna solo del prodotto finito (alto rischio di disallineamento di idee tra committente e sviluppatore)
+- Risk management inefficiente
+- Difficile da gestire i cambiamenti
+- Costo di manutenzione alto
+
+## 5.5 Modello a spirale
+Modello ormai non più utilizzato, basato su una famiglia di processi. Il processo di generazione del modello dipende dai rischi. Ha un approccio ciclico dato che è un modello iterativo. Non si fa tutto il modello di analisi all'inizio, ma solo una parte. Si prendono parte degli elementi per realizzare il modello: in questo modo si ha un prototipo.
+![[Pasted image 20250226135223.png]]
+Ogni ciclo inizia con obiettivi, alternative e limiti. Il passo successivo è determinato sulla base dei rischi rimanenti. Ogni ciclo termina con una revisione dagli stakeholder.
+**Vantaggi**: 
+- riflette la natura iterativa dello sviluppo software
+- buona visibilità
+- comprensione dei rischi
+
+**Svantaggi**:
+- analisi dei rischi non è insignificante
+- modello complicato, le priorità dei rischi potrebbero portare a una consegna tarda
+- alto sforzo di manutenzione
+
+Lo sviluppo iterativo incrementale richiede programmare e testare un sistema parziale molto presto, e in genere ipotizza che lo sviluppo inizi prima che tutti i requisiti siano definiti in dettaglio. Il feedback degli stakeholder è usato per migliorare la specifiche già esistenti.
+## 5.6 Processo unificato (UP)
+Il processo unificato è un framework iterativo e incrementale. UP combina buone pratiche già esistenti (ciclo di vita iterativo e sviluppo basato su cicli) in una descrizione di processo coesa e ben documentata, guidata dai casi d'uso. Essere architettura centrico significa che le scelte architetturali vanno fatte il prima possibile.
+Il processo unificato divide il progetto in quattro fasi:
+- inizio: architetture candidate, identificano i rischi e termina con il Lifecycle Objective Milestone.
+- elaborazione: valutazione rischi, validazione dell'architettura. Si implementa un architettura eseguibile. Termina con un piano per la fase di costruzione
+- costruzione: implementazione feature di sistema
+- transizione: rilasciare il sistema, raccogliere feedback
+![[Pasted image 20250226141331.png]]
+Il tempo investito in queste attività non è uguale per tutte. Ogni fase è composta da iterazioni, ognuna delle quali termina con una release da far vedere al committente. Le iterazioni che terminano una fase devono aver realizzato degli artefatti predefiniti (milestone). Se non si raggiunge il milestone bisogna aggiungere un'altra iterazione a quella fase.
