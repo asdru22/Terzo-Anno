@@ -173,7 +173,7 @@ Un attore è **associato** a un caso d'uso solamente da una relazione di associa
 Questa è l'unica relazione che può esserci tra attori e casi d'uso (relazione binaria). La rappresentazione grafica è un segmento.
 ## 3.3 Relazioni tra casi d'uso
 ### 3.3.1 Generalizzazione
-Il caso d'uso è una sequenza di passi di interazione che sottointendono un obiettivo.. Un attore interagisce con il sistema quando ha un obiettivo. Il caso d'uso è sempre identificato da un obiettivo. 
+Il caso d'uso è una sequenza di passi di interazione che sottointendono un obiettivo. Un attore interagisce con il sistema quando ha un obiettivo. Il caso d'uso è sempre identificato da un obiettivo. 
 ![[Pasted image 20250224124551.png]]
 I nomi dei casi d'uso vengono definiti in base al loro obiettivo.
 La specializzazione (operazione inversa della generalizzazione) sono operazioni che hanno lo stesso obiettivo.
@@ -242,28 +242,28 @@ Un modello è soggetto a più raffinamenti iterativi.
 		4. il sistema mostra messaggio di successo
 	- Sequenze alternative: in questo caso non ci sono
 
-# 5. Software process model
+# 4. Software process model
 Processi: serie di attività coordinate che portano ad un obiettivo.
 Processo software: l'obiettivo è produrre, rilasciare, evolvere e mantenere.
 Con evoluzione si intende un software che viene arricchito con nuove funzionalità.
 Manutenzione: interventi di portata più piccola
-## 5.1 Obiettivi del processo software
+## 4.1 Obiettivi del processo software
 Pianificare e organizzare un progetto software con vincoli tipo: qualità, tempo, costi. Bisogna essere in grado di ottimizzare il processo e individuare i rischi. La gestione dei rischi consiste nel fargli emergere il prima possibile e vedere se sono mitigabili.
-## 5.2 Ciclo di vita del software
+## 4.2 Ciclo di vita del software
 1. Attività di specifica/analisi
 2. Attività di progettazione e modello di design
 3. Implementazione
 4. Validazione (testing)
 5. Evoluzione: piccole modifiche sul software
 
-## 5.3 Artefatti (deliverables)
+## 4.3 Artefatti (deliverables)
 Dato che il software è intangibile, per compensare l'assenza di visibilità, si producono artefatti:
 - documenti di design
 - report
 - incontri 
 - sondaggi 
 
-## 5.4 Modello a cascata
+## 4.4 Modello a cascata
 Descrive un processo in cui le diverse fasi che operano ai diversi livelli di astrazione sono originariamente sequenziali.
 ![[Pasted image 20250226132708.png]]
 - Coding: si mettono gli algoritmi dentro ai metodi
@@ -284,7 +284,7 @@ Dopo aver applicato il modello a cascata può anche esserci il bisogno di risali
 - Difficile da gestire i cambiamenti
 - Costo di manutenzione alto
 
-## 5.5 Modello a spirale
+## 4.5 Modello a spirale
 Modello ormai non più utilizzato, basato su una famiglia di processi. Il processo di generazione del modello dipende dai rischi. Ha un approccio ciclico dato che è un modello iterativo. Non si fa tutto il modello di analisi all'inizio, ma solo una parte. Si prendono parte degli elementi per realizzare il modello: in questo modo si ha un prototipo.
 ![[Pasted image 20250226135223.png]]
 Ogni ciclo inizia con obiettivi, alternative e limiti. Il passo successivo è determinato sulla base dei rischi rimanenti. Ogni ciclo termina con una revisione dagli stakeholder.
@@ -299,7 +299,7 @@ Ogni ciclo inizia con obiettivi, alternative e limiti. Il passo successivo è de
 - alto sforzo di manutenzione
 
 Lo sviluppo iterativo incrementale richiede programmare e testare un sistema parziale molto presto, e in genere ipotizza che lo sviluppo inizi prima che tutti i requisiti siano definiti in dettaglio. Il feedback degli stakeholder è usato per migliorare la specifiche già esistenti.
-## 5.6 Processo unificato (UP)
+## 4.6 Processo unificato (UP)
 Il processo unificato è un framework iterativo e incrementale. UP combina buone pratiche già esistenti (ciclo di vita iterativo e sviluppo basato su cicli) in una descrizione di processo coesa e ben documentata, guidata dai casi d'uso. Essere architettura centrico significa che le scelte architetturali vanno fatte il prima possibile.
 Il processo unificato divide il progetto in quattro fasi:
 - inizio: architetture candidate, identificano i rischi e termina con il Lifecycle Objective Milestone.
@@ -308,3 +308,91 @@ Il processo unificato divide il progetto in quattro fasi:
 - transizione: rilasciare il sistema, raccogliere feedback
 ![[Pasted image 20250226141331.png]]
 Il tempo investito in queste attività non è uguale per tutte. Ogni fase è composta da iterazioni, ognuna delle quali termina con una release da far vedere al committente. Le iterazioni che terminano una fase devono aver realizzato degli artefatti predefiniti (milestone). Se non si raggiunge il milestone bisogna aggiungere un'altra iterazione a quella fase.
+# 5. Classi UML
+## 5.1 Classe
+La classe è un tipo, gli oggetti rappresentati sono riconducibili a un tipo, e ogni tipo ha una classe. Sono rappresentati con un rettangolo e può essere diviso in compartimenti da linee orizzontali (ad esempio attributi e operazioni/funzioni).
+![[Pasted image 20250303125043.png]]
+
+**Proprietà**: modificatori di visibilità, seguiti da un nome, il tipo e una molteplicità
+**Operazioni** (funzioni/metodi): modificatori di visibilità seguiti da un nome, dei parametri e un tipo opzionale.
+**Modificatori di visibilità**:
+- `+`: public
+- `-`: private
+- `#`: protected
+- `~`: package
+**Molteplicità**: indica se l'attributo deve esserci per forza, quante volte deve esserci (cardinalità). È Il range ammesso dei valori, definito da un range di valori.
+- `1` indica che deve esserci esattamente un elemento
+- `1..n` indica che devono esserci da 1 a `n` elementi
+- `0..1` l'elemento è opzionale
+- `1..*` deve esserci almeno una volta
+- `*` ripetuto opzionale
+## 5.2 Istanze delle classi
+Rappresentano degli stati che devono essere conformi alle classi. 
+>Graficamente anche gli oggetti si rappresentano con rettangoli, il cui nome è sottolineato, seguito da `:` e la classe di cui è un istanza.
+
+
+![[Pasted image 20250303130311.png]]
+>Le due istanze sono correlate, indicate tramite un segmento, dove agli endpoint sono presenti i due classificatori.
+## 5.3 Relazioni
+### 5.3.1 Generalizzazione
+Si riconduce al concetto di ereditarietà, si legge come "A (elemento specifico) è un tipo di B (elemento generale)". C'è una gerarchia di ereditarietà. In UML è prevista l'ereditarietà multipla.
+> La generalizzazione è rappresentata graficamente con una freccia vuota.
+
+![[Pasted image 20250303131004.png]]
+### 5.3.2 Dipendenza
+La dipendenza indica una relazione di fornitore-utilizzatore, e l'utilizzatore non è in grado di realizzare la sua semantica senza il fornitore. Se uno cambia, l'altro potrebbe essere costretto anch'esso a cambiare. Si dice "A dipende da B". Il cambiamento del fornitore può riflettersi anche nell'utilizzatore.
+> La dipendenza è rappresentata graficamente da una linea tratteggiata, che può essere stereotipata.
+
+![[Pasted image 20250303131508.png]]
+### 5.3.3 Realizzazioni
+Una realizzazione è un tipo di dipendenza.
+> La realizzazione è rappresentata graficamente da una linea tratteggiata che termina con una freccia vuota.
+
+L'elemento che sta realizzando (realising element) deve fornire un'implementazione concreta del comportamento o delle specifiche definite dall'elemento che viene realizzato (realized element).
+![[Pasted image 20250303131945.png]]
+### 5.3.4 Associazione
+Un'associazione dichiara che possono esserci collegamenti tra più istanze dei tipi associati. Un link è una coppia dove con valore per ogni termine dell'associazione. Il legame non deve essere solo logico, ma c'è anche un meccanismo operativo per risalire agli altri termini.
+> Le associazioni sono rappresentate con frecce che hanno label 
+
+![[Pasted image 20250303132328.png]]
+A un giocatore non corrisponde un solo anno (molteplicità/numerosità).
+#### 5.3.5.1 Navigazione
+Un padre può avere `*` figli, un figlio ha `1` padre (può essere omesso).
+![[Pasted image 20250303132851.png]]
+Se si mostrano tutte le frecce e croci: navigazione e assenza di navigazione sono esplicite. Se non ci sono frecce e croci la navigazione è oscurata. Se non ci sono croci non si può distinguere tra navigazione in entrambi i versi e situazioni dove non c'è navigazione. La croce si usa quando la relazione si può inferire ma non è immediata.
+### 5.3.6 Aggregazione
+>L'aggregazione è appresentata graficamente con una freccia a rombo
+
+La classe al termine della freccia indica è dipendente da un numero di classi alla sorgente della relazione. La sorgente ha molteplicità.
+![[Pasted image 20250303134221.png]]
+### 5.3.7 Composizione
+Un file esiste solo se c'è una cartella in cui metterlo. Il file non esiste senza folder. Il libro può esistere anche senza libreria.
+L'oggetto composto ha responsabilità per l'esistenza e contenimento di oggetti composti.
+>La composizione è appresentata graficamente con una freccia a rombo piena
+## 5.4 Classi Astratte
+Le classi astratte non possono essere istanziate. Le sue istanze sono istanze di specializzazioni.
+> Le classi astratte si rappresentano graficamente in corsivo o con l'annotazione `{abstract}`
+## 5.5 Interfacce
+Le interfacce si modellano come le classi, ma si usa lo stereotipo `interface`. Le interfacce definiscono un obbligo da definire nella fase di implementazione. Dichiarano servizi coerenti che sono implementati dalle classi che li implementano.
+# 6. Modello di analisi del modello di dominio
+Il model dell'ogetto di dominio rappresenta concetti nel dominio del problema, le sue caratteristiche e come sono correlate tra di loro È un dizionario visivo del dominio del problema
+## 6.1 Disegnare il modello del dominio
+- L'artefatto risultante è in genere un diagramma di classi UML
+- Per identificare le classi si fa un analisi dei nomi e frasi soggetto che sono parte della descrizione del problema
+- Si analizzano i verbi per identificare responsabilità e collaborazioni
+- Si ripetono questi passi per raffinare il modello
+## 6.2 Esercizio
+> The City of Duckburg activates an initiative that allows dogs hosted in the kennels of the district to enjoy a walk in the Sunday afternoons. Citizens interested in taking custody of the animals register their availability specifying the Sunday and the area, among the many that make up the Municipality, in which they are willing to collect a dog (there are several kennels located in various areas). 
+> Given this availability the kennels assign dogs to citizens creating appointments which are then communicated to the volunteers.
+
+- Sunday
+- Kennel
+- Dog
+- Citizen
+- Area
+- City
+- Custody
+- Appointment
+- Communication
+
+![[04_03.svg]]

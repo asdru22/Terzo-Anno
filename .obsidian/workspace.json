@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0f4e4ab47aa5b3c1",
+        "id": "92de09e6a15f491d",
         "type": "tabs",
         "children": [
           {
-            "id": "fc64d557195cfd09",
+            "id": "64490e2b95525d84",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,6 +19,24 @@
               },
               "icon": "lucide-file",
               "title": "Appunti"
+            }
+          }
+        ]
+      },
+      {
+        "id": "1b34306efcf90e01",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cd6628aa4922786f",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Ingegneria del Software/pdf/07 - Analisys model - domain.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "07 - Analisys model - domain"
             }
           }
         ]
@@ -53,13 +71,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
+                "file": "Ingegneria del Software/pdf/06 - Intro to UML classes.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Limiti e problemi di .mcfunction"
+              "title": "Outline of 06 - Intro to UML classes"
             }
           },
           {
@@ -93,7 +111,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 247.5
+    "width": 247.5,
+    "collapsed": true
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -167,37 +186,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bdeffa0d64163e59",
+  "active": "64490e2b95525d84",
   "lastOpenFiles": [
-    "Teoria dell'impresa/capitoli/capitolo_6.xopp~",
-    "Ingengeria del Software/homework/1- use case.xopp~",
-    "Tesi+Tirocinio/Pasted image 20250228004249.png",
-    "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
+    "Ingegneria del Software/esercizi/04_03.svg",
+    "Ingegneria del Software/esercizi",
+    "Ingegneria del Software/Nuova cartella",
+    "Ingegneria del Software/pdf/07 - Analisys model - domain.pdf",
     "Ingegneria del Software/Appunti.md",
-    "Ingegneria del Software/pdf/04 - Use case.pdf",
-    "Ingegneria del Software/homework/1- use case.xopp",
-    "Ingegneria del Software/homework",
-    "Ingegneria del Software/pdf/05 - Software process model.pdf",
-    "Ingegneria del Software/img/Pasted image 20250226141331.png",
-    "Ingegneria del Software/img/Pasted image 20250226135223.png",
-    "Ingegneria del Software/img/Pasted image 20250226132708.png",
-    "Ingengeria del Software/pdf/05 - Software process model.pdf.crdownload",
+    "Ingegneria del Software/pdf/06 - Intro to UML classes.pdf",
+    "Ingegneria del Software/img/Pasted image 20250303134221.png",
+    "Ingegneria del Software/img/Pasted image 20250303132716.png",
+    "Ingegneria del Software/img/Pasted image 20250303132851.png",
+    "Ingegneria del Software/img/Pasted image 20250303132328.png",
+    "Ingegneria del Software/img/Pasted image 20250303131945.png",
+    "Ingegneria del Software/img/Pasted image 20250303131508.png",
+    "Ingegneria del Software/img/Pasted image 20250303131004.png",
+    "Ingegneria del Software/img/Pasted image 20250303130311.png",
+    "Ingegneria del Software/img/Pasted image 20250303125043.png",
+    "Ingegneria del Software/pdf/06 - Intro to UML classes.pdf.crdownload",
+    "Ingegneria del Software/homework/homework1.drawio",
+    "Ingegneria del Software/homework/1- use case.xopp~",
+    "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
+    "Tesi+Tirocinio/Pasted image 20250228004249.png",
+    "Ingegneria del Software/riassunto-2.pdf",
+    "Ingegneria del Software/riassunto-2.xopp~",
+    "Ingegneria del Software/riassunto-1.pdf",
     "Laboratorio di Applicazioni Mobili/Appunti.md",
-    "Tesi+Tirocinio",
-    "Laboratorio di Applicazioni Mobili/pdf/2-LAM_Kotlin.pdf",
-    "Ingengeria del Software/Pasted image 20250224125815.png",
-    "Ingegneria del Software/img/Pasted image 20250224125810.png",
-    "Ingegneria del Software/img/Pasted image 20250224125253.png",
-    "Ingengeria del Software/Pasted image 20250224124917.png",
-    "Ingegneria del Software/img/Pasted image 20250224124551.png",
-    "Ingegneria del Software/img",
     "Valore.md",
-    "Ingengeria del Software/pdf/04 - Use case.pdf.crdownload",
     "Teoria dell'impresa/Appunti.md",
     "Storia e Politiche del Digitale/Appunti.md",
     "Untitled.md",
     "Stakeholder.md",
-    "Strategia Organizzazione e Mercati/Esami/WhatsApp Image 2024-11-19 at 23.10.56.jpeg",
     "Strategia Organizzazione e Mercati/Importante.md",
     "Introduzione Apprendimento Automatico/esame/Domande.md",
     "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
