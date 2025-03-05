@@ -24,11 +24,11 @@
         ]
       },
       {
-        "id": "1b34306efcf90e01",
+        "id": "682681999dd0347f",
         "type": "tabs",
         "children": [
           {
-            "id": "cd6628aa4922786f",
+            "id": "997fe892d984ed0f",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -71,13 +71,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ingegneria del Software/pdf/06 - Intro to UML classes.pdf",
+                "file": "Ingegneria del Software/Appunti.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 06 - Intro to UML classes"
+              "title": "Outline of Appunti"
             }
           },
           {
@@ -111,8 +111,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 247.5,
-    "collapsed": true
+    "width": 247.5
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -188,11 +187,13 @@
   },
   "active": "64490e2b95525d84",
   "lastOpenFiles": [
+    "Ingegneria del Software/pdf/07 - Analisys model - domain.pdf",
+    "Laboratorio di Applicazioni Mobili/riassunto.pdf",
+    "Laboratorio di Applicazioni Mobili/Applicazioni mobili.pdf",
+    "Ingegneria del Software/Appunti.md",
     "Ingegneria del Software/esercizi/04_03.svg",
     "Ingegneria del Software/esercizi",
     "Ingegneria del Software/Nuova cartella",
-    "Ingegneria del Software/pdf/07 - Analisys model - domain.pdf",
-    "Ingegneria del Software/Appunti.md",
     "Ingegneria del Software/pdf/06 - Intro to UML classes.pdf",
     "Ingegneria del Software/img/Pasted image 20250303134221.png",
     "Ingegneria del Software/img/Pasted image 20250303132716.png",
@@ -207,10 +208,8 @@
     "Ingegneria del Software/homework/homework1.drawio",
     "Ingegneria del Software/homework/1- use case.xopp~",
     "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
-    "Tesi+Tirocinio/Pasted image 20250228004249.png",
     "Ingegneria del Software/riassunto-2.pdf",
     "Ingegneria del Software/riassunto-2.xopp~",
-    "Ingegneria del Software/riassunto-1.pdf",
     "Laboratorio di Applicazioni Mobili/Appunti.md",
     "Valore.md",
     "Teoria dell'impresa/Appunti.md",
