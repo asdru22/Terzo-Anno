@@ -41,5 +41,17 @@
         android:layout_height="wrap_content"
         android:text="List View" />
 
+    <Button
+        android:id="@+id/buttonWidgets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Widgets" />
+
+    <Button
+        android:id="@+id/buttonRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recycler View" />
+
 </LinearLayout>
 </ScrollView>

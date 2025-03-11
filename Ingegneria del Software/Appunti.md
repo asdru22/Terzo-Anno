@@ -19,8 +19,8 @@ Il processo di sviluppo del software è una sequenza di attività ad alta astraz
 I modelli sono astrazioni o rappresentazioni della realtà in maniera più semplice rispetto a quella che è effettivamente. Sono rappresentazioni in grado di fornire risposte alle domande di un sistema.
 Il processo software è un raffinamento dei modelli (opposto dell'astrazioone)
 - Modello mentale (*problem space*): modelli che rispondono alla domanda "cosa deve fare il sistema?". In genere è incompleto.
-- Modello di analisi (*problem space*): "come deve fare il sistema?"
-- Modello di design (*solution space*)
+- Modello di analisi (*problem space*): focalizzato sulla comprensione e sulla definizione dei requisiti del sistema. Si tratta di una rappresentazione astratta di **cosa** il sistema deve fare, senza entrare nei dettagli implementativi. Usa [[#4.5 Modello dei casi d'uso|modelli dei casi d'uso]] e diagrammi delle [[#6.1 Classe|classi]].
+- Modello di design (*solution space*): traduce il modello di analisi in una rappresentazione più concreta, definendo **come** il sistema verrà implementato. Qui si passa da concetti astratti a soluzioni tecniche.
 - Modello di costruzione (*solution space*): modello più dettagliato, completo e carico di informazioni.
 
 Bisogna aggiungere informazioni a modelli astratti.
@@ -376,7 +376,7 @@ Le classi astratte non possono essere istanziate. Le sue istanze sono istanze di
 ## 6.5 Interfacce
 Le interfacce si modellano come le classi, ma si usa lo stereotipo `interface`. Le interfacce definiscono un obbligo da definire nella fase di implementazione. Dichiarano servizi coerenti che sono implementati dalle classi che li implementano.
 # 7. Modello di analisi e modello di dominio
-Nell'Object-Oriented Analysis (OOA), il modello di dominio (o modello a oggetti) rappresenta i concetti nel dominio del problema, le loro caratteristiche e le loro correlazioni. È un dizionario visivo per il dominio del problema.
+Nell'*Object-Oriented Analysis* (OOA), il modello di dominio (o modello a oggetti) rappresenta i concetti nel dominio del problema, le loro caratteristiche e le loro correlazioni. È un dizionario visivo per il dominio del problema.
 ## 7.1 Disegnare il modello del dominio
 - L'artefatto risultante è in genere un diagramma di classi UML
 - Per identificare le classi si fa un analisi dei nomi e frasi soggetto che sono parte della descrizione del problema
@@ -397,3 +397,139 @@ Nell'Object-Oriented Analysis (OOA), il modello di dominio (o modello a oggetti)
 - Communication
 
 ![[04_03.svg]]
+# 8. Diagrammi di attività UML
+ I diagrammi di attività sono diagrammi comportamentali usati per rappresentare i comportamenti di classi, casi d'uso, interfacce, componenti e comportamenti di una classe (operazioni, algoritmi).
+ I diagrammi di attività sono formalizzati per essere simili a semantiche della rete di Petri. Le semantiche del sistema sono descritte in termini di transazioni tra segni.
+## 8.1 Elementi di un *activity diagram*
+- Attività
+- Nodi dell'attività
+	- Azioni
+	- Oggetti
+	- Controllo (per mostrare scelte)
+- frecce dell'attività
+> Graficamente, c'è un pallino nero che indica il punto di partenza. Dei rombi rappresentano le scelte possibili (flussi). I rettangoli con angoli arrotondati rappresentano il punto in cui il processo è in esecuzione (flusso di esecuzione).
+
+A differenza dei diagrammi di flusso, i diagrammi di attività possono avere flussi di esecuzione concorrenti.
+![[Pasted image 20250305133359.png]]
+Elementi dei nodi di attività sono
+### 8.1.1 Azioni
+ Elementi di comportamento atomico: non si sa cosa sta succedendo durante l'azione, non viene catturato il loro comportamento interno. Possono essere di vari tipi:
+ - funzioni primitive
+ - chiamate ad operazioni
+ - invio o ricezione di segnali
+ - manipolazione di oggetti
+ - invocazione di comportamenti
+
+> Sono rappresentate graficamente come rettangoli arrotondati. Un azione può avere insiemi di attività entranti o uscenti.
+
+Un token attiva un azione, dopodiché l'azione può avere luogo. Si possono specificare anche altre condizioni
+### 8.1.2 Archi
+Definiscono le dipendenze causali con un meccanismo di attraversamento. Si possono specificare nomi e vincoli per rendere gli archi traversabili. Le condizioni sono specificate tra parentesi quadre.
+### 8.1.3 Oggetti
+Un nodo oggetto è un istanza di un classificatore.
+> Si rappresentano come rettangoli oppure si usano pin per indicare che oggetti vengono dati in output e presi in input da un'altra azione.
+
+### 8.1.4 Nodo parametrico
+Indicano che un processo opera in funzione di un parametro di attivazione. Quando il parametro è disponibile, il processo avrà luogo.
+![[Pasted image 20250305134550.png]]
+Si tratta di una forma speciale di [[#8.1.3 Oggetti|oggetto]].
+### 8.1.5 Connettori
+### 8.1.6 Controllo
+Un nodo di controllo è usato per coordinare i flussi tra altri nodi. Include il nodo iniziale, finale, di decisione, di unione, di divisione, di unione.
+![[Pasted image 20250305134834.png]]
+Il nodo decisionale può fare uso di predicati/guardie negli archi di uscita per mandare il flusso verso archi attraversabili.
+Il *flow final* termina tutte le attività in esecuzione.
+#### 8.1.6.1 Competizione dei token
+I token non vengono spinti verso delle azioni, ma sono le azioni ad accettare i token. Quando un azione si completa, il token è rilasciato ed è offerto da altre azioni. È il token a scegliere quale azione vuole compiere in un dato momento del flusso di esecuzione. 
+>I nodi di decisione non fanno azioni, altrimenti sarebbero nodi di decisione. Sono passivi, non attivi. Le azioni sono solo nei nodi di azione.
+
+#### 8.1.7 Regione di espansione 
+È un nodo che prende in input collezioni, opera su ogni elemento delle collezione e produce elementi da inviare alle collezioni. Vengono processati dei dati fino a quando una condizione non è più vera. Se si usa lo stereotipo `«parallel»` vuol dire che i token saranno tutti inviati allo stesso momento e processati assieme.
+### 8.1.8 Partizione di attività
+Un *activity partition* è un gruppo di attività per azioni che hanno una caratteristica comune. Le partizioni forniscono una visualizzazione ristretta dei comportamenti chiamati in attività e spesso corrispondono a unità organizz azionali. Ogni corsia è chiamata *swim lane*.
+![[Pasted image 20250305141651.png]]
+### 8.1.9 Regioni interrompibili e archi di interruzione
+Una regione interrompibili è un tipo di gruppo di attività che ha un meccanismo per distruggere tutti i token e terminare tutti i processi in una sezione dell'attività delimitata dalla regione. Quando il token è accettato da un tipo speciale di arco viene lascia la regione e tutti gli altri token dentro ad essa vengono terminati.
+![[Pasted image 20250305142038.png]]
+### 8.1.10 Azioni correlate ad eventi
+Le *event actions* sono usate per modellare interazioni che avvengono al difuori dell'attività corrente. Produrre eventi è asincrono, consumare eventi è sincrono (bloccante). Le azioni ad evento sono:
+- invio segnale
+- accetta segnare
+- ripetizione periodica di eventi
+# 9. Diagrammi di interazione
+## 9.1 Diagrammi di sequenza
+I diagrammi di sequenza sono il tipo più comune di diagrammi di interazione. Si concentrano sullo scambio di messaggi tra lifeline. I diagrammi di sequenza descrivono le interazioni concentrandosi sulla sequenza dei messaggi scambiati e sulle corrispondenti specifiche di occorrenza sulle lifeline.
+## 9.1.1 Lifeline
+Una lifeline è un elemento nominato che rappresenta un singolo partecipante nell'interazione. Le parti e caratteristiche strutturali possono avere molteplicità maggiore di 1, le lifeline rappresentano solo una delle entità che sta interagendo.
+## 9.1.2 Messaggio
+Un messaggio rappresenta o una chiamata ad un operazione e l'inizio dell'esecuzione o l'invio e ricezione di un segnale. Può essere
+- chiamata sincrona/asincrona
+- segnale asincrono
+- risposta
+- creazione
+- cancellamento
+### 9.1.2.1 Chiamata sincrona
+Rappresentano operazioni di chiamata-invio messaggi e sospendono l'esecuzione quando aspettano una risposta. 
+>Chiamate sincrone sono rappresentate con una freccia piena.
+### 9.1.2.2 Chiamata asincrona
+Invia il messaggio e procede subito senza aspettare il valore di ritorno.
+> Chiamate asincrone sono rappresentate da una freccia aperta.
+### 9.1.2.3 Risposta
+> La risposta a una chiamata si rappresenta con una linea tratteggiata con la punta aperta.
+### 9.1.1.4 Creazione
+Un messaggio di creazione è inviato a una lifeline per creare stesso. In genere si invia un messaggio di creazione a un oggetto non-esistente per creare se stesso.
+> Si rappresenta con una freccia tratteggiata aperta. Stereotipato con *destroy*.
+### 9.1.1.5 Cancellazione
+Un messaggio di cancellazione è inviato per terminare un'altra lifeline. La lifeline in genere termina con una croce a forma di X sotto.
+## 9.1.2 Lost & Founds
+![[Pasted image 20250311093529.png]]
+## 9.1.3 *Gate*
+Un gate è la fine di un messaggio, un punto di connessione per trasmettere un messaggio dentro o fuori (in/out) da un frammento di interazione.
+## 9.1.4 *Interaction Fragment*
+Un frammento di interazione è un elemento nominato che rappresenta l'unità di interazione più generica. Ogni frammento di interazione è concettualmente come un interazione indipendente. Non c'è una notazione generale per un frammento di interazione. Le sue sottoclassi definiscono le loro notazioni.
+Esempi di frammenti di interazione sono:
+- Occorrenza
+- Esecuzione
+- Invariante di stato
+- Frammento combinato
+- Uso di interazione
+#### 9.3.8.1 Occorrenza
+Un'occorrenza è un frammento di interazione che rappresenta un momento nel tempo (evento) all'inizio o alla fine di un messaggio o esecuzione.
+#### 9.3.8.2 Esecuzione
+Un'esecuzione è un frammento di interazione che rappresenta un periodo nel ciclo di vita del partecipante dove sta
+- eseguendo un'unità di comportamento o azione dentro la lifeline
+- inviando un segnale a un altro partecipante
+- aspetta una risposta da un altro partecipante
+#### 9.3.8.3 Frammento Combinato
+Un frammento combinato è un frammento di interazione che definisce una combinazione dei frammenti di interazione. Un frammento combinato è definito da un operatore dell'interazione e operandi dell'interazione corrispondenti. Con i frammenti combinati l'utente può descrivere un numero di tracce in maniera compatta (simile a un ciclo `for`/`while`).
+> Rappresentati o con `loop(5,10)` o `[size<0]`.
+#### 9.3.8.4 Uso di interazione
+Un'uso di interazione è un frammento di interazione che permette di usare/chiamare un'altra interazione. Sequenze grandi e complesse possono essere semplificate con usi di interazione. In genere si riusa un'interazione tra le altre.
+### 9.1.5 Consigli sui *sequence diagrams*
+- Non generalizzare troppo le sequenze
+- Quando si usano i diagrammi di sequenza per l'analisi
+	- un caso d'uso può essere descritto da più di un diagramma di sequenza
+	- il tipo di azione del messaggio può essere deciso al tempo di azione
+	- nessun messaggio tra lifeline appartiene ad elementi del sistema
+- 
+## 9.2 Diagrammi di comunicazione
+Un diagramma di comunicazione mostra le interazione tra lifeline con regole generiche. Il diagramma di comunicazione è meno espressivo del diagramma di sequenza. 
+Si assume che i messaggi sono ricevuti nello stesso ordine che sono generati.
+![[Pasted image 20250311095624.png]]
+### 9.2.1 Messaggi
+La notazione per i messaggi nei diagrammi di comunicazione seguono le stesse regole usate nei diagrammi di sequenza. Ogni messaggio ha una notazione di sequenza: *sequence expression* (numero che indica l'ordine)
+```
+Sequence-expression ::= sequence-term '.' . . . ':' message-name 
+	
+Sequence-term ::= [integer[name]][recurrence]
+```
+I termini di sequenza sono usati per rappresentare il nesting di messaggi in un interazione.
+![[Pasted image 20250311100337.png]]
+`1.1` Vuol dire che il messaggio avviene dopo 1, ma prima che abbia generato risposta.
+`2` vuol dire che il messaggio ha già ricevuto la risposta
+### 9.2.2 Concorrenza e ricorrenza
+`Sequence-term ::= [integer[name]] [recurrence]`
+Messaggi che variano solo per nome sono considerati concorrenti.
+`recurrence ::= branch | loop branch ::= '[' guard ']'`
+Le guardie specificano le condizioni affinché il messaggio possa avvenire.
+
