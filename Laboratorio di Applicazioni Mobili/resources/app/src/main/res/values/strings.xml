@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">resources</string>
+    <string name="flip">Lancia la moneta</string>
+    <string name="heads">Testa</string>
+    <string name="tails">Coda</string>
+
+</resources>

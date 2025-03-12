@@ -493,17 +493,17 @@ Esempi di frammenti di interazione sono:
 - Invariante di stato
 - Frammento combinato
 - Uso di interazione
-#### 9.3.8.1 Occorrenza
+#### 9.1.4.1 Occorrenza
 Un'occorrenza è un frammento di interazione che rappresenta un momento nel tempo (evento) all'inizio o alla fine di un messaggio o esecuzione.
-#### 9.3.8.2 Esecuzione
+#### 9.1.4.2 Esecuzione
 Un'esecuzione è un frammento di interazione che rappresenta un periodo nel ciclo di vita del partecipante dove sta
 - eseguendo un'unità di comportamento o azione dentro la lifeline
 - inviando un segnale a un altro partecipante
 - aspetta una risposta da un altro partecipante
-#### 9.3.8.3 Frammento Combinato
+#### 9.1.4.3 Frammento Combinato
 Un frammento combinato è un frammento di interazione che definisce una combinazione dei frammenti di interazione. Un frammento combinato è definito da un operatore dell'interazione e operandi dell'interazione corrispondenti. Con i frammenti combinati l'utente può descrivere un numero di tracce in maniera compatta (simile a un ciclo `for`/`while`).
 > Rappresentati o con `loop(5,10)` o `[size<0]`.
-#### 9.3.8.4 Uso di interazione
+#### 9.1.4.3 Uso di interazione
 Un'uso di interazione è un frammento di interazione che permette di usare/chiamare un'altra interazione. Sequenze grandi e complesse possono essere semplificate con usi di interazione. In genere si riusa un'interazione tra le altre.
 ### 9.1.5 Consigli sui *sequence diagrams*
 - Non generalizzare troppo le sequenze
@@ -532,4 +532,3 @@ I termini di sequenza sono usati per rappresentare il nesting di messaggi in un 
 Messaggi che variano solo per nome sono considerati concorrenti.
 `recurrence ::= branch | loop branch ::= '[' guard ']'`
 Le guardie specificano le condizioni affinché il messaggio possa avvenire.
-

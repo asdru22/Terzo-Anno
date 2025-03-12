@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flip">Flip the coin</string>
+    <string name="heads">Heads</string>
+    <string name="tails">Tails</string>
+</resources>

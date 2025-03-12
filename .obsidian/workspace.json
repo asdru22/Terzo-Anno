@@ -22,24 +22,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "1dd04add116da66e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f415c3fda51b13ce",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Ingegneria del Software/pdf/09 - UML Interaction.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "09 - UML Interaction"
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
@@ -107,8 +89,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -189,6 +170,8 @@
   },
   "active": "65be44228a79919d",
   "lastOpenFiles": [
+    "Ingegneria del Software/homework/homework3.drawio",
+    "Ingegneria del Software/homework/3- attività UML.xopp~",
     "Ingegneria del Software/pdf/09 - UML Interaction.pdf",
     "Ingegneria del Software/Appunti.md",
     "Ingegneria del Software/img/Pasted image 20250311100337.png",
@@ -210,7 +193,6 @@
     "Ingegneria del Software/pdf/08 - UML Activities.pdf.crdownload",
     "Laboratorio di Applicazioni Mobili/appunti_notion.pdf",
     "Ingegneria del Software/pdf/07 - Analisys model - domain.pdf",
-    "Laboratorio di Applicazioni Mobili/riassunto.pdf",
     "Ingegneria del Software/img/Pasted image 20250303134221.png",
     "Laboratorio di Applicazioni Mobili/Appunti.md",
     "Valore.md",
