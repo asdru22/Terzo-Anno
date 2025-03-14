@@ -13,6 +13,12 @@ test_macro.mcfunction:
 macro_call.mcfunction:
 	function my_pack:test_macro {parameter:"ciao",integer:1,decimal:6}
 
+test_macro("ciao",1,0)
+
+void test_macro(parameter,integer,decimal){
+
+}
+
 // output:
 // ciao
 // 1.5
@@ -394,11 +400,14 @@ Dividere il colore per $2^{16}=65536$ equivale a spostare i bit a destra di 16 s
 ### Non si può (sempre) usare JSON in file .mcfunction
 Minecraft usa file JSON per dichiarare obiettivi (advancement), ricette (recipes), bottini dei bauli (loot tables) e altro. Scriverli non è un problema dato che ci sono generatori, e alcuni di questi possono essere scritti direttamente nel nel file .mcfunction senza creare un file .json a cui fare riferimento, ma non tutti. Per esempio se sto programmando una spada e voglio aggiungere una ricetta per costruirla, devo andare nella cartella specifica delle ricette e aggiungerla lì, poi se voglio fare un obiettivo che da premi quando la ottengo dovrò andare nella cartella degli obiettivi e creare un altro file JSON, e infine tornare alla mia cartella con il codice per la spada. Non è un problema grandissimo, ma considerando che è stata mostrata la comodità di poter scrivere più funzioni in un unico file, si può estendere questo concetto e magari definire anche queste strutture json che di base richiederebbero un loro file nel medesimo file che già contiene i comandi per la spada.
 ```c
-// my_sword.mcf (una ipotetica implementazione)
-advancement ./detect_hit = {...}
-recipe ./my_sword = {...}
 
-function ./on_hit = {
+package mysword
+
+// my_sword.mcf (una ipotetica implementazione)
+advancement detect_hit = {...}
+recipe my_sword = {...}
+
+function on_hit = {
 	say you hit a monster
 	if(...){
 		say special hit

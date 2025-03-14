@@ -1,0 +1,50 @@
+package block.moonlit_monolith
+
+loot_table moonlit_monolith = {
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:score",
+                "target": {
+                  "type": "minecraft:fixed",
+                  "name": "#count"
+                },
+                "score": "*dummy"
+              }
+            }
+          ],
+          "value": "*items/moonlit_monolith"
+        }
+      ]
+    }
+  ],
+  "random_sequence": "*blocks/moonlit_monolith"
+}
+
+function main{
+  as @n[tag=!smithed.entity,type=minecraft:item,distance=..2,nbt={PickupDelay:10s,Item:{components:{"minecraft:custom_name":{"font":"*technical","translate":"block.haywire.moonlit_monolith.name"}},id:"minecraft:furnace"}}] at @s run function {
+    execute store result score #count *dummy run data get entity @s Item.count
+    loot replace entity @s contents loot moonlit_monolith
+  }
+
+  particle minecraft:item{item:{id:"minecraft:stone",components:{"minecraft:item_model":"*moonlit_monolith"}}} ~ ~0.7 ~ 0.4 0.4 0.4 0.07 100 normal
+  kill @s
+  function *block.hopper_updating.undo
+}
+
+function fixed{
+  on passengers run kill
+  function main
+  $data remove storage *storage root.balemoon[{moonlit_monolith:"$(string_uuid)"}]
+}
+
+append(*block.timers.tick){
+  if(entity @s[tag=*moonlit_monolith,tag=!*moonlit_monolith.fixed] &! block ~ ~ ~ furnace) run function break.main // dato che siamo nel package block.moonlit_monolith, la funzione generata punterà a block/moonlit_monolith/break/main.mcfunction
+}

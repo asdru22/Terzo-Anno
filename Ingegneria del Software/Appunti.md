@@ -532,3 +532,52 @@ I termini di sequenza sono usati per rappresentare il nesting di messaggi in un 
 Messaggi che variano solo per nome sono considerati concorrenti.
 `recurrence ::= branch | loop branch ::= '[' guard ']'`
 Le guardie specificano le condizioni affinché il messaggio possa avvenire.
+# 10. *State machine*
+## 10.1 State machine comportamentale
+Una state machine **comportamentale** descrive un comportamento definito da un evento di un sistema o una sua parte, tramite un traversamento di un grafo di vertici (stati) connessi da transizioni.
+
+Uno **stato** è la risposta alla domanda "in che stato sta?". Gli stati influenzano il comportamento o le interazioni di un soggetto.
+![[Pasted image 20250312141101.png]]
+Dalle transizioni si riesce a capire il comportamento dell'soggetto osservato. In ogni istante analizzato il soggetto sarà in uno degli stati.
+Le transizioni sono atomiche, istantanee. Non ci sono stati intermedi.
+Le **etichette** indicano la ragione per cui una transizione ha luogo. 
+Un **evento** è un accadimento che influenza il comportamento del soggetto.
+Tutte le transizioni sono determinate da eventi. Per passare da uno stato ad un altro deve succedere qualcosa che influenza il comportamento del soggetto.
+> I rettangoli arrotondati sono stati. Lo stato non è un'azione. Si chiamano stati perché il soggetto ci sta.
+
+`<evento>[<guardia>]/<azione>` su una freccia che va dallo stato vecchio verso quello nuovo.
+Gli eventi non sono azioni. Le **azioni vengono fatte dal soggetto**, gli **eventi sono esterni**. Non ci sono azioni fatte da qualcosa che non sia il soggetto.
+Si usano le guardie `[<guardia>]` per indicare se una transizione è attraversabile.
+### 10.1.1 Stato
+Lo stato definisce una condizione invariante di un sistema. Due stati sono lo stesso stato se definiscono lo stesso comportamento: dagli stessi stimoli si hanno le stesse risposte. Il comportamento è una cosa aggiunta allo stato. Uno stato può essere:
+- semplice
+- composito: contiene una o più regioni, stati in queste regioni sono dette sottostati.
+- submachine
+
+Gli stati possono essere associati a comportamenti:
+- entrata (nello stato)
+- uscita (dallo stato) `exit/<behaviour name>`
+- `doActivity`: il suo comportamento viene eseguito in contemporanea con altri comportamenti associati a stati.
+>Uno stato è rappresentato da un rettangolo arrotondato, e può essere diviso in comportamenti divisi da una linea orizzontale.
+
+I compartimenti possono essere:
+- nome
+- comportamenti interni
+- transizioni interne
+#### 10.1.2.1 Pseudostati
+Nodi che non sono stati e non possono catturare il comportamento del sistema nel tempo (ad esempio lo pseudostato iniziale *start*).
+> Se il token non può fermarsi in quel punto allora è uno pseudostato. Il token può fermarsi solo negli stati.
+
+Il token non può fermarsi in questi punti: `initial/start, join, fork, junction, choice, entryPoint, exitPoint, terminate` e sono dunque dei pseudostati.
+### 10.1.2 Transizioni
+Le transizioni sono passaggi atomici da uno stato all'altro. Le transizioni sono sempre attivati da eventi, **anche quando non sono espliciti**. Le transizioni possono avere guardie. Se le guardie sono false, l'evento è scartato e la transizione non avviene.
+### 10.1.3 Eventi
+Un evento è un occorrenza osservabile nell'ambiente del soggetto.
+>Un evento implicito si genera quando termina il comportamento interno di un soggetto.
+
+$\textup{evento}\to\textup{guardia vera}\to\textup{transizione stato}\to\textup{azione}$
+
+Gli eventi comandano le transizioni.
+Un evento non ha durata e può avere parametri
+## 10.2 State machine di protocollo
+Una state machine **di protocollo** descrive il ciclo di vita o le sequenze di interazioni valide (protocolli) per un sistema (classificatore).
