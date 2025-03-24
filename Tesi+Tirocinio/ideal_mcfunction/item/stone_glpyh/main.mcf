@@ -1,0 +1,38 @@
+package item.stone_glyph
+
+predicate multiple_condition_types.can_see_trail = {
+  "condition": "minecraft:all_of",
+  "terms": [
+    {
+      "condition": "minecraft:reference",
+      "name": "*location_check.in_the_expanse"
+    },
+    {
+      "condition": "minecraft:reference",
+      "name": "*entity_properties.slots.weapon.stone_glyph"
+    },
+    {
+      "condition": "reference",
+      "name": "*value_check.night"
+    }
+  ]
+}
+
+// appende a una funzione che ho omesso in questo file
+append(*entity.player.timers.second_clock){
+	if predicate can_see_trail run function main
+}
+
+function main {
+	data modify storage *temp root.pos set from entity @n[type=item_display,tag=*moonlit_monolith,tag=!*moonlit_monolith.balemoon,distance=..32] Pos
+	data remove storage *temp root.macro_input
+
+	data modify storage *temp root.macro_input.x set from storage *temp root.pos[0]
+	data modify storage *temp root.macro_input.y set from storage *temp root.pos[1]
+	data modify storage *temp root.macro_input.z set from storage *temp root.pos[2]
+
+	anchored eyes positioned ^ ^ ^ positioned ~ ~-0.5 ~ run function {
+		$particle trail{color:[1.000,0.000,0.000],target:[$(x),$(y).0,$(z)],duration:20} ~ ~ ~ 0.35 0.35 0.35 0.01 2 normal
+		$particle trail{color:[0.459,0.082,0.678],target:[$(x),$(y).0,$(z)],duration:20} ~ ~ ~ 0.2 0.2 0.2 0.01 2 normal
+	} with storage *temp root.macro_input
+}

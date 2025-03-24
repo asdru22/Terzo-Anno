@@ -568,9 +568,34 @@ I compartimenti possono essere:
 Nodi che non sono stati e non possono catturare il comportamento del sistema nel tempo (ad esempio lo pseudostato iniziale *start*).
 > Se il token non può fermarsi in quel punto allora è uno pseudostato. Il token può fermarsi solo negli stati.
 
-Il token non può fermarsi in questi punti: `initial/start, join, fork, junction, choice, entryPoint, exitPoint, terminate` e sono dunque dei pseudostati.
+Il token non può fermarsi in questi punti (e sono dunque dei pseudostati):
+- *initial*: rappresenta il punto di partenza di una regione. È la sorgente di al massimo una transizione non associata a un trigger o una guardia.
+- *join*: è il target di due o più transizione che si originano da vertici in diverse regioni ortogonali. Eseguono una funzione di sincronizzazione dove tutte le transizioni in arrivo devono essere completate prima che l'esecuzione possa continuare.
+- *fork*: divide la transizione in arrivo in una o più transizioni che terminano in vertici che appartengono a regioni ortogonali diversi.
+- *junction*: unisce o separa transizioni.
+- *choice*: tipo di junction usato per realizzare branching condizionale in modo dinamico. Una guardia di tipo *else* può essere usata su una transizione predefinita che viene selezionata quando tutte le altre transizioni uscenti sono valutate false.
+- *entry point*: il punto di entrata per uno stato composito o submachine.
+- *exit point*: il punto di uscita per uno stato composito o di submachine.
+- *terminate*: quando si entra questo pesudostato l'esecuzione termina subito.
+- ***deep history***: reimpostano tutta la configurazione dello stato.
+- *shallow history*: reimpostano solo il sottostato principale.
+#### 10.1.2.2 Storia degli stati
+La *state history* è usata per tenere traccia dell'avanzamento dello stato di una regione. La regione può essere resettata da una transizione locale che si connette a uno pseudostato di tipo *histotry*.
 ### 10.1.2 Transizioni
 Le transizioni sono passaggi atomici da uno stato all'altro. Le transizioni sono sempre attivati da eventi, **anche quando non sono espliciti**. Le transizioni possono avere guardie. Se le guardie sono false, l'evento è scartato e la transizione non avviene.
+`{<trigger>}* ['['<guard>']'] [/<beaviour-expr>]`
+Nel corso della sua esecuzione una transizione può essere
+- raggiunta
+- traversata
+- completata
+
+**Transizioni composte**: un trigger può causare l'attraversamento di una parte aciclica della macchina a stati senza che venga elaborato alcun altro evento. 
+Ciò significa che l'elaborazione di un singolo evento può attivare più transizioni, attraversando diversi (pseudo)stati.
+### 10.1.3 Run-to-completion
+Una state machine viene creata, e poi inizializzata, eseguendo la transizione composta iniziale. Successivamente entra un *wait point*. Quando gli eventi sono inviati, i trigger vengono valutati, e se almeno una transizione può essere eseguita, una nuova transizione composta viene eseguita, e si raggiunge un nuovo punto di attesa. Questo ciclo si ripete finché la state machine completa il suo comportamento o finché è asincronicamente terminato da un agente esterno. Questo modello è chiamato *run to completion* (RTC).
+Le occorrenze degli eventi sono rilevate, inviate e processate dall'esecuzione della state machine una alla volta. I *completion event* sono prioritari, mentre gli altri sono inviati in ordine arbitrario.
+Un singolo evento può attivare più transizioni. Se queste transizioni hanno un'intersezione non vuota tra i loro stati di uscita, allora sono **in conflitto**. Le priorità delle transizioni in conflitto sono determinate dalla loro posizione relativa nella gerarchia degli stati.
+Il modello RTC semplifica la gestione della concorrenza nelle state machine. Quando la macchina è in uno stato non ben definito, questa non è reattiva. Eventi che dovrebbero occorrere non sono processati subito vengono messi nella coda degli eventi.
 ### 10.1.3 Eventi
 Un evento è un occorrenza osservabile nell'ambiente del soggetto.
 >Un evento implicito si genera quando termina il comportamento interno di un soggetto.
@@ -578,6 +603,82 @@ Un evento è un occorrenza osservabile nell'ambiente del soggetto.
 $\textup{evento}\to\textup{guardia vera}\to\textup{transizione stato}\to\textup{azione}$
 
 Gli eventi comandano le transizioni.
-Un evento non ha durata e può avere parametri
+Un evento non ha durata e può avere parametri.
+Lo stato finale determina uno stato da cui non si esce, ha solo archi in ingresso e nessuno in uscita. Quando si transita nello stato finale termina il ciclo di vita.
+### 10.1.4 Regioni
+Uno stato o transazione può essere organizzato in regioni.
+Le regioni **ortogonali distinte** indicano che i processi interni sono concorrenti.
+Le transizioni sono solitamente indicate da trigger. Quando questi vengono soddisfatti termina l'esecuzione dei processi concorrenti.
 ## 10.2 State machine di protocollo
 Una state machine **di protocollo** descrive il ciclo di vita o le sequenze di interazioni valide (protocolli) per un sistema (classificatore).
+# 11. Design *Object Oriented*
+Ora che sappiamo cosa dovrebbe fare il sistema, dobbiamo pensare a come progettare un sistema che lo fa. Nella parte di progettazione potremmo lavorare su diversi tipi di prodotti dalla fase di analisi che possono essere diversi tra loro.
+## 11.1 Metodo super semplificato ispirato a UP (Unified Process)
+Viene studiato perché è la struttura più usata e si aspetta molti parametri che abbiamo in output dalla fase di analisi. Come UP dipende dagli use case. Come prima cosa bisogna trovare o creare elementi all'interno della logica del business o spazio del dominio responsabili del supporto a tutte le interfacce all'interno del modello. Gradualmente si aggiungono nuovi elementi e operazioni all diagramma di design della classe
+# 12. Qualità del software e principi object oriented
+## 12.1 Obiettivo del design
+L'obiettivo delle attività associate al design è produrre sistemi software di alta qualità
+### 12.1.1 Qualità del sistema software
+- Esterne: caratteristiche visibili e apprezzabili dall'utente
+	- correttezza
+	- usabilità
+	- efficienza
+	- affidabilità
+	- integrità: non vengono alterati i dati
+	- adattabilità: riesce a girare su sistemi operativi diversi
+	- accuratezza
+	- robustezza: produce valore anche di fronte a fallimenti totali o parziali
+-  Interne: qualità che sono relative a come è organizzato internamente il software, non visibili all'utente e non apprezzabili da esso
+	- mantenutibilità: quando posso farci manutenzione sopra. Maggiore il livello, più è semplice fare manutenzione.
+	- flessibilità: disponibilità ad aggiunta di nuove caratteristiche
+	- portabilità: quanto è portabile su sistemi diversi
+	- riusabilità: quanto è semplice prendere elementi di una soluzione passata in una nuova
+	- testabilità: quanto è facile testare in maniera autonoma il codice
+	- comprensibilità
+
+## 12.2 Il software non è *write-once*
+I costi associati all'evoluzione del software sono molto alti e possono coprire il 50-90% dei costi di produzione del software. Una bassa qualità equivale a costi maggiori in caso di aggiornamenti.
+Ci sono 3 modelli per capire il livello di qualità del codice:
+### 12.2.1 Software product quality (ISO 25010)
+- adeguatezza funzionale
+- affidabilità
+- efficienza delle performance
+- operabilità
+- sicurezza
+- compatibilità
+- mantenutibilità
+- portabilità
+### 12.2.2 Data quality model
+A volte si usa un framework per valutare la qualità, ma in genere si vuole un software riutilizzabile e progettato per cambiare.
+### 12.2.3 Quality in use model
+- efficienza
+- soddisfazione
+- sicurezza
+- usabilità
+### 12.3 Principi *Object Oriented*
+Si progettano sistemi object oriented affinché possiamo correttamente identificare gli oggetti, e applicavi i principi della programmazione object oriented per produrre software di alta qualità.
+Concetti di base:
+- Astrazione: focus sulle caratteristiche essenziali
+- Incapsulamento: nascondere i dettagli nelle classi
+- Eredità: comportamento e stato possono essere specializzati
+- Polimorfismo: il comportamento dipende su cosa bisogna essere
+## 12.4 Design *smells*
+Sono indicatori che ci potrebbe potenzialmente essere un errore o che qualcosa non è stato progettato nel modo giusto.
+- Rigidità: tendenza del software a resistere al cambiamento, anche semplice. Un software è rigido se un singolo cambiamento provoca cambiamenti a cascata. Più moduli devono essere cambiati, più il software è rigido.
+- Fragilità: tendenza di un programma a rompersi in più punti quando viene fatto un singolo cambiamento.
+- Immobilità: un design è immobile quando contiene parti che sarebbero state utili in altri sistemi, ma lo sforzo e il rischio coinvolti nel separarle è troppo grande.
+- Viscosità: la facilità o difficoltà di apportare modifiche a un sistema software in modo da preservarne il design originale.
+- Complessità inutile: un eccessiva flessibilità del codice può portare a una struttura complessa. Questo capita spesso quando si cerca di anticipare i cambiamenti al codice.
+- Ripetizione inutile: uso del copia-incolla invece di richiamare il metodo direttamente.
+- Opacità: la tendenza di un modulo ad essere di difficile comprensione. Codice che cambia col tempo diventa sempre più difficile da leggere: bisogna fare sforzi per renderlo continuamente comprensibile e minimizzare l'opacità.
+
+La sorgente della maggior parte degli smell è riconducibile al management delle dipendenze. Le dipendenze sono tutti i percorsi attraverso i quali possono diffondersi cambiamenti.
+## 12.5 SOLID
+Alcuni principi che possono aiutare a ridurre gli smell:
+### 12.5.1 Single responsibility principle
+Una classe deve avere una e solo una ragione per cambiare. Le responsabilità sono assi di cambiamento di una classe. Per classe di cambiamento si intende
+
+- Open-closed principle
+- Liskov substitution
+- Interface segregation principle
+- Dependency inversion

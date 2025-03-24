@@ -1,0 +1,158 @@
+package item.stone_glyph
+
+loot table items.stone_glyph = {
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:poisonous_potato"
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "minecraft:custom_data": {
+              "haywire": {
+                "glyph": {
+                  "type": "illager"
+                },
+                "id": "stone_glyph_illager"
+              }
+            },
+            "minecraft:lore": [
+              {
+                "translate": "item.haywire.stone_glyph_illager.lore0",
+                "color": "gray",
+                "italic": false
+              },
+              {
+                "translate": "tooltip.haywire.moon",
+                "color": "white",
+                "italic": false,
+                "font": "haywire:main",
+                "with": [
+                  {
+                    "translate": "pack.haywire"
+                  }
+                ]
+              }
+            ],
+            "!minecraft:food": {},
+            "!minecraft:consumable": {},
+            "minecraft:item_model": "haywire:stone_glyph_illager",
+            "minecraft:item_name": {
+              "translate": "item.haywire.stone_glyph_illager"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+lang."item.haywire.stone_glyph_illager": "Stone Glyph"
+lang."item.haywire.stone_glyph_illager.lore0" = "Illager"
+
+advancement recipes.stone_glyph_illager = {
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:emerald_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:emerald_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "haywire:stone_glyph_illager"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:emerald_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "haywire:stone_glyph_illager"
+    ]
+  }
+}
+
+recipe stone_glyph_illager = {
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SES",
+    "SSS"
+  ],
+  "key": {
+    "S": "minecraft:stone",
+    "E": "minecraft:emerald_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:poisonous_potato",
+    "components": {
+      "minecraft:custom_data": {
+        "haywire": {
+          "glyph": {
+            "type": "illager"
+          },
+          "id": "stone_glyph_illager"
+        }
+      },
+      "minecraft:lore": [
+        {
+          "translate": "item.haywire.stone_glyph_illager.lore0",
+          "color": "gray",
+          "italic": false
+        },
+        {
+          "translate": "tooltip.haywire.moon",
+          "color": "white",
+          "italic": false,
+          "font": "haywire:main",
+          "with": [
+            {
+              "translate": "pack.haywire"
+            }
+          ]
+        }
+      ],
+      "!minecraft:food": {},
+      "!minecraft:consumable": {},
+      "minecraft:item_model": "haywire:stone_glyph_illager",
+      "minecraft:item_name": {
+        "translate": "item.haywire.stone_glyph_illager"
+      }
+    }
+  }
+}
+
+item stone_glyph_illager = {
+  "model": {
+    "type": "minecraft:model",
+    "model": "*item/stone_glyph_illager"
+  }
+}
+
+model stone_glyph_illager = {
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "haywire:item/stone_glyph_illager"
+  }
+}
+
+texture item.stone_glyph_illager = textures/item/sprites(3,2) // terza riga, seconda colonna

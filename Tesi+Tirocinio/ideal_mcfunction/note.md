@@ -1,6 +1,7 @@
 ## 1. Referenziazione a namespace
 `*` corrisponde al namespace, in questo caso `haywire` seguito da `.` (carattere convenzionale separatore, potenzialmente da far specificare all'utente) per tags, scoreboard, bossbar, teams ("oggetti" di minecraft con scope globale, che possono creare conflitti se hanno lo stesso nome) e `:` per riferimenti a file esterni (json o funzioni, con l'eccezzione dei modelli, di cui parlo più avanti) e storage (il compilatore deve essere in grado di capire se il `*` si sta riferendo a un file, storage o ad oggetti specifici di minecraft). 
 Potenzialmente se l'uso di `*` non ricade in questi due casi ma ad esempio viene usato come chiave di una struttura nbt `*:{id:"my_item"}` il compilatore potrebbe semplicemente sostituirlo con il namespace specificato nelle impostazioni del progetto.
+Non deve essere per forza questo carattere, magari definibile dall'utente.
 ## 2. Package
 Si potrebbe far specificare all'utente se preferiscono usare `.` o `/` per navigare dentro i package. Non sono sicuro sia necessario definire il package, dato che coincide con la struttura delle cartelle/file (almeno per come ho organizzato i file io).
 ## 3. Gestione file json
@@ -66,8 +67,9 @@ ideale (il namespace è stato sostituito da `*` descritto nel punto 1):
   "random_sequence": "*blocks/moonlit_monolith"
 }
 ```
-## 4. Modelli 3D
-Non sono sicuro se l'implementazione delle texture sia la migliore, dato che i modelli 3d vengono creati molto facilmente o con https://misode.github.io/ o con un [software specifico](https://www.blockbench.net/) (simile a blender). Interferire con i path delle texture generati da essi porterà a più problemi che vantaggi.
+## 4. Modelli 3D, texture e suoni
+In questa implementazione di progetto, dove i file relativi al datapack (funzioni, loot table, advancement,... ) e quelli della resourcepack (texture, suoni, modelli 3D) sono in un unico file, ho optato di avere alla radice del progetto una cartella per le texture, e una per i suoni, piuttosto che metterli nelle cartelle dove vengono referenziati. Non sono sicuro se questa implementazione sia la migliore. Magari qualcuno potrebbe preferire avere tutti i file (suoni e texture inclusi) per una certa feature nella cartella di questa feature.
+Bisogna anche considerare che i modelli 3d vengono creati molto facilmente o con https://misode.github.io/ o con un [software specifico](https://www.blockbench.net/) (simile a blender), che applica le texture specificate agli oggetti 3d. Quindi o si mettono le texture già nel loro path finale, o si sostituiscono i path delle texture con quelli finali quando si compila il progetto (questa parte è più facile da spiegare a parole).
 ## 5. Scope dei nomi file
 ```
 predicate value_check.is_night = { // predicates/value_check/night (non fatto inline perché riutilizzato)
@@ -96,7 +98,8 @@ Ovviamente questo può essere fatto solo in casi dove l'ordine di esecuzione dei
   ```c
 append(*block.timers.10_second_clock){
 		if entity @s[tag=*moonlit_monolith.fixed] run function *block.moonlit_monolith.ten_second_clock.main
-}```
+}
+```
 ## 9. Traduzioni
 Aggiungere coppie-chiave valore per traduzioni senza accedere al file .json
 ```c
@@ -146,7 +149,7 @@ se invece imposto vscode per applicare il syntax highlighting di GO ai file con 
 - `if (predicate in_the_expanse && block ~ ~-2 ~ vault) return run function place_fixed`: omissione execute e raggruppamento delle condizioni tra parentesi tonde. Inoltre uso `&&` al posto di un altro `if`
 - `if(entity @s[tag=*moonlit_monolith.night] &! predicate night) function day`: dato che non si possono invertire gli esiti di controlli, ma solo controllare che non siano accaduti (con `unless`) al posto di scrivere `&& !<condizione>` si scrive `&!` (equivalente ad `unless`, che letteralmente significherebbe "e non")
 - `if ... else` e `if ... else if ... else`: dovrebbe essere possibile implementarli usando `return` per fermare il flusso di esecuzione
-(mi sono reso conto ora che mi sono dimenticato di dire che return può restituire anche comandi e non solo int come avevo detto all'ultimo incontro)
+(mi sono reso conto ora che mi sono dimenticato di dire che return può restituire anche comandi e non solo int come avevo detto all'ultimo incontro, cosa che torna utile in questo caso)
 ```c
 say doing things
 if(cond1) say 1
@@ -204,17 +207,36 @@ execute if cond2 run return run function cond2
 say 3
 say this is the default
 
-//cond1.mcfunction
+
+// cond1.mcfunction
 say 1
 say this is the if
 
-//cond2.mcfunction
+// cond2.mcfunction
 say 2
 say this is the if else
 ```
 
-per lo stesso motivo di prima: se scrivessi
+per lo stesso motivo di prima
 ```c
-execute if cond1 run return run say 1 // esecuzione funzione interrotta
+execute if cond1 run return run say 1 // comando eseguito, poi interrompe il flusso di esecuzione della funzione
 execute if cond1 run return run say this is the if // mai raggiungibile
+```
+## 14. Commenti multilinea
+Mcfunction supporta commenti: ogni riga che inizia con `#` è considerata un commento, ed ingorata a compilazione (non si può dichiarare un commento dopo un comando nella stessa riga).
+io preferirei uno stile di commento simile a c/java, che usa `//` per la singola riga, che possono essere anche messi sulla stessa linea del codice, e `/* ... */` per i commenti multilinea. 
+## 15. Prelievo texture da spritesheet e texture animate
+Chi crea le texture che usa nei suoi progetti, spesso lo fa su un file png che ne contiene molte (in modo da avere più prototipi, provare stili e colori diversi), e poi copia una specifica texture nel suo file. Questo continuo copia incolla è noioso specialmente se si modifica una texture, che poi deve essere nuovamente copiata nel suo file singolo.
+Per questo dato che sto gia "processando" le texture per copiarle da una cartella del progetto alla loro destinazione finale (`textures/...`->`<resourcepack>/assets/<namespace>/textures/...`)
+si può fare un ulteriore passaggio e al posto di scegliere una texture cosi
+`texture item.stone_glyph_illager = textures/item/stone_glyph_illager`
+si potrebbe scrivere
+`texture item.stone_glyph_illager = textures/item/sprites(3,2,w,h)`
+dove dall'immagine sprites, si seleziona quella alla terza riga e seconda colonna (ogni riga e colonna è composta da 16 pixel, che è la risoluzione di default delle texture e la dimensione di immagine minima per non rompere il mipmapping).
+`w` e `h` sono due parametri opzionali usati per indicare la larghezza e l'altezza della selezione, sempre in multipli di 16 (0,0,1,5 = prima riga, prima colonna, largo 16 pixel verso destra e alto 80 verso il basso). Questo perché certe texture non sono grandi 16x16 e tantomeno con forma quadrata.
+Le texture animate (non presenti nel progetto) sono costituite da più frame disposti verticalmente nello stesso png, quindi una da 5 frame sarà in un png lungo 16px e alto 80. Le proprietà dell'animazione sono definite in un file strutturato come un json chiamato esattamente come l'immagine a cui si fa riferimento seguito da `.mcmeta` (`a.png`->`a.png.mcmeta`).
+La mia è di definire un metodo per le texture che permette loro di definire un animazione. Simile al punto 8:
+```c
+texture item.my_animated_texture = textures/item/my_animated_texture
+animation(my_animated_texture) = { "animation": { "frames": [ { "index": 0, "time": 20 }, 0, 1, 2, 3, 4 ] } }
 ```
