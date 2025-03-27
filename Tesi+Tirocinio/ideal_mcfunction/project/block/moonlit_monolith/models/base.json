@@ -1,0 +1,10 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"particle": "moonlit_monolith:base_front",
+		"south": "moonlit_monolith:base_front",
+		"up": "moonlit_monolith:base_top",
+		"west": "moonlit_monolith:base_side"
+	}
+}

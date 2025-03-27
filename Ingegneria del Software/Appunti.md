@@ -635,7 +635,6 @@ L'obiettivo delle attività associate al design è produrre sistemi software di 
 	- riusabilità: quanto è semplice prendere elementi di una soluzione passata in una nuova
 	- testabilità: quanto è facile testare in maniera autonoma il codice
 	- comprensibilità
-
 ## 12.2 Il software non è *write-once*
 I costi associati all'evoluzione del software sono molto alti e possono coprire il 50-90% dei costi di produzione del software. Una bassa qualità equivale a costi maggiori in caso di aggiornamenti.
 Ci sono 3 modelli per capire il livello di qualità del codice:

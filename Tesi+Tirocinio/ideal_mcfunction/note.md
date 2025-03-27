@@ -1,9 +1,45 @@
+## 0. Contesto
+Questi esempi sono presi dal progetto allegato che contiene il mio codice ideale per implementare un blocco, chiamato monolite lunare che ha un suo modello, texture, suoni e comportamenti in base al tempo del giorno. C'è anche un oggetto "stone glyph" (anch'esso con modello e texture) che interagisce con il blocco.
+
+> Dato che mi ha chiesto come sarebbe lo sviluppo ideale di un progetto del genere, ci sono anche alcuni punti relativi alla gestione delle risorse (4,15), che non essendo strettamente collegati alla parte di codice non sono sicuro rientrino del tema di ricerca (o comunque sono secondari).
+> Sono cosciente del fatto che le risorse in applicazioni java, o app mobili, siano in una cartella a parte con suoni, immagini traduzioni. Questo modello si ritrova anche in minecraft dove c'è una divisione tra la parte *data*, relativa alle modifiche dei comportamenti del gioco, e *assets*: contenente suoni, immagini, modelli 3d, traduzioni... Ho ripreso l'esempio passato dove ho mostrato la scomodità di trovarsi a lavorare con file di categorie diverse, la maggior parte dei quali in genere di poche righe, e aggiunto la parte relativa alle risorse per un oggetto estremamente banale `my_item`. Anche questi sono file json in genere di piccole dimensioni, oppure `.ogg` per i suoni o `.png` per le immagini.
+```
+my_project
+├── datapack
+│   └── data
+│       └── namespace
+│           ├── function
+│           │   └── my_item
+│           │       ├── some_code.mcfunction
+│           │       └── other_code.mcfunction
+│           └── recipe
+│               └── my_item.json
+└── resourcepack
+    └── assets
+        └── namespace
+            ├── items
+            │   └── my_item.json
+            ├── models
+            │   └── item
+            │       └── my_item.json
+            ├── texture
+            │   └── item
+            │       └── my_item.png
+            └── lang
+                └── en_us.json
+```
+
+>Nel video in allegato spero si noti la scomodità di dover lavorare con la parte di codice così "lontana" da quella delle risorse (in un ambiente di lavoro di un progetto abbastanza grande, ottimizzato il più possibile per ridurre il numero di sottocartelle, rispettando i vincoli di compilazione di Minecraft). In conclusione, secondo me sarebbe ideale concentrare il più possibile *data* e *assets* relativi a una certa feature il più possibile, similmente a quanto già detto all'ultimo incontro per i file quali `recipe`, `loot_table`, `advancement`...
+
+> Un altra nota, non sono sicuro se sia meglio usare la notazione `.` simile a quella di java rispetto a `/`, già usata di default da mcfunction e molti altri generatori che creano file json. 
 ## 1. Referenziazione a namespace
 `*` corrisponde al namespace, in questo caso `haywire` seguito da `.` (carattere convenzionale separatore, potenzialmente da far specificare all'utente) per tags, scoreboard, bossbar, teams ("oggetti" di minecraft con scope globale, che possono creare conflitti se hanno lo stesso nome) e `:` per riferimenti a file esterni (json o funzioni, con l'eccezzione dei modelli, di cui parlo più avanti) e storage (il compilatore deve essere in grado di capire se il `*` si sta riferendo a un file, storage o ad oggetti specifici di minecraft). 
 Potenzialmente se l'uso di `*` non ricade in questi due casi ma ad esempio viene usato come chiave di una struttura nbt `*:{id:"my_item"}` il compilatore potrebbe semplicemente sostituirlo con il namespace specificato nelle impostazioni del progetto.
 Non deve essere per forza questo carattere, magari definibile dall'utente.
+> Mi sono accorto tardi che ci sono casi in cui mcfunction usa `*` come parola chiave valida quindi forse è meglio trovare un altro carattere/altra soluzione
 ## 2. Package
 Si potrebbe far specificare all'utente se preferiscono usare `.` o `/` per navigare dentro i package. Non sono sicuro sia necessario definire il package, dato che coincide con la struttura delle cartelle/file (almeno per come ho organizzato i file io).
+Secondo me il concetto di package come scorciatoia per indicare le cartelle e sottocartelle in cui saranno generati i file è utile solo nel caso delle funzioni: ovvero, se specifico il package `my_package.item` e in quel package c'è un file che dichiara e definisce una funzione `my_function` e una ricetta `my_recipe`, la funzione verra compilata in `function/my_package/item/my_function`, mentre la ricetta in `recipe/my_recipe`. Questo perché statisticamente le ricette e altri file json sono utilizzati meno in proporzione alle funzioni. Inoltre, essendo meno ci sono meno necessità di organizzarle in più sottocartelle.
 ## 3. Gestione file json
 La prassi per creare i file json è con https://misode.github.io/, non sono sicuro se sia necessario trovare un modo per migliorare la loro scrittura. Sia con mcfunction tradizionale e questo linguaggio ideale si fa copia-incolla dal sito.
 classico:
@@ -68,8 +104,11 @@ ideale (il namespace è stato sostituito da `*` descritto nel punto 1):
 }
 ```
 ## 4. Modelli 3D, texture e suoni
-In questa implementazione di progetto, dove i file relativi al datapack (funzioni, loot table, advancement,... ) e quelli della resourcepack (texture, suoni, modelli 3D) sono in un unico file, ho optato di avere alla radice del progetto una cartella per le texture, e una per i suoni, piuttosto che metterli nelle cartelle dove vengono referenziati. Non sono sicuro se questa implementazione sia la migliore. Magari qualcuno potrebbe preferire avere tutti i file (suoni e texture inclusi) per una certa feature nella cartella di questa feature.
-Bisogna anche considerare che i modelli 3d vengono creati molto facilmente o con https://misode.github.io/ o con un [software specifico](https://www.blockbench.net/) (simile a blender), che applica le texture specificate agli oggetti 3d. Quindi o si mettono le texture già nel loro path finale, o si sostituiscono i path delle texture con quelli finali quando si compila il progetto (questa parte è più facile da spiegare a parole).
+In questa implementazione di progetto, dove i file relativi al datapack (funzioni, loot table, advancement,... ) e quelli della cartella risorse (texture, suoni, modelli 3D) possono essere messi dove l'utente desidera e poi spetterà al compilatore stabilire dove poi verrano messi i file. 
+Bisogna anche considerare che i modelli 3d vengono creati molto facilmente o con https://misode.github.io/ o con un [software specifico, blockbench](https://www.blockbench.net/) (simile a blender), che applica le texture specificate agli oggetti 3d. 
+Ho lasciato quindi due esempi:
+- il modello è semplice (composto da una sola texture, creato con https://misode.github.io/ dove la preview del modello finale non è importante). In questo caso il modello l ho dichiarato nel file .mcf assieme agli altri dati necessari, e la texture viene scelta con la feature del punto 15.
+- il modello è complesso (caso del blocco, realizzato con blockbench): in questo caso a ogni modello corrisponde un file json, che può essere aperto da blockbench. 
 ## 5. Scope dei nomi file
 ```
 predicate value_check.is_night = { // predicates/value_check/night (non fatto inline perché riutilizzato)
@@ -88,13 +127,12 @@ scoreboard players set #8 haywire.dummy 8
 
 scoreboard players operation #moon_phase haywire.dummy %= #8 haywire.dummy
 ```
-si potrebbe scrivere 
-`operation #moon_phase *dummy %= 8` (avrei voluto usare `op` ma c'è un altro comando con lo stesso nome che non ha nulla a che fare con le operazioni)
-Pero se si fanno operazioni di somma o sottrazione (`operation @s *dummy2 +=/-= 1`), si possono generare comandi del tipo `scoreboard players add/remove @s haywire.dummy2 1` che non richiedono l'assegnamento di una costante prima di essere usati (c'è il comando specifico per sommare/sottrare un valore costante). Di conseguenza si potrebbe anche implementare `operation @s *dummy2 ++` per incrementare/decrementare un valore di 1.
+si potrebbe scrivere  `operation #moon_phase *dummy %= 8` (avrei voluto usare `op` ma c'è un altro comando con lo stesso nome che non ha nulla a che fare con le operazioni), dove il valore 8 associato a `#8` è impostato magari in un file specializzato per le costanti quando si compila il progetto. 
+Però, se si fanno operazioni di somma o sottrazione (`operation @s *dummy2 +=/-= 1`), si possono generare comandi del tipo `scoreboard players add/remove @s haywire.dummy2 1` che non richiedono l'assegnamento di una costante prima di essere usati (c'è il comando specifico solo per sommare/sottrare un valore costante). Di conseguenza si potrebbe anche implementare `operation @s *dummy2 ++` per incrementare/decrementare un valore di 1.
 ## 7. Scorciatoie execute
 Si potrebbe omettere il comando `execute` e trattare i suoi sottocomandi come il comando vero e proprio.  `execute` è il comando più potente, che ha dei sottocomandi quali `if` per verificare una certa condizione, `as` per spostare l'esecuzione dei comandi su un altra entità ecc. Al posto di scrivere `execute as @p at @s ...` si potrebbe semplicemente scrivere `as @p at @s ...`, dato che non esistono comandi con nomi uguali a quelli dei sottocomandi di execute.
 ## 8. Aggiungere comandi in una funzione da un altro file
-Ovviamente questo può essere fatto solo in casi dove l'ordine di esecuzione dei comandi non importa. Ad esempio
+Ovviamente questo può essere fatto solo in casi dove l'ordine di esecuzione dei comandi non importa a discrezione dell'utente. Ad esempio
   ```c
 append(*block.timers.10_second_clock){
 		if entity @s[tag=*moonlit_monolith.fixed] run function *block.moonlit_monolith.ten_second_clock.main
@@ -119,6 +157,7 @@ sounds["block.moonlit_monolith.moonstone_vanishing"] = {
     "subtitle": "subtitles.haywire.block.moonlit_monolith.moonstone_vanishing"
 }
 ```
+[Un esempio di sounds.json scritto a mano](https://github.com/asdru22/CognitionDev/blob/main/resourcepack/assets/cgn/sounds.json) dove si può notare quanto difficile sia orientarsi.
 Anche qui c'è un problema simile a quello del punto 4. Dato che texture e suoni sono nei loro file png e ogg rispettivamente, forse la soluzione migliore è avere due cartelle apposta per texture e suoni.
 ## 11. Sintassi più veloce per macro
 ```c
@@ -240,3 +279,32 @@ La mia è di definire un metodo per le texture che permette loro di definire un 
 texture item.my_animated_texture = textures/item/my_animated_texture
 animation(my_animated_texture) = { "animation": { "frames": [ { "index": 0, "time": 20 }, 0, 1, 2, 3, 4 ] } }
 ```
+## 16. Utilizzo e riferimento a variabili locali 
+Nel file `item/stone_glyph/illager.mcf` ho definito una strutta json chiamata components, che poi ho utilizzato sia nella loot table, che nella ricetta, dato che sia se creo l'oggetto o lo trovo in un baule, voglio che i dati associati ad esso siano li stessi. Questo concetto è da approfondire meglio, questo è solo un esempio.
+## 17. Implementazione feature di linguaggi di programmazione
+### 17.1 Ciclo for
+Nel estratto di codice che ho fatto non mi è capitato di doverlo utilizzare, ma ci sono casi in cui farebbe comodo generare comandi uguali dove cambia solo un numero. Ad esempio per modificare tutti gli oggetti nell'inventario di un giocatore bisogna modificare applicare le modifiche slot per slot (ce ne sono 36 in totale).
+Quindi sarebbe comodo poter scrivere
+```c
+function change_all_items{
+	for(int i=0;i<37;i++){
+		if(items entity @s container.{i} stone_sword){
+		item replace entity @s container.{i} with iron_sword
+		}
+	}
+}
+```
+per sostituire, dove presenti, le spade in pietra di un giocatore con quelle in ferro.
+### 17.2 Variabili locali + ciclo for + lookup table
+Come detto in precedenza si usano delle lookup table per generare alcuni valori di funzioni matematiche, che poi vengono estratti con macro.
+Sarebbe comodo poterli generare senza doverli andare a cercare altrove semplicemente con
+```c
+function make_sin{
+	table = []
+	for (int angle = 1; angle <= 360; angle++) {
+            table[i] = Math.sin(angle)
+        }
+    data modify storage *lookup_tables sin set value {table}
+}
+```
+Qui vorrei approfondire come integrare mcfunction con feature di linguaggi veri e propri e quali possano essere di utilizzo comune e quali no.

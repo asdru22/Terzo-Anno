@@ -1,7 +1,0 @@
-package block
-
-function tick {}
-function ten_second_clock {}
-function second_clock {
-  if(entity @s[type=minecraft:item_display,tag=!*glow_in_the_dark]) function *update_light.main
-}

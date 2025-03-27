@@ -1,0 +1,114 @@
+package block.moonlit_monolith
+
+advancement technical.player_interacted_with_entity.fixed_moonlit_monolith = {
+  "parent": "*technical.root",
+  "criteria": {
+    "click_moonlit_monolith": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "nbt": "{Tags:[*moonlit_monolith.interaction]}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "*advancement"
+  }
+}
+
+function advancement {
+	if(predicate *value_check/night && function has_glyph) as @n[type=interaction,tag=*moonlit_monolith.interaction] on vehicle at @s if(predicate {"condition":"minecraft:location_check","predicate":{"can_see_sky":true}} && entity @s[tag=!*moonlit_monolith.balemoon]) function interact
+	advancement revoke @s only fixed_moonlit_monolith
+}
+
+function has_glyph {
+	data remove storage *temp root.glyph
+	if predicate stone_glyph run return run data modify storage *temp root.glyph.id set from entity @s SelectedItem.components."minecraft:custom_data".*glyph.type
+}
+
+predicate entity_properties.slots.weapon.stone_glyph = {
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "slots": {
+      "weapon.*": {
+        "predicates": {
+          "minecraft:custom_data": "{*:{glyph:{}}}"
+        }
+      }
+    }
+  }
+}
+
+biome balemoon = {
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "has_precipitation": false,
+  "effects": {
+    "sky_color": 5701632,
+    "fog_color": 16711791,
+    "water_color": 31324,
+    "water_fog_color": 340769,
+    "grass_color": 8916034,
+    "foliage_color": 8916034,
+    "particle": {
+      "options": {
+        "type": "minecraft:crimson_spore"
+      },
+      "probability": 0.05
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": "minecraft:cave",
+  "features": []
+}
+
+
+function interact {
+	tag @s add *moonlit_monolith.balemoon
+	// Effects
+	fillbiome ~-15 ~-5 ~-15 ~15 ~15 ~15 balemoon
+	playsound *block.moonlit_monolith.balemoon_rising ambient @a[distance=..32] ~ ~ ~ 1 0.9
+	
+	// Moonstone
+	on passengers if entity @s[type=item_display] run item modify entity @s contents {"function":"minecraft:set_custom_data","tag":"{*:{moonstone:\"balemoon\"}}"}
+	
+	// Clear item from players
+	item modify entity @p[advancements={fixed_moonlit_monolith=true},gamemode=!creative] weapon.mainhand {"function":"set_count","add":true,"count":-1}
+	
+	// Setup storage
+	data modify storage *temp root.balemoon set value {players:[],mobs:[]}
+	function *technical.string_uuid.init
+	data modify entity @s item.components."minecraft:custom_data".*string_uuid set from storage *temp root.string_uuid
+	data modify storage *temp root.balemoon.moonlit_monolith set from storage *temp root.string_uuid
+	as @a[gamemode=!spectator] run function {
+		$if(items entity @s container.* poisonous_potato[minecraft:custom_data~{*{glyph:"$(id)"}}]) function get_players {glyph:"$(id)"}
+		} with storage *temp root.glyph
+	
+	data modify storage *storage root.balemoon insert -1 from storage *temp root.balemoon
+}
+
+function get_players{
+	$clear @s[gamemode=!creative] poisonous_potato[minecraft:custom_data~{*{glyph:"$(glyph)"}}] 1
+	function *technical.string_uuid.init
+	data modify storage *temp root.balemoon.players insert -1 from storage *temp root.string_uuid
+}
+
+sounds["block.moonlit_monolith.balemoon_rising"] = {
+	"sounds":[
+		{
+			"name":"haywire:block/moonlit_monolith/balemoon_rising"
+		}
+	],
+	"subtitle": "subtitles.haywire.block.moonlit_monolith.balemoon_rising"
+}
+
+lang["subtitles.haywire.block.moonlit_monolith.balemoon_rising"] = "Balemoon Rises"
