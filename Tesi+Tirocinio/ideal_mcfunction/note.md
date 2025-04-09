@@ -178,17 +178,17 @@ $data remove storage haywire:storage root.balemoon[{moonlit_monolith:$(string_uu
 // chiamata alla funzione con macro
 function remove_storage with storage haywire:temp root.macro_input
 ```
-## 12. Syntax highlighting
+## 12. Syntax highlighting (non importantissima)
 mcfunction ha un estensione vscode per autocompletamento e syntax highlighting. 
 ![[Pasted image 20250314005001.png]]
-se invece imposto vscode per applicare il syntax highlighting di GO ai file con estensione .mcf (estensione dei file con questo linguaggio ideale) si ha qualcosa di un pò sensato
+se invece imposto vscode per applicare il syntax highlighting di GO ai file con estensione .mcf (estensione dei file con questo linguaggio ideale) si ha qualcosa di affine all'immagine sopra.
 ![[Pasted image 20250314005147.png]]
-## 13. Scorciatoie if/unless
+## 13. Scorciatoie if/unless, if-elseif
 - `if data block ~ ~ ~ {Items:[{components:{"minecraft:custom_data":{*{placed_block:1b,block:"moonlit_monolith"}}}}]} positioned ~ ~0.5 ~ run ...` sintassi classica ma con `execute` omesso
 - `if (predicate in_the_expanse && block ~ ~-2 ~ vault) return run function place_fixed`: omissione execute e raggruppamento delle condizioni tra parentesi tonde. Inoltre uso `&&` al posto di un altro `if`
 - `if(entity @s[tag=*moonlit_monolith.night] &! predicate night) function day`: dato che non si possono invertire gli esiti di controlli, ma solo controllare che non siano accaduti (con `unless`) al posto di scrivere `&& !<condizione>` si scrive `&!` (equivalente ad `unless`, che letteralmente significherebbe "e non")
 - `if ... else` e `if ... else if ... else`: dovrebbe essere possibile implementarli usando `return` per fermare il flusso di esecuzione
-(mi sono reso conto ora che mi sono dimenticato di dire che return può restituire anche comandi e non solo int come avevo detto all'ultimo incontro, cosa che torna utile in questo caso)
+Mi sono reso conto ora che mi sono dimenticato di dire che return può anche restituire comandi (nel senso che esegue il comando specificato dopo return e poi interrompe il flusso di esecuzione della funzione) e non solo int come avevo detto all'ultimo incontro, cosa che torna utile in questo caso
 ```c
 say doing things
 if(cond1) say 1
@@ -307,4 +307,4 @@ function make_sin{
     data modify storage *lookup_tables sin set value {table}
 }
 ```
-Qui vorrei approfondire come integrare mcfunction con feature di linguaggi veri e propri e quali possano essere di utilizzo comune e quali no.
+Nel prossimo incontro vorrei approfondire meglio delle linee guida per una sintassi migliore che integra mcfunction con feature di linguaggi veri e propri.
