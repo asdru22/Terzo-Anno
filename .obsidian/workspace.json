@@ -4,39 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b8e8d2433238b821",
+        "id": "0307023454510bca",
         "type": "tabs",
         "children": [
           {
-            "id": "5cd9e6a8d563e592",
+            "id": "dd3c37ddd8c10df4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ingegneria del Software/Appunti.md",
+                "file": "Tesi+Tirocinio/ideal_mcfunction/Note.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Appunti"
-            }
-          }
-        ]
-      },
-      {
-        "id": "ef350d62eaadba25",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "ec63a4c16fb8c266",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Ingegneria del Software/pdf/A - Collaborating on projects.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "A - Collaborating on projects"
+              "title": "Note"
             }
           }
         ]
@@ -71,13 +53,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ingegneria del Software/Appunti.md",
+                "file": "Tesi+Tirocinio/ideal_mcfunction/Note.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Appunti"
+              "title": "Outline of Note"
             }
           },
           {
@@ -107,12 +89,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 247.5,
-    "collapsed": true
+    "width": 233.5
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -186,27 +168,29 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "5cd9e6a8d563e592",
+  "active": "dd3c37ddd8c10df4",
   "lastOpenFiles": [
+    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire/lang/it_it.json",
+    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire/lang/en_us.json",
+    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire/lang",
+    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire",
+    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets",
+    "Tesi+Tirocinio/ideal_mcfunction/Note.pdf",
+    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+    "Storia e Politiche del Digitale/Indice.md",
+    "Storia e Politiche del Digitale/Appunti.md",
     "Ingegneria del Software/pdf/A - Collaborating on projects.pdf",
     "Ingegneria del Software/Appunti.md",
-    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
     "Ingegneria del Software/img/Pasted image 20250408101715.png",
     "Ingegneria del Software/img/Pasted image 20250408101046.png",
     "Ingegneria del Software/img/Pasted image 20250408100751.png",
     "Ingegneria del Software/img/Pasted image 20250408093126.png",
     "Ingegneria del Software/img/Pasted image 20250408092148.png",
     "Ingegneria del Software/pdf/A - Collaborating on projects.pdf.crdownload",
-    "Storia e Politiche del Digitale/Appunti.md",
     "Ingegneria del Software/pdf/13 - GRASP.pdf",
     "Ingegneria del Software/pdf/13 - GRASP.pdf.crdownload",
     "Teoria dell'impresa/capitoli/capitolo_10.xopp~",
-    "Ingegneria del Software/pdf/12 - SW quality and OO principles.pdf",
-    "Ingegneria del Software/esercizi/Es1.xopp~",
     "Tesi+Tirocinio/ideal_mcfunction/Note.md",
-    "Tesi+Tirocinio/ideal_mcfunction/ideal_mcfunction.zip",
-    "Tesi+Tirocinio/ideal_mcfunction/Note.pdf",
-    "Tesi+Tirocinio/Note.pdf",
     "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
     "Tesi+Tirocinio/Beet.md",
     "Tesi+Tirocinio/ideal_mcfunction/textures/item/sprites.png",

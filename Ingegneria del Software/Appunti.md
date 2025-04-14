@@ -894,3 +894,4 @@ I refs sono nomi che possono sostituire gli hashs. Git usa ref per tenere tracci
 Lo stato della directory è elaborato in relazione a una specifica commit. HEAD è il riferimento che punta a quel commit. Quando si cambia branch corrente, si fa puntare HEAD a quel branch, il quale a sua volta farà riferimento alla commit in cima. 
 >In genere head punta al commit più recente del branch su cui si sta lavorando
 
+ 

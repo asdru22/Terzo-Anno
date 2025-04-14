@@ -103,7 +103,7 @@ ideale (il namespace è stato sostituito da `*` descritto nel punto 1):
   "random_sequence": "*blocks/moonlit_monolith"
 }
 ```
-## 4. Modelli 3D, texture e suoni
+## 4. Modelli 3D, texture e suoni \[R\]
 In questa implementazione di progetto, dove i file relativi al datapack (funzioni, loot table, advancement,... ) e quelli della cartella risorse (texture, suoni, modelli 3D) possono essere messi dove l'utente desidera e poi spetterà al compilatore stabilire dove poi verrano messi i file. 
 Bisogna anche considerare che i modelli 3d vengono creati molto facilmente o con https://misode.github.io/ o con un [software specifico, blockbench](https://www.blockbench.net/) (simile a blender), che applica le texture specificate agli oggetti 3d. 
 Ho lasciato quindi due esempi:
@@ -138,14 +138,14 @@ append(*block.timers.10_second_clock){
 		if entity @s[tag=*moonlit_monolith.fixed] run function *block.moonlit_monolith.ten_second_clock.main
 }
 ```
-## 9. Traduzioni
+## 9. Traduzioni \[R\]
 Aggiungere coppie-chiave valore per traduzioni senza accedere al file .json
 ```c
 lang."item.haywire.moonlit_monolith" = "Moonlit Monolith" // traduzione di default a inglese americano (en_us), che è anche fallback per tutte le traduzioni assenti nelle altre lingue
 lang["it_it"]."item.haywire.moonlit_monolith" = "Monolite Lunare" // esempio di traduzione in italiano
 ```
 normalmente si ha un unico file json per ogni lingua.
-## 10. Suoni
+## 10. Suoni \[R\]
 Stessa cosa per i suoni
 ```c
 sounds["block.moonlit_monolith.moonstone_vanishing"] = {
@@ -264,7 +264,7 @@ execute if cond1 run return run say this is the if // mai raggiungibile
 ## 14. Commenti multilinea
 Mcfunction supporta commenti: ogni riga che inizia con `#` è considerata un commento, ed ingorata a compilazione (non si può dichiarare un commento dopo un comando nella stessa riga).
 io preferirei uno stile di commento simile a c/java, che usa `//` per la singola riga, che possono essere anche messi sulla stessa linea del codice, e `/* ... */` per i commenti multilinea. 
-## 15. Prelievo texture da spritesheet e texture animate
+## 15. Prelievo texture da spritesheet e texture animate \[R\]
 Chi crea le texture che usa nei suoi progetti, spesso lo fa su un file png che ne contiene molte (in modo da avere più prototipi, provare stili e colori diversi), e poi copia una specifica texture nel suo file. Questo continuo copia incolla è noioso specialmente se si modifica una texture, che poi deve essere nuovamente copiata nel suo file singolo.
 Per questo dato che sto gia "processando" le texture per copiarle da una cartella del progetto alla loro destinazione finale (`textures/...`->`<resourcepack>/assets/<namespace>/textures/...`)
 si può fare un ulteriore passaggio e al posto di scegliere una texture cosi
