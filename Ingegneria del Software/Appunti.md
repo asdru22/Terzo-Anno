@@ -757,7 +757,7 @@ Deve esserci un livello intermedio di astrazione, più i moduli sono astratti pi
 
 In genere è meglio usare le interfacce, non i tipi concreti.
 `double sum(ArrayList<double> list){...}` funziona solo con le `ArrayList`. Se si usa l'interfaccia List `double sum(List<double> list){...}`, si possono usare sia `ArrayList` che `LinkedList`.
-# 13 General Responsibility Assignment Software Patterns (GRASP)
+# 13. General Responsibility Assignment Software Patterns (GRASP)
 Tutte le scelte di applicare i principi SOLID influenzano la qualità del prodotto finale.
 GRASP si concentra sulla progettazione object oriented dove si arriva alla soluzione guidati dall'idea di responsabilità. Con responsabilità si intende un contratto o obbligazione di un classificatore.
 Si hanno due responsabilità:
@@ -844,8 +844,127 @@ Non tutte le dipendenze sono uguali. Se si è dipendenti da una classe che non c
 
 Si hanno prove empiriche che gli elementi astratti tendono ad essere più stabili di quelli concreti. 
 È meglio avere più dipendenze buone che poche dipendenze cattive.
+# 14. Agile Software Development
+## 14.1 Il problema
+Spesso ci si trova a spendere molto per overhead (attività non correlate alla realizzazione del prodotto, ma lo facilitano). Si rischia che queste attività di overhead non sempre siano utili quanto ci si aspettava. Investire troppo in overhead non è l'idea migliore. Non si cerca di migliorare il processo per migliorare il prodotto. Il tempo speso per scrivere documentazione estensiva, negoziare contatti, fare controllo rischi, potrebbe essere perso quando il piano non è chiaro fin dall'inizio. Vogliamo che non solo il software sia flessibile, ma anche il modo per realizzarlo.
+## 14.2 Manifesto dell'Agile Software Development
 
-# 20 Version Control
+| Più valorizzati                | Meno valorizzati           |
+| ------------------------------ | -------------------------- |
+| gli individui e le interazioni | processi e strumenti       |
+| software funzionante           | documentazione comprensiva |
+| collaborazione con i clienti   | negoziare i contratti      |
+| rispondere ai cambiamenti      | seguire un piano           |
+Scritto da individui del mondo della consulenza che si sono poi spostati alla progettazione software.
+## 14.3 Principi
+Agile non è un processo o un metodo di design, è una collezione di buone prassi guidate da una serie di principi ispirati da valori.
+I principi:
+1. soddisfare il committente con consegna del software continua e di valore
+2. accettare i cambiamenti nei requisiti
+3. consegnare software frequentemente
+4. collaborazione giornaliera tra sviluppatori e business
+5.  costruire i progetti attorno a individui motivati
+6. fornire loro un ambiente e l'aiuto di cui hanno bisogno, fidandosi di loro per fare il lavoro
+7. tramettere informazioni con conversazioni faccia a faccia
+8. software funzionante è la misura principale di progresso
+9. processi agile promuovono un ritmo di sviluppo sostenibile nel tempo
+10. gli sponsor e sviluppatori devono tenere un passo costante a tempo indefinito
+11. mirare all'eccellenza tecnica e buon design migliora l'agilità
+12. semplicità: massimizzare la quantità di lavoro non fatto
+13. le migliori architetture, requisiti e design emergono da gruppi che si organizzano da soli
+14. a intervalli regolari, il team riflette su come essere più efficienti, e di seguito sistema il suo comportamento
+
+Nella pratica non tutti i meccanismi funzionano
+## 14.4 Metodi
+Sono stati proposti dei metodi ispirati ad Agile:
+- Modelling agile
+- Agile Unified Process
+- Crystal clear
+- Extreme programming
+- Scrum
+## 14.5 Pratiche
+- Refactoring
+- Small release cycles 
+- Continuous integration
+- Coding standard
+- Collective ownership
+- Planning game
+- Whole team
+- Daily meetings
+- Test-Driven Design
+- Code and design reviews
+- Pair programming
+- Document late
+- Use of design patterns
+## 14.5.1 Code review
+Quando viene fatta una modifica al codice di un prodotto già sul mercato, questo deve passare dei test prima di fare il commit. Si fanno delle revisioni prima di aggiungere modifiche al codebase principale. La code review viene fatta da tutti i membri del team.
+> Le modifiche fatte vengono controllate da chi ha scritto il codice, e da qualcuno che ne fa la review.
+
+Uno dei vantaggi della code review è anche l'aumento della visione di ciò che avviene all'interno del processo e la condivisione della conoscenza.  
+### 14.5.2 Pair programming
+Alternativa a code review, il codice viene scritto a coppie.
+Ci si alterna tra pilota e navigatore: il pilota è il programma che sta alla tastiera, mentre il navigatore è quello che sta facendo la code review.
+### 14.5.3 Test-driven design
+
+### 14.5.4 User stories
+Si usano le user stories per rappresentare i requisiti. Le user stories sono delle descrizioni di sistema funzionali, che vengono processate e guidano l'implementazione e vengono raffinate con test di accettazione che validano l'implementazione.
+Si usano dei template: `as a <role>, I want <goal> so that <benefit>`
+- ruolo: classe di utente, attore
+- obiettivo
+
+![[Pasted image 20250414132237.png]]
+#### 14.5.4.1 Acceptance test
+Se il software passa il test, è automaticamente accettato. Seguono il template *given-when-then*.
+>**Given** my bank account is in credit, and I made no withdrawals recently, When I **attempt** to withdraw an amount less than my card’s limit, **then** the withdrawal should complete without errors or warnings.
+#### 14.5.4.2 Le storie sono volatili
+Le storie non devono sopravvivere al loro processing. Persistono sono gli acceptance test associati ad esse.
+Gli test dicono cosa realizzare e servono anche da validazione.
+#### 14.5.4.3 Storie, epiche, temi
+- Le storie che descrivono le feature di alto livello sono raccolte presto ma non sono molto specifiche e sono raffinate quando il progetto prosegue.
+- Le epiche sono storie grandi: in genere serve più di un'iterazione per svilupparle. Poi sono divise in storie più piccole quando ci si avvicina alla fase di sviluppo.
+- I temi sono collezioni di storie correlate.
+#### 14.5.4.4 INVEST
+Un insieme di criteri per valutare la qualità di una storia
+- Independent: le storie non devono dipendere l'una dall'altra
+- Negotiable: le storie non sono contratti, sono il risultato da una negoziazione e possono essere ri-negoziate in qualsiasi momento.
+- Valuable: le storie devono fornire valore
+- Estimable: il team deve essere in grado di stimare il livello di complessità e la quantità di lavoro richiesta per l'analisi della storia. Un alto grado di incertezza è un buon indicatore che la storia non è abbastanza precisa.
+- Small: una storia deve essere realizzata in una iterazione. Alla fine dell'iterazione devono essere considerate finite.
+- Testable: una storia è finita solo quando le feature corrispondenti passano i test di accettazione.
+### 14.5.5 Extreme programming
+### 14.5.6 Test driven development
+Si inizia a scrivere il codice scrivendo i test
+### 14.5.7 Whole team
+### 14.5.8 Continuous process
+- Integrazione continua
+- Miglioramento del design
+- Aggiornamenti piccoli
+
+L'indicatore dello stato del progetto è la funzionalità del software. Va periodicamente rivisitato il debito tecnico all'interno del progetto.
+### 14.5.9 Shared Understanding
+- Standard di programmazione
+- Codice di proprietà comune
+- Design semplice
+- Metafora del sistema
+
+Non deve esserci il codice di qualcuno.
+## 14.6 Evoluzione
+Sviluppo ed evoluzione fanno parte del ciclo di vita del software. Approcci agile, la conoscenza è condivisa implicitamente e si produce poca documentazione.#
+## 14.7 Planning Game
+È il processo di pianificazione in *extreme programming*, basato sulle storie.
+Si fa prima di ogni iterazione, ed è composto da due parti:
+- pianificazione delle release (include i clienti)
+- pianificazione dell'iterazione (solo tra sviluppatori)
+
+I clienti ordinano le storie in base al loro valore, gli sviluppatori in base al rischio.
+Si scelgono le storie che saranno finite nella prossima release.
+Alla fine del tempo prefissato devono essere passati tutti i test.
+
+# 15. Design Pattern
+
+
+---
+# 20. Version Control
 ## 20.1 Ciclo di vita degli artefatti
 ![[Pasted image 20250408092148.png]]Non si vuole che tutti i salvataggi fatti siano recuperati.
 Quando si fa un commit, un sistema prende la copia attuale del file e la mette da un'altra parte dove può poi essere recuperata.
