@@ -932,25 +932,24 @@ Un insieme di criteri per valutare la qualità di una storia
 - Small: una storia deve essere realizzata in una iterazione. Alla fine dell'iterazione devono essere considerate finite.
 - Testable: una storia è finita solo quando le feature corrispondenti passano i test di accettazione.
 ### 14.5.5 Extreme programming
-### 14.5.6 Test driven development
-Si inizia a scrivere il codice scrivendo i test
-### 14.5.7 Whole team
-### 14.5.8 Continuous process
+Extreme programming è un metodo di sviluppo software basato su AGILE, le sue caratteristiche sono:
+#### 14.5.5.1 Test driven development
+Si inizia a scrivere il codice scrivendo i test, per prevenire i bug.
+#### 14.5.5.2 Whole team
+#### 14.5.5.3 Continuous process
 - Integrazione continua
 - Miglioramento del design
 - Aggiornamenti piccoli
 
 L'indicatore dello stato del progetto è la funzionalità del software. Va periodicamente rivisitato il debito tecnico all'interno del progetto.
-### 14.5.9 Shared Understanding
+#### 14.5.5.4 Shared Understanding
 - Standard di programmazione
 - Codice di proprietà comune
 - Design semplice
 - Metafora del sistema
 
 Non deve esserci il codice di qualcuno.
-## 14.6 Evoluzione
-Sviluppo ed evoluzione fanno parte del ciclo di vita del software. Approcci agile, la conoscenza è condivisa implicitamente e si produce poca documentazione.#
-## 14.7 Planning Game
+#### 14.5.5.5 Planning Game
 È il processo di pianificazione in *extreme programming*, basato sulle storie.
 Si fa prima di ogni iterazione, ed è composto da due parti:
 - pianificazione delle release (include i clienti)
@@ -959,58 +958,82 @@ Si fa prima di ogni iterazione, ed è composto da due parti:
 I clienti ordinano le storie in base al loro valore, gli sviluppatori in base al rischio.
 Si scelgono le storie che saranno finite nella prossima release.
 Alla fine del tempo prefissato devono essere passati tutti i test.
+## 14.6 Evoluzione
+Sviluppo ed evoluzione fanno parte del ciclo di vita del software. Approcci agile, la conoscenza è condivisa implicitamente e si produce poca documentazione
 
-# 15. Design Pattern
+# 15. Software Testing
+## 15.1 Validazione e verifica
+Il testing è l'attività più rilevante tra quelle di validazione e verifica, usate per controllare se il software creato è corretto rispetto alle specifiche. Si può avere software validato ma non verificato (piace all'utente, ma fa le cose sbagliate, o viceversa). 
+La validazione consiste nel catturare i comportamenti attesi.
+La verifica viene fatta attraverso altri test.
+II testing dice quando il sistema è sbagliato, non quando è giusto. Più test si fanno, più è probabile rilevare la presenza di un qualche tipo di errore logico. Maggiore è il numero di test, maggiore sarà il livello di confidenza nella correttezza del sistema. Il livello di confidenza è pagato con la scrittura dei test. I test non sono gratuiti, devono essere mantenuti e fatti cambiare con le classi.
+> Il testing nel software è diverso da quello dell'ingengeria
+## 15.2 Costi
+I meccanismi di testing devono essere introdotti il prima e il più spesso possibile. Più un problema persiste nel codice, più sarà difficile correggerlo.
+## 15.3 Lessico
+- Difetto (bug): il risultato di un errore logico di qualche genere.
+- Fallimento: il malfunzionamento è visible
+- Problema (issue): descrizione del fallimento
+- Test case: il risultato atteso dell'esecuzione di un programma
 
+## 15.4 Livelli di testing
+- Unit $\rightarrow$ classe/metodo:  maggiori dei test di integrazione, poco costosi sia da scrivere che da eseguire
+- Integrazione $\rightarrow$ gruppo di moduli
+- End to end $\rightarrow$ l'intero sistema:  bisogna mandare in esecuzione l'intera applicazione. Non sempre sono automatici 
 
----
-# 20. Version Control
-## 20.1 Ciclo di vita degli artefatti
-![[Pasted image 20250408092148.png]]Non si vuole che tutti i salvataggi fatti siano recuperati.
-Quando si fa un commit, un sistema prende la copia attuale del file e la mette da un'altra parte dove può poi essere recuperata.
-## 20.2 Gestire le revisioni
-Implementare un operazione di commit che fa *snapshot* di file. Una *repository* contiene file versionati, i cui snapshot possono essere presi e ripristinati (operazione di *restore*).
-Ogni file può avere associato altri dati (metadati):
-- data e timestamp dello snapshot
-- chi ha modificato il file
-- perché è stato fatto
-## 20.2.1 Il *Changeset*
-Quando si creano revisioni spesso si opera non su i singoli file, ma su un gruppo di file correlati che sono stati tutti modificati per uno stesso fine. Questo gruppo di file si chiama *changeset*
-Lo stream di snapshot:
-![[Pasted image 20250408093126.png]]
-Quello a sinistra è quello più vecchio. Non serve memorizzare un file negli snapshot successivi se non è stato modificato.
-## 20.3 Collaborazione
-Il sistema di revisione è un sistema distribuito
-- Approccio client-server (centralizzato): il sistema di revisione è un servizio su un host remoto che espone un'API
-- Approccio peer-to-peer (distribuito): tutte le workstation hanno repository locali che possono essere sincronizzate con quelle remote. In genere si ha un'unica repository remota e più repository locali che possono essere sincronizzate con quella remota.
-### 20.3.1 Conflitti
-- Sistema centralizzato: si usa un lock: solo l'utente che ha il lock per un certo file può creare revisioni per quel file. Questo sistema ha dei problemi:
-	- Ognuno può vedere le revisioni degli altri
-	- È un problema se qualcuno si dimentica di rilasciare un lock.
-	- cattive abitudini di gestione del lock influenzano tutti gli sviluppatori
-	- Se il server è spento tutti sono bloccati.
-	- Se non c'è la rete non si può lavorare.
-- Sistema distribuito: si gestiscono: si definiscono workflows per minimizzare l'impatto dei conflitti. Quando ci sono cambiamenti contemporanei, si sceglie uno tra i cambiamenti o si fa un merge manuale.
-## 20.4 Git
-Git è un sistema di versionamento distribuito. 
-![[Pasted image 20250408100751.png]]
-È l'utente a scegliere quali file modificati inserire nel prossimo snapshot. Nella staging area si sceglie quali file includere nello snapshot e quali no (i file esclusi non fanno parte del changeset).
-**Gli stati dei file**
-![[Pasted image 20250408101046.png]]
-Una volta che il file è tracciato, il file si può trovare in 3 stati
-- *committed*: l'ultima versione del file locale coincide con quella sulla repository remota
-- *modified*: l'ultima versione del file locale non coincide con quella sulla repository remota
-- *staged*: il file modificato sarà inserito nel prossimo changeset.
+Salendo la piramide diminuiscono le cose da testare, ma fare il testing diventa più complicato e costoso.
+## 15.5 Test statico/dinamico
+### 15.5.1 Analisi Statica
+Si analizza il codice per trovare bug. Si basa su metodi formali
+- model checking
+- data-flow analysis
+- abstract interpretation
+- symbolic execution
 
-![[Pasted image 20250408101715.png]]
-## 20.4.1 Branching
-Un branch è una linea temporale che diverge da quella principale. I branches devono essere esplicitamente creati e nominati.
-I branch non divergono per sempre, a un certo punto si vuole fare riconciliare i branches.
-### 20.4.2 Hashs, refs e tags
-I commit sono identificati da un id univoco (un hash SHA-1).
-I refs sono nomi che possono sostituire gli hashs. Git usa ref per tenere traccia dello stato della repository. 
-### 20.4.3 HEAD
-Lo stato della directory è elaborato in relazione a una specifica commit. HEAD è il riferimento che punta a quel commit. Quando si cambia branch corrente, si fa puntare HEAD a quel branch, il quale a sua volta farà riferimento alla commit in cima. 
->In genere head punta al commit più recente del branch su cui si sta lavorando
+Si trasformano i progetti in modelli matematici e si controlla se soddisfano certe proprietà.
+Le revisioni da parte di persone sono una forma di analisi statica.
+>Il codice non viene eseguito.
 
- 
+Si usano pattern di bug per valutare la qualità del codice. In genere sono regole per controllare se si stanno rispettando stili di programmazione sicuri.
+### 15.5.2 Analisi Dinamica
+Si esegue il codice per trovare bug. Il test è progettato con un approccio *blackbox* o *whitebox*.
+- Blackbox: ci interessa solo il risultato senza guardare il codice che c'è dentro.
+	- **Boundary value analysis**: Si trovano i punti di discontinuità nei valori di input e si testano.
+	- **equivalence partitioning**: Si testa un valore casuale appartenente a ciascuno degli intervalli attorno ai punti di discontinuità e agli intervalli della validità del dominio.
+	- decision table testing
+	- all-pairs testing
+	- state transition tables
+- Whitebox: si usa la struttura del codice per definire i test. I metodi di test includono:
+	- Flusso dei dati
+	- Flusso di controllo: si identifica un test per controllare
+		- copertura del codice
+		- copertura del branch
+		- copertura del path
+
+**Pro e contro di black e white**
+
+|           | Contro                | Pro                                                                                |
+| --------- | --------------------- | ---------------------------------------------------------------------------------- |
+| **White** | complesso             | conoscenza del codice è acquisita quando si creano i test case, copertura maggiore |
+| **Black** | copertura sconosciuta | i tester non devono essere sviluppatori, si avvicina di più ai requisiti           |
+## 15.6 Testare i test
+Per valutare la qualità del insieme dei test si testano mutazioni del codice.
+- si creano mutazioni del codice
+- si eseguono test sulle mutazioni
+- se un test passa c'è un problema.
+### 15.7 Struttura di un test
+Tutti i test sono strutturati nella stessa maniera
+1. Si mette il sistema da testare (system under testing - SUT) nello [[#10.1.1 Stato|stato]] desiderato
+2. Si interagisce con il SUT
+3. Si verifica che i risultati della interazioni siano quelli aspettati
+
+AAA: arrange-act-assert
+## 15.8 Unit testing
+Si testa una singola funzione: il subject è molto piccolo. Si controlla che il codice rispetti le aspettative quando è scritto per la prima volta, e anche dopo averlo modificato (*regression testing*).
+I SUT devono essere isolati. Il test set di ogni unit deve avere casi indipendenti. I test eseguiti devono essere indipendenti l'uno dall'altro. Test interdipendenti non possono essere eseguiti in parallelo.
+Si posso fare test su
+- valore di ritorno
+- stato (di un oggetto), post-condizione di un'operazione
+- collaborazione con altri oggetti (test del comportamento)
+
+Per isolare il codice dalla dipendenze d'uso si usano delle copie. Forniscono la stessa interfaccia ma con codice diverso. *Dependency injection* facilita l'isolamento.

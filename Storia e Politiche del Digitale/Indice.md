@@ -1,10 +1,10 @@
 # I costi materiali delle tecnologie del Ventunesimo secolo
 
-# 1. Introduzione
+# 1. Le terre rare
 
 ## 1.1 Cosa sono le terre rare
 ## 1.2 Miniere e geopolitica
-## 1.3 Interesse di trump per nuove risorse
+## 1.3 Interesse di Trump per nuove risorse
 ## 1.4 Riciclo e recupero
 # 2. L'ascesa delle GPU
 
@@ -21,7 +21,7 @@ Collegamento con terre rare dal capitolo precedente
 Collegamento con data center dal capitolo precedente
 ### 3.1.1 Conseguenze dell'uso di acqua minerale e potabile
 ### 3.1.2 Impatto sugli ecosistemi
-### 3.1.3 Alternative sostenibili
+### 3.1.2 Alternative sostenibili
 # 4 Rinnovato interesse nel nucleare
 
 ## 4.1 Perché le big tech investono nell’energia nucleare

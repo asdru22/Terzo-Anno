@@ -1,0 +1,64 @@
+Negli ultimi anni del ventesimo secolo, le accuse
+di fissazione dei prezzi sotto costo al fine di estro-
+mettere la concorrenza e di altre strategie pre-
+datorie hanno incontrato un crescente scettici-
+smo da parte degli organi giudiziari. Questo scet-
+ticismo riflette le posizioni della Scuola di Chi-
+cago, secondo la quale i comportamenti predato-
+ri sarebbero irrazionali. Secondo la terminologia
+in uso nella teoria dei giochi, la tesi della Scuola
+di Chicago è che un comportamento predatorio
+non sia né una strategia perfetta nei sottogiochi
+né una strategia dominante. Di conseguenza, a
+partire dagli anni Ottanta, solo poche delle accu-
+se di attività predatoria hanno portato a una con-
+danna, con alcune notevoli eccezioni, come nel
+caso Microsoft.
+Allo stesso tempo, però, appare evidente che al-
+cuni casi di comportamento predatorio hanno ef-
+fettivamente avuto luogo, il che ha sollevato una
+questione di grande importanza per la moderna
+teoria dell’organizzazione industriale: è possibile
+realizzare dei modelli plausibili in cui le azioni pre-
+datorie risultino razionali? La risposta sembra esse-
+re sì e in tempi recenti sono stati sviluppati nu-
+merosi modelli di teoria dei giochi che sovverto-
+no la logica del chain store paradox.
+Un’importante caratteristica che accomuna mol-
+ti di questi modelli è la presenza di informazione
+asimmetrica. Tale asimmetria nell’informazione tra
+un’impresa già esistente e un’impresa concorrente
+che entra per la prima volta nel mercato riguardo
+ai costi della prima può rendere il comportamen-
+to predatorio una strategia attuabile e allettante.
+Anche in assenza di tali incertezze, è possibile ri-
+correre a contratti a lungo termine e/o contratti
+vincolanti per impedire ai potenziali concorrenti
+di entrare nel mercato. Tuttavia, mentre l’attuabi-
+lità dei comportamenti predatori, sia nella teoria
+sia nella pratica, sembra assodata, quale sia il ruo-
+lo preciso delle politiche pubbliche rimane anco-
+ra poco chiaro.
+Il problema principale è quello di distinguere tra
+la ﬁssazione di prezzi aggressivi o altre strategie
+concorrenziali e quelle strategie che sono di fatto
+predatorie, cioè che consentono un proﬁtto solo
+se permettono di estromettere uno o più concor-
+renti dal mercato. Alcuni provvedimenti antitrust
+appaiono oggi come dei tentativi maldestri di pro-
+teggere i concorrenti invece che la concorrenza.
+Sia gli economisti sia gli organi di giustizia conti-
+nuano ancora oggi ad adoperarsi per elaborare una
+deﬁnizione verosimile di comportamento predato-
+rio. Gli studi empirici che hanno cercato di veriﬁ-
+care la presenza di un ricorso sistematico alla de-
+terrenza all’entrata hanno dovuto fare i conti con
+la difﬁcoltà di ottenere i dati necessari per l’indi-
+viduazione di comportamenti predatori in un in-
+sieme di dati puntuali di mercato. Si tratta tutta-
+via di un’area di ricerca molto attiva nel campo
+dell’organizzazione industriale applicata, che lascia
+ben sperare nella possibilità che i responsabili del-
+le politiche possano lavorare alla realizzazione e al-
+l’approvazione di leggi antitrust contro il compor-
+tamento predatorio.

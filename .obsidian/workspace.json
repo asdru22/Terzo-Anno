@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c112cc2af7e9cdbd",
+        "id": "9557aea0c9d6de07",
         "type": "tabs",
         "children": [
           {
-            "id": "d279c79d43cd0df6",
+            "id": "bf0984f09a2d34a6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ingegneria del Software/Appunti.md",
+                "file": "Teoria dell'impresa/Riassunti Libro.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Appunti"
+              "title": "Riassunti Libro"
             }
           }
         ]
@@ -53,13 +53,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ingegneria del Software/Appunti.md",
+                "file": "Ingegneria del Software/collaborazione.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Appunti"
+              "title": "Outline of collaborazione"
             }
           },
           {
@@ -167,25 +167,27 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "d279c79d43cd0df6",
+  "active": "bf0984f09a2d34a6",
   "lastOpenFiles": [
-    "Ingegneria del Software/riassunto-1.pdf",
-    "Ingegneria del Software/pdf/15 - Design Patterns 1.pdf",
-    "Ingegneria del Software/pdf/14 - Agile.pdf",
+    "Teoria dell'impresa/Riassunti Libro.pdf",
+    "Teoria dell'impresa/Importante.xopp~",
+    "Teoria dell'impresa/out.txt",
+    "Teoria dell'impresa/in.txt",
+    "Teoria dell'impresa/in.txrt",
+    "Teoria dell'impresa/semplifica_riassunti.py",
+    "Teoria dell'impresa/Riassunti Libro.md",
+    "Ingegneria del Software/collaborazione.md",
+    "Ingegneria del Software/pdf/15 - Software testing.pdf",
     "Ingegneria del Software/Appunti.md",
-    "Ingegneria del Software/pdf/15 - Design Patterns 1.pdf.crdownload",
+    "Ingegneria del Software/pdf/16 - Design Patterns 1.pdf",
+    "Ingegneria del Software/pdf/15 - Software testing.pdf.crdownload",
+    "Storia e Politiche del Digitale/Indice.md",
+    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+    "Ingegneria del Software/riassunto-1.pdf",
+    "Ingegneria del Software/pdf/14 - Agile.pdf",
     "Ingegneria del Software/img/Pasted image 20250414132237.png",
     "Ingegneria del Software/pdf/img/Pasted image 20250414130902.png",
-    "Ingegneria del Software/pdf/img",
     "Tesi+Tirocinio/ideal_mcfunction/Note.md",
-    "Ingegneria del Software/pdf/14 - Agile.pdf.crdownload",
-    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire/lang/it_it.json",
-    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire/lang/en_us.json",
-    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire/lang",
-    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets/haywire",
-    "Tesi+Tirocinio/ideal_mcfunction/project/resourcepack/assets",
-    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
-    "Storia e Politiche del Digitale/Indice.md",
     "Storia e Politiche del Digitale/Appunti.md",
     "Ingegneria del Software/img/Pasted image 20250408101715.png",
     "Ingegneria del Software/img/Pasted image 20250408101046.png",
@@ -212,7 +214,6 @@
     "Basi di Dati/Es/SQL.md",
     "2024-10-09.md",
     "Tecnologie Web/esercizi/Ristorante.md",
-    "Tecnologie Web/esercizi/giochi.md",
-    "Welcome.md"
+    "Tecnologie Web/esercizi/giochi.md"
   ]
 }
