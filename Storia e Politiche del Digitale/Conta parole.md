@@ -1,0 +1,5 @@
+La scoperta delle terre rare risale al 1789, quando una «dura pietra nera» fu trovata nella miniera della città svedese di Ytterby. Il chimico Johan Gadolin non fu in grado di identificare la pietra, la quale chiamò «terra rara». La ricerca e isolamento di nuovi materiali portò alla scoperta di 17 elementi metallici tra il Diciottesimo e Ventesimo secolo: le terre rare, o in inglese, *rare earth elements* (REE).
+Nonostante questi metalli siano stati scoperti abbastanza presto, la loro utilità divenne apparente solamente dopo la Seconda Guerra Mondiale, quando le televisioni divennero strumenti di uso comune. 
+>Negli anni 70 si iniziò a sfruttare le capacità magnetiche delle terre rare per creare super magneti, fondamentali per creare motori elettrici. (Rare Metals War pag. 20)
+
+Al giorno d'oggi, le REE sono indispensabili per tecnologie di comunicazione e informazione date le loro proprietà di semiconduttori. Inoltre, sono fondamentali per le *green technologies*, che stanno venendo lentamente adottare per ridurre l'impatto umano sull'ambiente.

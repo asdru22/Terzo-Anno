@@ -822,7 +822,7 @@ Rappresenta un scenario di caso d'uso del sistema dove avviene il system event. 
 **Soluzione**: si usano alternative basate sul tipo. Quando alternative correlate sono funzione del tipo di oggetto su cui si sta operando, allora queste variazioni comportamentali non dovrebbero essere fatte attraverso l'`if`.
 Un `if` sbagliato è quello dove la variazione comportamentale dipende dall'oggetto su cui si sta operando ~~`if(A instanceof B){...}`~~.
 Il polimorfismo rende subito evidente se ci sono errori nella gerarchia di classi.
-### 13.2.9 Protected Variations
+### 13.2.9 Protected Variations (PV)
 **Problema**: come limitiamo la portata dei cambiamenti? Come si evitano cambiamenti a catena?
 **Soluzione**: si identificano punti dove si ipotizza ci saranno cambiamenti, si assegnano le responsabilità per creare un'interfaccia stabile attorno a loro.
 >OCP è simile a Protected Variation
@@ -1037,3 +1037,133 @@ Si posso fare test su
 - collaborazione con altri oggetti (test del comportamento)
 
 Per isolare il codice dalla dipendenze d'uso si usano delle copie. Forniscono la stessa interfaccia ma con codice diverso. *Dependency injection* facilita l'isolamento.
+# 16 Design [[#13.2 Pattern|Patterns]]
+Si parte dal problema e vengono offerte una o più soluzioni. Un pattern è tale se la soluzione è valida. Un pattern si identifica in base alle soluzioni trovate in passato. I pattern sono in genere raggruppati in un sistema dove possono essere richiamati l'uno con l'altro (catalogo in informatica). I cataloghi hanno pattern che presentano soluzioni a gruppi di problemi. C'era un momento in cui tutte le cose rappresentate dovevano essere pattern. Al giorno d'oggi rappresentare tutto sottoforma di pattern non è efficace.
+Trattiamo pattern presi da *Design Patterns: Elements of Reusable Object-Oriented Software*.
+## 16.1 Documentazione
+Ogni pattern ha una struttura uniforme
+- Nome e classificazione: nome unico e descrittivo
+- Obiettivo: ragione per cui usare il pattern
+- Alias
+- Motivazioni: problema e contesto in cui usare questo pattern
+- Applicabilità: situazioni in cui il pattern è applicabile
+- Struttura: rappresentazione in forma grafica che precede UML
+- Partecipanti: classi e oggetti utilizzati e il loro ruolo nel design
+- Collaborazione: descrizione di come classi e oggetti interagiscono gli uni con gli altri
+- Conseguenze: risultati causati dall'utilizzo del pattern
+- Implementazione: descrizione di un implementazione di un pattern
+- Codice di esempio (in c++)
+- Utilizzi conosciuti: esempi di utilizzi concreti del pattern
+- Pattern correlati
+## 16.2 Fini
+- Creazionale: processo di istanziazione (Abstract Factory, Builder, Factory Method, Prototype, Singleton)
+- Comportamentale: algoritmi e responsabilità (Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy)
+- Strutturale: come le classi e gli oggetti sono composti per fare strutture più grandi (Chain of responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template method, Visitor)
+
+![[Pasted image 20250423132655.png]]
+### 16.2.1 Template Method
+**Problema**: come posso condividere un comportamento parzialmente definito in una gerarchia di ereditarietà?
+Con il template method si definisce lo scheletro di un algoritmo in un operazione, delegando alcuni passi a sottoclassi. Si lascia cambiare certi passi dell'algoritmo alle sottoclassi, senza cambiare la sua struttura.
+Si spostano i comportamenti più comuni in cima all'albero di ereditarietà anche quando parzialmente specificato. Nuove implementazioni della superclasse astratte non creano problemi con i clienti: le dipendenze sono dirette ad elementi più stabili.
+Inoltre, viene favorita l'aderenza a [[#12.5.2 Open-closed principle (OCP)|OCP]].
+### 16.2.2 Strategy
+**Problema**: come posso separare un oggetto da parte del suo comportamento e cambiarlo a runtime?
+Con strategy si definisce una famiglia di algoritmi, si incapsula ognuno di essi e li si rende intercambiabili. Strategy consente all'algoritmo di variare indipendentemente dai clienti che la usano.
+Strategy favorisce l'implementazione di [[#12.5.2 Open-closed principle (OCP)|OCP]] e obbedisce [[#13.2.9 Protected Variations (PV)|PV]]. Favorisce la composizione rispetto all'ereditarietà.
+## 16.3 Privilegiare la composizione rispetto all'ereditarietà
+Le due tecniche principali per condividere e riutilizzare codice sono ereditarietà e composizione. Si favorisce la composizione degli oggetti rispetto all'ereditarietà tra classi.
+### 16.3.1 Problemi dell'ereditarietà
+L'ereditarietà risolve due problemi
+- polimorfismo tramite sottotipaggio
+- condivisione del comportamento
+
+Nella maggior parte dei linguaggi di programmazione, queste due soluzioni in genere si ostacolano a vicenda.
+>Non si rispetta [[#12.5.2 Open-closed principle (OCP)|OCP]] e [[#13.2.9 Protected Variations (PV)|PV]]. La soluzione è non usare superclassi, ma la composizione.
+
+```java
+// Interface for movement behavior
+interface GoBehavior {
+    void goTo(String destination);
+}
+
+// Interface for control behavior
+interface ControlBehavior {
+    void notifyDriver(String message);
+}
+
+// Concrete movement behavior for driving
+class DriveBehavior implements GoBehavior {
+    public void goTo(String destination) {
+        System.out.println("Driving to " + destination);
+    }
+}
+
+// Concrete movement behavior for flying
+class FlyingBehavior implements GoBehavior {
+    public void goTo(String destination) {
+        System.out.println("Flying to " + destination);
+    }
+}
+
+// Concrete control behavior for remote control
+class RemoteBehavior implements ControlBehavior {
+    public void notifyDriver(String message) {
+        System.out.println("Sending remote message: " + message);
+    }
+}
+
+// Concrete control behavior for human driver
+class HumanBehavior implements ControlBehavior {
+    public void notifyDriver(String message) {
+        System.out.println("Notifying human driver: " + message);
+    }
+}
+
+// Superclass for all vehicles
+abstract class Vehicle {
+    protected GoBehavior goBehavior;
+    protected ControlBehavior controlBehavior;
+
+    public Vehicle(GoBehavior goBehavior, ControlBehavior controlBehavior) {
+        this.goBehavior = goBehavior;
+        this.controlBehavior = controlBehavior;
+    }
+
+    public void goTo(String destination) {
+        goBehavior.goTo(destination);  // Uses delegation
+    }
+
+    public void notifyDriver(String message) {
+        controlBehavior.notifyDriver(message);  // Uses delegation
+    }
+
+    public void setGoBehavior(GoBehavior goBehavior) {
+        this.goBehavior = goBehavior;
+    }
+
+    public void setControlBehavior(ControlBehavior controlBehavior) {
+        this.controlBehavior = controlBehavior;
+    }
+}
+
+// Concrete vehicle types
+class Car extends Vehicle {
+    public Car() {
+        super(new DriveBehavior(), new HumanBehavior());
+    }
+}
+
+class Aircraft extends Vehicle {
+    public Aircraft() {
+        super(new FlyingBehavior(), new HumanBehavior());
+    }
+}
+
+class Drone extends Vehicle {
+    public Drone() {
+        super(new FlyingBehavior(), new RemoteBehavior());
+    }
+}
+```
+
+>La qualità di una soluzione software si vede di fronte ai cambiamenti. 
