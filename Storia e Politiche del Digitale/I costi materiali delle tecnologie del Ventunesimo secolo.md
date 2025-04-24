@@ -14,6 +14,7 @@ https://hir.harvard.edu/not-so-green-technology-the-complicated-legacy-of-rare-e
 https://spectrum.ieee.org/ukraine-rare-earth-minerals
 https://www.bbc.com/news/articles/c9d5jwvw9nlo
 https://www.foxnews.com/politics/why-trumps-push-frigid-greenland-about-icing-out-us-adversaries
+https://www.theguardian.com/us-news/2025/feb/25/trump-zelenskyy-ukraine-minerals-deal
 ### 1.3 Riciclo e recupero
 - Recupero di terre rare da dispositivi elettronici
 - Efficienza e limiti del riciclo

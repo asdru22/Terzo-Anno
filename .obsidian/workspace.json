@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+                "file": "Storia e Politiche del Digitale/Tesina.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "I costi materiali delle tecnologie del Ventunesimo secolo"
+              "title": "Tesina"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Storia e Politiche del Digitale/Tesina.md",
+                "file": "Storia e Politiche del Digitale/Conta parole.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tesina"
+              "title": "Conta parole"
             }
           },
           {
@@ -46,21 +46,8 @@
               "icon": "lucide-file-text",
               "title": "Recycling rare earths"
             }
-          },
-          {
-            "id": "03e685d99ab69355",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Storia e Politiche del Digitale/materiale tesina/Geopolitics and rare earth metals.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "Geopolitics and rare earth metals"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -206,10 +193,13 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "e25c811890651755",
+  "active": "22480aff0c77d908",
   "lastOpenFiles": [
     "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+    "Storia e Politiche del Digitale/Conta parole.md",
     "Storia e Politiche del Digitale/Tesina.md",
+    "Storia e Politiche del Digitale/materiale tesina/Recycling REE.pdf",
+    "Storia e Politiche del Digitale/materiale tesina/Recycling REE.pdf.crdownload",
     "Storia e Politiche del Digitale/materiale tesina/Recycling rare earths.pdf",
     "Storia e Politiche del Digitale/materiale tesina/Geopolitics and rare earth metals.pdf",
     "Storia e Politiche del Digitale/materiale tesina/1-s2.0-S0176268022001598-main.pdf.crdownload",
@@ -221,11 +211,8 @@
     "Ingegneria del Software/Appunti.md",
     "Ingegneria del Software/img/Pasted image 20250423132655.png",
     "Ingegneria del Software/img/Pasted image 20250423132652.png",
-    "Storia e Politiche del Digitale/Conta parole.md",
-    "Storia e Politiche del Digitale/Indicazioni Tesina.pdf",
     "Laboratorio di Applicazioni Mobili/Proposta progetto app mobili.md",
     "Teoria dell'impresa/Riassunti Libro.md",
-    "Teoria dell'impresa/Riassunti Libro.xopp~",
     "Ingegneria del Software/collaborazione.md",
     "Ingegneria del Software/img/Pasted image 20250414132237.png",
     "Ingegneria del Software/pdf/img/Pasted image 20250414130902.png",
