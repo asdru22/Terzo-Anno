@@ -32,7 +32,7 @@ https://www.sustainablemanufacturingexpo.com/en/articles/advancements-recycling-
 - Aziende principali e catena di fornitura
 https://retropcparts.com/gpu-manufacturing-process/
 https://www.designlife-cycle.com/nvidia-gpu
-https://tecex.com/gpu-powerhouses-behind-ai/#:~:text=faces%20challenges%20including:-,Fragile%20Supply%20Chain,to%20compete%20in%20this%20market.
+https://tecex.com/gpu-powerhouses-behind-ai/#:~:text=faces%20challenges%20including:-,Fragile%20Supply%20Chain,to%20compete%20in%20this%20market
 https://www.perplexity.ai/page/the-gpu-shortage-explained-ori-7BswhHKvT_idmwUL0P845Q
 ### 2.2 Utilizzo delle GPU 
 #### 2.2.1 AI e machine learning

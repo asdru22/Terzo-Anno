@@ -54,9 +54,13 @@ La piccola quantità che viene effettivamente riciclata proviene da:
 - i magneti utilizzati nei dischi rigidi dei server.
 In seguito all'improvviso aumento dei prezzi delle terre rare esportate dalla Cina tra il 2010 e il 2011, molti ricercatori hanno avviato studi per ricercare metodi più efficaci per il recupero e il riutilizzo degli REE. Attualmente, sono in corso ricerche in Giappone, presso l'Università di Tohoku, nell'_European Rare Earth (Magnet) Recycling Network_ e nel _Critical Materials Institute_ negli Stati Uniti.
 # 2. L'ascesa delle GPU
-
+La produzione e diffusione di schede grafiche (GPU) iniziò alla fine degli anni '70 con la realizzazione di dispositivi hardware per visualizzare testo sullo schermo dei personal computer.
+Tra gli anni '90 e il 2000 aziende quali NVIDIA e ATI (ora chiamata AMD) iniziarono a produrre GPU in grado di fare 3D rendering grazie ad un architettura basata su silicone e un numero maggiore di transistor. Fino al 2010 le schede grafiche erano utilizzate quasi esclusivamente per la loro capacità di rappresentare accuratamente oggetti 3D su uno schermo, in particolare nei videogiochi e applicazioni professionali.
 ## 2.1 Produzione e impatto ambientale
-Collegamento con terre rare dal capitolo precedente
+I materiali grezzi utilizzati da NVIDIA, l'azienda leader nella produzione di GPU con una quota di mercato globale pari a circa l’80%, includono alluminio, lamine di rame, fibre di vetro, gel di silicone, stagno, titanio e tungsteno. NVIDIA è consapevole e dichiara pubblicamente che «stagno, titanio e tungsteno sono "minerali da conflitto", legati a violenze e violazioni dei diritti umani»; molti di questi materiali sono importati da Cina e Indonesia.
+Il consumo di elettricità da parte di NVIDIA è per la gestione delle proprie strutture è la fonte principale dei loro gas serra, con circa 68.000kg di emissioni. L'energia totale richiesta è aumentata del 33% dal 2019-2020, quasi metà di questa è impiegata nelle operazioni nei loro data center.
+
+Oltre a utilizzare 1/3 di energia rinnovabile dal 2020, NVIDIA afferma di aver ridotto i loro flussi di rifiuti liquidi inviati a discariche del 78%. Si stanno anche facendo sforzi per implementare misure di conservazione idriche. Tuttavia, il loro fornitore TSMC usa 157,000 tonnellate d'acqua minerale al giorno per produrre semiconduttori. Non si può utilizzare acqua riciclata dato che si rischierebbe di contaminare l'elettronica.
 ## 2.2 Usi
 ### 2.2.1 AI e machine learning
 ### 2.2.2 Mining di criptovalute
