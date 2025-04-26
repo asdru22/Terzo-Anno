@@ -48,6 +48,8 @@ https://www.techtarget.com/searchdatacenter/feature/How-the-rise-in-AI-impacts-d
 - Impatto ambientale
 https://en.wikipedia.org/wiki/Environmental_impact_of_bitcoin
 https://neptjournal.com/upload-images/(55)B-4152.pdf
+https://www.bitpanda.com/academy/en/lessons/what-is-bitcoin-mining-and-how-does-mining-work/
+https://www.investopedia.com/tech/gpu-cryptocurrency-mining/
 #### 2.2.3 Veicoli a guida autonoma
 - Necessità di GPU nei sistemi di bordo (algoritmi di visione artificiale)
 - Modelli basati su AI per simulare scenari reali
@@ -61,13 +63,14 @@ https://www.theguardian.com/technology/2024/sep/15/data-center-gas-emissions-tec
 https://www.trgdatacenters.com/resource/the-role-and-purpose-of-data-center-gpus/
 https://www.researchgate.net/publication/373295068_Impact_of_Data_Centers_on_Climate_Change_A_Review_of_Energy_Efficient_Strategies
 https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/investing-in-the-rising-data-center-economy
+https://curam-ai.com.au/the-environmental-costs-of-gpu-based-architectures/
 ## 3. Water cooling e il suo impatto ambientale
 ### 3.1 Sfruttamento delle risorse idriche nei data center
 - Uso di acqua minerale e potabile
 - Impatto sugli ecosistemi e comunità locali
 - Alternative sostenibili (raffreddamento a liquido, immersion cooling, energia rinnovabile)
 https://news.lenovo.com/data-centers-worlds-ai-generators-water-usage/
-https://www.asce.org/publications-and-news/civil-engineering-source/civil-engineering-magazine/issues/magazine-issue/article/2024/03/engineers-often-need-a-lot-of-water-to-keep-data-centers-cool
+https://www.asce.org/publications-and-news/civil-engineering-source/civil-engineering-magazine/
 https://dgtlinfra.com/data-center-cooling/
 https://dgtlinfra.com/data-center-water-usage/
 https://www.nrdc.org/sites/default/files/power-plant-cooling-IB.pdf

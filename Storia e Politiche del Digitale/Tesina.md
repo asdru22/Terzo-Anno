@@ -55,31 +55,57 @@ La piccola quantità che viene effettivamente riciclata proviene da:
 In seguito all'improvviso aumento dei prezzi delle terre rare esportate dalla Cina tra il 2010 e il 2011, molti ricercatori hanno avviato studi per ricercare metodi più efficaci per il recupero e il riutilizzo degli REE. Attualmente, sono in corso ricerche in Giappone, presso l'Università di Tohoku, nell'_European Rare Earth (Magnet) Recycling Network_ e nel _Critical Materials Institute_ negli Stati Uniti.
 # 2. L'ascesa delle GPU
 La produzione e diffusione di schede grafiche (GPU) iniziò alla fine degli anni '70 con la realizzazione di dispositivi hardware per visualizzare testo sullo schermo dei personal computer.
-Tra gli anni '90 e il 2000 aziende quali NVIDIA e ATI (ora chiamata AMD) iniziarono a produrre GPU in grado di fare 3D rendering grazie ad un architettura basata su silicone e un numero maggiore di transistor. Fino al 2010 le schede grafiche erano utilizzate quasi esclusivamente per la loro capacità di rappresentare accuratamente oggetti 3D su uno schermo, in particolare nei videogiochi e applicazioni professionali.
+Tra gli anni '90 e il 2000 aziende quali NVIDIA e ATI (ora chiamata AMD) iniziarono a produrre GPU in grado di fare 3D rendering grazie ad un architettura basata su silicone e un numero maggiore di transistor. Fino al 2010 le schede grafiche erano utilizzate quasi esclusivamente per la loro capacità di rappresentare accuratamente oggetti 3D su uno schermo, in particolare nei videogiochi e applicazioni professionali. Il loro vantaggio rispetto alle CPU deriva dall'utilizzo di molte "core" per eseguire in parallelo piccoli compiti.
 ## 2.1 Produzione e impatto ambientale
 I materiali grezzi utilizzati da NVIDIA, l'azienda leader nella produzione di GPU con una quota di mercato globale pari a circa l’80%, includono alluminio, lamine di rame, fibre di vetro, gel di silicone, stagno, titanio e tungsteno. NVIDIA è consapevole e dichiara pubblicamente che «stagno, titanio e tungsteno sono "minerali da conflitto", legati a violenze e violazioni dei diritti umani»; molti di questi materiali sono importati da Cina e Indonesia.
 Il consumo di elettricità da parte di NVIDIA è per la gestione delle proprie strutture è la fonte principale dei loro gas serra, con circa 68.000kg di emissioni. L'energia totale richiesta è aumentata del 33% dal 2019-2020, quasi metà di questa è impiegata nelle operazioni nei loro data center.
 
-Oltre a utilizzare 1/3 di energia rinnovabile dal 2020, NVIDIA afferma di aver ridotto i loro flussi di rifiuti liquidi inviati a discariche del 78%. Si stanno anche facendo sforzi per implementare misure di conservazione idriche. Tuttavia, il loro fornitore TSMC usa 157,000 tonnellate d'acqua minerale al giorno per produrre semiconduttori. Non si può utilizzare acqua riciclata dato che si rischierebbe di contaminare l'elettronica.
-## 2.2 Usi
+Oltre a utilizzare 1/3 di energia rinnovabile dal 2020, NVIDIA afferma di aver ridotto i loro flussi di rifiuti liquidi inviati a discariche del 78%. Si stanno anche facendo sforzi per implementare misure di conservazione idriche. Tuttavia, il loro fornitore TSMC usa 157,000 tonnellate d'acqua minerale al giorno per produrre semiconduttori. Non utilizzano acqua riciclata  poiché rischierebbe di contaminare l'elettronica.
+
+I sistemi basati su GPU hanno un elevato impatto ambientale: sebbene una singola unità consumi meno energia rispetto a una CPU, il numero elevato di GPU utilizzate annulla questo vantaggio. A ciò si aggiungono i costi energetici legati al raffreddamento e le emissioni di gas serra generate dal loro funzionamento.
+## 2.2 Utilizzi
+Durante la pandemia di COVID-19, si sono verificate interruzioni nella catena di produzione delle GPU. A queste difficoltà si è aggiunto un significante aumento della domanda, inizialmente causato dall'espansione delle attività legate al mining di criptovalute e successivamente dall'esigenza di potenza computazionale per l’addestramento di modelli di intelligenza artificiale. Questi e altri fattori hanno contribuito in modo determinante all’attuale elevato costo delle schede grafiche di alta qualità.
 ### 2.2.1 AI e machine learning
+La capacità delle GPU di eseguire più compiti in parallelo ha cambiato il modo in cui le applicazioni di analisi e processo dei dati sono strutturate. Fornisce ad algoritmi per AI e machine learning la velocità ed efficienza necessaria per eseguire calcoli complessi.
+In alcune GPU moderne sono presenti core specializzati per l’elaborazione di operazioni sui tensori, fondamentali nel deep learning. Questi consentono di accelerare le moltiplicazioni tra matrici, migliorando sia l’efficienza di addestramento che l'inferenza delle reti neurali.
+Lo sviluppo di GPU ottimizzate per l'AI è un trend destinato a crescere in futuro, visti i continui progressi che si stanno facendo su quel fronte.
 ### 2.2.2 Mining di criptovalute
+Nell'ultimo decennio, una varietà di valute digitali chiamate criptovalute si sono diffuse nel mercato mondiale. L'estrazione, o "mining", di criptovalute consiste nel raccogliere un insieme di transazioni effettuate negli ultimi dieci minuti all'interno di un blocco e risolvere un complesso problema matematico associato ad esso. Il primo miner che riesce a risolvere il problema aggiunge il blocco alla blockchain (una specie di registro digitale che contiene informazioni in modo sicuro e verificabile), rendendo ufficiali le transazioni contenute, e riceve come ricompensa un premio in Bitcoin.
+
+Per risolvere questi problemi inizialmente erano impiegati gruppi di CPU, per poi essere sostituite da GPU. La crescente popolarità delle criptovalute, e il conseguente consumo energetico richiesto per il mining produce enormi quantità di diossido di carbonio. Inoltre, il rapido sviluppo di GPU sempre più performanti per il mining rende i modelli precedenti rapidamente obsoleti, producendo rifiuti elettronici (E-Waste). Come già evidenziato, il riciclo dei materiali contenenti terre rare è complesso e poco efficiente; una gestione inadeguata di questi rifiuti elettronici comporta il rilascio di sostanze nocive nel suolo e contribuisce all'inquinamento atmosferico.
+
+​L'impronta idrica del mining di criptovalute è una questione ambientale sempre più rilevante. Per raffreddare i gruppi computer utilizzati nelle operazioni di mining, si impiegano grandi quantità di acqua. Solamente per l'estrazione di Bitcoin, la valuta più vecchia e popolare, si sono utilizzati 1,600 gigalitri d'acqua in un anno: una singola transazione consuma tanta acqua quanto quella contenuta in una piscina domestica. Il consumo elettrico annuale è paragonabile a quello del Portogallo, e viene prodotta una quantità di E-Waste simile a quella dei paesi bassi.
+
+Visti gli alti costi idrici ed elettrici per alimentare questi computer, sono stati presi provvedimenti legali per limitare l'impatto ambientale: nel 2021, la Cina ha vietato completamente il mining di Bitcoin, nel 2022 lo stato di New York ha vietato centri di mining alimentati da energia fossile. In Canada, la ditta elettrica del Quebec ha aumentato i prezzi e limitato l'utilizzo massimo di energia destinata al mining. Nel 2022 la commissione europea ha invitato gli stati membri a ridurre il consumo di elettricità dei miner.
 ### 2.2.3 Veicoli a guida autonoma
+La sicurezza delle auto a guida autonoma dipende dalla loro capacità di computazione e di fare "scelte" rapide. La capacità delle GPU di eseguire più compiti in parallelo ottimizza compiti fondamentali per un'automobile a guida autonoma quali identificazione di oggetti e analisi delle immagini. NVIDIA fornisce servizi per lo sviluppo di sistemi di guida autonoma basati su modelli AI addestrati su moltissimi scenari di guida, testati e validati in uno spazio virtuale, NVIDIA Omniverse.
+
+Il problema del surriscaldamento delle GPU si presenta anche qua: una macchina con GPU a bordo dovrebbe disporre di un notevole sistema di raffreddamento. Queste due componenti, assieme a continui aggiornamenti software, contribuiscono all'elevato prezzo delle auto a guida autonoma.
 ### 2.2.4 Data center
-# 3 Water cooling
+Con la diffusione di applicazioni client-server e la richiesta di sistemi decentralizzati, i data center sono cresciuti da computer grandi come una stanza a strutture iper-scalari, strategicamente posizionate al servizio di utenti da tutto il mondo. 
 
-## 3.1 Sfruttamento delle risorse idriche dai data center
-Collegamento con data center dal capitolo precedente
-### 3.1.1 Conseguenze dell'uso di acqua minerale e potabile
-### 3.1.2 Impatto sugli ecosistemi
-### 3.1.2 Alternative sostenibili
-# 4 Rinnovato interesse nel nucleare
+All'interno dei data center, le GPU coprono un ruolo cruciale nella gestione di calcoli complessi, algoritmi di machine learning e supporto per simulazioni scientifiche altamente precise. L'importanza delle GPU nei data center è destinata a crescere assieme alla quantità e complessità di dati che le aziende raccolgono. Un report dell'Agenzia dell'*International Energy Agency* afferma che i data center consumano circa l'1-1.5% dell'energia mondiale. Questa cifra può solamente aumentare più noi continuiamo a fare affidamento su servizi digitali. Questo report era stato fatto prima del boom dell'intelligenza artificiale, e Goldman Sachs stima che una singola query a ChatGPT richieda quasi 10 volte l'elettricità di una ricerca su google. Per questo prevede che la domanda di energia dei data center crescerà del 160% entro il 2030.
 
-## 4.1 Perché le big tech investono nell’energia nucleare
-Collegamento con alternative sostenibili dal capitolo precedente
-## 4.2 Reattori modulari e fusione
-### 4.2.1 Problemi di sicurezza
-### 4.2.1 Costi e tempi di realizzazione
+Secondo un report di _The Guardian_, tra le aziende del gruppo GAFAM, i data center di Amazon risultano essere i maggiori consumatori di energia, richiedendo più del doppio dell'elettricità rispetto alla seconda classificata, Apple. Un singolo data center di Amazon attualmente consuma l'equivalente elettrico di 50.000 case. Per questo motivo le GAFAM in primo piano, ma anche altri data center sono sotto pressione dai governi locali per diventare carbon neutral e passare a energie rinnovabili.
+# 3 Consumo d'acqua nei data center
+Le GPU rappresentano solo una parte dei macchinari elettronici che devono rimanere costantemente attivi all'interno dei data center; a queste si aggiungono router, hard disk, server e altre apparecchiature di rete, tutti elementi che contribuiscono in modo significativo al consumo energetico complessivo.
+
+Per raffreddare i dispositivi all'interno dei data center, alcune aziende scelgono di collocare le proprie strutture in luoghi strategici, come le zone montane, dove l'aria è naturalmente più fredda, oppure sott'acqua, come ha fatto Microsoft in Scozia.
+
+La quantità d'acqua utilizzata per il raffreddamento è in realtà trascurabile se paragonata a quella utilizzata per per la produzione di elettricità. Il processo si basa sul riscaldamento dell'acqua, che trasformandosi in vapore mette in movimento una turbina, producendo così elettricità.
+
+Gli Stati Uniti sono il paese con il maggior numero di data center, con più di 5300 sempre in funzione, e la risorsa che consumano maggiormente è l'acqua minerale.
+I quantitativi di acqua consumati dai singoli data center sono difficili da stimare, poiché non sono di dominio pubblico e spesso oggetto di discussione, dato l’impatto negativo che possono avere sulle comunità locali in cui vengono costruiti. Si ipotizza che un data center di piccole dimensioni consumi circa 26 milioni di litri d'acqua all'anno tra raffreddamento e produzione di elettricità, e che google abbia utilizzato 5 miliardi di litri solamente per il raffreddamento delle sue strutture.
+## 3.1 Conseguenze dell'uso di acqua minerale e potabile
+Con l’espansione dei servizi online, accelerata dal lockdown dovuto alla pandemia di Covid-19, si è registrato un aumento significativo nella costruzione di data center, spesso senza considerare adeguatamente le conseguenze economiche e ambientali legate alla posizione geografica scelta.
+Uno studio fatto da Landon Marston, professore della Virginia Tech, afferma che l'industria dei data center statunitense preleva il 90% della sua acqua da bacini idrogeologici, e che il 20% di questi siano sovrasfruttati.
+
+Si consideri il caso della città di Mesa, in Arizona, dove nel maggio 2021 è stato approvato lo sviluppo di un data center di 800 milioni di dollari in una zona in alta allerta per la siccità, la più alta registrata negli ultimi 126 anni. Il vicesindaco Jenn Duff ha sostenuto che "\[...] i data center sono un uso irresponsabile della nostra acqua". Duff fa parte del numero crescente di individui che esprimono preoccupazioni circa la diffusione dei data center sul territorio nazionale, soprattutto in aree già aride, dove l’energia solare ed eolica è ampiamente disponibile e a prezzi bassi. 
+Simili preoccupazioni hanno portato ad un divieto temporaneo alla costruzione di nuovi data center nei Paesi bassi e alla promulgazione di leggi per maggiore trasparenza in Francia.
+## 3.2 Impatto sugli ecosistemi
+articolo nrdc
+## 3.3 Alternative sostenibili
+### 3.3.1 Reattori modulari e fusione
 
 # Libri
 - https://www.amazon.com/Extracting-Profit-Imperialism-Neoliberalism-Scramble/dp/1608468518
