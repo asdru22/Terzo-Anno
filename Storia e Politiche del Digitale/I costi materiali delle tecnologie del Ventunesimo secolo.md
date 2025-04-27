@@ -78,25 +78,16 @@ https://www.nbcnews.com/tech/internet/drought-stricken-communities-push-back-aga
 https://eng.ox.ac.uk/case-studies/the-true-cost-of-water-guzzling-data-centres/
 https://blog.equinix.com/blog/2024/09/19/how-data-centers-use-water-and-how-were-working-to-use-water-responsibly/
 https://www.hivenet.com/post/tech-needs-to-reduce-its-water-consumption-in-a-thirsty-world
+https://www.lawfaremedia.org/article/ai-data-centers-threaten-global-water-security#:~:text=A%20small%2C%201%2Dmegawatt%20data,families%20in%20the%20United%20States
+https://thereader.mitpress.mit.edu/the-staggering-ecological-impacts-of-computation-and-the-cloud/
+https://www.nature.com/articles/s41545-021-00101-w
+https://www.weforum.org/stories/2024/11/circular-water-solutions-sustainable-data-centres/
 ## 4. Investimento di Amazon, Google e Microsoft nel nucleare
 ### 4.1 Perché le big tech investono nell’energia nucleare
 https://www.cnbc.com/2024/12/28/why-microsoft-amazon-google-and-meta-are-betting-on-nuclear-power.html#:~:text=%22Those%20power%20needs.,more%20efficient%20and%20sustainable%20fashion.
 https://www.forbes.com/sites/greatspeculations/2024/10/21/why-tech-giants-are-betting-big-on-nuclear-power/
-### 4. Tipologie di progetti nucleari finanziati
-- Reattori modulari (SMR) per alimentare i data center
-- Investimenti in fusione nucleare
-- Misure di sicurezza
-https://councilonstrategicrisks.org/2024/10/30/emerging-technologies-and-their-roles-in-a-nuclear-future/
-https://www.reuters.com/business/energy/big-tech-contracts-inject-life-into-new-nuclear-2025-02-19/
-https://prospectlaw.co.uk/news/article/big-tech-buy-into-smrs-whats-it-all-about/
-https://www.verdict.co.uk/big-tech-drives-demand-for-smrs/?cf-view
-### 4.3 Ostacoli all’energia nucleare per il settore tecnologico
-- Problemi di sicurezza
-- Costi e tempi di realizzazione
-https://www.constellationenergy.com/newsroom/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html
-https://www.cbsnews.com/news/big-techs-big-bet-on-nuclear-power-to-fuel-artificial-intelligence/
-https://thebulletin.org/2024/12/ai-goes-nuclear/
+https://en.wikipedia.org/wiki/Three_Mile_Island_accident
 # Libri
-- https://www.amazon.com/Extracting-Profit-Imperialism-Neoliberalism-Scramble/dp/1608468518
-- https://ia601507.us.archive.org/14/items/pitron-guillaume-the-rare-metals-war/Pitron%2C%20Guillaume%20-%20The%20Rare%20Metals%20War.pdf cap 2, cap 8
+- https://ia601507.us.archive.org/14/items/pitron-guillaume-the-rare-metals-war/Pitron%2C%20Guillaume%20-%20The%20Rare%20Metals%20War.pdf cap 1
+- Il capitalismo della sorveglianza
 

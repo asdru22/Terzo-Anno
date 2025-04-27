@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "24e27afb9f401c40",
+        "id": "aae5fb6cc4c59a06",
         "type": "tabs",
         "children": [
           {
-            "id": "e25c811890651755",
+            "id": "4f62a6196df24dfe",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -22,7 +22,7 @@
             }
           },
           {
-            "id": "6c768d2ccea11dbe",
+            "id": "f3676c36b183e894",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -35,7 +35,8 @@
               "title": "I costi materiali delle tecnologie del Ventunesimo secolo"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -181,21 +182,22 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "e25c811890651755",
+  "active": "f3676c36b183e894",
   "lastOpenFiles": [
-    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
     "Storia e Politiche del Digitale/Tesina.md",
+    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+    "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
+    "Untitled.md",
+    "Storia e Politiche del Digitale/materiale tesina/water cooling data center.pdf",
+    "Storia e Politiche del Digitale/materiale tesina/quantifying and mapping cooling services of multiple ecosytems.pdf",
+    "Storia e Politiche del Digitale/materiale tesina/quantifying and mapping cooling services of multiple ecosytems.pdf.crdownload",
+    "Storia e Politiche del Digitale/materiale tesina/Recycling REE.pdf",
+    "Storia e Politiche del Digitale/materiale tesina/Recycling rare earths.pdf",
+    "Storia e Politiche del Digitale/materiale tesina/Geopolitics and rare earth metals.pdf",
     "Storia e Politiche del Digitale/materiale tesina/Data center gpu.pdf",
     "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.xopp",
     "Storia e Politiche del Digitale/Conta parole.md",
-    "Storia e Politiche del Digitale/materiale tesina/Recycling rare earths.pdf",
     "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/Recycling REE.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/Recycling REE.pdf.crdownload",
-    "Storia e Politiche del Digitale/materiale tesina/Geopolitics and rare earth metals.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/1-s2.0-S0176268022001598-main.pdf.crdownload",
-    "Storia e Politiche del Digitale/materiale tesina/1-s2.0-S0959652612006932-main.pdf.crdownload",
-    "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
     "Ingegneria del Software/Appunti.md",
     "Ingegneria del Software/img/Pasted image 20250423132655.png",
     "Ingegneria del Software/img/Pasted image 20250423132652.png",
@@ -226,7 +228,6 @@
     "Strategia Organizzazione e Mercati/Appunti.md",
     "Basi di Dati/MySQL.md",
     "Basi di Dati/Es/SQL.md",
-    "2024-10-09.md",
-    "Tecnologie Web/esercizi/Ristorante.md"
+    "2024-10-09.md"
   ]
 }

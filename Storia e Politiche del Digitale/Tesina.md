@@ -1,9 +1,9 @@
 # I costi materiali delle tecnologie del Ventunesimo secolo
 
-# 1. Le terre rare
 
+# 1. Le terre rare
 ## 1.1 Cosa sono le terre rare
-La scoperta delle terre rare risale al 1789, quando una «dura pietra nera» fu trovata nella miniera della città svedese di Ytterby. Il chimico Johan Gadolin non fu in grado di identificare la pietra, la quale chiamò «terra rara». La ricerca e isolamento di nuovi materiali portò alla scoperta di 17 elementi metallici tra il Diciottesimo e Ventesimo secolo: le terre rare, o in inglese, *rare earth elements* (REE).
+La scoperta delle terre rare risale al 1789, quando una «dura pietra nera» fu trovata nella miniera della città svedese di Ytterby. Il chimico Johan Gadolin non fu in grado di identificare la pietra, la quale chiamò «terra rara». La ricerca e isolamento di nuovi materiali portò alla scoperta di 17 elementi metallici tra il Diciottesimo e Ventesimo secolo: le terre \are, o in inglese, *rare earth elements* (REE).
 Nonostante questi metalli siano stati scoperti abbastanza presto, la loro utilità divenne apparente solamente dopo la Seconda Guerra Mondiale, quando le televisioni divennero strumenti di uso comune. Negli anni 70 si iniziò a sfruttare le capacità magnetiche delle terre rare per creare supermagneti, fondamentali per creare motori elettrici.
 
 Al giorno d'oggi, le REE sono indispensabili per tecnologie di comunicazione e informazione date le loro proprietà di semiconduttori. In particolare, le LREE sono fondamentali per le *green technologies*, che stanno venendo lentamente adottare per ridurre l'impatto umano sull'ambiente.
@@ -90,23 +90,40 @@ Secondo un report di _The Guardian_, tra le aziende del gruppo GAFAM, i data cen
 # 3 Consumo d'acqua nei data center
 Le GPU rappresentano solo una parte dei macchinari elettronici che devono rimanere costantemente attivi all'interno dei data center; a queste si aggiungono router, hard disk, server e altre apparecchiature di rete, tutti elementi che contribuiscono in modo significativo al consumo energetico complessivo.
 
-Per raffreddare i dispositivi all'interno dei data center, alcune aziende scelgono di collocare le proprie strutture in luoghi strategici, come le zone montane, dove l'aria è naturalmente più fredda, oppure sott'acqua, come ha fatto Microsoft in Scozia.
+Nonostante l'enorme consumo energetico di queste strutture, la quantità d'acqua utilizzata per il raffreddamento è in realtà inferiore se paragonata a quella richiesta per la produzione di elettricità. Il processo di produzione di elettricità si basa sul riscaldamento dell'acqua, che, trasformandosi in vapore, mette in movimento una turbina e genera energia elettrica.
+Per questo, i data center più grandi, che spesso gestiscono autonomamente la propria produzione di energia, utilizzano l'acqua anche per il raffreddamento dei loro sistemi elettrici e informatici. Un sistema elettrico autonomo implica, infatti, una maggiore uptime, ad esempio nel caso in cui i sistemi di alimentazione pubblici vengano meno a causa di un blackout.
 
-La quantità d'acqua utilizzata per il raffreddamento è in realtà trascurabile se paragonata a quella utilizzata per per la produzione di elettricità. Il processo si basa sul riscaldamento dell'acqua, che trasformandosi in vapore mette in movimento una turbina, producendo così elettricità.
+Per quanto riguarda il raffreddamento, i sistemi a ciclo diretto prelevano l'acqua da corpi idrici vicini; l'acqua, riscaldata dal vapore prodotto nel condensatore, viene poi restituita alla fonte originale, ma a una temperatura superiore. Questi sistemi sono particolarmente vulnerabili in periodi di siccità e caldo estremo, poiché l'acqua restituita può superare i limiti termici consentiti, con impatti negativi sugli ecosistemi locali.
+Per ridurre tali impatti, alcuni data center hanno adottato sistemi di raffreddamento a ciclo chiuso, che riciclano le acque di scarico e piovane, riducendo così l'uso di acqua fresca del 50-70%. In questo tipo di sistema, l'acqua di raffreddamento non viene restituita alla sorgente, ma convogliata in torri di raffreddamento, dove il calore viene disperso tramite evaporazione. Il resto dell'acqua viene quindi ricircolato attraverso i condensatori.
 
-Gli Stati Uniti sono il paese con il maggior numero di data center, con più di 5300 sempre in funzione, e la risorsa che consumano maggiormente è l'acqua minerale.
-I quantitativi di acqua consumati dai singoli data center sono difficili da stimare, poiché non sono di dominio pubblico e spesso oggetto di discussione, dato l’impatto negativo che possono avere sulle comunità locali in cui vengono costruiti. Si ipotizza che un data center di piccole dimensioni consumi circa 26 milioni di litri d'acqua all'anno tra raffreddamento e produzione di elettricità, e che google abbia utilizzato 5 miliardi di litri solamente per il raffreddamento delle sue strutture.
+Alcuni data center vanno oltre e scelgono di localizzare le proprie strutture in aree strategiche per ottimizzare il raffreddamento: per esempio, zone montane dove l'aria è naturalmente più fresca, o addirittura sott'acqua, come nel caso di Microsoft in Scozia, dove l’acqua fredda dell'oceano viene utilizzata per raffreddare le apparecchiature.
+
+Gli Stati Uniti sono il paese con il maggior numero di data center, con più di 5300 sempre in funzione. I quantitativi di acqua consumati dai singoli data center sono difficili da stimare, poiché non sono di dominio pubblico e spesso oggetto di discussione, dato l’impatto negativo che possono avere sulle comunità locali in cui vengono costruiti. Si ipotizza che un data center di piccole dimensioni consumi circa 26 milioni di litri d'acqua all'anno tra raffreddamento e produzione di elettricità, e che Google abbia utilizzato 5 miliardi di litri solamente per il raffreddamento delle sue strutture.
 ## 3.1 Conseguenze dell'uso di acqua minerale e potabile
 Con l’espansione dei servizi online, accelerata dal lockdown dovuto alla pandemia di Covid-19, si è registrato un aumento significativo nella costruzione di data center, spesso senza considerare adeguatamente le conseguenze economiche e ambientali legate alla posizione geografica scelta.
-Uno studio fatto da Landon Marston, professore della Virginia Tech, afferma che l'industria dei data center statunitense preleva il 90% della sua acqua da bacini idrogeologici, e che il 20% di questi siano sovrasfruttati.
+Uno studio fatto da Landon Marston, professore della Virginia Tech, afferma che l'industria dei data center statunitense preleva il 90% della sua acqua da bacini idrogeologici, e che il 20% di questi siano sovrasfruttati. In certi casi si usa anche acqua non potabile: Google afferma che il 25%  delle risorse idriche impiegate derivino da prodotti fognari trattati. In media queste alternative all'acqua potabile costituiscono solo il 5% del consumo totale di un data center. 
 
 Si consideri il caso della città di Mesa, in Arizona, dove nel maggio 2021 è stato approvato lo sviluppo di un data center di 800 milioni di dollari in una zona in alta allerta per la siccità, la più alta registrata negli ultimi 126 anni. Il vicesindaco Jenn Duff ha sostenuto che "\[...] i data center sono un uso irresponsabile della nostra acqua". Duff fa parte del numero crescente di individui che esprimono preoccupazioni circa la diffusione dei data center sul territorio nazionale, soprattutto in aree già aride, dove l’energia solare ed eolica è ampiamente disponibile e a prezzi bassi. 
 Simili preoccupazioni hanno portato ad un divieto temporaneo alla costruzione di nuovi data center nei Paesi bassi e alla promulgazione di leggi per maggiore trasparenza in Francia.
-## 3.2 Impatto sugli ecosistemi
-articolo nrdc
-## 3.3 Alternative sostenibili
-### 3.3.1 Reattori modulari e fusione
 
+Le città dei paesi in via di sviluppo promuovono la costruzione di data center per accelerare la trasformazione digitale, offrendo incentivi alle grandi aziende tecnologiche in cambio di investimenti e accesso ai mercati emergenti. Questo avviene senza considerare le conseguenze per il territorio e per le comunità locali, che spesso subiscono impatti negativi.
+In India, si stima che il data center di Bengaluru consumi 8 milioni di litri d'acqua al giorno, minacciando i fragili sistemi idrici di una città che ha già vissuto una grave siccità.
+Inoltre, durante la peggiore siccità registrata negli ultimi 74 anni, il governo dell'Uruguay ha autorizzato la costruzione di data center da parte di Google, provocando proteste tra la popolazione locale.
+## 3.2 Impatto sugli ecosistemi
+Il fabbisogno idrico dei data center è destinato a crescere, soprattutto con l'espansione di siti dedicati all'addestramento di sistemi di intelligenza artificiale. Si prevede che, a breve, il consumo d'acqua legato all'industria dell'AI supererà quello di settori tradizionalmente ad alto consumo idrico, come l'allevamento di bestiame e l'industria tessile. Inoltre l'impronta di CO2 è maggiore del settore aereo.
+
+I già citati sistemi di raffreddamento a ciclo diretto, fortunatamente ormai in disuso, erano responsabili della morte di miliardi di pesci all'anno, intrappolando nei loro sistemi di assunzione anche uova e larve. L'inquinamento termico provoca un aumento del metabolismo della fauna locale, con conseguente incremento del loro fabbisogno alimentare. Questo, a sua volta, porta a una carenza di cibo, spingendo le specie a migrare verso habitat più sostenibili. Il riscaldamento dell'acqua provoca anche una riduzione dei livelli di ossigeno dissolto nell'acqua, il quale è fondamentale per la sopravvivenza di organismi in ambienti acquatici.
+
+Questi problemi non sono limitati ai sistemi di raffreddamento dei data center, ma di tutti gli impianti geotermici.
+## 3.3 Alternative sostenibili
+I data center più grandi, in grado di controllare la propria produzione di elettricità, hanno già provato a mettere in atto soluzioni sostenibili. Oltre all'esempio già menzionato di Microsoft in Scozia, il data center di Google ad Hamina, in Finlandia, utilizza acqua marina per il raffreddamento sin dalla sua inaugurazione nel 2011. Anche Amazon, seppur con scarsi risultati, si sta impegnando per essere meno dipendente dall'acqua minerale.
+### 3.3.1 Reattori modulari e fusione
+Per ridurre il consumo idrico e garantire un uptime prossimo al 100%, molte big tech stanno investendo in fonti energetiche alternative. Sebbene le energie rinnovabili come l'eolico e il solare offrano il vantaggio di zero emissioni, non sono in grado di assicurare una fornitura continua di elettricità 24 ore su 24, 7 giorni su 7. Per questo motivo, l'area che sta attirando il maggior interesse e investimento è quella della fusione nucleare.
+
+Gli Stati Uniti hanno prodotto una minuscola quantità di energia tramite fissione nucleare nel 2022, al Lawrence Livermore National Ignition Facility. Da allora investimenti nella fissione sono saliti fino a 8 miliardi di dollari. Di particolare rilievo è l'investimento da 1 miliardo di dollari effettuato da Sam Altman, CEO di OpenAI, in Helion, azienda specializzata nella ricerca sulla fusione nucleare. Questa iniziativa è motivata dall'elevato fabbisogno energetico necessario per sostenere infrastrutture come quella di ChatGPT, il cui addestramento e funzionamento costante comporta costi energetici estremamente elevati.
+
+Per decenni, a causa dei rischi alla sicurezza e regolamentazioni, il nucleare non è stato ben visto negli Stati Uniti. Tuttavia, Amazon ha firmato accordi con Energy Northwest per la costruzione di reattori modulari (SMR) in grado di produrre eventualmente abbastanza energia per sostenere 770.000 case. Anche Google ha annunciato un accordo con Kairos Power per produrre 500 megawatt di elettricità tramite SMR entro il 2035.
+Ha suscitato grande clamore l'annuncio di Microsoft, che in collaborazione con Constellation Energy ha deciso di riattivare l'impianto nucleare di Three Mile Island, oggetto nel 1979 di un parziale meltdown che portò al rilascio di gas radioattivi nell'atmosfera.
 # Libri
 - https://www.amazon.com/Extracting-Profit-Imperialism-Neoliberalism-Scramble/dp/1608468518
 - https://ia601507.us.archive.org/14/items/pitron-guillaume-the-rare-metals-war/Pitron%2C%20Guillaume%20-%20The%20Rare%20Metals%20War.pdf cap 2, cap 8
