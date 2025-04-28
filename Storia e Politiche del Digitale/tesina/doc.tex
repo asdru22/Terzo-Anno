@@ -38,7 +38,7 @@
 \usepackage{natbib}
 \bibliographystyle{alpha}
 \setcitestyle{super,open={[},close={]}}
-
+\usepackage{hyperref}
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 \usepackage{pdfpages}
@@ -123,7 +123,7 @@ La Cina e gli Stati Uniti sono stati i primi a gettarsi nel mercato delle terre 
 Al giorno d'oggi la Cina estrae, raffina e vende l'80\% delle terre rare. Questa posizione di dominio non è dovuta solamente alla lungimiranza del governo centrale e alla disposizione degli strumenti e ricchezze necessarie. Infatti, lavoro in nero a prezzo basso, standard ambientali bassi, miniere illegali e mercati neri hanno portato a prezzi con cui l'occidente non è in grado di competere. 
 
 La maggior parte delle terre rare è estratta in miniere illegali a Bayan-Obo, o nelle montagne di Jiangxi, nella Cina meridionale. Qua uomini e donne vengono pagati poche centinaia di euro al mese per scavare e schiacciare rocce rosse in quello che sembra un gigantesco formicaio, sempre attivo.
-«Like a human anthill, the mountain was mined twenty-four hours a day, seven days a week»  (Rare Metals War pag. 24).
+«Like a human anthill, the mountain was mined twenty-four hours a day, seven days a week» \citep[p. 24]{pitron2020rare}.
 L'estrazione di queste rocce è stata vietata dalle autorità cinesi nel 2016, e i minatori illegali hanno dovuto pagare pesanti multe. Inoltre, enormi scorte di metalli promesse a mercati esteri sono state sequestrate al porto di Canton, e dozzine di trafficanti furono incarcerati.
 Nonostante ciò alcuni minatori si sono chiusi nei punti più inospitali delle montagne, dove si arricchiscono di nascosto. I materiali da loro scavati poi vengono messi in vendita in un mercato nero che li raffina e poi esporta in tutto il mondo.
 
@@ -157,7 +157,7 @@ Rare earths have cost the community dearly. The hair of young men barely thirty 
 Il monopolio cinese sulle terre rare potrebbe essere uno dei motivi che ha recentemente spinto il presidente degli Stati Uniti, Donald Trump, a rivolgere l'attenzione verso paesi ricchi di questi materiali strategici, in particolare la Groenlandia e l'Ucraina.
 
 Trump sostiene che il controllo sulla Groenlandia fornirebbe non solo maggiore sicurezza e ricchezza per gli Stati Uniti, ma anche un notevole vantaggio militare, installando missili balistici e radar sul fondo oceanico per rilevare navi russe e cinesi.
-Gli Stati Uniti hanno colto l'importanza strategica della Groenlandia fin dal secondo dopoguerra, quando nel 1946 il presidente Truman provò a comprare l'isola dai danesi. In data 28 marzo 2025, il vicepresidente JD Vance ha visitato la Groenlandia, affermando che il governo locale ha «investito troppo poco nelle persone della Groenlandia e trascurato anche l'architettura della sicurezza di questa terra straordinaria, meravigliosa e popolata da persone eccezionali» (foxnews). 
+Gli Stati Uniti hanno colto l'importanza strategica della Groenlandia fin dal secondo dopoguerra, quando nel 1946 il presidente Truman provò a comprare l'isola dai danesi. In data 28 marzo 2025, il vicepresidente JD Vance ha visitato la Groenlandia, affermando che il governo locale ha «investito troppo poco nelle persone della Groenlandia e trascurato anche l'architettura della sicurezza di questa terra straordinaria, meravigliosa e popolata da persone eccezionali» \cite{Phi}. 
 Le risorse minerarie dell'isola risultano ancora in gran parte inesplorate, dato che molte di esse sono sepolte sotto uno spesso strato di ghiaccio, e si stima che siano di più di quelle presenti in Cina. Costruire miniere per estrarre terre rare potrebbe essere la chiave degli Stati Uniti per non dover più importare REE dalla Cina.
 Tuttavia in Groenlandia sono presenti numerose leggi ambientali e sociali che renderebbero la costruzione di nuove miniere un processo lungo e costoso. Inoltre sono già state emanate leggi che vietano l'estrazione di gas e petrolio presente nel fondo oceanico attorno all'isola.
 
@@ -220,7 +220,7 @@ Con la diffusione di applicazioni client-server e la richiesta di sistemi decent
 
 All'interno dei data center, le GPU coprono un ruolo cruciale nella gestione di calcoli complessi, algoritmi di machine learning e supporto per simulazioni scientifiche altamente precise. L'importanza delle GPU nei data center è destinata a crescere assieme alla quantità e complessità di dati che le aziende raccolgono. Un report dell'Agenzia dell'\textit{International Energy Agency} afferma che i data center consumano circa l'1-1.5\% dell'energia mondiale. Questa cifra può solamente aumentare più noi continuiamo a fare affidamento su servizi digitali. Questo report era stato fatto prima del boom dell'intelligenza artificiale, e Goldman Sachs stima che una singola query a ChatGPT richieda quasi 10 volte l'elettricità di una ricerca su Google. Per questo prevede che la domanda di energia dei data center crescerà del 160\% entro il 2030.
 
-Secondo un report di \textit{The Guardian}, tra le aziende del gruppo GAFAM, i data center di Amazon risultano essere i maggiori consumatori di energia, richiedendo più del doppio dell'elettricità rispetto alla seconda classificata, Apple. Un singolo data center di Amazon attualmente consuma l'equivalente elettrico di 50.000 case. Per questo motivo le GAFAM in primo piano, ma anche altri data center sono sotto pressione dai governi locali per diventare carbon neutral e passare a energie rinnovabili.
+Secondo un report di \cite{guardian2024datacenters}, tra le aziende del gruppo GAFAM, i data center di Amazon risultano essere i maggiori consumatori di energia, richiedendo più del doppio dell'elettricità rispetto alla seconda classificata, Apple. Un singolo data center di Amazon attualmente consuma l'equivalente elettrico di 50.000 case. Per questo motivo le GAFAM in primo piano, ma anche altri data center sono sotto pressione dai governi locali per diventare carbon neutral e passare a energie rinnovabili.
 
 \chapter{Consumo d'acqua nei data center}
 
@@ -270,8 +270,9 @@ Ha suscitato grande clamore l'annuncio di Microsoft, che in collaborazione con C
 
 \newpage
 \renewcommand{\bibsection}{}
-\section*{Riferimenti bibliografici}
+\section*{Riferimenti bibliografici e citazioni}
 \nocite{*}
+
 \bibliography{refs}
 \section*{Paper scientifici}
 \subsection*{Capitolo 1}
