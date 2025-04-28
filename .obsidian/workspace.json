@@ -13,26 +13,96 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Storia e Politiche del Digitale/Tesina.md",
+                "file": "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tesina"
+              "title": "I costi materiali delle tecnologie del Ventunesimo secolo"
             }
           },
           {
-            "id": "f3676c36b183e894",
+            "id": "1e729d52642a1f33",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "webviewer",
               "state": {
-                "file": "Storia e Politiche del Digitale/doc.md",
-                "mode": "source",
-                "source": false
+                "url": "https://www.weforum.org/stories/2024/11/circular-water-solutions-sustainable-data-centres/",
+                "title": "Circular water solutions key to sustainable data centres | World Economic Forum",
+                "mode": "webview"
               },
-              "icon": "lucide-file",
-              "title": "doc"
+              "icon": "globe-2",
+              "title": "Circular water solutions key to sustainable data centres | World Economic Forum"
+            }
+          },
+          {
+            "id": "d90ad6d99d966577",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://thereader.mitpress.mit.edu/the-staggering-ecological-impacts-of-computation-and-the-cloud/",
+                "title": "The Staggering Ecological Impacts of Computation and the Cloud | The MIT Press Reader",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "The Staggering Ecological Impacts of Computation and the Cloud | The MIT Press Reader"
+            }
+          },
+          {
+            "id": "18a4b52e14a4bbad",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://blog.equinix.com/blog/2024/09/19/how-data-centers-use-water-and-how-were-working-to-use-water-responsibly/",
+                "title": "How Data Centers Use Water, and How We’re Working to Use Water Responsibly - Interconnections - The Equinix Blog",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "How Data Centers Use Water, and How We’re Working to Use Water Responsibly - Interconnections - The Equinix Blog"
+            }
+          },
+          {
+            "id": "f7a350cf0a4df219",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://eng.ox.ac.uk/case-studies/the-true-cost-of-water-guzzling-data-centres/",
+                "title": "Case Study: Water-guzzling data centres",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "Case Study: Water-guzzling data centres"
+            }
+          },
+          {
+            "id": "8b47116d12fc6179",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://www.nbcnews.com/tech/internet/drought-stricken-communities-push-back-against-data-centers-n1271344",
+                "title": "Drought-stricken communities push back against data centers",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "Drought-stricken communities push back against data centers"
+            }
+          },
+          {
+            "id": "6d91e63911d2e078",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://www.lawfaremedia.org/article/ai-data-centers-threaten-global-water-security#:~:text=A%20small%2C%201%2Dmegawatt%20data,families%20in%20the%20United%20States",
+                "title": "AI Data Centers Threaten Global Water Security | Lawfare",
+                "mode": "webview"
+              },
+              "icon": "globe-2",
+              "title": "AI Data Centers Threaten Global Water Security | Lawfare"
             }
           }
         ],
@@ -108,7 +178,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 233.5
+    "width": 233.5,
+    "collapsed": true
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -182,23 +253,25 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "f3676c36b183e894",
+  "active": "1e729d52642a1f33",
   "lastOpenFiles": [
+    "Storia e Politiche del Digitale/tesina/doc.synctex(busy)",
     "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
-    "Storia e Politiche del Digitale/doc.md",
-    "Storia e Politiche del Digitale/Tesina.md",
-    "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
-    "Untitled.md",
-    "Storia e Politiche del Digitale/materiale tesina/water cooling data center.pdf",
+    "Storia e Politiche del Digitale/tesina/doc.synctex.gz",
+    "Storia e Politiche del Digitale/tesina/doc.pdf",
     "Storia e Politiche del Digitale/materiale tesina/quantifying and mapping cooling services of multiple ecosytems.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/quantifying and mapping cooling services of multiple ecosytems.pdf.crdownload",
-    "Storia e Politiche del Digitale/materiale tesina/Recycling REE.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/Recycling rare earths.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/Geopolitics and rare earth metals.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/Data center gpu.pdf",
-    "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.xopp",
-    "Storia e Politiche del Digitale/Conta parole.md",
+    "Storia e Politiche del Digitale/Tesina.md",
+    "Storia e Politiche del Digitale/Appunti.md",
+    "Storia e Politiche del Digitale/materiale tesina/water cooling data center.pdf",
     "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.pdf",
+    "Storia e Politiche del Digitale/materiale tesina/Geopolitics and rare earth metals.pdf",
+    "Storia e Politiche del Digitale/tesina/doc.bbl",
+    "Storia e Politiche del Digitale/tesina/doc.blg",
+    "Storia e Politiche del Digitale/tesina/doc.aux",
+    "Storia e Politiche del Digitale/tesina/img/marchio-di-ateneo.png",
+    "Storia e Politiche del Digitale/doc.md",
+    "Untitled.md",
+    "Storia e Politiche del Digitale/Conta parole.md",
     "Ingegneria del Software/Appunti.md",
     "Ingegneria del Software/img/Pasted image 20250423132655.png",
     "Ingegneria del Software/img/Pasted image 20250423132652.png",
@@ -208,7 +281,6 @@
     "Ingegneria del Software/img/Pasted image 20250414132237.png",
     "Ingegneria del Software/pdf/img/Pasted image 20250414130902.png",
     "Tesi+Tirocinio/ideal_mcfunction/Note.md",
-    "Storia e Politiche del Digitale/Appunti.md",
     "Ingegneria del Software/img/Pasted image 20250408101715.png",
     "Ingegneria del Software/img/Pasted image 20250408101046.png",
     "Ingegneria del Software/img/Pasted image 20250408100751.png",
@@ -216,7 +288,6 @@
     "Ingegneria del Software/img/Pasted image 20250408092148.png",
     "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
     "Tesi+Tirocinio/Beet.md",
-    "Tesi+Tirocinio/ideal_mcfunction/textures/item/sprites.png",
     "Tesi+Tirocinio/ideal_mcfunction/dubbi.md",
     "Tesi+Tirocinio/ideal_mcfunction/block/moonlit_monolith/dubbi.md",
     "Teoria dell'impresa/Appunti.md",
@@ -228,7 +299,6 @@
     "Introduzione Apprendimento Automatico/esame/Domande 2022-12-21.md",
     "Strategia Organizzazione e Mercati/Appunti.md",
     "Basi di Dati/MySQL.md",
-    "Basi di Dati/Es/SQL.md",
-    "2024-10-09.md"
+    "Basi di Dati/Es/SQL.md"
   ]
 }

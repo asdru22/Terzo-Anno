@@ -77,8 +77,7 @@ https://www.nrdc.org/sites/default/files/power-plant-cooling-IB.pdf
 https://www.nbcnews.com/tech/internet/drought-stricken-communities-push-back-against-data-centers-n1271344
 https://eng.ox.ac.uk/case-studies/the-true-cost-of-water-guzzling-data-centres/
 https://blog.equinix.com/blog/2024/09/19/how-data-centers-use-water-and-how-were-working-to-use-water-responsibly/
-https://www.hivenet.com/post/tech-needs-to-reduce-its-water-consumption-in-a-thirsty-world
-https://www.lawfaremedia.org/article/ai-data-centers-threaten-global-water-security#:~:text=A%20small%2C%201%2Dmegawatt%20data,families%20in%20the%20United%20States
+https://www.lawfaremedia.org/article/ai-data-centers-threaten-global-water-security
 https://thereader.mitpress.mit.edu/the-staggering-ecological-impacts-of-computation-and-the-cloud/
 https://www.nature.com/articles/s41545-021-00101-w
 https://www.weforum.org/stories/2024/11/circular-water-solutions-sustainable-data-centres/
