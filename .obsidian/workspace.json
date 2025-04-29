@@ -13,24 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+                "file": "Ingegneria del Software/Appunti.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "I costi materiali delle tecnologie del Ventunesimo secolo"
+              "title": "Appunti"
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "b3a6e2fd77befd7b",
+        "type": "tabs",
+        "children": [
           {
-            "id": "b81a1e5919de673f",
+            "id": "39c49f567bb61d96",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf"
+                "file": "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "Indicazioni Tesina"
+              "title": "16 - Design Patterns 2"
             }
           }
         ]
@@ -65,13 +71,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Storia e Politiche del Digitale/Tesina.md",
+                "file": "Ingegneria del Software/Appunti.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Tesina"
+              "title": "Outline of Appunti"
             }
           },
           {
@@ -101,7 +107,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -181,9 +188,12 @@
   },
   "active": "4f62a6196df24dfe",
   "lastOpenFiles": [
-    "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
-    "Storia e Politiche del Digitale/tesina/doc.synctex(busy)",
+    "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf",
+    "Ingegneria del Software/Appunti.md",
     "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+    "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf.crdownload",
+    "Storia e Politiche del Digitale/tesina/doc.synctex(busy)",
+    "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
     "Storia e Politiche del Digitale/Tesina.md",
     "Storia e Politiche del Digitale/tesina/doc.run.xml",
     "Storia e Politiche del Digitale/tesina/doc.bcf",
@@ -191,14 +201,11 @@
     "Storia e Politiche del Digitale/tesina/sites.bib",
     "Storia e Politiche del Digitale/tesina/books.bib",
     "Storia e Politiche del Digitale/tesina/doc.aux",
-    "Storia e Politiche del Digitale/tesina/doc.log",
-    "Storia e Politiche del Digitale/tesina/doc.synctex.gz",
     "Storia e Politiche del Digitale/Appunti.md",
     "Storia e Politiche del Digitale/tesina/img/marchio-di-ateneo.png",
     "Storia e Politiche del Digitale/doc.md",
     "Untitled.md",
     "Storia e Politiche del Digitale/Conta parole.md",
-    "Ingegneria del Software/Appunti.md",
     "Ingegneria del Software/img/Pasted image 20250423132655.png",
     "Ingegneria del Software/img/Pasted image 20250423132652.png",
     "Laboratorio di Applicazioni Mobili/Proposta progetto app mobili.md",

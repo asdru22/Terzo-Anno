@@ -1067,9 +1067,11 @@ Con il template method si definisce lo scheletro di un algoritmo in un operazion
 Si spostano i comportamenti più comuni in cima all'albero di ereditarietà anche quando parzialmente specificato. Nuove implementazioni della superclasse astratte non creano problemi con i clienti: le dipendenze sono dirette ad elementi più stabili.
 Inoltre, viene favorita l'aderenza a [[#12.5.2 Open-closed principle (OCP)|OCP]].
 ### 16.2.2 Strategy
-**Problema**: come posso separare un oggetto da parte del suo comportamento e cambiarlo a runtime?
+**Problema**: come posso separare un oggetto da parte del suo comportamento e cambiarlo a runtime, più comportamenti diversi attivabili?
 Con strategy si definisce una famiglia di algoritmi, si incapsula ognuno di essi e li si rende intercambiabili. Strategy consente all'algoritmo di variare indipendentemente dai clienti che la usano.
 Strategy favorisce l'implementazione di [[#12.5.2 Open-closed principle (OCP)|OCP]] e obbedisce [[#13.2.9 Protected Variations (PV)|PV]]. Favorisce la composizione rispetto all'ereditarietà.
+### 16.2.3 State/strategy
+**Problema**: come posso cambiare il comportamento di un oggetto in base allo stato interno dell'oggetto stesso? L'oggetto deve comportarsi come se cambiasse la classe. La soluzione è strategy. La differenza rispetto a strategy è che la chiamata di cambiamento di comportamento viene da fuori. In state è l'oggetto stesso che decide come comportarsi rispetto al suo stato.
 ## 16.3 Privilegiare la composizione rispetto all'ereditarietà
 Le due tecniche principali per condividere e riutilizzare codice sono ereditarietà e composizione. Si favorisce la composizione degli oggetti rispetto all'ereditarietà tra classi.
 ### 16.3.1 Problemi dell'ereditarietà
@@ -1167,3 +1169,4 @@ class Drone extends Vehicle {
 ```
 
 >La qualità di una soluzione software si vede di fronte ai cambiamenti. 
+
