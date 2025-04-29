@@ -1170,3 +1170,7 @@ class Drone extends Vehicle {
 
 >La qualità di una soluzione software si vede di fronte ai cambiamenti. 
 
+## 16.4 Pattern creazionali
+## 16.4.1 `new` è pericoloso
+Ogni volta che si crea una classe concreta con `new` si crea una dipendenza (ad esempio se cambia il costruttore). Queste dipendenze sono di cattiva qualità e si ha una violazione del [[#12.5.5 Dependency inversion principle (DIP)|DIP]].
+Si delega la creazione dell'oggetto a una classe a parte, detta factory.
