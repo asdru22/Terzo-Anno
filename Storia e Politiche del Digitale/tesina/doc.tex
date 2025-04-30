@@ -43,6 +43,11 @@
 
 \usepackage{pdfpages}
 
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
 \begin{document}
 % Per spostare i vari elementi più su o più giù gioca con i valori di vspace che ci sono tra uno e l'altro
 \pagestyle{empty}
@@ -94,21 +99,29 @@
 
 \restoregeometry
 
+
 \pagenumbering{gobble}
 
 
-\topmargin=-1cm
+\topmargin=-2cm
+\setcounter{page}{1}
+\textheight=23cm  % Decrease this value to increase bottom margin
 \tableofcontents
 
 \pagenumbering{arabic}
 \raggedbottom
 
+\setcounter{chapter}{-1}
+\chapter{Introduzione}
+
+Se si considera il lavoro dietro a uno smartphone, un sito web o piattaforme di chatbot basate su intelligenza artificiale come ChatGPT, vengono subito in mente le figure degli sviluppatori software e degli ingegneri informatici. Tuttavia, ci sono fattori che, pur essendo altrettanto rilevanti, vengono spesso celati o sottovalutati, e che meritano maggiore considerazione, poiché tendono a rimanere ignorati dal pubblico. Infatti, senza l'estrazione delle terre rare, che avviene spesso in condizioni di sfruttamento del lavoro in alcune aree del mondo, non ci sarebbe sviluppo software né elettronico. I data center che alimentano e ospitano servizi online tramite torri di schede grafiche contribuiscono all'emissione di significative quantità di CO2 nell'atmosfera e a un notevole consumo energetico. Inoltre, la gestione di queste strutture richiede un consumo intensivo di risorse naturali, tra cui miliardi di litri d'acqua all'anno, con gravi impatti sugli ecosistemi locali. Questi fattori pongono importanti questioni sulle conseguenze ambientali e sociali legate alla produzione e all'uso di tecnologie sempre più pervasive.
+
+\pagestyle{plain}
 
 \chapter{Le terre rare}
-\pagestyle{plain}
-\setcounter{page}{1}
 
 \section{Scoperta e utilizzo}
+
 La scoperta delle terre rare risale al 1789, quando una «dura pietra nera» fu trovata nella miniera della città svedese di Ytterby. Il chimico Johan Gadolin non fu in grado di identificare la pietra, la quale chiamò «terra rara». La ricerca e isolamento di nuovi materiali portò alla scoperta di 17 elementi metallici tra il Diciottesimo e Ventesimo secolo: le terre rare, o in inglese, \textit{rare earth elements} (REE).
 Nonostante questi metalli siano stati scoperti abbastanza presto, la loro utilità divenne apparente solamente dopo la Seconda Guerra Mondiale, in seguito alla diffusione delle televisioni. Negli anni 70 si iniziò a sfruttare le capacità magnetiche delle terre rare per creare supermagneti, fondamentali per creare motori elettrici.
 
@@ -197,6 +210,9 @@ I sistemi computazionali basati su architetture parallele presentano un impatto 
 
 La capacità delle GPU di eseguire più compiti in parallelo ha cambiato il modo in cui le applicazioni di analisi e processo dei dati sono strutturate. Fornisce ad algoritmi per AI e machine learning la velocità ed efficienza necessaria per eseguire calcoli complessi.
 In alcune GPU moderne sono presenti core specializzati per l'elaborazione di operazioni sui tensori, fondamentali nel deep learning. Questi consentono di accelerare le moltiplicazioni tra matrici, migliorando sia l'efficienza di addestramento che l'inferenza delle reti neurali.
+
+PARLARE DEEPSEEK E CROLLO QUOTE NVIDIA
+
 Negli ultimi anni si è visto lo sviluppo di GPU ottimizzate per l'AI: un trend destinato a crescere in futuro, visti i continui progressi che si stanno facendo su quel fronte.
 
 \subsection{Mining di criptovalute}
@@ -221,21 +237,21 @@ Con la diffusione delle architetture client-server e la crescente domanda di sis
 
 All'interno dei data center, le GPU coprono un ruolo cruciale nella gestione di calcoli complessi, algoritmi di machine learning e supporto per simulazioni scientifiche altamente precise. L'importanza delle GPU nei data center è destinata a crescere assieme alla quantità e complessità di dati che le aziende raccolgono. Un report dell'Agenzia dell'\textit{International Energy Agency} afferma che i data center consumano circa l'1-1.5\% dell'energia mondiale. Questa cifra può solamente aumentare più noi continuiamo a fare affidamento su servizi digitali. Questo report era stato fatto prima del boom dell'intelligenza artificiale, secondo la banca d'investimento Goldman Sachs, una singola query a ChatGPT richieda quasi 10 volte l'elettricità di una ricerca su Google. Per questo prevede che la domanda di energia dei data center crescerà del 160\% entro il 2030.
 
-Secondo un report di The Guardian\cite{guardian2024datacenters}, tra le aziende del gruppo GAFAM, i data center di Amazon risultano essere i maggiori consumatori di energia, richiedendo più del doppio dell'elettricità rispetto alla seconda classificata, Apple. Un singolo data center di Amazon attualmente consuma l'equivalente elettrico di 50.000 case. Per questo motivo le GAFAM in primo piano, ma anche altri data center sono sotto pressione dai governi locali per diventare carbon neutral e passare a energie rinnovabili.
+Secondo un report di The Guardian\cite{guardian2024datacenters}, tra le aziende del gruppo GAFAM, i data center di Amazon risultano essere i maggiori consumatori di energia, richiedendo più del doppio dell'elettricità rispetto alla seconda classificata, Apple. Un singolo data center di Amazon attualmente consuma l'equivalente elettrico di 50.000 case. Per questo motivo le GAFAM in primo piano, ma anche altri data center, sono sotto pressione dai governi locali per diventare carbon neutral e passare a energie rinnovabili.
 
 \chapter{Consumo d'acqua nei data center}
 
 Le GPU rappresentano solo una parte dei macchinari elettronici che devono rimanere costantemente attivi all'interno dei data center; a queste si aggiungono router, hard disk, server e altre apparecchiature di rete, tutti elementi che contribuiscono in modo significativo al consumo energetico complessivo.
 
-Nonostante l'enorme consumo energetico di queste strutture, la quantità d'acqua utilizzata per il raffreddamento è in realtà inferiore se paragonata a quella richiesta per la produzione di elettricità. Il processo di produzione di elettricità si basa sul riscaldamento dell'acqua, che, trasformandosi in vapore, mette in movimento una turbina e genera energia elettrica.
-I data center di grandi dimensioni e strutture iper-scalari spesso gestiscono autonomamente la propria produzione di energia per garantire un'elevata continuità operativa (uptime), soprattutto in situazioni di emergenza, come nel caso di interruzioni della rete elettrica pubblica dovute a blackout.
+A causa dell'enorme consumo energetico di queste strutture, la quantità d'acqua utilizzata per il raffreddamento è in realtà inferiore se paragonata a quella richiesta per la produzione di elettricità. Il processo di produzione di elettricità si basa sul riscaldamento dell'acqua, che, trasformandosi in vapore, mette in movimento una turbina e genera energia elettrica.
 
-Per quanto riguarda il raffreddamento, si utilizzano sistemi a ciclo diretto che prelevano l'acqua da corpi idrici vicini; l'acqua, riscaldata dal vapore prodotto nel condensatore, viene poi restituita alla fonte originale, ma a una temperatura superiore. Questi sistemi sono particolarmente vulnerabili in periodi di siccità e caldo estremo, poiché l'acqua restituita può superare i limiti termici consentiti, con impatti negativi sugli ecosistemi locali.
-Per ridurre tali impatti, alcuni data center hanno adottato sistemi di raffreddamento a ciclo chiuso, che riciclano le acque di scarico e piovane, riducendo così l'uso di acqua fresca del 50-70\%. In questo tipo di sistema, l'acqua di raffreddamento non viene restituita alla sorgente, ma convogliata in torri di raffreddamento, dove il calore viene disperso tramite evaporazione. Il resto dell'acqua viene quindi ricircolato attraverso i condensatori.
+I data center di grandi dimensioni e strutture iper-scalari spesso gestiscono autonomamente la propria produzione di energia per garantire un'elevata continuità operativa (o \textit{uptime}), soprattutto in situazioni di emergenza, come nel caso di interruzioni della rete elettrica pubblica dovute a blackout.
+Essi utilizzano sistemi a ciclo diretto che prelevano l'acqua da corpi idrici vicini; l'acqua, riscaldata dal vapore prodotto nel condensatore, viene poi restituita alla fonte originale, ma a una temperatura superiore. Questi sistemi sono particolarmente vulnerabili in periodi di siccità e caldo estremo, poiché l'acqua restituita può superare i limiti termici consentiti, con impatti negativi sugli ecosistemi locali.
+Per ridurre queesti impatti, alcuni data center hanno adottato sistemi di raffreddamento a ciclo chiuso, che riciclano le acque di scarico e piovane, riducendo così l'uso di acqua fresca del 50-70\%. In questo tipo di sistema, l'acqua di raffreddamento non viene restituita alla sorgente, ma convogliata in torri di raffreddamento, dove il calore viene disperso tramite evaporazione. Il resto dell'acqua viene quindi ricircolato attraverso i condensatori.
 
-Alcuni data center vanno oltre e scelgono di localizzare le proprie strutture in aree strategiche per ottimizzare il raffreddamento: per esempio, zone montane dove l'aria è naturalmente più fresca, o addirittura sott'acqua, come nel caso di Microsoft in Scozia, dove l'acqua fredda dell'oceano viene utilizzata per raffreddare le apparecchiature.
+Alcuni data center scelgono di localizzare le proprie strutture in aree strategiche per ottimizzare il raffreddamento: per esempio, zone montane dove l'aria è naturalmente più fresca, o addirittura sott'acqua, come nel caso di Microsoft in Scozia, dove l'acqua fredda dell'oceano viene utilizzata per raffreddare le apparecchiature.
 
-Gli Stati Uniti sono il paese con il maggior numero di data center, con più di 5300 sempre in funzione. I quantitativi di acqua consumati dai singoli data center sono difficili da stimare, poiché non sono di dominio pubblico e spesso oggetto di discussione, dato l'impatto negativo che possono avere sulle comunità locali in cui vengono costruiti. Si ipotizza che un data center di piccole dimensioni consumi circa 26 milioni di litri d'acqua all'anno tra raffreddamento e produzione di elettricità, e che Google abbia utilizzato 5 miliardi di litri solamente per il raffreddamento delle sue strutture.
+Attualmente, gli Stati Uniti sono il paese con il maggior numero di data center, con più di 5300 sempre in funzione. I quantitativi di acqua consumati da una singola struttura sono difficili da stimare, poiché non sono di dominio pubblico e spesso oggetto di discussione, dato l'impatto negativo che possono avere sulle comunità locali in cui vengono costruiti. Si ipotizza che un data center di piccole dimensioni consumi circa 26 milioni di litri d'acqua all'anno tra raffreddamento e produzione di elettricità, e che Google abbia utilizzato 5 miliardi di litri solamente per il raffreddamento delle sue strutture.
 
 \section{Conseguenze dell'uso di acqua minerale e potabile}
 
@@ -268,6 +284,9 @@ Gli Stati Uniti hanno prodotto una minuscola quantità di energia tramite fissio
 Per decenni, a causa dei rischi alla sicurezza e regolamentazioni, il nucleare non è stato ben visto negli Stati Uniti. Nonostante ciò, Amazon ha firmato accordi con Energy Northwest per la costruzione di reattori modulari (SMR) in grado di produrre eventualmente abbastanza energia per sostenere 770.000 case. Anche Google ha annunciato un accordo con Kairos Power per produrre 500 megawatt di elettricità tramite SMR entro il 2035.
 Ha suscitato grande clamore l'annuncio di Microsoft, che in collaborazione con Constellation Energy ha deciso di riattivare l'impianto nucleare di Three Mile Island, oggetto nel 1979 di un parziale meltdown che portò al rilascio di gas radioattivi nell'atmosfera.
 
+\chapter{Conlcusione}
+
+Grazie a tutti alla prossima
 
 \chapter*{Fonti}
 \renewcommand{\bibsection}{}
