@@ -1173,4 +1173,88 @@ class Drone extends Vehicle {
 ## 16.4 Pattern creazionali
 ## 16.4.1 `new` è pericoloso
 Ogni volta che si crea una classe concreta con `new` si crea una dipendenza (ad esempio se cambia il costruttore). Queste dipendenze sono di cattiva qualità e si ha una violazione del [[#12.5.5 Dependency inversion principle (DIP)|DIP]].
-Si delega la creazione dell'oggetto a una classe a parte, detta factory.
+```java
+interface PersistanceManager {
+	void save(...);
+}
+
+class DBPersistanceManager implements PersistanceManager {
+	@Override
+	void save(...) {
+		...
+	}
+}
+
+void main(){
+	PersistanceManager pMgr = new DBPersistanceManager(); 
+	pMgr.save(...)
+}
+```
+> Pra `pMgr` dipende sia dalla classe concreta che dall'interfaccia. Non vogliamo che quando cambia la classe concreta bisogna cambiare `new DBPersistanceManager`.
+
+Si delega la creazione dell'oggetto a una classe a parte, detta factory. Le factory separano il cliente dal processo di istanziazione e delega la creazione dell'oggetto ad un interfaccia comune. Non si ha più dipendenza dalla classe concreta, ma si ha dipendenza dalla factory.
+```java
+void main(){
+	PersistanceManager pMgr = Factory.create(); 
+	pMgr.save(...)
+}
+```
+Vogliamo avere dipendenza di buona qualità, non molte dipendenze di basse qualità.
+- Le interfacce solo elementi stabili, quindi sono dipendenze buone.
+- Le factory sono elementi stabili, perché vi si possono solo aggiungere metodi, quindi dipendenze di alta qualità.
+
+Con le factory si hanno una sola dipendenza critica, indipendentemente dal numero degli utilizzatori. Tutte le factory sono implementate con la stessa interfaccia.
+### 16.4.2 Problema della notificazione/polling
+Vogliamo che le modifiche di una classe si propaghino su una serie di oggetti.
+Si fa che gli oggetti interessati ricevono la notifica quando avviene il cambiamento, non viceversa. 
+Si definisce una dipendenza uno a molti tra oggetti cosicché quando uno cambia stato, tutti i suoi dipendenti sono notificati e automaticamente cambiati.
+![[Pasted image 20250430134558.png]]
+**Problema**: come posso isolare un client dalla complessità interna di un sottosistema? Le Façade forniscono un'interfaccia unica a una serie di interfacce di un sottosistema.
+Le Façade definiscono un interfaccia di alto livello che rende un sottosistema più facile da usare.
+# 18. Scrum
+Uno scrum è una metodologia nata nel contesto software, rientra nelle famiglie dei metodi *lean* per l'organizzazione aziendale.
+## 18.1 Ciclo di vita
+![[Pasted image 20250430135349.png]]
+Scrum ha un ciclo di vita iterativo. L'esecuzione si chiama sprint.
+### 18.1.1 Sprint
+Uno sprint è un iterazione timeboxed, ha una durata prefissata e include tutti i cicli di design, programmazione e testing. Termina con un incremento potenzialmente vendibile.
+### 18.1.2 Ruoli
+- Core (pigs): non si possono fare scrums senza i ruoli core:
+	- *product owner*: stakeholder, decide le priorità, scadenze e feature. Guarda il progetto con gli occhi del committente. 
+	- *scrum master*: persona senior all'interno dell'organizzazione, che è stata attiva nello sviluppo e conosce bene scrum, ed è al servizio dei colleghi. Infatti è responsabile della corretta applicazione delle pratiche di scrum all'interno del progetto.
+	- team di sviluppo: auto organizzati, full time sul progetto, l'insieme delle competenze dei membri deve coprire tutte le competenze necessarie, di 5-9 persone. Questa forma di scrum non è appropriata per progetti di grosse dimensioni. Non si vuole dipendere da risorse esterne perché potrebbero bloccare la fase di sviluppo. Sono i membri del team a decidere che lavoro vogliono fare.
+- Additional (chickens):
+	- clienti
+	- management
+
+### 18.1.3 Artefatti
+- Product backlog: lista di tutte le cose che devono essere fatte nel progetto. Verrà completato in più iterazioni. In questa lista, curata dal *product owner*, ci sono
+	- Requisiti funzionali (user stories)
+	- Bugfix
+	- Requisiti non funzionali
+	- Requisiti tecnologici
+	- Chore: cose che servono, ma non all'utente finale
+- Sprint Backlog: contiene cose da fare all'interno dello sprint nel dato intervallo di tempo. A ogni task è associato un tempo per completarla. 
+- Potentially shippable product increment
+- (Burn down chart)
+
+### 18.1.4 Sprint planning
+Si scelgono le task restanti da completare nello prossimo sprint e si stimano la loro durata. La fase di pianificazione dura una giornata.
+Il product owner indica le funzionalità, e il tempo per implementarle va deciso dal team.
+### 18.1.5 Scrum Estimation
+Le user stories usano dei punti in base alla complessità.
+- Capacity driven planning: si prendono le storie dal backlog in base al tempo richiesto
+- Velocity driven planning: si scelgono le storie dal backlog in base ai punti.
+
+### 18.1.6 Scrum Giornaliero
+Incontro di 15 minuti dove membri del team rispondono a
+- cosa ho fatto ieri per contribuire allo sprint?
+- cosa farò oggi per contribuire allo sprint?
+- prevedo ostacoli al raggiungimento del goal dello sprint?
+
+Non si fa analisi che è lasciata al product owner
+### 18.1.7 Sprint review
+Alla fine di uno sprint si fa la review con tutto il team e gli stakeholder, si presenta l'incremento con tutti i problemi e soluzioni. Si discute del product backlog.
+C'è poi la retrospezione con lo scrum master e il team di sviluppo, dove si discutono miglioramenti per il prossimo sprint.
+### 18.1.8 Scaling
+Per progetti grandi, può essere possibile dividerlo in sottosistemi. Ci sono framework ispirati a scrum per funzionare a larga scala (leSS).

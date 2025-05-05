@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "c8954bfd6f44049b",
+        "id": "c7e213547c4da2b4",
         "type": "tabs",
         "children": [
           {
-            "id": "9a45250bd12a9faf",
+            "id": "e816fbffc4bd5e9d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Storia e Politiche del Digitale/Conta parole.md",
-                "mode": "source",
-                "source": false
+                "file": "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.pdf"
               },
-              "icon": "lucide-file",
-              "title": "Conta parole"
+              "icon": "lucide-file-text",
+              "title": "Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri"
             }
           }
         ]
@@ -166,12 +164,17 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "9a45250bd12a9faf",
+  "active": "e816fbffc4bd5e9d",
   "lastOpenFiles": [
+    "Ingegneria del Software/pdf/18 - Scrum.pdf",
+    "Ingegneria del Software/Appunti.md",
+    "Ingegneria del Software/img/Pasted image 20250430135349.png",
+    "Ingegneria del Software/pdf/18 - Scrum.pdf.crdownload",
+    "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf",
+    "Ingegneria del Software/img/Pasted image 20250430134558.png",
+    "Storia e Politiche del Digitale/Conta parole.md",
     "Ingegneria del Software/pdf/16 - Design Patterns 1.pdf",
     "Teoria dell'impresa/Riassunti Libro.xopp~",
-    "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf",
-    "Ingegneria del Software/Appunti.md",
     "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
     "Storia e Politiche del Digitale/tesina/doc.synctex(busy)",
     "Storia e Politiche del Digitale/Tesina.md",
@@ -179,14 +182,10 @@
     "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
     "Storia e Politiche del Digitale/tesina/doc.run.xml",
     "Storia e Politiche del Digitale/tesina/doc.bcf",
-    "Storia e Politiche del Digitale/tesina/refs.bib",
-    "Storia e Politiche del Digitale/tesina/sites.bib",
-    "Storia e Politiche del Digitale/tesina/books.bib",
     "Storia e Politiche del Digitale/Appunti.md",
     "Storia e Politiche del Digitale/tesina/img/marchio-di-ateneo.png",
     "Storia e Politiche del Digitale/doc.md",
     "Untitled.md",
-    "Storia e Politiche del Digitale/Conta parole.md",
     "Ingegneria del Software/img/Pasted image 20250423132655.png",
     "Ingegneria del Software/img/Pasted image 20250423132652.png",
     "Laboratorio di Applicazioni Mobili/Proposta progetto app mobili.md",
@@ -198,8 +197,6 @@
     "Ingegneria del Software/img/Pasted image 20250408101715.png",
     "Ingegneria del Software/img/Pasted image 20250408101046.png",
     "Ingegneria del Software/img/Pasted image 20250408100751.png",
-    "Ingegneria del Software/img/Pasted image 20250408093126.png",
-    "Ingegneria del Software/img/Pasted image 20250408092148.png",
     "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
     "Tesi+Tirocinio/Beet.md",
     "Tesi+Tirocinio/ideal_mcfunction/dubbi.md",

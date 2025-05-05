@@ -35,18 +35,21 @@
 
 \usepackage{lscape} 
 
+\usepackage{titlesec}
+
 \usepackage{natbib}
 \bibliographystyle{alpha}
 \setcitestyle{super,open={[},close={]}}
 \usepackage{hyperref}
 \newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
-\usepackage{pdfpages}
 
 \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
 \makeatother
+
+\usepackage{pdfpages}
 
 \begin{document}
 % Per spostare i vari elementi più su o più giù gioca con i valori di vspace che ci sono tra uno e l'altro
@@ -75,7 +78,7 @@
 
 {\Huge{\bf I costi materiali delle }}\\
 \vspace{3mm}
-{\Huge{\bf tecnologie del XXIesimo secolo}}\\
+{\Huge{\bf tecnologie del XXI secolo}}\\
 \vspace{3mm}
 \end{center}
 
@@ -105,28 +108,31 @@
 
 \topmargin=-2cm
 \setcounter{page}{1}
-\textheight=23cm  % Decrease this value to increase bottom margin
+\textheight=25cm  % Decrease this value to increase bottom margin
 \tableofcontents
 
 \pagenumbering{arabic}
 \raggedbottom
 
 \setcounter{chapter}{-1}
+\pagestyle{plain}
 \chapter{Introduzione}
 
-Se si considera il lavoro dietro a uno smartphone, un sito web o piattaforme di chatbot basate su intelligenza artificiale come ChatGPT, vengono subito in mente le figure degli sviluppatori software e degli ingegneri informatici. Tuttavia, ci sono fattori che, pur essendo altrettanto rilevanti, vengono spesso celati o sottovalutati, e che meritano maggiore considerazione, poiché tendono a rimanere ignorati dal pubblico. Infatti, senza l'estrazione delle terre rare, che avviene spesso in condizioni di sfruttamento del lavoro in alcune aree del mondo, non ci sarebbe sviluppo software né elettronico. I data center che alimentano e ospitano servizi online tramite torri di schede grafiche contribuiscono all'emissione di significative quantità di CO2 nell'atmosfera e a un notevole consumo energetico. Inoltre, la gestione di queste strutture richiede un consumo intensivo di risorse naturali, tra cui miliardi di litri d'acqua all'anno, con gravi impatti sugli ecosistemi locali. Questi fattori pongono importanti questioni sulle conseguenze ambientali e sociali legate alla produzione e all'uso di tecnologie sempre più pervasive.
-
-\pagestyle{plain}
+Se si considera il lavoro dietro a uno smartphone, un sito web o piattaforme di chatbot basate su intelligenza artificiale come ChatGPT, vengono subito in mente le figure degli sviluppatori software e degli ingegneri informatici. Tuttavia, ci sono fattori che, pur essendo altrettanto rilevanti, vengono spesso celati o sottovalutati, e che meritano maggiore considerazione, poiché tendono a rimanere ignorati dal pubblico. Infatti, senza l'estrazione delle terre rare, che avviene spesso in condizioni di sfruttamento del lavoro in alcune aree del mondo, non ci sarebbe sviluppo software né elettronico. I data center che alimentano e ospitano servizi online tramite torri di schede grafiche contribuiscono all'emissione di significative quantità di CO$_2$ nell'atmosfera e a un notevole consumo energetico. Inoltre, la gestione di queste strutture richiede un consumo intensivo di risorse naturali, tra cui miliardi di litri d'acqua all'anno, con gravi impatti sugli ecosistemi locali. Questi fattori pongono importanti questioni sulle conseguenze ambientali e sociali legate alla produzione e all'uso di tecnologie sempre più pervasive.
 
 \chapter{Le terre rare}
 
-\section{Scoperta e utilizzo}
+\section{Scoperta e applicazioni}
 
-La scoperta delle terre rare risale al 1789, quando una «dura pietra nera» fu trovata nella miniera della città svedese di Ytterby. Il chimico Johan Gadolin non fu in grado di identificare la pietra, la quale chiamò «terra rara». La ricerca e isolamento di nuovi materiali portò alla scoperta di 17 elementi metallici tra il Diciottesimo e Ventesimo secolo: le terre rare, o in inglese, \textit{rare earth elements} (REE).
-Nonostante questi metalli siano stati scoperti abbastanza presto, la loro utilità divenne apparente solamente dopo la Seconda Guerra Mondiale, in seguito alla diffusione delle televisioni. Negli anni 70 si iniziò a sfruttare le capacità magnetiche delle terre rare per creare supermagneti, fondamentali per creare motori elettrici.
+La scoperta delle terre rare risale al 1787, quando una «dura pietra nera» fu trovata nella miniera della città svedese di Ytterby. Il chimico finlandese Johan Gadolin (1760-1852) non fu in grado di identificare la pietra, e la chiamò «terra rara». La ricerca e l'isolamento di nuovi materiali portò alla scoperta di 17 elementi chimici classificati come terre rare, o in inglese, \textit{Rare Earth Elements} (REE) secondo l'Unione internazionale di chimica pura e applicata (IUPAC). La IUPAC classifica queste terre rare in
+\begin{itemize}
+    \item Terre Rare Leggere (LREE): lantanio, cerio, praseodimio e neodimio;
+    \item Terre Rare Intermedie (MREE): samario, europio, gadolinio, terbio, disprosio e olmio;
+    \item Terre Rare Pesanti (HREE): erbio, tulio, itterbio e luterzio.
+\end{itemize}
 
-Al giorno d'oggi, le REE sono indispensabili per tecnologie di comunicazione e informazione, grazie alle loro proprietà di semiconduttori. Ci sono due tipi di terre rare, quelle leggere e più comuni (LREE), e quelle più pesanti, rare e difficili da estrarre (HREE). Le terre rare leggere sono presenti nella crosta terrestre in quantità simili a quelle del rame, fondamentali per le \textit{green technologies} che stanno venendo lentamente adottare per ridurre l'impatto umano sull'ambiente. Anche quelle pesanti, pur essendo meno comuni, sono comunque molto più diffuse rispetto a metalli preziosi come l'oro.
-Data l'abbondanza e importanza di questi metalli, un nome più appropriato potrebbe essere Terre Vitali?
+Negli anni 70 si iniziò a sfruttare le capacità magnetiche delle terre rare per creare supermagneti, fondamentali per creare motori elettrici.
+Oggi le terre rare REE sono fondamentali per le tecnologie di comunicazione e informazione, grazie alle loro eccellenti proprietà come semiconduttori. Solamente negli smartphone sono impiegati nella realizzazione di altoparlanti e motori di vibrazione (Nd e Dy), schermo e led (Eu, Tb). Vengono utilizzate anche come catalizzatori, in componenti di fibre ottiche e nei veicoli ibridi, dove svolgono un ruolo cruciale nel miglioramento delle prestazioni e nell'efficienza energetica.
 
 \section{Miniere e geopolitica}
 L'amplia presenza di terre rare nel suolo non implica la possibilità di realizzare un supermagnete o una batteria con facilità. Anzi, l'intero processo che va dall'estrazione alla produzione finale è complesso, costoso e richiede tecnologie avanzate, oltre a porre importanti sfide ambientali e geopolitiche.
@@ -188,6 +194,7 @@ La piccola quantità che viene effettivamente riciclata proviene da:
     \item fosfori per l'illuminazione nelle lampade fluorescenti, poiché in molte giurisdizioni politiche queste lampade devono essere raccolte per isolare il mercurio pericoloso al loro interno;
     \item magneti utilizzati nei dischi rigidi dei server.
 \end{itemize}
+
 In seguito all'improvviso aumento dei prezzi delle terre rare esportate dalla Cina tra il 2010 e il 2011, molti ricercatori hanno avviato studi per ricercare metodi più efficaci per il recupero e il riutilizzo degli REE.
 Nel 2014 Allan Walton, presso l’Università di Birmingham, ha sviluppato un processo di riciclo dei magneti al neodimio che consente di recuperare 1 kg di materiale consumando solo il 12\% dell’energia necessaria per l’estrazione da materie prime, con una riduzione del 98\% della tossicità per l’uomo. La procedura prevede l'esposizione dei magneti all’idrogeno: il neodimio lo assorbe, consentendo successivamente di separare, tramite setacciatura, la polvere di neodimio-ferro-boro dal rivestimento in nichel.
 Attualmente, sono in corso ricerche in Giappone, presso l'Università di Tohoku, nell'\textit{European Rare Earth (Magnet) Recycling Network} e nel \textit{Critical Materials Institute} negli Stati Uniti.
@@ -211,7 +218,7 @@ I sistemi computazionali basati su architetture parallele presentano un impatto 
 La capacità delle GPU di eseguire più compiti in parallelo ha cambiato il modo in cui le applicazioni di analisi e processo dei dati sono strutturate. Fornisce ad algoritmi per AI e machine learning la velocità ed efficienza necessaria per eseguire calcoli complessi.
 In alcune GPU moderne sono presenti core specializzati per l'elaborazione di operazioni sui tensori, fondamentali nel deep learning. Questi consentono di accelerare le moltiplicazioni tra matrici, migliorando sia l'efficienza di addestramento che l'inferenza delle reti neurali.
 
-PARLARE DEEPSEEK E CROLLO QUOTE NVIDIA
+I costi elevati dell’infrastruttura necessaria al funzionamento di ChatGPT sono il principale motivo per cui, quando la startup cinese DeepSeek ha lanciato un modello di intelligenza artificiale con costi di mantenimento nettamente inferiori rispetto a quelli di OpenAI, le azioni di NVIDIA, principale fornitore di GPU per l’addestramento e l’esecuzione di tali modelli,  hanno subito un brusco calo, comportando una perdita del valore di mercato vicina a \$600mld.
 
 Negli ultimi anni si è visto lo sviluppo di GPU ottimizzate per l'AI: un trend destinato a crescere in futuro, visti i continui progressi che si stanno facendo su quel fronte.
 
@@ -219,7 +226,7 @@ Negli ultimi anni si è visto lo sviluppo di GPU ottimizzate per l'AI: un trend 
 
 Nell'ultimo decennio, una varietà di valute digitali chiamate criptovalute si sono diffuse nel mercato mondiale. L'estrazione, o "mining", di criptovalute consiste nel raccogliere un insieme di transazioni effettuate negli ultimi dieci minuti all'interno di un blocco e risolvere un complesso problema matematico associato ad esso. Il primo miner che riesce a risolvere il problema aggiunge il blocco alla blockchain (una specie di registro digitale che contiene informazioni in modo sicuro e verificabile), rendendo ufficiali le transazioni contenute, e riceve come ricompensa un premio in Bitcoin.
 
-Per risolvere questi problemi inizialmente erano impiegati gruppi di CPU, per poi essere sostituite da GPU. La crescente popolarità delle criptovalute, e il conseguente consumo energetico richiesto per il mining produce enormi quantità di diossido di carbonio. Inoltre, il rapido sviluppo di GPU sempre più performanti per il mining rende i modelli precedenti rapidamente obsoleti, producendo rifiuti elettronici (E-Waste). Come già evidenziato, il riciclo dei materiali contenenti terre rare è complesso e poco efficiente; una gestione inadeguata di questi rifiuti elettronici comporta il rilascio di sostanze nocive nel suolo e contribuisce all'inquinamento atmosferico.
+Per risolvere questi problemi inizialmente erano impiegati gruppi di CPU, per poi essere sostituite da GPU. La crescente popolarità delle criptovalute, e il conseguente consumo energetico richiesto per il mining produce enormi quantità di anidride carbonica. Inoltre, il rapido sviluppo di GPU sempre più performanti per il mining rende i modelli precedenti rapidamente obsoleti, producendo rifiuti elettronici (E-Waste). Come già evidenziato, il riciclo dei materiali contenenti terre rare è complesso e poco efficiente; una gestione inadeguata di questi rifiuti elettronici comporta il rilascio di sostanze nocive nel suolo e contribuisce all'inquinamento atmosferico.
 
 L'impronta idrica del mining di criptovalute è una questione ambientale sempre più rilevante. Per raffreddare i gruppi computer utilizzati nelle operazioni di mining, si impiegano grandi quantità di acqua. Solamente per l'estrazione di Bitcoin, la valuta più vecchia e popolare, si sono utilizzati 1,600 gigalitri d'acqua in un anno: una singola transazione consuma tanta acqua quanto quella contenuta in una piscina domestica. Il consumo elettrico annuale è paragonabile a quello del Portogallo, e viene prodotta una quantità di E-Waste simile a quella dei Paesi Bassi.
 
@@ -233,6 +240,11 @@ Il problema del surriscaldamento delle GPU si presenta anche qua: una macchina c
 
 \subsection{Data center}
 
+\begin{quote}
+\small
+In the twenty-first century [...], the technology needed for turning simple activities into recorded data became increasingly cheap; and the move to digital-based communications made recording exceedingly simple.\citep[p.28]{srnicek2017platform}
+\end{quote}
+
 Con la diffusione delle architetture client-server e la crescente domanda di sistemi decentralizzati, i data center si sono evoluti da semplici elaboratori di grandi dimensioni a infrastrutture iper-scalabili, distribuite strategicamente su scala globale per garantire prestazioni elevate e bassa latenza agli utenti in tutto il mondo.
 
 All'interno dei data center, le GPU coprono un ruolo cruciale nella gestione di calcoli complessi, algoritmi di machine learning e supporto per simulazioni scientifiche altamente precise. L'importanza delle GPU nei data center è destinata a crescere assieme alla quantità e complessità di dati che le aziende raccolgono. Un report dell'Agenzia dell'\textit{International Energy Agency} afferma che i data center consumano circa l'1-1.5\% dell'energia mondiale. Questa cifra può solamente aumentare più noi continuiamo a fare affidamento su servizi digitali. Questo report era stato fatto prima del boom dell'intelligenza artificiale, secondo la banca d'investimento Goldman Sachs, una singola query a ChatGPT richieda quasi 10 volte l'elettricità di una ricerca su Google. Per questo prevede che la domanda di energia dei data center crescerà del 160\% entro il 2030.
@@ -241,7 +253,14 @@ Secondo un report di The Guardian\cite{guardian2024datacenters}, tra le aziende 
 
 \chapter{Consumo d'acqua nei data center}
 
-Le GPU rappresentano solo una parte dei macchinari elettronici che devono rimanere costantemente attivi all'interno dei data center; a queste si aggiungono router, hard disk, server e altre apparecchiature di rete, tutti elementi che contribuiscono in modo significativo al consumo energetico complessivo.
+\begin{quote}
+\small
+As a recorded entity, any datum requires sensors to capture it and massive storage systems to maintain it. Data are not immaterial, as any glance at the energy consumption of data centres will quickly prove. [...] Altogether, this means that the collection of data today is dependent on a vast infrastructure to sense, record, and analyse.\citep[p.28]{srnicek2017platform}
+\end{quote}
+
+Le GPU costituiscono solo una parte di questa infrastruttura, che deve rimanere costantemente operativa. A essa si aggiungono router, hard disk, server e numerose altre apparecchiature di rete, tutti componenti che contribuiscono in modo significativo all’elevato consumo energetico complessivo. Si pensi a Uber o ad altre piattaforme lean che per espandere la propria attività non ha bisogno di acquistare nuove automobili, ma semplicemente di potenziare la propria infrastruttura digitale, ad esempio affittando più server. \citep[p.31]{srnicek2017platform}
+
+Inoltre, esistono data center di aziende esterne all'settore informatico che necessitano anch'esse di enormi data center. Solo il business del gas naturale liquefatto di General Electric raccoglie una quantità di dati paragonabile a quella di Facebook, e richiede strumenti altamente specializzati per gestire un flusso informativo di tale portata. \citep[p.40]{srnicek2017platform}
 
 A causa dell'enorme consumo energetico di queste strutture, la quantità d'acqua utilizzata per il raffreddamento è in realtà inferiore se paragonata a quella richiesta per la produzione di elettricità. Il processo di produzione di elettricità si basa sul riscaldamento dell'acqua, che, trasformandosi in vapore, mette in movimento una turbina e genera energia elettrica.
 
@@ -286,7 +305,15 @@ Ha suscitato grande clamore l'annuncio di Microsoft, che in collaborazione con C
 
 \chapter{Conlcusione}
 
-Grazie a tutti alla prossima
+In questa tesina sono stati evidenziati i principali effetti negativi derivanti dalla diffusione eccessiva di prodotti e infrastrutture tecnologiche, con particolare attenzione all’impatto sull’ecosistema globale e sull’umanità, sia in qualità di consumatrice che di produttrice di tecnologia.
+
+Ero già consapevole del grande quantitativo di materie prime minerarie e metalliche necessario per la produzione di dispositivi tecnologici, ma non mi aspettavo che anche il consumo idrico fosse così elevato, soprattutto in aree già colpite da scarsità d’acqua.
+Rimango cautamente ottimista in merito alle innovazioni tecnologiche in corso per migliorare il riciclo e ridurre il quantitativo elettrico dal settore tecnologico. Spero che questo avvenga prima che gli effetti ambientali siano irreversibili. 
+
+Nonostante queste criticità, rimango cautamente ottimista riguardo alle innovazioni tecnologiche in corso, che mirano a migliorare i processi di riciclo e a ridurre il consumo energetico del settore. Confido che tali soluzioni possano essere implementate prima che gli effetti ambientali diventino irreversibili.
+Auspico inoltre che le grandi aziende tecnologiche, in particolare le GAFAM, riescano a raggiungere al più presto la neutralità carbonica, privilegiando fonti di energia sostenibili, come quella solare ed eolica, rispetto a quelle idroelettriche o di origine fossile; in altre parole, privilegiare la salute del pianeta da cui stannno estraendo le risorse rispetto ad aumentare i profitti.
+
+\newpage
 
 \chapter*{Fonti}
 \renewcommand{\bibsection}{}
@@ -338,6 +365,7 @@ Grazie a tutti alla prossima
 \url{https://www.intel.com/content/www/us/en/products/docs/discrete-gpus/data-center-gpu/what-is-data-center-gpu.html} \\
 \url{https://www.theguardian.com/technology/2024/sep/15/data-center-gas-emissions-tech} \\
 \url{https://www.trgdatacenters.com/resource/the-role-and-purpose-of-data-center-gpus/}
+\url{https://www.reuters.com/technology/chinas-deepseek-sets-off-ai-market-rout-2025-01-27/}
 
 \subsection*{Capitolo 3}
 \url{https://www.asce.org/publications-and-news/civil-engineering-source/civil-engineering-magazine/} \\
