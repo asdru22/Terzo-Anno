@@ -11,12 +11,14 @@
             "id": "e816fbffc4bd5e9d",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.pdf"
+                "file": "Ingegneria del Software/Appunti.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri"
+              "icon": "lucide-file",
+              "title": "Appunti"
             }
           }
         ]
@@ -51,12 +53,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Ingegneria del Software/Appunti.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Appunti"
             }
           },
           {
@@ -86,7 +89,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -166,8 +170,11 @@
   },
   "active": "e816fbffc4bd5e9d",
   "lastOpenFiles": [
-    "Ingegneria del Software/pdf/18 - Scrum.pdf",
+    "Ingegneria del Software/esercizi/04_03.svg",
     "Ingegneria del Software/Appunti.md",
+    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
+    "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.pdf",
+    "Ingegneria del Software/pdf/18 - Scrum.pdf",
     "Ingegneria del Software/img/Pasted image 20250430135349.png",
     "Ingegneria del Software/pdf/18 - Scrum.pdf.crdownload",
     "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf",
@@ -175,13 +182,11 @@
     "Storia e Politiche del Digitale/Conta parole.md",
     "Ingegneria del Software/pdf/16 - Design Patterns 1.pdf",
     "Teoria dell'impresa/Riassunti Libro.xopp~",
-    "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
     "Storia e Politiche del Digitale/tesina/doc.synctex(busy)",
     "Storia e Politiche del Digitale/Tesina.md",
     "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf.crdownload",
     "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
     "Storia e Politiche del Digitale/tesina/doc.run.xml",
-    "Storia e Politiche del Digitale/tesina/doc.bcf",
     "Storia e Politiche del Digitale/Appunti.md",
     "Storia e Politiche del Digitale/tesina/img/marchio-di-ateneo.png",
     "Storia e Politiche del Digitale/doc.md",
