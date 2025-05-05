@@ -11,14 +11,12 @@
             "id": "e816fbffc4bd5e9d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Ingegneria del Software/Appunti.md",
-                "mode": "source",
-                "source": false
+                "file": "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf"
               },
-              "icon": "lucide-file",
-              "title": "Appunti"
+              "icon": "lucide-file-text",
+              "title": "19 - Design Patterns 3"
             }
           }
         ]
@@ -53,13 +51,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ingegneria del Software/Appunti.md",
+                "file": "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Appunti"
+              "title": "Outline of 19 - Design Patterns 3"
             }
           },
           {
@@ -89,8 +87,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -168,10 +165,49 @@
       "publish:Publish changes...": false
     }
   },
+  "floating": {
+    "id": "38d3d19ac1c27c71",
+    "type": "floating",
+    "children": [
+      {
+        "id": "6d4021db2a3df1fd",
+        "type": "window",
+        "children": [
+          {
+            "id": "77a4edb12b3f411b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d573eeef5c6bf7a1",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "New tab"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 128,
+        "y": 0,
+        "width": 1024,
+        "height": 672,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
   "active": "e816fbffc4bd5e9d",
   "lastOpenFiles": [
-    "Ingegneria del Software/esercizi/04_03.svg",
+    "Ingegneria del Software/Appunti.pdf",
     "Ingegneria del Software/Appunti.md",
+    "Ingegneria del Software/Appunti.typ",
+    "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf",
+    "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf.crdownload",
+    "Ingegneria del Software/esercizi/04_03.svg",
     "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
     "Storia e Politiche del Digitale/materiale tesina/Il-capitalismo-della-sorveglianza.-Il-futuro-dellumanita-nellera-dei-nuovi-poteri.pdf",
     "Ingegneria del Software/pdf/18 - Scrum.pdf",
@@ -182,11 +218,7 @@
     "Storia e Politiche del Digitale/Conta parole.md",
     "Ingegneria del Software/pdf/16 - Design Patterns 1.pdf",
     "Teoria dell'impresa/Riassunti Libro.xopp~",
-    "Storia e Politiche del Digitale/tesina/doc.synctex(busy)",
     "Storia e Politiche del Digitale/Tesina.md",
-    "Ingegneria del Software/pdf/16 - Design Patterns 2.pdf.crdownload",
-    "Storia e Politiche del Digitale/materiale tesina/Indicazioni Tesina.pdf",
-    "Storia e Politiche del Digitale/tesina/doc.run.xml",
     "Storia e Politiche del Digitale/Appunti.md",
     "Storia e Politiche del Digitale/tesina/img/marchio-di-ateneo.png",
     "Storia e Politiche del Digitale/doc.md",
@@ -201,7 +233,6 @@
     "Tesi+Tirocinio/ideal_mcfunction/Note.md",
     "Ingegneria del Software/img/Pasted image 20250408101715.png",
     "Ingegneria del Software/img/Pasted image 20250408101046.png",
-    "Ingegneria del Software/img/Pasted image 20250408100751.png",
     "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
     "Tesi+Tirocinio/Beet.md",
     "Tesi+Tirocinio/ideal_mcfunction/dubbi.md",
