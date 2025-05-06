@@ -16,6 +16,8 @@
 #set heading(numbering: "1.")
 #outline(title: "Indice", depth: 1,)
 
+#show table.cell.where(y:0): strong 
+
 = Glossario
 
 == Stakeholder
@@ -131,7 +133,7 @@ I requisiti devono essere:
  inset: 10pt,
  align: horizon,
  table.header(
- [], [*Funzionale*], [*Non Funzionale*],
+ [], [Funzionale], [Non Funzionale],
  ),
  [*_Obiettivo_*], ["Descrive cosa fa il prodotto"], ["Descrive come funziona il prodotto"],
  [*_Risultato finale_*], ["Definisce le funzionalità del prodotto"], ["Definisce le proprietà del prodotto"],
@@ -902,7 +904,7 @@ Si hanno due responsabilità:
  inset: 10pt,
  align: horizon,
  table.header(
- [*Fare*], [*Conoscere*],
+ [Fare], [Conoscere],
  ),
  
  [Creare un oggetto o fare un calcolo ],
@@ -1011,7 +1013,7 @@ Spesso ci si trova a spendere molto per overhead (attività non correlate alla r
  inset: 10pt,
  align: horizon,
  table.header(
- [*Più valorizzati*], [*Meno valorizzati*],
+ [Più valorizzati], [Meno valorizzati],
  ),
  [gli individui e le interazioni], [processi e strumenti],
  [software funzionante], [documentazione comprensiva],
@@ -1202,7 +1204,7 @@ _Pro e contro di black e white_
  inset: 10pt,
  align: horizon,
  table.header(
- [], [*Contro*], [*Contro*],
+ [], [Contro], [Pro],
  ),
  [*_white_*],
  [complesso],
