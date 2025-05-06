@@ -89,4 +89,3 @@ https://en.wikipedia.org/wiki/Three_Mile_Island_accident
 # Libri
 - https://ia601507.us.archive.org/14/items/pitron-guillaume-the-rare-metals-war/Pitron%2C%20Guillaume%20-%20The%20Rare%20Metals%20War.pdf cap 1
 - Il capitalismo della sorveglianza
-

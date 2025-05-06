@@ -25,7 +25,7 @@ def split_pdf_multiple_sections(input_pdf, page_ranges, output_prefix):
 
 # Esempio di utilizzo
 input_pdf = "Teoria dell'impresa/libro.pdf"  # Inserisci il nome del file PDF originale
-page_ranges = [(47, 70),(71,86),(87,107),(111,130),(131,160),(161,177),(181,208),(209,228),(229,253),(257,282),(283,304),(305,326),(327,343)]  # Array di coppie (start_page, end_page)
+page_ranges = [(47, 70),(71,86),(87,107),(111,130),(131,160),(161,177),(181,208),(209,228),(229,253),(257,282),(283,304),(305,326),(327,343),(347,370),(371,395)]  # Array di coppie (start_page, end_page)
 output_prefix = "Teoria dell'impresa/capitoli/capitolo"  # Prefisso per i file PDF risultanti
 
 split_pdf_multiple_sections(input_pdf, page_ranges, output_prefix)
