@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c7e213547c4da2b4",
+        "id": "bb178c37d8abda35",
         "type": "tabs",
         "children": [
           {
-            "id": "e816fbffc4bd5e9d",
+            "id": "98e8a1f39e9c51f0",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf"
+                "file": "Ingegneria del Software/Appunti.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "19 - Design Patterns 3"
+              "icon": "lucide-file",
+              "title": "Appunti"
             }
           }
         ]
@@ -51,13 +53,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf",
+                "file": "Ingegneria del Software/Appunti.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 19 - Design Patterns 3"
+              "title": "Outline of Appunti"
             }
           },
           {
@@ -165,47 +167,16 @@
       "publish:Publish changes...": false
     }
   },
-  "floating": {
-    "id": "38d3d19ac1c27c71",
-    "type": "floating",
-    "children": [
-      {
-        "id": "6d4021db2a3df1fd",
-        "type": "window",
-        "children": [
-          {
-            "id": "77a4edb12b3f411b",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "d573eeef5c6bf7a1",
-                "type": "leaf",
-                "state": {
-                  "type": "empty",
-                  "state": {},
-                  "icon": "lucide-file",
-                  "title": "New tab"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 128,
-        "y": 0,
-        "width": 1024,
-        "height": 672,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "e816fbffc4bd5e9d",
+  "active": "98e8a1f39e9c51f0",
   "lastOpenFiles": [
-    "Ingegneria del Software/Appunti.pdf",
+    "Ingegneria del Software/img/Pasted image 20250506104111.png",
+    "Ingegneria del Software/collaborazione.md",
     "Ingegneria del Software/Appunti.md",
-    "Ingegneria del Software/Appunti.typ",
+    "Ingegneria del Software/img/Pasted image 20250506095416.png",
+    "Ingegneria del Software/img/Pasted image 20250506094625.png",
     "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf",
+    "Ingegneria del Software/Appunti.pdf",
+    "Ingegneria del Software/Appunti.typ",
     "Ingegneria del Software/pdf/19 - Design Patterns 3.pdf.crdownload",
     "Ingegneria del Software/esercizi/04_03.svg",
     "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
@@ -227,12 +198,9 @@
     "Ingegneria del Software/img/Pasted image 20250423132652.png",
     "Laboratorio di Applicazioni Mobili/Proposta progetto app mobili.md",
     "Teoria dell'impresa/Riassunti Libro.md",
-    "Ingegneria del Software/collaborazione.md",
     "Ingegneria del Software/img/Pasted image 20250414132237.png",
     "Ingegneria del Software/pdf/img/Pasted image 20250414130902.png",
     "Tesi+Tirocinio/ideal_mcfunction/Note.md",
-    "Ingegneria del Software/img/Pasted image 20250408101715.png",
-    "Ingegneria del Software/img/Pasted image 20250408101046.png",
     "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
     "Tesi+Tirocinio/Beet.md",
     "Tesi+Tirocinio/ideal_mcfunction/dubbi.md",

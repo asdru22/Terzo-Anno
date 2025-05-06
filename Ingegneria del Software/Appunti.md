@@ -1258,3 +1258,7 @@ Alla fine di uno sprint si fa la review con tutto il team e gli stakeholder, si 
 C'è poi la retrospezione con lo scrum master e il team di sviluppo, dove si discutono miglioramenti per il prossimo sprint.
 ### 18.1.8 Scaling
 Per progetti grandi, può essere possibile dividerlo in sottosistemi. Ci sono framework ispirati a scrum per funzionare a larga scala (leSS).
+
+![[Pasted image 20250506094625.png]]
+![[Pasted image 20250506095416.png]]
+![[Pasted image 20250506104111.png]]

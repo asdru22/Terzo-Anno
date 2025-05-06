@@ -39,7 +39,7 @@ Il processo di sviluppo del software è una sequenza di attività ad alta astraz
 
 == Modelli
 I modelli sono astrazioni o rappresentazioni della realtà in maniera più semplice rispetto a quella che è effettivamente. Sono rappresentazioni in grado di fornire risposte alle domande di un sistema.
-Il processo software è un raffinamento dei modelli (opposto dell'astrazioone)
+Il processo software è un raffinamento dei modelli (opposto dell'astrazione)
 - Modello mentale (_problem space_): modelli che rispondono alla domanda "cosa deve fare il sistema?". In genere è incompleto.
 - Modello di analisi (_problem space_): focalizzato sulla comprensione e sulla definizione dei requisiti del sistema. Si tratta di una rappresentazione astratta di _cosa_ il sistema deve fare, senza entrare nei dettagli implementativi. Usa modelli dei casi d'uso e diagrammi delle classi.
 - Modello di design (_solution space_): traduce il modello di analisi in una rappresentazione più concreta, definendo _come_ il sistema verrà implementato. Qui si passa da concetti astratti a soluzioni tecniche.
@@ -188,7 +188,7 @@ Il concetto di caso d'uso è indipendente dal diagramma dei casi d'uso. Il diagr
 - Requisiti che il soggetto specificato applica nel suo ambiente, come l'ambiente dovrebbe interagire on il soggetto affinché possa eseguire i suoi servizi.
 
 L'elemento _attore_ si può rappresentare con una qualunque icona che rappresenti gli attori del sistema. L'attore è un entità esterna al sistema, che ci interagisce scambiando dati. Con gli attori si vuole catturare le classi di utenti.
-Il _soggetto_ è il sistema da analizzare o progettare, sul quale si applicano gli use case. Può essere un sistema fisico o software, ed è rappresentato da un rettangolo, il cui nome è in un angolo in alto. Gli attori sono al difuori di questo rettangolo.
+Il _soggetto_ è il sistema da analizzare o progettare, sul quale si applicano gli use case. Può essere un sistema fisico o software, ed è rappresentato da un rettangolo, il cui nome è in un angolo in alto. Gli attori sono al di fuori di questo rettangolo.
 Ogni _caso d'uso_ è usato per descrivere una completa funzionalità che il sistema fornisce. Sono rappresentati con un'ellissi.
 La relazioni tra gli elementi del diagramma fanno parte della sintassi UML.
 Tra attori può esserci solo la relazione di _generalizzazione_ (legato all'ereditarietà).
@@ -202,7 +202,7 @@ Un attore è _associato_ a un caso d'uso solamente da una relazione di associazi
 Questa è l'unica relazione che può esserci tra attori e casi d'uso (relazione binaria). La rappresentazione grafica è un segmento.
 == Relazioni tra casi d'uso
 === Generalizzazione
-Il caso d'uso è una sequenza di passi di interazione che sottointendono un obiettivo. Un attore interagisce con il sistema quando ha un obiettivo. Il caso d'uso è sempre identificato da un obiettivo. 
+Il caso d'uso è una sequenza di passi di interazione che sottintendono un obiettivo. Un attore interagisce con il sistema quando ha un obiettivo. Il caso d'uso è sempre identificato da un obiettivo. 
 #figure(image("img/Pasted image 20250224124551.png"))
 I nomi dei casi d'uso vengono definiti in base al loro obiettivo.
 La specializzazione (operazione inversa della generalizzazione) sono operazioni che hanno lo stesso obiettivo.
@@ -227,7 +227,7 @@ Nella rappresentazione grafica, la freccia va dal comportamento base verso il ca
 - hanno al massimo una dozzina di passi
 - quando un caso d'uso ha più attori con più obiettivi (ad esempio bisogna aspettare la reazione di un altro attore/utente), deve essere modellato con più casi d'uso. I casi d'uso non possono restare in attesa per un tempo indefinito. Il tempo può essere un attore.
 
-Possono esserci dei comportamenti del sistema che il caso d'uso non è in grado di catturare. Per i processi automatizzati si usa il tempo come attore, rappresentato da una clessidra. Non ci interessa come gli attori agiscono al difuori del sistema.
+Possono esserci dei comportamenti del sistema che il caso d'uso non è in grado di catturare. Per i processi automatizzati si usa il tempo come attore, rappresentato da una clessidra. Non ci interessa come gli attori agiscono al di fuori del sistema.
 == Modello dei casi d'uso
 Il diagramma UML degli use case non è un modello degli use case. Il diagramma è un riassunto.
 I casi d'uso cominciano con l'attore che interagisce per primo. Non è mai il sistema che fa qualcosa per primo.
@@ -251,7 +251,7 @@ Un modello è soggetto a più raffinamenti iterativi.
 - Completare tutte le storie
 
 == Esercizio
-#quote([ A blog is a web application presenting a collection of date-tagged messages (posts) on miscellaneous topics. Messages are posted by the blog owner who puts them online. The author can associate messages to one or more categories (expressed using keywords). Blog’s visitors can comment messages; the comments, if approved by a moderator (usually the blog’s owner), appear in a specific section under the original message.])
+#quote([ A blog is a web application presenting a collection of date-tagged messages (posts) on miscellaneous topics. Messages are posted by the blog owner who puts them online. The author can associate messages to one or more categories (expressed using keywords). Blog's visitors can comment messages; the comments, if approved by a moderator (usually the blog's owner), appear in a specific section under the original message.])
 
 1. Fare il diagramma UML
 	1. Definire il sistema
@@ -262,7 +262,7 @@ Un modello è soggetto a più raffinamenti iterativi.
 	- ID: UC3
 	- Actors: Visitor
 	- Precondizione: il visitatore si trova nella pagina di visualizzazione del messaggio.
-	- Postcondizione: il messaggio è aggiunto alla lista di moderazione
+	- Post-condizione: il messaggio è aggiunto alla lista di moderazione
 	- Sequenza principale
 		1. il visitatore seleziona l'opzione per inserire il commento (interazione osservabile)
 		2. sistema mostra area per inserire il commento
@@ -301,7 +301,7 @@ Descrive un processo in cui le diverse fasi che operano ai diversi livelli di as
 Dopo aver applicato il modello a cascata può anche esserci il bisogno di risalire (da testing si può ritornare al coding). In un progetto vero e proprio è più comune risalire piuttosto che scendere.
 _Vantaggi_:
 - Facile da capire
-- Inforza buone pratiche
+- Incita buone pratiche
 - Artefatti identificabili
 - Documentazione comprensiva
 
@@ -327,6 +327,7 @@ _Svantaggi_:
 - alto sforzo di manutenzione
 
 Lo sviluppo iterativo incrementale richiede programmare e testare un sistema parziale molto presto, e in genere ipotizza che lo sviluppo inizi prima che tutti i requisiti siano definiti in dettaglio. Il feedback degli stakeholder è usato per migliorare la specifiche già esistenti.
+
 == _Unified Process_ (UP)
 Il processo unificato è un framework iterativo e incrementale. UP combina buone pratiche già esistenti (ciclo di vita iterativo e sviluppo basato su cicli) in una descrizione di processo coesa e ben documentata, guidata dai casi d'uso. Essere architettura centrico significa che le scelte architetturali vanno fatte il prima possibile.
 Il processo unificato divide il progetto in quattro fasi:
@@ -337,7 +338,9 @@ Il processo unificato divide il progetto in quattro fasi:
 
 #figure(image("img/Pasted image 20250226141331.png"))
 Il tempo investito in queste attività non è uguale per tutte. Ogni fase è composta da iterazioni, ognuna delle quali termina con una release da far vedere al committente. Le iterazioni che terminano una fase devono aver realizzato degli artefatti predefiniti (milestone). Se non si raggiunge il milestone bisogna aggiungere un'altra iterazione a quella fase.
+
 = Classi UML
+
 == Classe
 La classe è un tipo, gli oggetti rappresentati sono riconducibili a un tipo, e ogni tipo ha una classe. Sono rappresentati con un rettangolo e può essere diviso in compartimenti da linee orizzontali (ad esempio attributi e operazioni/funzioni).
 #figure(image("img/Pasted image 20250303125043.png"))
@@ -355,6 +358,7 @@ _Molteplicità_: indica se l'attributo deve esserci per forza, quante volte deve
 - `0..1` l'elemento è opzionale
 - `1..*` deve esserci almeno una volta
 - `*` ripetuto opzionale
+
 == Istanze delle classi
 Rappresentano degli stati che devono essere conformi alle classi. 
 #quote([Graficamente anche gli oggetti si rappresentano con rettangoli, il cui nome è sottolineato, seguito da `:` e la classe di cui è un istanza.])
@@ -362,42 +366,48 @@ Rappresentano degli stati che devono essere conformi alle classi.
 
 #figure(image("img/Pasted image 20250303130311.png"))
 #quote([Le due istanze sono correlate, indicate tramite un segmento, dove agli endpoint sono presenti i due classificatori.])
+
 == Relazioni
+
 === Generalizzazione
 Si riconduce al concetto di ereditarietà, si legge come "A (elemento specifico) è un tipo di B (elemento generale)". C'è una gerarchia di ereditarietà. In UML è prevista l'ereditarietà multipla.
 #quote([ La generalizzazione è rappresentata graficamente con una freccia vuota.])
 
 #figure(image("img/Pasted image 20250303131004.png"))
+
 === Dipendenza
 La dipendenza indica una relazione di fornitore-utilizzatore, e l'utilizzatore non è in grado di realizzare la sua semantica senza il fornitore. Se uno cambia, l'altro potrebbe essere costretto anch'esso a cambiare. Si dice "A dipende da B". Il cambiamento del fornitore può riflettersi anche nell'utilizzatore.
 #quote([ La dipendenza è rappresentata graficamente da una linea tratteggiata, che può essere stereotipata.])
 
 #figure(image("img/Pasted image 20250303131508.png"))
+
 === Realizzazioni
 Una realizzazione è un tipo di dipendenza.
 #quote([ La realizzazione è rappresentata graficamente da una linea tratteggiata che termina con una freccia vuota.])
 
-L'elemento che sta realizzando (realising element) deve fornire un'implementazione concreta del comportamento o delle specifiche definite dall'elemento che viene realizzato (realized element).
+L'elemento che sta realizzando (realizing element) deve fornire un'implementazione concreta del comportamento o delle specifiche definite dall'elemento che viene realizzato (realized element).
 #figure(image("img/Pasted image 20250303131945.png"))
+
 === Associazione
 Un'associazione dichiara che possono esserci collegamenti tra più istanze dei tipi associati. Un link è una coppia dove con valore per ogni termine dell'associazione. Il legame non deve essere solo logico, ma c'è anche un meccanismo operativo per risalire agli altri termini.
 #quote([ Le associazioni sono rappresentate con frecce che hanno label.])
 
 #figure(image("img/Pasted image 20250303132328.png"))
 A un giocatore non corrisponde un solo anno (molteplicità/numerosità).
+
 ==== Navigazione
 Un padre può avere `*` figli, un figlio ha `1` padre (può essere omesso).
 #figure(image("img/Pasted image 20250303132851.png"))
 Se si mostrano tutte le frecce e croci: navigazione e assenza di navigazione sono esplicite. Se non ci sono frecce e croci la navigazione è oscurata. Se non ci sono croci non si può distinguere tra navigazione in entrambi i versi e situazioni dove non c'è navigazione. La croce si usa quando la relazione si può inferire ma non è immediata.
 === Aggregazione
-#quote([L'aggregazione è appresentata graficamente con una freccia a rombo.])
+#quote([L'aggregazione è rappresentata graficamente con una freccia a rombo.])
 
 La classe al termine della freccia indica è dipendente da un numero di classi alla sorgente della relazione. La sorgente ha molteplicità.
 #figure(image("img/Pasted image 20250303134221.png"))
 === Composizione
 Un file esiste solo se c'è una cartella in cui metterlo. Il file non esiste senza folder. Il libro può esistere anche senza libreria.
 L'oggetto composto ha responsabilità per l'esistenza e contenimento di oggetti composti.
-#quote([La composizione è appresentata graficamente con una freccia a rombo piena.])
+#quote([La composizione è rappresentata graficamente con una freccia a rombo piena.])
 == Classi Astratte
 Le classi astratte non possono essere istanziate. Le sue istanze sono istanze di specializzazioni.
 #quote([ Le classi astratte si rappresentano graficamente in corsivo o con l'annotazione `{abstract}`.])
@@ -424,9 +434,11 @@ Nell'_Object-Oriented Analysis_ (OOA), il modello di dominio (o modello a oggett
 - Communication
 
 #figure(image("esercizi/04_03.svg"))
+
 = Diagrammi di attività UML
  I diagrammi di attività sono diagrammi comportamentali usati per rappresentare i comportamenti di classi, casi d'uso, interfacce, componenti e comportamenti di una classe (operazioni, algoritmi).
  I diagrammi di attività sono formalizzati per essere simili a semantiche della rete di Petri. Le semantiche del sistema sono descritte in termini di transazioni tra segni.
+
 == Elementi di un _activity diagram_
 - Attività
 - Nodi dell'attività
@@ -439,6 +451,7 @@ Nell'_Object-Oriented Analysis_ (OOA), il modello di dominio (o modello a oggett
 A differenza dei diagrammi di flusso, i diagrammi di attività possono avere flussi di esecuzione concorrenti.
 #figure(image("img/Pasted image 20250305133359.png"))
 Elementi dei nodi di attività sono
+
 === Azioni
  Elementi di comportamento atomico: non si sa cosa sta succedendo durante l'azione, non viene catturato il loro comportamento interno. Possono essere di vari tipi:
  - funzioni primitive
@@ -953,7 +966,7 @@ Si usano dei template: `as a <role>, I want <goal> so that <benefit>`
 #figure(image("img/Pasted image 20250414132237.png"))
 ==== Acceptance test
 Se il software passa il test, è automaticamente accettato. Seguono il template _given-when-then_.
-#quote([_Given_ my bank account is in credit, and I made no withdrawals recently, When I _attempt_ to withdraw an amount less than my card’s limit, _then_ the withdrawal should complete without errors or warnings.])
+#quote([_Given_ my bank account is in credit, and I made no withdrawals recently, When I _attempt_ to withdraw an amount less than my card's limit, _then_ the withdrawal should complete without errors or warnings.])
 ==== Le storie sono volatili
 Le storie non devono sopravvivere al loro processing. Persistono sono gli acceptance test associati ad esse.
 Gli test dicono cosa realizzare e servono anche da validazione.
@@ -961,6 +974,7 @@ Gli test dicono cosa realizzare e servono anche da validazione.
 - Le storie che descrivono le feature di alto livello sono raccolte presto ma non sono molto specifiche e sono raffinate quando il progetto prosegue.
 - Le epiche sono storie grandi: in genere serve più di un'iterazione per svilupparle. Poi sono divise in storie più piccole quando ci si avvicina alla fase di sviluppo.
 - I temi sono collezioni di storie correlate.
+
 ==== INVEST
 Un insieme di criteri per valutare la qualità di una storia
 - Independent: le storie non devono dipendere l'una dall'altra
@@ -969,17 +983,22 @@ Un insieme di criteri per valutare la qualità di una storia
 - Estimable: il team deve essere in grado di stimare il livello di complessità e la quantità di lavoro richiesta per l'analisi della storia. Un alto grado di incertezza è un buon indicatore che la storia non è abbastanza precisa.
 - Small: una storia deve essere realizzata in una iterazione. Alla fine dell'iterazione devono essere considerate finite.
 - Testable: una storia è finita solo quando le feature corrispondenti passano i test di accettazione.
+
 === Extreme programming
 Extreme programming è un metodo di sviluppo software basato su AGILE, le sue caratteristiche sono:
+
 ==== Test driven development
 Si inizia a scrivere il codice scrivendo i test, per prevenire i bug.
+
 ==== Whole team
+
 ==== Continuous process
 - Integrazione continua
 - Miglioramento del design
 - Aggiornamenti piccoli
 
 L'indicatore dello stato del progetto è la funzionalità del software. Va periodicamente rivisitato il debito tecnico all'interno del progetto.
+
 ==== Shared Understanding
 - Standard di programmazione
 - Codice di proprietà comune
@@ -987,6 +1006,7 @@ L'indicatore dello stato del progetto è la funzionalità del software. Va perio
 - Metafora del sistema
 
 Non deve esserci il codice di qualcuno.
+
 ==== Planning Game
 È il processo di pianificazione in _extreme programming_, basato sulle storie.
 Si fa prima di ogni iterazione, ed è composto da due parti:
@@ -996,18 +1016,22 @@ Si fa prima di ogni iterazione, ed è composto da due parti:
 I clienti ordinano le storie in base al loro valore, gli sviluppatori in base al rischio.
 Si scelgono le storie che saranno finite nella prossima release.
 Alla fine del tempo prefissato devono essere passati tutti i test.
+
 == Evoluzione
 Sviluppo ed evoluzione fanno parte del ciclo di vita del software. Approcci agile, la conoscenza è condivisa implicitamente e si produce poca documentazione
 
 = Software Testing
+
 == Validazione e verifica
 Il testing è l'attività più rilevante tra quelle di validazione e verifica, usate per controllare se il software creato è corretto rispetto alle specifiche. Si può avere software validato ma non verificato (piace all'utente, ma fa le cose sbagliate, o viceversa). 
 La validazione consiste nel catturare i comportamenti attesi.
 La verifica viene fatta attraverso altri test.
 II testing dice quando il sistema è sbagliato, non quando è giusto. Più test si fanno, più è probabile rilevare la presenza di un qualche tipo di errore logico. Maggiore è il numero di test, maggiore sarà il livello di confidenza nella correttezza del sistema. Il livello di confidenza è pagato con la scrittura dei test. I test non sono gratuiti, devono essere mantenuti e fatti cambiare con le classi.
 #quote([ Il testing nel software è diverso da quello dell'ingengeria.])
+
 == Costi
 I meccanismi di testing devono essere introdotti il prima e il più spesso possibile. Più un problema persiste nel codice, più sarà difficile correggerlo.
+
 == Lessico
 - Difetto (bug): il risultato di un errore logico di qualche genere.
 - Fallimento: il malfunzionamento è visible
@@ -1020,7 +1044,9 @@ I meccanismi di testing devono essere introdotti il prima e il più spesso possi
 - End to end $arrow$ l'intero sistema: bisogna mandare in esecuzione l'intera applicazione. Non sempre sono automatici 
 
 Salendo la piramide diminuiscono le cose da testare, ma fare il testing diventa più complicato e costoso.
+
 == Test statico/dinamico
+
 === Analisi Statica
 Si analizza il codice per trovare bug. Si basa su metodi formali
 - model checking
@@ -1033,6 +1059,7 @@ Le revisioni da parte di persone sono una forma di analisi statica.
 #quote([Il codice non viene eseguito.])
 
 Si usano pattern di bug per valutare la qualità del codice. In genere sono regole per controllare se si stanno rispettando stili di programmazione sicuri.
+
 === Analisi Dinamica
 Si esegue il codice per trovare bug. Il test è progettato con un approccio _blackbox_ o _whitebox_.
 - Blackbox: ci interessa solo il risultato senza guardare il codice che c'è dentro.
@@ -1069,6 +1096,7 @@ Per valutare la qualità del insieme dei test si testano mutazioni del codice.
 - si creano mutazioni del codice
 - si eseguono test sulle mutazioni
 - se un test passa c'è un problema.
+
 === Struttura di un test
 Tutti i test sono strutturati nella stessa maniera
 1. Si mette il sistema da testare (system under testing - SUT) nello stato desiderato
@@ -1076,6 +1104,7 @@ Tutti i test sono strutturati nella stessa maniera
 3. Si verifica che i risultati della interazioni siano quelli aspettati
 
 AAA: arrange-act-assert
+
 == Unit testing
 Si testa una singola funzione: il subject è molto piccolo. Si controlla che il codice rispetti le aspettative quando è scritto per la prima volta, e anche dopo averlo modificato (_regression testing_).
 I SUT devono essere isolati. Il test set di ogni unit deve avere casi indipendenti. I test eseguiti devono essere indipendenti l'uno dall'altro. Test interdipendenti non possono essere eseguiti in parallelo.
@@ -1085,9 +1114,11 @@ Si posso fare test su
 - collaborazione con altri oggetti (test del comportamento)
 
 Per isolare il codice dalla dipendenze d'uso si usano delle copie. Forniscono la stessa interfaccia ma con codice diverso. _Dependency injection_ facilita l'isolamento.
+
 = Design Patterns
 Si parte dal problema e vengono offerte una o più soluzioni. Un pattern è tale se la soluzione è valida. Un pattern si identifica in base alle soluzioni trovate in passato. I pattern sono in genere raggruppati in un sistema dove possono essere richiamati l'uno con l'altro (catalogo in informatica). I cataloghi hanno pattern che presentano soluzioni a gruppi di problemi. C'era un momento in cui tutte le cose rappresentate dovevano essere pattern. Al giorno d'oggi rappresentare tutto sottoforma di pattern non è efficace.
 Trattiamo pattern presi da _Design Patterns: Elements of Reusable Object-Oriented Software_.
+
 == Documentazione
 Ogni pattern ha una struttura uniforme
 - Nome e classificazione: nome unico e descrittivo
@@ -1103,25 +1134,31 @@ Ogni pattern ha una struttura uniforme
 - Codice di esempio (in c++)
 - Utilizzi conosciuti: esempi di utilizzi concreti del pattern
 - Pattern correlati
+
 == Fini
 - Creazionale: processo di istanziazione (Abstract Factory, Builder, Factory Method, Prototype, Singleton)
 - Comportamentale: algoritmi e responsabilità (Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy)
 - Strutturale: come le classi e gli oggetti sono composti per fare strutture più grandi (Chain of responsibility, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template method, Visitor)
 
 #figure(image("img/Pasted image 20250423132655.png"))
+
 === Template Method
 _Problema_: come posso condividere un comportamento parzialmente definito in una gerarchia di ereditarietà?
 Con il template method si definisce lo scheletro di un algoritmo in un operazione, delegando alcuni passi a sottoclassi. Si lascia cambiare certi passi dell'algoritmo alle sottoclassi, senza cambiare la sua struttura.
 Si spostano i comportamenti più comuni in cima all'albero di ereditarietà anche quando parzialmente specificato. Nuove implementazioni della superclasse astratte non creano problemi con i clienti: le dipendenze sono dirette ad elementi più stabili.
 Inoltre, viene favorita l'aderenza a OCP.
+
 === Strategy
 _Problema_: come posso separare un oggetto da parte del suo comportamento e cambiarlo a runtime, più comportamenti diversi attivabili?
 Con strategy si definisce una famiglia di algoritmi, si incapsula ognuno di essi e li si rende intercambiabili. Strategy consente all'algoritmo di variare indipendentemente dai clienti che la usano.
 Strategy favorisce l'implementazione di OCP e obbedisce PV. Favorisce la composizione rispetto all'ereditarietà.
+
 === State/strategy
 _Problema_: come posso cambiare il comportamento di un oggetto in base allo stato interno dell'oggetto stesso? L'oggetto deve comportarsi come se cambiasse la classe. La soluzione è strategy. La differenza rispetto a strategy è che la chiamata di cambiamento di comportamento viene da fuori. In state è l'oggetto stesso che decide come comportarsi rispetto al suo stato.
+
 == Privilegiare la composizione rispetto all'ereditarietà
 Le due tecniche principali per condividere e riutilizzare codice sono ereditarietà e composizione. Si favorisce la composizione degli oggetti rispetto all'ereditarietà tra classi.
+
 === Problemi dell'ereditarietà
 L'ereditarietà risolve due problemi
 - polimorfismo tramite sottotipaggio
@@ -1219,6 +1256,7 @@ class Drone extends Vehicle {
 #quote([La qualità di una soluzione software si vede di fronte ai cambiamenti.])
 
 == Pattern creazionali
+
 == `new` è pericoloso
 Ogni volta che si crea una classe concreta con `new` si crea una dipendenza (ad esempio se cambia il costruttore). Queste dipendenze sono di cattiva qualità e si ha una violazione del DIP.
 ```java
@@ -1252,6 +1290,7 @@ Vogliamo avere dipendenza di buona qualità, non molte dipendenze di basse quali
 - Le factory sono elementi stabili, perché vi si possono solo aggiungere metodi, quindi dipendenze di alta qualità.
 
 Con le factory si hanno una sola dipendenza critica, indipendentemente dal numero degli utilizzatori. Tutte le factory sono implementate con la stessa interfaccia.
+
 === Problema della notificazione/polling
 Vogliamo che le modifiche di una classe si propaghino su una serie di oggetti.
 Si fa che gli oggetti interessati ricevono la notifica quando avviene il cambiamento, non viceversa. 
@@ -1261,14 +1300,114 @@ _Problema_: come posso isolare un client dalla complessità interna di un sottos
 Le Façade definiscono un interfaccia di alto livello che rende un sottosistema più facile da usare.
 
 == Singleton
+*Problema*: come posso garantire che una classe abbia una sola istanza e fornisca un punto di accesso globale a essa?
+Il Singleton assicura che una classe abbia una sola istanza e fornisce un punto di accesso globale a essa.
+I singleton sono un tipo di code smell, ma garantiscono che una sola istanza di una classe venga creata. In genere sono singleton
+- Factories
+- Loggers
+- Classi di configurazione
+- Accesso alle risorse
 
+Non si vuole che siano singleton
+- Classi dove una singola istanza è parte della specifica del sistema, ma non intrinsica al dominio del problema
+- Oggetti che dovrebbero essere globalmente accedibili
+
+== Proxy
+*Problema*: come posso intercettare l'accesso ad un ogeetto per indirizzare problemi ortogonali? I problemi ortogonali sono problemi che non sono parte del dominio del problema, ma che sono comunque importanti. Ad esempio, la sicurezza, il logging, la gestione della memoria, ecc.
+Il proxy fornisce un sostituto o un segnaposto per un altro oggetto per controllare l'accesso a esso. Il proxy può agiungere comportamento senza aggiungere responsabilità. Il proxy si usa per
+- controllo dell'accesso
+- contare gli accessi
+- loggare gli accessi
+- accedere ad oggetti RemoteBehavior
+
+== Decorator
+Con i decorator si aggiungono responsabilità a un oggetto in modo dinamico. I decorator forniscono una flessibilità maggiore rispetto all'ereditarietà, perché si possono combinare più decorator.
+
+== Adapter
+*Problema*: come posso accedere a una classe i cui metodo non sono qulli che il client si aspetta (parametri, tipi...)?
+L'adapter converte l'interfaccia di una classe in un'altra interfaccia che il cliente si aspetta. L'adapter permette a classi che non possono lavorare insieme a causa di interfacce incompatibili di lavorare insieme.
+
+== Bridge
+*Problema*: come posso terminare la prevalenza di astrazioni del cliente?
+Bridge: separa un'astrazione dalla sua implementazione affinché le due possano variare indipendentemente. Si usa quando si ha un'astrazione e più implementazioni di essa. Le implementazioni possono essere cambiate a runtime.
+La pattern del bridge mette le astrazioni e le implementazioni in due classi separate, e si usa la delegrazione per legarle.
+
+== Memento
+Senza violare l'incapsulamento, si cattura e si esternalizza lo stato interno di un oggetto affinché possa essere ripristinato in un momento successivo. Un caretaker chiede a un originator di salvare il suo stato, e poi lo ripristina quando necessario. Il caretaker non sa come è fatto lo stato, ma sa che può essere ripristinato. Il memento è l'oggetto che contiene lo stato dell'originator. Il memento non ha metodi pubblici, quindi non può essere modificato dall'esterno.
+
+== Iterator
+Fornisce un modo per accedere agli elementi di un oggetto aggregato senza esporre la sua rappresentazione interna. L'iteratore ha metodi per accedere agli elementi e per controllare se ci sono più elementi. Il client non sa come è fatto l'oggetto aggregato, ma sa che può essere iterato. Il client non sa nemmeno se l'iteratore è interno o esterno all'oggetto aggregato.
+
+== Mediator
+Si definisce un oggetto che incapsula come un insieme di oggetti interagiscono. Il mediatore promuove il loose coupling evitando che gli oggetti si riferiscano l'uno all'altro esplicitamente, e permette di variare le interazioni tra gli oggetti. Il mediatore ha metodi per registrare gli oggetti e per invocare i metodi degli oggetti registrati.
+
+== Composite
+Si compongono oggetti in strutture ad albero per rappresentare gerarchie parte-tutto. Il composite permette di trattare oggetti singoli e composizioni di oggetti in modo uniforme. Il composite ha metodi per aggiungere e rimuovere oggetti figli, e per invocare i metodi degli oggetti figli.
+
+== Visitor
+Simile all'Iterator, ma usa il principio di _inversion of control_. Al posto di usare `iterator.next()` si richiama un metodo per ogni elemento. Si prende ognuno degli elementi che compongono il visitor e si invoca un metodo su di esso. Il visitor ha metodi per ogni tipo di elemento, e il client non sa come è fatto l'elemento, ma sa che può essere visitato. Il visitor permette di aggiungere nuove operazioni senza cambiare le classi degli elementi.
+#figure(image("img/Pasted image 20250506094625.png"))
+
+== Builder
+Pattern creazionale che si usa per separare la costruzione di un oggetto complesso dalla sua rappresentazione in modo che lo stesso processo di costruzione possa creare rappresentazioni diverse. Il builder ha metodi per costruire le parti dell'oggetto e per restituire l'oggetto completo. Il client non sa come è fatto l'oggetto, ma sa che può essere costruito.
+```java
+Foo foo = 
+  Foo.builder().
+  setWidth(a).setHeight(b).
+  setDepth(c).setColor(d).build()
+```
+#figure(image("img/Pasted image 20250506095416.png"))
+Il director restituisce l'oggetto aggregato, costruito dal builder.
+
+== Command
+Si incapsula una richiesta come un oggetto, permettendo di parametrizzare i client con code e operazioni. Il command permette di ritardare l'esecuzione di una richiesta, di mettere in coda le richieste e di supportare le operazioni annullabili. Il command ha metodi per eseguire e annullare la richiesta. Il client non sa come è fatto il comando, ma sa che può essere eseguito.
+
+== Abstract factory
+Fornisce un'interfaccia per creare famiglie di oggetti correlati o dipendenti senza specificare le loro classi concrete. L'abstract factory ha metodi per creare gli oggetti e il client non sa come è fatto l'oggetto, ma sa che può essere creato. Il client non sa nemmeno se l'oggetto è interno o esterno all'abstract factory.
+
+== Prototype
+Specifica i tipi di oggetti da creare usando un'istanza esistente come prototipo. Il prototype consente di copiare oggetti esistenti senza rendere il codice dipendente dalle loro classi. Il prototype ha metodi per clonare l'oggetto e il client non sa come è fatto l'oggetto, ma sa che può essere clonato.
+
+== Flyweight
+Si usa la condivisione per supportare grandi quantità di oggetti granulari in modo efficiente. Il flyweight è un oggetto che condivide il suo stato con altri oggetti. Ha metodi per accedere allo stato condiviso e il client non sa come è fatto l'oggetto, ma sa che può essere condiviso.
+Il flywheight è istanziato una sola volta in sistemi poveri di memoria.
+
+== Chain of responsibility
+Si evita di accoppiare il mittente di una richiesta al suo ricevente, dando la possibilità di passare la richiesta lungo una catena di gestori. La catena di responsabilità consente di invocare più oggetti senza sapere chi gestirà la richiesta. Il client non sa come è fatto l'oggetto, ma sa che può essere gestito. Il client non sa nemmeno se l'oggetto è interno o esterno alla catena di responsabilità.
+
+== Interpreter
+Data una lingua, si definisce una rappresentazione per la sua grammatica tramite un interpreter che usa la rappresentazione per interpretare le frasi della lingua. L'interpreter ha metodi per interpretare le frasi e il client non sa come è fatto l'oggetto, ma sa che può essere interpretato.
+
+== Pattern Moderni
+
+=== Principio holliwoodiano
+#quote([Non chiamarci, noi chiamiamo te.])
+Il principio holliwoodiano è un principio di design che incoraggia a scrivere codice che non dipende da implementazioni specifiche, ma piuttosto da interfacce o astrazioni. Questo principio è spesso associato a tecniche di programmazione come *l'inversione del controllo* e la programmazione orientata agli eventi.
+
+=== Dependency injection
+Inversion of control non è un pattern, è così vago che è un idioma. Sempre basato su IoC è il _Dependency Injection_ (DI), che è un pattern di design che implementa IoC. Il DI è un modo per fornire le dipendenze a un oggetto piuttosto che far sì che l'oggetto stesso le crei. In questo modo, si riduce il coupling tra gli oggetti e si facilita il testing e la manutenzione del codice.
+
+Si elimina la dipendenza da `new` e Factory, semplificando la fase di testing e aumentando la modularità.
+Tipi di injection:
+- Constructor injection: le dipendenze vengono passate al costruttore dell'oggetto.
+- Setter injection: le dipendenze vengono passate tramite metodi setter.
+- Interface injection: l'oggetto richiede le dipendenze tramite un'interfaccia.
+- Method injection: le dipendenze vengono passate come argomenti a un metodo specifico.
+
+Nelle componenti basate su componenti, i sistemi software sono costruiti incollando componenti in base alle interfacce fornite e requisite.
+
+#figure(image("img/Pasted image 20250506104111.png"))
+I componenti sono scambiabili purché implementano le stesse interfacce.
 = Scrum
 Uno scrum è una metodologia nata nel contesto software, rientra nelle famiglie dei metodi _lean_ per l'organizzazione aziendale.
+
 == Ciclo di vita
 #figure(image("img/Pasted image 20250430135349.png"))
 Scrum ha un ciclo di vita iterativo. L'esecuzione si chiama sprint.
+
 === Sprint
 Uno sprint è un iterazione timeboxed, ha una durata prefissata e include tutti i cicli di design, programmazione e testing. Termina con un incremento potenzialmente vendibile.
+
 === Ruoli
 - Core (pigs): non si possono fare scrums senza i ruoli core:
 	- _product owner_: stakeholder, decide le priorità, scadenze e feature. Guarda il progetto con gli occhi del committente. 
@@ -1292,6 +1431,7 @@ Uno sprint è un iterazione timeboxed, ha una durata prefissata e include tutti 
 === Sprint planning
 Si scelgono le task restanti da completare nello prossimo sprint e si stimano la loro durata. La fase di pianificazione dura una giornata.
 Il product owner indica le funzionalità, e il tempo per implementarle va deciso dal team.
+
 === Scrum Estimation
 Le user stories usano dei punti in base alla complessità.
 - Capacity driven planning: si prendono le storie dal backlog in base al tempo richiesto
@@ -1304,8 +1444,67 @@ Incontro di 15 minuti dove membri del team rispondono a
 - prevedo ostacoli al raggiungimento del goal dello sprint?
 
 Non si fa analisi che è lasciata al product owner
+
 === Sprint review
 Alla fine di uno sprint si fa la review con tutto il team e gli stakeholder, si presenta l'incremento con tutti i problemi e soluzioni. Si discute del product backlog.
 C'è poi la retrospezione con lo scrum master e il team di sviluppo, dove si discutono miglioramenti per il prossimo sprint.
+
 === Scaling
 Per progetti grandi, può essere possibile dividerlo in sottosistemi. Ci sono framework ispirati a scrum per funzionare a larga scala (leSS).
+
+= Collaborazione
+
+== Version Control
+
+=== Ciclo di vita degli artefatti
+#figure(image("img/Pasted image 20250408092148.png"))
+Non si vuole che tutti i salvataggi fatti siano recuperati.
+Quando si fa un commit, un sistema prende la copia attuale del file e la mette da un'altra parte dove può poi essere recuperata.
+
+=== Gestire le revisioni
+Implementare un operazione di commit che fa *snapshot* di file. Una *repository* contiene file versionati, i cui snapshot possono essere presi e ripristinati (operazione di *restore*).
+Ogni file può avere associato altri dati (metadati):
+- data e timestamp dello snapshot
+- chi ha modificato il file
+- perché è stato fatto
+
+=== Il *Changeset*
+Quando si creano revisioni spesso si opera non su i singoli file, ma su un gruppo di file correlati che sono stati tutti modificati per uno stesso fine. Questo gruppo di file si chiama *changeset*
+Lo stream di snapshot:
+#figure(image("img/Pasted image 20250408093126.png"))
+Quello a sinistra è quello più vecchio. Non serve memorizzare un file negli snapshot successivi se non è stato modificato.
+
+=== Collaborazione
+Il sistema di revisione è un sistema distribuito
+- Approccio client-server (centralizzato): il sistema di revisione è un servizio su un host remoto che espone un'API
+- Approccio peer-to-peer (distribuito): tutte le workstation hanno repository locali che possono essere sincronizzate con quelle remote. In genere si ha un'unica repository remota e più repository locali che possono essere sincronizzate con quella remota.
+
+==== Conflitti
+- Sistema centralizzato: si usa un lock: solo l'utente che ha il lock per un certo file può creare revisioni per quel file. Questo sistema ha dei problemi:
+	- Ognuno può vedere le revisioni degli altri
+	- È un problema se qualcuno si dimentica di rilasciare un lock.
+	- cattive abitudini di gestione del lock influenzano tutti gli sviluppatori
+	- Se il server è spento tutti sono bloccati.
+	- Se non c'è la rete non si può lavorare.
+- Sistema distribuito: si gestiscono: si definiscono workflows per minimizzare l'impatto dei conflitti. Quando ci sono cambiamenti contemporanei, si sceglie uno tra i cambiamenti o si fa un merge manuale.
+
+== Git
+Git è un sistema di versionamento distribuito. 
+#figure(image("img/Pasted image 20250408100751.png"))
+È l'utente a scegliere quali file modificati inserire nel prossimo snapshot. Nella staging area si sceglie quali file includere nello snapshot e quali no (i file esclusi non fanno parte del changeset).
+_Gli stati dei file_
+#figure(image("img/Pasted image 20250408101046.png"))
+Una volta che il file è tracciato, il file si può trovare in 3 stati
+- *committed*: l'ultima versione del file locale coincide con quella sulla repository remota
+- *modified*: l'ultima versione del file locale non coincide con quella sulla repository remota
+- *staged*: il file modificato sarà inserito nel prossimo changeset.
+
+#figure(image("img/Pasted image 20250408101715.png"))
+
+=== Branching
+Un branch è una linea temporale che diverge da quella principale. I branches devono essere esplicitamente creati e nominati.
+I branch non divergono per sempre, a un certo punto si vuole fare riconciliare i branches.
+
+=== HEAD
+Lo stato della directory è elaborato in relazione a una specifica commit. HEAD è il riferimento che punta a quel commit. Quando si cambia branch corrente, si fa puntare HEAD a quel branch, il quale a sua volta farà riferimento alla commit in cima. 
+#quote([In genere head punta al commit più recente del branch su cui si sta lavorando])
