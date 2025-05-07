@@ -5,7 +5,7 @@
 #set quote(block: true)
 
 #set page(
-  paper: "us-letter", 
+  paper: "a4", 
   flipped: true,
   header: align(
     right + horizon,
@@ -1551,10 +1551,12 @@ public boolean makeTransfer(String destinationAccountCode, double amount) {
 ```
 
 Problemi: 
-- Si istanza `EmailNotificator` e `SETRemoteBankOperator`.
+- Si istanza `EmailNotificator` e `SETRemoteBankOperator` con `new`.
 - Non si sa cosa causa la restituzione di `false`, cosa sta causando il fallimento.
-- Dipendenza diretta verso le classi di basso livello.
+- Dipendenza diretta verso le classi di basso livello. Si sta violando il DIP. Si rimedia usando le interfacce.
+- Non si stanno usando oggetti falsi per il testing.
 
+La factory restituisce l'oggetto falso quando si è in testing, mentre quello vero quando si è in produzione. 
 
 = Scrum
 Uno scrum è una metodologia nata nel contesto software, rientra nelle famiglie dei metodi _lean_ per l'organizzazione aziendale.

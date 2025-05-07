@@ -1,6 +1,6 @@
 package it.unibo.sweng.bank;
 
-public class SETRemoteBankOperator {
+public class SETRemoteBankOperator implements RemoteBankOperator {
 
 	//perform a transaction with a remote back using the SET protocol
 	public boolean transfer(String destinationAccountCode, double amount) {

@@ -1,6 +1,6 @@
 package it.unibo.sweng.bank;
 
-public class EmailNotificator {
+public class EmailNotificator implements Notificator {
 
 	public void notify(Account account, String message) {
 		System.out.println(
