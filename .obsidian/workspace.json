@@ -13,40 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Storia e Politiche del Digitale/Conta parole.md",
+                "file": "Teoria dell'impresa/Riassunti Libro.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Conta parole"
-            }
-          },
-          {
-            "id": "99fe2d88f9bc1f09",
-            "type": "leaf",
-            "state": {
-              "type": "webviewer",
-              "state": {
-                "url": "https://www.forbes.com/sites/greatspeculations/2024/10/21/why-tech-giants-are-betting-big-on-nuclear-power/",
-                "title": "Why Tech Giants Are Betting Big On Nuclear Power",
-                "mode": "webview"
-              },
-              "icon": "globe-2",
-              "title": "Why Tech Giants Are Betting Big On Nuclear Power"
-            }
-          },
-          {
-            "id": "ffb109eb059f2219",
-            "type": "leaf",
-            "state": {
-              "type": "webviewer",
-              "state": {
-                "url": "https://www.cnbc.com/2024/12/28/why-microsoft-amazon-google-and-meta-are-betting-on-nuclear-power.html#:~:text=%22Those%20power%20needs.,more%20efficient%20and%20sustainable%20fashion",
-                "title": "Why Microsoft, Amazon, Google and Meta are betting on nuclear power",
-                "mode": "webview"
-              },
-              "icon": "globe-2",
-              "title": "Why Microsoft, Amazon, Google and Meta are betting on nuclear power"
+              "title": "Riassunti Libro"
             }
           }
         ]
@@ -197,8 +169,8 @@
   },
   "active": "98e8a1f39e9c51f0",
   "lastOpenFiles": [
-    "Storia e Politiche del Digitale/tesina/doc.pdf",
     "Storia e Politiche del Digitale/Conta parole.md",
+    "Storia e Politiche del Digitale/tesina/doc.pdf",
     "Storia e Politiche del Digitale/I costi materiali delle tecnologie del Ventunesimo secolo.md",
     "Storia e Politiche del Digitale/Tesina.md",
     "Ingegneria del Software/Appunti.md",

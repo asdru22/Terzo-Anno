@@ -5,13 +5,14 @@
 #set quote(block: true)
 
 #set page(
- paper: "us-letter",
- header: align(
- right + horizon,
- title
- ),
- numbering: "1",
- columns: 2,
+  paper: "us-letter", 
+  flipped: true,
+  header: align(
+    right + horizon,
+    title
+  ),
+  numbering: "1",
+  columns: 2,
 )
 #set heading(numbering: "1.")
 #outline(title: "Indice", depth: 1,)
@@ -172,7 +173,7 @@ _Polimorfismo_: il comportamento degli oggetti dipende da che oggetti sono.
 Il polimorfismo è legato al concetto di ereditarietà. Un oggetto può essere di due o più tipi.
 
 == _Object Oriented Modelling_ con UML
-UML è un linguaggio di modellazione, che usa un approccio object oriented sia per l'analisi che per la progettazione/design. L'analisi si concentra sull problema, la progettazione sulla soluzione.
+UML è un linguaggio di modellazione, che usa un approccio object oriented sia per l'analisi che per la progettazione/design. L'analisi si concentra sul problema, la progettazione sulla soluzione.
 UML è un linguaggio grafico semi-formale: gli artefatti sono grafici. Semi-formale vuol dire che ha una _sintassi e semantica ben definita_ (nonostante la sua natura grafica). UML è stato soggetto a una serie di revisioni per ridurre l'ambiguità nel suo utilizzo.
 Le regole sintattiche definiscono come creare diagrammi validi. Le regole semantiche indicano come creare diagrammi con significato.
 
@@ -824,7 +825,7 @@ LSP è il principio su cui si basa il polimorfismo. Afferma che quello che cerch
 
 ```java
 class Rectangle{
-	private double shortSide, longside;
+	private double shortSide, longSide;
 	public double calculateArea(){
 		shortSide*longSide;
 	}
@@ -1293,86 +1294,86 @@ Nella maggior parte dei linguaggi di programmazione, queste due soluzioni in gen
 ```java
 // Interface for movement behavior
 interface GoBehavior {
- void goTo(String destination);
+	void goTo(String destination);
 }
 
 // Interface for control behavior
 interface ControlBehavior {
- void notifyDriver(String message);
+	void notifyDriver(String message);
 }
 
 // Concrete movement behavior for driving
 class DriveBehavior implements GoBehavior {
- public void goTo(String destination) {
- System.out.println("Driving to " + destination);
- }
+	public void goTo(String destination) {
+		System.out.println("Driving to " + destination);
+	}
 }
 
 // Concrete movement behavior for flying
 class FlyingBehavior implements GoBehavior {
- public void goTo(String destination) {
- System.out.println("Flying to " + destination);
- }
+	public void goTo(String destination) {
+		System.out.println("Flying to " + destination);
+	}
 }
 
 // Concrete control behavior for remote control
 class RemoteBehavior implements ControlBehavior {
- public void notifyDriver(String message) {
- System.out.println("Sending remote message: " + message);
- }
+	public void notifyDriver(String message) {
+		System.out.println("Sending remote message: " + message);
+	}
 }
 
 // Concrete control behavior for human driver
 class HumanBehavior implements ControlBehavior {
- public void notifyDriver(String message) {
- System.out.println("Notifying human driver: " + message);
- }
+	public void notifyDriver(String message) {
+		System.out.println("Notifying human driver: " + message);
+	}
 }
 
 // Superclass for all vehicles
 abstract class Vehicle {
- protected GoBehavior goBehavior;
- protected ControlBehavior controlBehavior;
+	protected GoBehavior goBehavior;
+	protected ControlBehavior controlBehavior;
 
- public Vehicle(GoBehavior goBehavior, ControlBehavior controlBehavior) {
- this.goBehavior = goBehavior;
- this.controlBehavior = controlBehavior;
+	public Vehicle(GoBehavior goBehavior, ControlBehavior controlBehavior) {
+		this.goBehavior = goBehavior;
+		this.controlBehavior = controlBehavior;
+	}
+
+	public void goTo(String destination) {
+		goBehavior.goTo(destination); // Uses delegation
  }
 
- public void goTo(String destination) {
- goBehavior.goTo(destination); // Uses delegation
+	public void notifyDriver(String message) {
+		contr olBehavior.notifyDriver(message); // Uses delegation
  }
 
- public void notifyDriver(String message) {
- controlBehavior.notifyDriver(message); // Uses delegation
+	public void setGoBehavior(GoBehavior goBehavior) {
+		this.goBehavior = goBehavior;
  }
 
- public void setGoBehavior(GoBehavior goBehavior) {
- this.goBehavior = goBehavior;
- }
-
- public void setControlBehavior(ControlBehavior controlBehavior) {
- this.controlBehavior = controlBehavior;
+	public void setControlBehavior(ControlBehavior controlBehavior) {
+		this.controlBehavior = controlBehavior;
  }
 }
 
 // Concrete vehicle types
 class Car extends Vehicle {
- public Car() {
- super(new DriveBehavior(), new HumanBehavior());
- }
+	public Car() {
+		super(new DriveBehavior(), new HumanBehavior());
+	}
 }
 
 class Aircraft extends Vehicle {
- public Aircraft() {
- super(new FlyingBehavior(), new HumanBehavior());
- }
+	public Aircraft() {
+		super(new FlyingBehavior(), new HumanBehavior());
+	}
 }
 
 class Drone extends Vehicle {
- public Drone() {
- super(new FlyingBehavior(), new RemoteBehavior());
- }
+	public Drone() {
+		super(new FlyingBehavior(), new RemoteBehavior());
+	}
 }
 ```
 
@@ -1380,7 +1381,7 @@ class Drone extends Vehicle {
 
 == Pattern creazionali
 
-== `new` è pericoloso
+===  `new` è pericoloso
 Ogni volta che si crea una classe concreta con `new` si crea una dipendenza (ad esempio se cambia il costruttore). Queste dipendenze sono di cattiva qualità e si ha una violazione del DIP.
 ```java
 interface PersistanceManager {
@@ -1475,9 +1476,9 @@ Simile all'Iterator, ma usa il principio di _inversion of control_. Al posto di 
 Pattern creazionale che si usa per separare la costruzione di un oggetto complesso dalla sua rappresentazione in modo che lo stesso processo di costruzione possa creare rappresentazioni diverse. Il builder ha metodi per costruire le parti dell'oggetto e per restituire l'oggetto completo. Il client non sa come è fatto l'oggetto, ma sa che può essere costruito.
 ```java
 Foo foo = 
-  Foo.builder().
-  setWidth(a).setHeight(b).
-  setDepth(c).setColor(d).build()
+	Foo.builder().
+	setWidth(a).setHeight(b).
+	setDepth(c).setColor(d).build()
 ```
 #figure(image("img/Pasted image 20250506095416.png"))
 Il director restituisce l'oggetto aggregato, costruito dal builder.
@@ -1521,6 +1522,40 @@ Nelle componenti basate su componenti, i sistemi software sono costruiti incolla
 
 #figure(image("img/Pasted image 20250506104111.png"))
 I componenti sono scambiabili purché implementano le stesse interfacce.
+
+== Esempio bank transfer
+```java
+public boolean makeTransfer(String destinationAccountCode, double amount) {
+		EmailNotificator notificator = new EmailNotificator();
+		SETRemoteBankOperator remoteBankOperator = new SETRemoteBankOperator();
+		
+		if(getBalance() >= amount) {
+			if(remoteBankOperator.transfer(destinationAccountCode, amount)) {
+				withdraw(amount);
+				notificator.notify(
+					this,
+					String.format("Transferred %f from %s to %s", 
+							amount, this, destinationAccountCode));
+				return true;
+			} else {
+				notificator.notify(
+					this,
+					String.format("Failed to transfer %f from %s to %s", 
+					amount, this, destinationAccountCode));
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+```
+
+Problemi: 
+- Si istanza `EmailNotificator` e `SETRemoteBankOperator`.
+- Non si sa cosa causa la restituzione di `false`, cosa sta causando il fallimento.
+- Dipendenza diretta verso le classi di basso livello.
+
+
 = Scrum
 Uno scrum è una metodologia nata nel contesto software, rientra nelle famiglie dei metodi _lean_ per l'organizzazione aziendale.
 
