@@ -5,7 +5,7 @@
 #set quote(block: true)
 
 #set page(
-  paper: "a4", 
+  paper: "a4",
   flipped: true,
   header: align(
     right + horizon,
@@ -17,7 +17,7 @@
 #set heading(numbering: "1.")
 #outline(title: "Indice", depth: 1,)
 
-#show table.cell.where(y:0): strong 
+#show table.cell.where(y:0): strong
 
 = Glossario
 
@@ -40,7 +40,7 @@ La controvarianza è l'opposto della covarianza: un tipo più generico può esse
 _Software engineering_: costruzione di software multi-versione attraverso team di multi-persone.
 Per affrontare un sistema complesso si usa:
 
-== Astrazione 
+== Astrazione
 L'astrazione è il processo attraverso il quale si generalizzano delle idee in modo che siano applicabili a classi di idee. L'astrazione è utile per definire dei ragionamenti generali che non si applicano a singoli elementi, ma a classi generali.
 Il processo di sviluppo del software è una sequenza di attività ad alta astrazione a bassa astrazione
 - Analisi
@@ -56,7 +56,7 @@ Il processo software è un raffinamento dei modelli (opposto dell'astrazione)
 - Modello di costruzione (_solution space_): modello più dettagliato, completo e carico di informazioni.
 
 Bisogna aggiungere informazioni a modelli astratti.
-Un modello deve _rispondere a delle domande_. 
+Un modello deve _rispondere a delle domande_.
 
 = Modello di analisi
 
@@ -87,14 +87,14 @@ Il committente ha un modello mentale non coerente e spesso difficile da spiegare
 === Formalizzare i requisiti
 Standard ISO che indica come vanno rappresentati i requisiti e i documenti che li raccolgono:
 
-===== _Stakeholder requirements specification document_: StRS 
+===== _Stakeholder requirements specification document_: StRS
 Requisiti dello stakeholder: requisiti per un sistema che possono fornire i servizi richiesti dagli utenti e altri stakeholder.
 
 ==== _System & software requirements specification document_: SyRS/SRS
 Requisiti del sistema: specificazioni da parte del fornitore delle caratteristiche, attributi e requisiti di performance del sistema affinché possa soddisfare i requisiti dello stakeholder.
 
 === Scrivere un requisito
-Si usa un linguaggio il meno ambiguo possibile (linguaggio controllato). Deve essere steso con uno o più template. 
+Si usa un linguaggio il meno ambiguo possibile (linguaggio controllato). Deve essere steso con uno o più template.
 Ad esempio `[Condition] [Subject] [Action] [Object] [Constraint]` o `[Condition] [Action or Constraint] [Value]`.
 
 ==== Caratteristiche di un requisito
@@ -222,7 +222,7 @@ La relazioni tra gli elementi del diagramma fanno parte della sintassi UML.
 Tra attori può esserci solo la relazione di _generalizzazione_ (legato all'ereditarietà).
 
 === Generalizzazione
-La relazione di generalizzazione serve a identificare che un elemento è più generico di un altro. Le frecce puntano verso l'elemento più generale, e si legge come "A è un B". A fa tutto quello che fa B, più qualcos'altro. 
+La relazione di generalizzazione serve a identificare che un elemento è più generico di un altro. Le frecce puntano verso l'elemento più generale, e si legge come "A è un B". A fa tutto quello che fa B, più qualcos'altro.
 Questa struttura è tipica della programmazione object-oriented. Al posto di fare _override_ di un metodo, si fa _override_ del caso d'uso.
 #quote([ Non si possono riportare diagrammi che abbiano relazioni diverse da quella di generalizzazione tra attori.])
 
@@ -233,7 +233,7 @@ Questa è l'unica relazione che può esserci tra attori e casi d'uso (relazione 
 == Relazioni tra casi d'uso
 
 === Generalizzazione
-Il caso d'uso è una sequenza di passi di interazione che sottintendono un obiettivo. Un attore interagisce con il sistema quando ha un obiettivo. Il caso d'uso è sempre identificato da un obiettivo. 
+Il caso d'uso è una sequenza di passi di interazione che sottintendono un obiettivo. Un attore interagisce con il sistema quando ha un obiettivo. Il caso d'uso è sempre identificato da un obiettivo.
 #figure(image("img/Pasted image 20250224124551.png"))
 I nomi dei casi d'uso vengono definiti in base al loro obiettivo.
 La specializzazione (operazione inversa della generalizzazione) sono operazioni che hanno lo stesso obiettivo.
@@ -293,7 +293,7 @@ Un modello è soggetto a più raffinamenti iterativi.
 	1. Definire il sistema
 	2. Identificare gli attori (blog owner, visitor, author, moderator). Eventuali attori omessi non possono essere "immaginati", si contatta il committente. Lo stesso fare per ambiguità: blog owner e author sono la stessa categoria di utente.
 	3. Riscrivere il documento di specifica in base alle informazioni che emergono.
-	4. Identificare i casi d'uso: si guardano gli obiettivi degli attori. Contattare il committente per risolvere eventuali ambiguità (il visitatore si deve autenticare per diventare autore). 
+	4. Identificare i casi d'uso: si guardano gli obiettivi degli attori. Contattare il committente per risolvere eventuali ambiguità (il visitatore si deve autenticare per diventare autore).
 2. Usare un template per descrivere un use case (esempio commento)
 	- ID: UC3
 	- Actors: Visitor
@@ -326,8 +326,8 @@ Pianificare e organizzare un progetto software con vincoli tipo: qualità, tempo
 Dato che il software è intangibile, per compensare l'assenza di visibilità, si producono artefatti:
 - documenti di design
 - report
-- incontri 
-- sondaggi 
+- incontri
+- sondaggi
 
 == Modello a cascata
 Descrive un processo in cui le diverse fasi che operano ai diversi livelli di astrazione sono originariamente sequenziali.
@@ -354,7 +354,7 @@ _Svantaggi_:
 Modello ormai non più utilizzato, basato su una famiglia di processi. Il processo di generazione del modello dipende dai rischi. Ha un approccio ciclico dato che è un modello iterativo. Non si fa tutto il modello di analisi all'inizio, ma solo una parte. Si prendono parte degli elementi per realizzare il modello: in questo modo si ha un prototipo.
 #figure(image("img/Pasted image 20250226135223.png"))
 Ogni ciclo inizia con obiettivi, alternative e limiti. Il passo successivo è determinato sulla base dei rischi rimanenti. Ogni ciclo termina con una revisione dagli stakeholder.\
-_Vantaggi_: 
+_Vantaggi_:
 - riflette la natura iterativa dello sviluppo software
 - buona visibilità
 - comprensione dei rischi
@@ -398,7 +398,7 @@ _Molteplicità_: indica se l'attributo deve esserci per forza, quante volte deve
 - `*` ripetuto opzionale
 
 == Istanze delle classi
-Rappresentano degli stati che devono essere conformi alle classi. 
+Rappresentano degli stati che devono essere conformi alle classi.
 #quote([Graficamente anche gli oggetti si rappresentano con rettangoli, il cui nome è sottolineato, seguito da `:` e la classe di cui è un istanza.])
 
 
@@ -531,10 +531,10 @@ Il nodo decisionale può fare uso di predicati/guardie negli archi di uscita per
 Il _flow final_ termina tutte le attività in esecuzione.
 
 ==== Competizione dei token
-I token non vengono spinti verso delle azioni, ma sono le azioni ad accettare i token. Quando un azione si completa, il token è rilasciato ed è offerto da altre azioni. È il token a scegliere quale azione vuole compiere in un dato momento del flusso di esecuzione. 
+I token non vengono spinti verso delle azioni, ma sono le azioni ad accettare i token. Quando un azione si completa, il token è rilasciato ed è offerto da altre azioni. È il token a scegliere quale azione vuole compiere in un dato momento del flusso di esecuzione.
 #quote([I nodi di decisione non fanno azioni, altrimenti sarebbero nodi di decisione. Sono passivi, non attivi. Le azioni sono solo nei nodi di azione.])
 
-==== Regione di espansione 
+==== Regione di espansione
 È un nodo che prende in input collezioni, opera su ogni elemento delle collezione e produce elementi da inviare alle collezioni. Vengono processati dei dati fino a quando una condizione non è più vera. Se si usa lo stereotipo `«parallel»` vuol dire che i token saranno tutti inviati allo stesso momento e processati assieme.
 
 === Partizione di attività
@@ -568,7 +568,7 @@ Un messaggio rappresenta o una chiamata ad un operazione e l'inizio dell'esecuzi
 - cancellazione
 
 === Chiamata sincrona
-Rappresentano operazioni di chiamata-invio messaggi e sospendono l'esecuzione quando aspettano una risposta. 
+Rappresentano operazioni di chiamata-invio messaggi e sospendono l'esecuzione quando aspettano una risposta.
 #quote([Chiamate sincrone sono rappresentate con una freccia piena.])
 
 === Chiamata asincrona
@@ -624,15 +624,15 @@ Un'uso di interazione è un frammento di interazione che permette di usare/chiam
 	- nessun messaggio tra lifeline appartiene ad elementi del sistema
 
 == Diagrammi di comunicazione
-Un diagramma di comunicazione mostra le interazione tra lifeline con regole generiche. Il diagramma di comunicazione è meno espressivo del diagramma di sequenza. 
+Un diagramma di comunicazione mostra le interazione tra lifeline con regole generiche. Il diagramma di comunicazione è meno espressivo del diagramma di sequenza.
 Si assume che i messaggi sono ricevuti nello stesso ordine che sono generati.
 #figure(image("img/Pasted image 20250311095624.png"))
 
 === Messaggi
 La notazione per i messaggi nei diagrammi di comunicazione seguono le stesse regole usate nei diagrammi di sequenza. Ogni messaggio ha una notazione di sequenza: _sequence expression_ (numero che indica l'ordine)
 ```
-Sequence-expression ::= sequence-term '.' . . . ':' message-name 
-	
+Sequence-expression ::= sequence-term '.' . . . ':' message-name
+
 Sequence-term ::= [integer[name]][recurrence]
 ```
 I termini di sequenza sono usati per rappresentare il nesting di messaggi in un interazione.
@@ -654,7 +654,7 @@ Uno _stato_ è la risposta alla domanda "in che stato sta?". Gli stati influenza
 #figure(image("img/Pasted image 20250312141101.png"))
 Dalle transizioni si riesce a capire il comportamento dell'soggetto osservato. In ogni istante analizzato il soggetto sarà in uno degli stati.
 Le transizioni sono atomiche, istantanee. Non ci sono stati intermedi.
-Le _etichette_ indicano la ragione per cui una transizione ha luogo. 
+Le _etichette_ indicano la ragione per cui una transizione ha luogo.
 Un _evento_ è un accadimento che influenza il comportamento del soggetto.
 Tutte le transizioni sono determinate da eventi. Per passare da uno stato ad un altro deve succedere qualcosa che influenza il comportamento del soggetto.
 #quote([ I rettangoli arrotondati sono stati. Lo stato non è un'azione. Si chiamano stati perché il soggetto ci sta.])
@@ -706,7 +706,7 @@ Nel corso della sua esecuzione una transizione può essere
 - traversata
 - completata
 
-_Transizioni composte_: un trigger può causare l'attraversamento di una parte aciclica della macchina a stati senza che venga elaborato alcun altro evento. 
+_Transizioni composte_: un trigger può causare l'attraversamento di una parte aciclica della macchina a stati senza che venga elaborato alcun altro evento.
 Ciò significa che l'elaborazione di un singolo evento può attivare più transizioni, attraversando diversi (pseudo)stati.
 
 === Run-to-completion
@@ -800,7 +800,7 @@ Sono indicatori che ci potrebbe potenzialmente essere un errore o che qualcosa n
 - Rigidità: tendenza del software a resistere al cambiamento, anche semplice. Un software è rigido se un singolo cambiamento provoca cambiamenti a cascata. Più moduli devono essere cambiati, più il software è rigido.
 - Fragilità: tendenza di un programma a rompersi in più punti quando viene fatto un singolo cambiamento.
 - Immobilità: un design è immobile quando contiene parti che sarebbero state utili in altri sistemi, ma lo sforzo e il rischio coinvolti nel separarle è troppo grande.
-- Viscosità: la facilità o difficoltà di apportare modifiche a un sistema software in modo da preservarne il design originale. Un ambiente è viscoso quando è lento e inefficiente. 
+- Viscosità: la facilità o difficoltà di apportare modifiche a un sistema software in modo da preservarne il design originale. Un ambiente è viscoso quando è lento e inefficiente.
 - Complessità inutile: un eccessiva flessibilità del codice può portare a una struttura complessa. Questo capita spesso quando si cerca di anticipare i cambiamenti al codice.
 - Ripetizione inutile: uso del copia-incolla invece di richiamare il metodo direttamente.
 - Opacità: la tendenza di un modulo ad essere di difficile comprensione. Codice che cambia col tempo diventa sempre più difficile da leggere: bisogna fare sforzi per renderlo continuamente comprensibile e minimizzare l'opacità.
@@ -814,10 +814,10 @@ Le scelte fatte aiutano a migliorare la qualità del software solo se seguono ce
 I metodi all'interno di una classe dovrebbero occuparsi di cose correlate tra loro. Deve esserci un unico asse di cambiamento all'interno di una classe. Una classe deve avere solo una responsabilità, e solo un motivo per dover essere cambiata.
 
 === Open-closed principle (OCP)
-Una classe deve essere aperta per le estensioni, ma chiusa per le modifiche. Se non si rispetta OCP, si rischia di ottenere un sistema rigido. Non si può modificare il funzionamento di un metodo esistente. Si definisce un nuovo comportamento come override del metodo vecchio, lasciandolo così invariato. 
+Una classe deve essere aperta per le estensioni, ma chiusa per le modifiche. Se non si rispetta OCP, si rischia di ottenere un sistema rigido. Non si può modificare il funzionamento di un metodo esistente. Si definisce un nuovo comportamento come override del metodo vecchio, lasciandolo così invariato.
 _Refactoring_: tecnica disciplinata per ristrutturare una soluzione modificandone la struttura interna, lasciando il suo comportamento esterno invariato. _Si può violare OCP solo per fare refactoring_.
 
-_Se funziona, non metterci le mani_. Tutti gli utilizzatori di quella classe stanno facendo affidamento su quel metodo, quindi se lo cambi si rischiano di causare problemi. Quando il progetto è grande, diventa difficile risalire alla modifica che ha causato i problemi. 
+_Se funziona, non metterci le mani_. Tutti gli utilizzatori di quella classe stanno facendo affidamento su quel metodo, quindi se lo cambi si rischiano di causare problemi. Quando il progetto è grande, diventa difficile risalire alla modifica che ha causato i problemi.
 
 === Liskov substitution principle (LSP)
 LSP è il principio su cui si basa il polimorfismo. Afferma che quello che cerchiamo è un meccanismo di sostituibilità.
@@ -852,7 +852,7 @@ class Square extends Rectangle{
 		this.shortSide = newValue;
 		this.longSide = newValue;
 	}
-	
+
 }
 ```
 
@@ -866,12 +866,12 @@ void myMethod(Rectangle rectangle){
 Se si passa un rettangolo ci si aspetta che l'area sia $7 times 6$.
 Per rispettare LSP:
 - struttura: deve esserci covarianza nel tipo di ritorno dei metodi, controvarianza dei tipi dei parametri del metodo e non ci sono nuove eccezioni.
-- comportamento: 
+- comportamento:
 	- le precondizioni nono possono essere rinforzate nel sottotipo
 	- le postcondizioni e invarianti non possono essere indebolite nel sottotipo
 	- Il vincolo di storia deve essere rispettato: i sottotipi possono modificare gli elementi di stato ereditati solo in conformità con i meccanismi consentiti presenti nel supertipo.
 
-_Senza `@override`, Liskov non succede_. 
+_Senza `@override`, Liskov non succede_.
 
 === Interface segregation principle (ISP)
 La dipendenza da una classe a un'altra deve dipendere sull'interfaccia il più piccola possibile.
@@ -880,7 +880,7 @@ La dipendenza da una classe a un'altra deve dipendere sull'interfaccia il più p
 Se non si rispetta questo principio si rischia di avere dipendenze non necessarie e implementazioni di interfacce che creano complessità inutile e potenzialmente violano LSP.
 
 === Dependency inversion principle (DIP)
-I moduli di alto livello non dovrebbero dipendere da moduli di basso livello. 
+I moduli di alto livello non dovrebbero dipendere da moduli di basso livello.
 #quote([Le classi di alto livello sono quelle che implementano le feature utilizzate direttamente dal cliente finale. Le funzionalità di basso livello sono quelle non utilizzate o viste dall'utente (memorizzazione, trasmissione su rete,...). Le classi di basso livello sono _a disposizione_ di quelle di alto livello, non sono attivate dalle interazione diretta con l'utente. Le classi di alto livello sfruttano le funzionalità delle classi di basso livello (_layer architecture_).\
 Si ha una dipendenza tra la classe di alto livello e quella di basso livello. ])
 
@@ -907,7 +907,7 @@ Si hanno due responsabilità:
  table.header(
  [Fare], [Conoscere],
  ),
- 
+
  [Creare un oggetto o fare un calcolo ],
  [Conoscere i dati incapsulati],
  [Iniziare interazioni con altri oggetti dividendo la responsabilità iniziale con altre più piccole],
@@ -975,7 +975,7 @@ _Problema_: dove si assegna responsabilità per evitare coupling diretto tra due
 _Soluzione_: si assegna la responsabilità a un oggetto intermedio per mediare tra altri componenti affinché non vengano accoppiati direttamente.
 
 === Polimorfismo
-_Problema_: la variazione condizionale causata da statement del control-flow produce codice difficile da leggere. 
+_Problema_: la variazione condizionale causata da statement del control-flow produce codice difficile da leggere.
 _Soluzione_: si usano alternative basate sul tipo. Quando alternative correlate sono funzione del tipo di oggetto su cui si sta operando, allora queste variazioni comportamentali non dovrebbero essere fatte attraverso l'`if`.
 Un `if` sbagliato è quello dove la variazione comportamentale dipende dall'oggetto su cui si sta operando ~~`if(A instanceof B){...}`~~.
 Il polimorfismo rende subito evidente se ci sono errori nella gerarchia di classi.
@@ -997,10 +997,10 @@ Tipi di dipendenze:
 
 Se A dipende da B, e B cambia, è anche necessario cambiare A (dipendenza sintattica). Dipendenze semantiche: il nome e i parametri di un metodo rimangono gli stessi, ma cambia l'oggetto restituito.
 Se si usano correttamente i principi _open-close_, questi problemi non si hanno.
-Non tutte le dipendenze sono uguali. Se si è dipendenti da una classe che non cambia mai, il costo della dipendenza sarà 0. 
+Non tutte le dipendenze sono uguali. Se si è dipendenti da una classe che non cambia mai, il costo della dipendenza sarà 0.
 #quote([Bisogna avere dipendenze di buona qualità affinché il cambiamento sia minimo. Bisogna avere le dipendenze negli elementi non volatili.])
 
-Si hanno prove empiriche che gli elementi astratti tendono ad essere più stabili di quelli concreti. 
+Si hanno prove empiriche che gli elementi astratti tendono ad essere più stabili di quelli concreti.
 È meglio avere più dipendenze buone che poche dipendenze cattive.
 
 = Agile Software Development
@@ -1054,7 +1054,7 @@ Sono stati proposti dei metodi ispirati ad Agile:
 
 == Pratiche
 - Refactoring
-- Small release cycles 
+- Small release cycles
 - Continuous integration
 - Coding standard
 - Collective ownership
@@ -1071,7 +1071,7 @@ Sono stati proposti dei metodi ispirati ad Agile:
 Quando viene fatta una modifica al codice di un prodotto già sul mercato, questo deve passare dei test prima di fare il commit. Si fanno delle revisioni prima di aggiungere modifiche al codebase principale. La code review viene fatta da tutti i membri del team.
 #quote([ Le modifiche fatte vengono controllate da chi ha scritto il codice, e da qualcuno che ne fa la review.])
 
-Uno dei vantaggi della code review è anche l'aumento della visione di ciò che avviene all'interno del processo e la condivisione della conoscenza. 
+Uno dei vantaggi della code review è anche l'aumento della visione di ciò che avviene all'interno del processo e la condivisione della conoscenza.
 
 === Pair programming
 Alternativa a code review, il codice viene scritto a coppie.
@@ -1147,7 +1147,7 @@ Sviluppo ed evoluzione fanno parte del ciclo di vita del software. Approcci agil
 = Software Testing
 
 == Validazione e verifica
-Il testing è l'attività più rilevante tra quelle di validazione e verifica, usate per controllare se il software creato è corretto rispetto alle specifiche. Si può avere software validato ma non verificato (piace all'utente, ma fa le cose sbagliate, o viceversa). 
+Il testing è l'attività più rilevante tra quelle di validazione e verifica, usate per controllare se il software creato è corretto rispetto alle specifiche. Si può avere software validato ma non verificato (piace all'utente, ma fa le cose sbagliate, o viceversa).
 La validazione consiste nel catturare i comportamenti attesi.
 La verifica viene fatta attraverso altri test.
 II testing dice quando il sistema è sbagliato, non quando è giusto. Più test si fanno, più è probabile rilevare la presenza di un qualche tipo di errore logico. Maggiore è il numero di test, maggiore sarà il livello di confidenza nella correttezza del sistema. Il livello di confidenza è pagato con la scrittura dei test. I test non sono gratuiti, devono essere mantenuti e fatti cambiare con le classi.
@@ -1165,7 +1165,7 @@ I meccanismi di testing devono essere introdotti il prima e il più spesso possi
 == Livelli di testing
 - Unit $arrow$ classe/metodo: maggiori dei test di integrazione, poco costosi sia da scrivere che da eseguire
 - Integrazione $arrow$ gruppo di moduli
-- End to end $arrow$ l'intero sistema: bisogna mandare in esecuzione l'intera applicazione. Non sempre sono automatici 
+- End to end $arrow$ l'intero sistema: bisogna mandare in esecuzione l'intera applicazione. Non sempre sono automatici
 
 Salendo la piramide diminuiscono le cose da testare, ma fare il testing diventa più complicato e costoso.
 
@@ -1396,7 +1396,7 @@ class DBPersistanceManager implements PersistanceManager {
 }
 
 void main(){
-	PersistanceManager pMgr = new DBPersistanceManager(); 
+	PersistanceManager pMgr = new DBPersistanceManager();
 	pMgr.save(...)
 }
 ```
@@ -1405,7 +1405,7 @@ void main(){
 Si delega la creazione dell'oggetto a una classe a parte, detta factory. Le factory separano il cliente dal processo di istanziazione e delega la creazione dell'oggetto ad un interfaccia comune. Non si ha più dipendenza dalla classe concreta, ma si ha dipendenza dalla factory.
 ```java
 void main(){
-	PersistanceManager pMgr = Factory.create(); 
+	PersistanceManager pMgr = Factory.create();
 	pMgr.save(...)
 }
 ```
@@ -1417,7 +1417,7 @@ Con le factory si hanno una sola dipendenza critica, indipendentemente dal numer
 
 === Problema della notificazione/polling
 Vogliamo che le modifiche di una classe si propaghino su una serie di oggetti.
-Si fa che gli oggetti interessati ricevono la notifica quando avviene il cambiamento, non viceversa. 
+Si fa che gli oggetti interessati ricevono la notifica quando avviene il cambiamento, non viceversa.
 Si definisce una dipendenza uno a molti tra oggetti cosicché quando uno cambia stato, tutti i suoi dipendenti sono notificati e automaticamente cambiati.
 #figure(image("img/Pasted image 20250430134558.png"))
 _Problema_: come posso isolare un client dalla complessità interna di un sottosistema? Le Façade forniscono un'interfaccia unica a una serie di interfacce di un sottosistema.
@@ -1475,7 +1475,7 @@ Simile all'Iterator, ma usa il principio di _inversion of control_. Al posto di 
 == Builder
 Pattern creazionale che si usa per separare la costruzione di un oggetto complesso dalla sua rappresentazione in modo che lo stesso processo di costruzione possa creare rappresentazioni diverse. Il builder ha metodi per costruire le parti dell'oggetto e per restituire l'oggetto completo. Il client non sa come è fatto l'oggetto, ma sa che può essere costruito.
 ```java
-Foo foo = 
+Foo foo =
 	Foo.builder().
 	setWidth(a).setHeight(b).
 	setDepth(c).setColor(d).build()
@@ -1528,19 +1528,19 @@ I componenti sono scambiabili purché implementano le stesse interfacce.
 public boolean makeTransfer(String destinationAccountCode, double amount) {
 		EmailNotificator notificator = new EmailNotificator();
 		SETRemoteBankOperator remoteBankOperator = new SETRemoteBankOperator();
-		
+
 		if(getBalance() >= amount) {
 			if(remoteBankOperator.transfer(destinationAccountCode, amount)) {
 				withdraw(amount);
 				notificator.notify(
 					this,
-					String.format("Transferred %f from %s to %s", 
+					String.format("Transferred %f from %s to %s",
 							amount, this, destinationAccountCode));
 				return true;
 			} else {
 				notificator.notify(
 					this,
-					String.format("Failed to transfer %f from %s to %s", 
+					String.format("Failed to transfer %f from %s to %s",
 					amount, this, destinationAccountCode));
 				return false;
 			}
@@ -1550,13 +1550,13 @@ public boolean makeTransfer(String destinationAccountCode, double amount) {
 	}
 ```
 
-Problemi: 
+Problemi:
 - Si istanza `EmailNotificator` e `SETRemoteBankOperator` con `new`.
 - Non si sa cosa causa la restituzione di `false`, cosa sta causando il fallimento.
 - Dipendenza diretta verso le classi di basso livello. Si sta violando il DIP. Si rimedia usando le interfacce.
 - Non si stanno usando oggetti falsi per il testing.
 
-La factory restituisce l'oggetto falso quando si è in testing, mentre quello vero quando si è in produzione. 
+La factory restituisce l'oggetto falso quando si è in testing, mentre quello vero quando si è in produzione.
 
 = Scrum
 Uno scrum è una metodologia nata nel contesto software, rientra nelle famiglie dei metodi _lean_ per l'organizzazione aziendale.
@@ -1570,7 +1570,7 @@ Uno sprint è un iterazione timeboxed, ha una durata prefissata e include tutti 
 
 === Ruoli
 - Core (pigs): non si possono fare scrums senza i ruoli core:
-	- _product owner_: stakeholder, decide le priorità, scadenze e feature. Guarda il progetto con gli occhi del committente. 
+	- _product owner_: stakeholder, decide le priorità, scadenze e feature. Guarda il progetto con gli occhi del committente.
 	- _scrum master_: persona senior all'interno dell'organizzazione, che è stata attiva nello sviluppo e conosce bene scrum, ed è al servizio dei colleghi. Infatti è responsabile della corretta applicazione delle pratiche di scrum all'interno del progetto.
 	- team di sviluppo: auto organizzati, full time sul progetto, l'insieme delle competenze dei membri deve coprire tutte le competenze necessarie, di 5-9 persone. Questa forma di scrum non è appropriata per progetti di grosse dimensioni. Non si vuole dipendere da risorse esterne perché potrebbero bloccare la fase di sviluppo. Sono i membri del team a decidere che lavoro vogliono fare.
 - Additional (chickens):
@@ -1584,7 +1584,7 @@ Uno sprint è un iterazione timeboxed, ha una durata prefissata e include tutti 
 	- Requisiti non funzionali
 	- Requisiti tecnologici
 	- Chore: cose che servono, ma non all'utente finale
-- Sprint Backlog: contiene cose da fare all'interno dello sprint nel dato intervallo di tempo. A ogni task è associato un tempo per completarla. 
+- Sprint Backlog: contiene cose da fare all'interno dello sprint nel dato intervallo di tempo. A ogni task è associato un tempo per completarla.
 - Potentially shippable product increment
 - (Burn down chart)
 
@@ -1649,7 +1649,7 @@ Il sistema di revisione è un sistema distribuito
 - Sistema distribuito: si gestiscono: si definiscono workflows per minimizzare l'impatto dei conflitti. Quando ci sono cambiamenti contemporanei, si sceglie uno tra i cambiamenti o si fa un merge manuale.
 
 == Git
-Git è un sistema di versionamento distribuito. 
+Git è un sistema di versionamento distribuito.
 #figure(image("img/Pasted image 20250408100751.png"))
 È l'utente a scegliere quali file modificati inserire nel prossimo snapshot. Nella staging area si sceglie quali file includere nello snapshot e quali no (i file esclusi non fanno parte del changeset).
 _Gli stati dei file_
@@ -1666,5 +1666,5 @@ Un branch è una linea temporale che diverge da quella principale. I branches de
 I branch non divergono per sempre, a un certo punto si vuole fare riconciliare i branches.
 
 === HEAD
-Lo stato della directory è elaborato in relazione a una specifica commit. HEAD è il riferimento che punta a quel commit. Quando si cambia branch corrente, si fa puntare HEAD a quel branch, il quale a sua volta farà riferimento alla commit in cima. 
+Lo stato della directory è elaborato in relazione a una specifica commit. HEAD è il riferimento che punta a quel commit. Quando si cambia branch corrente, si fa puntare HEAD a quel branch, il quale a sua volta farà riferimento alla commit in cima.
 #quote([In genere head punta al commit più recente del branch su cui si sta lavorando])
