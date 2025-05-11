@@ -148,7 +148,11 @@ I requisiti devono essere:
 - _Usability_: sforzo cognitivo di un utente per giungere ad un obiettivo
 - _Reliability_
 - _Performance_: tempi di attesa, uso delle risorse, accuratezza, disponibilità
-- _Supportability_: mantenutibilità
+- _Supportability_: mantenutibilità  $
+  &= 2x - 4 \
+  &= 2x + \
+  &- 4
+$
 - +: implementazione, interfaccia, packaging
 
 === Processo di analisi dei requisiti
