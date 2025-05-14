@@ -1522,6 +1522,11 @@ Tipi di injection:
 - Interface injection: l'oggetto richiede le dipendenze tramite un'interfaccia.
 - Method injection: le dipendenze vengono passate come argomenti a un metodo specifico.
 
+==== Clean DI
+Si usa iniezione del costruttore per le dipendenze che non cambiano el nel ciclo di vita dell'istanza.
+Si usa iniezione di metodo per dipendenze che sono necessarie durante l'invocazione di quel metodo.
+Quando il collegamento (binding) deve essere risolto a runtime, passa delle factory ai costruttori o ai metodi. Si cerca di isolare i punti di scelta in strutture simili allo strategy pattern. Se il linguaggio lo permette, lascia che la dipendenza emerga dalla firma della factory.
+
 Nelle componenti basate su componenti, i sistemi software sono costruiti incollando componenti in base alle interfacce fornite e requisite.
 
 #figure(image("img/Pasted image 20250506104111.png"))
@@ -1672,3 +1677,28 @@ I branch non divergono per sempre, a un certo punto si vuole fare riconciliare i
 === HEAD
 Lo stato della directory è elaborato in relazione a una specifica commit. HEAD è il riferimento che punta a quel commit. Quando si cambia branch corrente, si fa puntare HEAD a quel branch, il quale a sua volta farà riferimento alla commit in cima.
 #quote([In genere head punta al commit più recente del branch su cui si sta lavorando])
+
+= GWT
+GWT è un framework per la creazione di applicazioni web in Java. GWT consente di scrivere codice Java e di compilarlo in JavaScript, rendendo più facile lo sviluppo di applicazioni web complesse. GWT fornisce una serie di strumenti e librerie per semplificare lo sviluppo di interfacce utente, la gestione degli eventi e l'accesso ai dati.\
+Non c'è divisione tra linguaggio di frontend e backend.
+
+== Clientside
+Non c'è
+- multithreading
+- reflection
+- serialization
+Ha un accesso limitato agli API di java.
+Per implementare le _user interface_ tanto non servono questi metodi più evoluti.
+
+== Serverside
+Il codice serverside è hostato su un contenitore Servlet. Il codice è eseguito in un ambiente Java standard, quindi ha accesso a tutte le API di Java. Il codice serverside può essere eseguito in un ambiente Java standard, quindi ha accesso a tutte le API di Java.
+
+== Interazione client-server
+Il client e il server comunicano tramite RPC (Remote Procedure Call). Il client invia una richiesta al server e il server restituisce una risposta. La comunicazione avviene tramite HTTP, quindi è possibile utilizzare qualsiasi protocollo di rete supportato da HTTP.\
+È sempre il client a comunicare con il server. Il server non segnala mai il client.\
+
+== Host page ed entrypoint
+La host page è l'entrypoint dell'applicazione web. Una volta che la pagina è caricata, il metodo onModuleLoad() viene chiamato. Questo metodo è il punto di partenza dell'applicazione.\
+Il controller è l'intermediario che riceve le invocazioni dal client e mandarli alla logica del server.
+
+MapDB per dati persistenti.
