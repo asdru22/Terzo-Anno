@@ -1,13 +1,34 @@
+#let dp = [_datapack_]
+#let rp = [_resourcepack_]
+
+#set raw(theme: none)
+
+#show raw.where(block: false): box.with(
+  fill: luma(240),
+  inset: (x: 3pt, y: 0pt),
+  outset: (y: 3pt),
+  radius: 2pt,
+)
+
+// Display block code in a larger block
+// with more padding.
+#show raw.where(block: true): block.with(
+  fill: luma(240),
+  inset: 10pt,
+  radius: 4pt,
+)
+
+
 #align(center, text(18pt)[
   *Object Oriented Pack Creation*
 ])
 = Introduzione
-Per modificare il gioco Minecraft, è disponibile un linguaggio di programmazione (una _domain specific language_), chiamato _mcfunction_#footnote([Non sto facendo riferimento alle cosidette mod, che sono scritte in Java e modificano il codice sorgente.]). In mcfuction si eseguono gruppi di comandi, uno dopo l'altro, contenuti in file detti funzioni. Un comando è l'unità fondamentale per modificare o aggiungere un qualche comportamento. \
+Per modificare il gioco Minecraft, è disponibile un linguaggio di programmazione (una _domain specific language_), chiamato _mcfunction_#footnote([Non sto facendo riferimento alle cosiddette mod, che sono scritte in Java e modificano il codice sorgente.]). In mcfunction si eseguono gruppi di comandi, uno dopo l'altro, contenuti in file detti funzioni. Un comando è l'unità fondamentale per modificare o aggiungere un qualche comportamento. \
 Questo linguaggio, assieme a file json, png e ogg fornisce a utenti, non necessariamente esperti di programmazione, un modo per modificare il gioco.
-
 In genere tutto ciò che è mcfunction modifica qualche comportamento, e tutto ciò che è json aggiunge qualche feature.
+
 = Problemi
-Il problema emerge quando si lavora su progetti di grandi dimensioni, dove ci si trova a dover gestire una grande quantità di file per un numero sproporzionalmente piccolo di feature. Dato che ogni funzione deve risiedere in un suo file .mcfunction, e non ci sono i classici _code blocks_ di linguaggi come C o Java, bisogna creare una nuova funzione (ovvero un nuovo file) ogniqualvolta si vuole fare un `if` o `for`#footnote([mcfunction non dispone di un classico ciclo `for` ma può essere ricreato con la ricorsione.]). L'impossibilità di dichiarare più "oggetti" (sia funzioni, sia file json) in un unico file porta ad ambienti di lavoro difficili da navigare. Questo è esacerbato dalla già citata necessità di creare nuovi file ogni volta che si deve eseguire condizionalmente un gruppo di comandi.
+Il problema emerge quando si lavora su progetti di grandi dimensioni, dove ci si trova a dover gestire una grande quantità di file per un numero sproporzionatamente piccolo di feature. Dato che ogni funzione deve risiedere in un suo file .mcfunction, e non ci sono i classici _code blocks_ di linguaggi come C o Java, bisogna creare una nuova funzione (ovvero un nuovo file) ogniqualvolta si vuole fare un `if` o `for`#footnote([mcfunction non dispone di un classico ciclo `for` ma può essere ricreato con la ricorsione.]). L'impossibilità di dichiarare più "oggetti" (sia funzioni, sia file json) in un unico file porta ad ambienti di lavoro difficili da navigare. Questo è esacerbato dalla già citata necessità di creare nuovi file ogni volta che si deve eseguire condizionalmente un gruppo di comandi.
 
 Questa è la struttura (immutabile, imposta così dal compilatore) per implementare un oggetto (_item_ del gioco) chiamato bar#footnote([Tra le varie feature che si possono aggiungere, un item è la più semplice, e nonostante ciò richiede *almeno* 6 file per gestire pochi comportamenti personalizzati.]).
 ```
@@ -46,12 +67,14 @@ project
 
 Come si può vedere bisogna gestire molti file (anche lontani tra loro) per definire per bene tutte le proprietà e comportamenti di una feature estremamente semplice.
 
-Ogni progetto dispone di un _datapack_, che influenza il comportamento, e una _resourcepack_, che definisce le risorse utilizzate dal gioco. Questa è una struttura molto simile a un tipico progetto java con maven, dove il codice sorgente è separato dalle risorse. La cartella contenente _datapack_ e _resourcepack_, rappresenta il _pack_, il cui nome è in genere quello del progetto#footnote([_pack_ e progetto sono termini equivalenti e indicano la stessa cosa.]).
+Ogni progetto dispone di un #dp, che influenza il comportamento, e una #rp, che definisce le risorse utilizzate dal gioco. Questa è una struttura molto simile a un tipico progetto java con maven, dove il codice sorgente è separato dalle risorse. La cartella contenente #dp e #rp, rappresenta il _pack_, il cui nome è in genere quello del progetto#footnote([_pack_ e progetto sono termini equivalenti e indicano la stessa cosa.]).
+
+La struttura mostrata in esempio pone #dp e #rp in una cartella esterna a quella di `.minecraft`. Normalmente queste due cartelle devono per forza essere in specifici path locali per essere letti correttamente dal compilatore. Tuttavia, questi path sono relativamente distanti e renderebbe sviluppare #dp e #rp in contemporanea molto complicato#footnote([I #dp vanno collocati in `.../.minecraft/saves/<world name>/datapacks/`, mentre le #rp in `.../.minecraft/resourcepacks/`]). Per ovviare a questo problema si usano `junction` o `symbolic link` per creare alias delle cartelle sorgenti nei path corretti. Questo consente anche di caricare progetti su GitHub in un unica repository contenente sia la parte di codice che quella delle risorse.
 
 #underline([Un esempio di progetto completo può essere visto qua: https://github.com/asdru22/CognitionDev/])
 
 = La soluzione
-Adottare un sistema basato su oggetti dove sono gia disposti metodi per inserire questi file e generare i progetti. Una possibile struttura potrebbe essere:
+Adottare un sistema basato su oggetti dove sono gia disposti metodi per inserire questi file e generare i progetti. Una possibile struttura potrebbe essere trattare tutti i file come oggetti, dove il loro nome è generato automaticamente (ad esempio un uuid esadecimale casuale), e la rappresentazione in forma di stringa di quel file corrisponde al path usato per invocarlo.
 ```java
 // java 21+
 {
@@ -63,12 +86,13 @@ Adottare un sistema basato su oggetti dove sono gia disposti metodi per inserire
     Datapack myDatapack = new Datapack();
     Resourcepack myResourcepack = new Resourcepack();
 
-    Function fun1 = new Function(STR."""
-        say hello world
-        function \{myNamespace}:fun2
-      """)
 
     Function fun2 = new Function("say I'm fun 2")
+
+    Function fun1 = new Function(STR."""
+        say hello world
+        function \{fun2}
+      """)
 
     myDatapack.add(...)
     myResourcepack.add(...)
@@ -86,7 +110,13 @@ Adottare un sistema basato su oggetti dove sono gia disposti metodi per inserire
 }
 ```
 
-Basare l'intero progetto su java permetterebbe anche di scrivere righe di codice ripetuto in maniera più veloce. Ad esempio se voglio eseguire un controllo di tutti gli slot dell'inventario di un giocatore dovrei scrivere
+Ad esempio `System.out.println(fun2)` restituirebbe `foo:bcfa538a-72d4-4996-8639-527e26abbcb1` e il file `fun1.mcfunction` conterrebbe il testo
+```
+say hello world
+function foo:bcfa538a-72d4-4996-8639-527e26abbcb1
+```
+
+Oltre a permettere di scrivere le chiamate a funzioni/file json in questo modo, basare l'intero progetto su java permetterebbe anche di scrivere righe di codice ripetuto in maniera più veloce. Ad esempio se voglio eseguire un controllo di tutti gli slot dell'inventario di un giocatore dovrei scrivere
 
 ```
 execute if items entity @s inventory.0 stone_sword run function foo:bar
@@ -138,12 +168,12 @@ function namespace:foo/another_function
 = Conclusione
 L'attuale ambiente di sviluppo presenta molti problemi e limitazioni, sia a livello di struttura che a livello sintattico. Le limitazioni per molti sviluppatori rappresentano una sfida e ormai sono in grado di sviluppare feature aggirandole strategicamente. Per quanto riguarda la struttura, personalmente spesso mi ritrovo a non finire mai progetti perché ho raggiunto una soglia dove diventa troppo lungo e difficile navigare questi file. Mi piacerebbe dunque proporre questa soluzione al problema.
 
-La struttura proposta, basata su oggetti, secondo me può fornire un ambiente di lavoro più chiaro e facile da navigare, ma velocizzare anche la scrittura di codice, specialmente per quanto riguarda l'inserimento dinamico di testo in altri file. Ad esempio si può definire un metodo `addTranslation(String key, String value)` che aggiunge un entry al file json della lingua inglese#footnote([`en_us.json` è la traduzione di default e fallback per tutte le traduzioni assenti in altre lingue.]). Oppure usare un'annotazione per definire quali funzioni sono eseguite costantemente#footnote([Il ciclo di gioco di Minecraft normalmente scorre a una velocità fissa di 20 tick al secondo, cioè c'è un tick ogni 0,05 secondi. Quindi una funzione in "loop" viene eseguita 20 volte al secondo.]) (`@Tick`). Un altro vantaggio notevole di basare questi progetti su un linguaggio di programmazione è la possibilità di integrare feature di java ovunque un utente lo ritenga utile per rendere mcfunction un linguaggio più di alto livello (possibilità di ripetere facilmente codice, generare template per creare oggetti facilmente, creare _lookup table_ velocemente...).
+La struttura proposta, basata su oggetti, secondo me può non solo fornire un ambiente di lavoro più chiaro e facile da navigare, ma anche velocizzare la scrittura di codice, specialmente per quanto riguarda l'inserimento dinamico di testo in altri file. Ad esempio si potrebbe implementare un metodo `addTranslation(String key, String value)` che aggiunge un entry al file json della lingua inglese#footnote([`en_us.json` è la traduzione di default e fallback per tutte le traduzioni assenti in altre lingue.]). Oppure usare un'annotazione per definire quali funzioni sono eseguite costantemente#footnote([Il ciclo di gioco di Minecraft normalmente scorre a una velocità fissa di 20 tick al secondo, cioè c'è un tick ogni 0,05 secondi. Quindi una funzione in "loop" viene eseguita 20 volte al secondo.]) (`@Tick`). Un altro vantaggio notevole di basare questi progetti su un linguaggio di programmazione è la possibilità di integrare feature di java ovunque un utente lo ritenga utile per rendere mcfunction un linguaggio più di alto livello (possibilità di ripetere facilmente codice, generare template per creare oggetti facilmente, creare _lookup table_ velocemente...).
 
-Secondo me una volta finito questo progetto può essere condiviso ed essere utilizzato come libreria da altri utenti che hanno riscontrato gli stessi problemi con mcfunction. Per questo un possibile lavoro da fare può anche essere creare una documentazione con javadoc e progettare le classi ponendo particolare attenzione alla visibilità di metodi e campi.
+Secondo me una volta finito questo progetto può essere condiviso ed essere utilizzato come libreria da altri utenti che hanno riscontrato gli stessi problemi con mcfunction. Per questo un possibile lavoro da fare può anche essere creare una documentazione con javadoc, progettare le classi ponendo particolare attenzione alla visibilità di metodi e campi e quali classi possano essere a disposizione degli utenti, e fornire messaggi di errore (ad esempio se si cerca di chiamare `build` su un oggetto `Project` dove non è stato dichiarato un #dp).
 
 Ci tengo a precisare che per me l'aspetto prioritario della proposta resta la programmazione ad oggetti, utilizzare feature più avanzate di java e design pattern di ingegneria software. Quindi se lei preferisce un altro scenario (non lo sviluppo di pack per Minecraft) in cui è possibile fare un lavoro simile per me non c'è problema.
 
-Invece se le piace il progetto presentato, preciso che gli esempi forniti sono solo la punta del iceberg di una serie di feature che si potrebbero implementare con un sistema basato interamente su oggetti per velocizzare lo sviluppo, piuttosto che utilizzare il classico sistema basato sulla creazione manuale di file. Dato che ho usato questi pack per più di 7 anni, so bene quali sono i suoi punti deboli, feature che la comunità vorrebbe.
+Invece se le piace il progetto presentato, preciso che gli esempi forniti sono solo la punta del iceberg di una serie di feature che si potrebbero implementare con un sistema basato interamente su oggetti per velocizzare lo sviluppo, piuttosto che utilizzare il classico sistema basato sulla creazione manuale di file. Dato che ho usato questi pack per più di 7 anni, so bene quali sono i suoi punti deboli, e feature che la comunità vorrebbe.
 
-Secondo me è richiesto un notevole impegno per sviluppare questo sistema basato su oggetti in maniera completa e funzionale. Auspico quindi che la presente proposta di tesi possa proseguire anche attraverso un tirocinio interno, così da poterne sviluppare in modo più completo sia l'implementazione tecnica sia gli aspetti pratici.
+Secondo me è richiesto un certo impegno per sviluppare questo sistema basato su oggetti in maniera completa, funzionale, ben documentata e con gestione degli errori. Auspico quindi che la presente proposta di tesi possa proseguire anche attraverso un tirocinio interno, così da poterne sviluppare in modo più completo sia l'implementazione tecnica sia gli aspetti pratici.
