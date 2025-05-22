@@ -14,7 +14,7 @@
   numbering: "1",
   columns: 2,
 )
-#set heading(numbering: "1.")
+#set heading(numbering: "1.1")
 #outline(title: "Indice", depth: 1,)
 
 #show table.cell.where(y:0): strong
@@ -87,7 +87,7 @@ Il committente ha un modello mentale non coerente e spesso difficile da spiegare
 === Formalizzare i requisiti
 Standard ISO che indica come vanno rappresentati i requisiti e i documenti che li raccolgono:
 
-===== _Stakeholder requirements specification document_: StRS
+==== _Stakeholder requirements specification document_: StRS
 Requisiti dello stakeholder: requisiti per un sistema che possono fornire i servizi richiesti dagli utenti e altri stakeholder.
 
 ==== _System & software requirements specification document_: SyRS/SRS
@@ -148,11 +148,7 @@ I requisiti devono essere:
 - _Usability_: sforzo cognitivo di un utente per giungere ad un obiettivo
 - _Reliability_
 - _Performance_: tempi di attesa, uso delle risorse, accuratezza, disponibilità
-- _Supportability_: mantenutibilità  $
-  &= 2x - 4 \
-  &= 2x + \
-  &- 4
-$
+- _Supportability_: mantenutibilità
 - +: implementazione, interfaccia, packaging
 
 === Processo di analisi dei requisiti
@@ -604,20 +600,20 @@ Esempi di frammenti di interazione sono:
 - Frammento combinato
 - Uso di interazione
 
-==== Occorrenza
+=== Occorrenza
 Un'occorrenza è un frammento di interazione che rappresenta un momento nel tempo (evento) all'inizio o alla fine di un messaggio o esecuzione.
 
-==== Esecuzione
+=== Esecuzione
 Un'esecuzione è un frammento di interazione che rappresenta un periodo nel ciclo di vita del partecipante dove sta
 - eseguendo un'unità di comportamento o azione dentro la lifeline
 - inviando un segnale a un altro partecipante
 - aspetta una risposta da un altro partecipante
 
-==== Frammento Combinato
+=== Frammento Combinato
 Un frammento combinato è un frammento di interazione che definisce una combinazione dei frammenti di interazione. Un frammento combinato è definito da un operatore dell'interazione e operandi dell'interazione corrispondenti. Con i frammenti combinati l'utente può descrivere un numero di tracce in maniera compatta (simile a un ciclo `for`/`while`).
 #quote([ Rappresentati o con `loop(5,10)` o `[size<0]`.])
 
-==== Uso di interazione
+=== Uso di interazione
 Un'uso di interazione è un frammento di interazione che permette di usare/chiamare un'altra interazione. Sequenze grandi e complesse possono essere semplificate con usi di interazione. In genere si riusa un'interazione tra le altre.
 
 === Consigli sui _sequence diagrams_
@@ -713,13 +709,13 @@ Nel corso della sua esecuzione una transizione può essere
 _Transizioni composte_: un trigger può causare l'attraversamento di una parte aciclica della macchina a stati senza che venga elaborato alcun altro evento.
 Ciò significa che l'elaborazione di un singolo evento può attivare più transizioni, attraversando diversi (pseudo)stati.
 
-=== Run-to-completion
+== Run-to-completion
 Una state machine viene creata, e poi inizializzata, eseguendo la transizione composta iniziale. Successivamente entra in un _wait point_. Quando gli eventi sono inviati, i trigger vengono valutati, e se almeno una transizione può essere eseguita, una nuova transizione composta viene eseguita, e si raggiunge un nuovo punto di attesa. Questo ciclo si ripete finché la state machine completa il suo comportamento o finché è asincronamente terminato da un agente esterno. Questo modello è chiamato _run to completion_ (RTC).
 Le occorrenze degli eventi sono rilevate, inviate e processate dall'esecuzione della state machine una alla volta. I _completion event_ sono prioritari, mentre gli altri sono inviati in ordine arbitrario.
 Un singolo evento può attivare più transizioni. Se queste transizioni hanno un'intersezione non vuota tra i loro stati di uscita, allora sono _in conflitto_. Le priorità delle transizioni in conflitto sono determinate dalla loro posizione relativa nella gerarchia degli stati.
 Il modello RTC semplifica la gestione della concorrenza nelle state machine. Quando la macchina è in uno stato non ben definito, questa non è reattiva. Eventi che dovrebbero occorrere non sono processati subito vengono messi nella coda degli eventi.
 
-=== Eventi
+== Eventi
 Un evento è un occorrenza osservabile nell'ambiente del soggetto.
 #quote([Un evento implicito si genera quando termina il comportamento interno di un soggetto.])
 
@@ -729,7 +725,7 @@ Gli eventi comandano le transizioni.
 Un evento non ha durata e può avere parametri.
 Lo stato finale determina uno stato da cui non si esce, ha solo archi in ingresso e nessuno in uscita. Quando si transita nello stato finale termina il ciclo di vita.
 
-=== Regioni
+== Regioni
 Uno stato o transazione può essere organizzato in regioni.
 Le regioni _ortogonali distinte_ indicano che i processi interni sono concorrenti.
 Le transizioni sono solitamente indicate da trigger. Quando questi vengono soddisfatti termina l'esecuzione dei processi concorrenti.
@@ -1119,6 +1115,8 @@ Extreme programming è un metodo di sviluppo software basato su AGILE, le sue ca
 Si inizia a scrivere il codice scrivendo i test, per prevenire i bug.
 
 ==== Whole team
+Il Whole Team è un approccio che prevede che tutte le figure necessarie per il successo di un progetto software lavorino insieme in modo collaborativo e continuo.
+Non esistono più “silos” separati (analisti, sviluppatori, tester, stakeholder), ma un gruppo multifunzionale con responsabilità condivise.
 
 ==== Continuous process
 - Integrazione continua
