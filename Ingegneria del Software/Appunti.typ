@@ -136,11 +136,11 @@ I requisiti devono essere:
  table.header(
  [], [Funzionale], [Non Funzionale],
  ),
- [*_Obiettivo_*], ["Descrive cosa fa il prodotto"], ["Descrive come funziona il prodotto"],
- [*_Risultato finale_*], ["Definisce le funzionalità del prodotto"], ["Definisce le proprietà del prodotto"],
- [*_Focus_*], ["Si concentra sui requisiti dell'utente"], ["Si concentra sulle aspettative dell'utente"],
- [*_Origine_*], ["Generalmente definito dall'utente"], ["Generalmente definito dagli sviluppatori o altri esperti tecnici"],
- [*_Testing_*], ["Prima dei test non funzionali"], ["Dopo i test funzionali"],
+ [*_Obiettivo_*], [Descrive cosa fa il prodotto], [Descrive come funziona il prodotto],
+ [*_Risultato finale_*], [Definisce le funzionalità del prodotto], [Definisce le proprietà del prodotto],
+ [*_Focus_*], [Si concentra sui requisiti dell'utente], [Si concentra sulle aspettative dell'utente],
+ [*_Origine_*], [Generalmente definito dall'utente], [Generalmente definito dagli sviluppatori o altri esperti tecnici],
+ [*_Testing_*], [Prima dei test non funzionali], [Dopo i test funzionali],
 )
 
 === Tassonomia FURPS+ per i requisiti
@@ -166,10 +166,10 @@ I modelli possono essere espressi con linguaggi diversi da quello naturale. I li
 Si caratterizza un sistema (software) non focalizzandosi sui singoli dati, ma cercando di definire la struttura in termine di entità autonome caratterizzate da uno stato e un comportamento. Uno stato è l'insieme di informazioni memorizzate nell'oggetto. Invocando metodi si attivano i comportamenti.
 
 == Principi _Object Oriented_
-_Astrazione_: meccanismo attraverso il quale ci si focalizza sulle caratteristiche essenziali di un elemento, senza essere a conoscenza degli elementi strutturali che non ci interessano. Ci interessa solo l'interfaccia dell'oggetto, ma non come funzione internamente.
-_Incapsulamento_: non ci interessa come vengono ottenute le informazioni. Sono incapsulate nel codice..
-_Ereditarietà_: il comportamento e lo stato possono essere specializzati (con l'_override_ di parte dei comportamenti della classe base). Si riusa un prototipo o classe esistente. L'istanza di una sottoclasse è un'istanza della superclasse. Un oggetto può essere sia impiegato che persona. Un'oggetto può appartenere a più tipi diversi (polimorfismo).
-_Polimorfismo_: il comportamento degli oggetti dipende da che oggetti sono.
+- _Astrazione_: meccanismo attraverso il quale ci si focalizza sulle caratteristiche essenziali di un elemento, senza essere a conoscenza degli elementi strutturali che non ci interessano. Ci interessa solo l'interfaccia dell'oggetto, ma non come funzione internamente.
+- _Incapsulamento_: non ci interessa come vengono ottenute le informazioni. Sono incapsulate nel codice.
+- _Ereditarietà_: il comportamento e lo stato possono essere specializzati (con l'_override_ di parte dei comportamenti della classe base). Si riusa un prototipo o classe esistente. L'istanza di una sottoclasse è un'istanza della superclasse. Un oggetto può essere sia impiegato che persona. Un'oggetto può appartenere a più tipi diversi (polimorfismo).
+- _Polimorfismo_: il comportamento degli oggetti dipende da che oggetti sono.
 Il polimorfismo è legato al concetto di ereditarietà. Un oggetto può essere di due o più tipi.
 
 == _Object Oriented Modelling_ con UML
@@ -1495,7 +1495,7 @@ Fornisce un'interfaccia per creare famiglie di oggetti correlati o dipendenti se
 Specifica i tipi di oggetti da creare usando un'istanza esistente come prototipo. Il prototype consente di copiare oggetti esistenti senza rendere il codice dipendente dalle loro classi. Il prototype ha metodi per clonare l'oggetto e il client non sa come è fatto l'oggetto, ma sa che può essere clonato.
 
 == Flyweight
-Si usa la condivisione per supportare grandi quantità di oggetti granulari in modo efficiente. Il flyweight è un oggetto che condivide il suo stato con altri oggetti. Ha metodi per accedere allo stato condiviso e il client non sa come è fatto l'oggetto, ma sa che può essere condiviso.
+Si usa per instanziare un grande numero di oggetti in modo efficiente. Si usa la condivisione per supportare grandi quantità di oggetti granulari in modo efficiente. Il flyweight è un oggetto che condivide il suo stato con altri oggetti. Ha metodi per accedere allo stato condiviso e il client non sa come è fatto l'oggetto, ma sa che può essere condiviso.
 Il flywheight è istanziato una sola volta in sistemi poveri di memoria.
 
 == Chain of responsibility
@@ -1512,6 +1512,10 @@ Il principio holliwoodiano è un principio di design che incoraggia a scrivere c
 
 === Dependency injection
 Inversion of control non è un pattern, è così vago che è un idioma. Sempre basato su IoC è il _Dependency Injection_ (DI), che è un pattern di design che implementa IoC. Il DI è un modo per fornire le dipendenze a un oggetto piuttosto che far sì che l'oggetto stesso le crei. In questo modo, si riduce il coupling tra gli oggetti e si facilita il testing e la manutenzione del codice.
+
+Dependency injection sposta l'istanziazione degli oggetti dalla logica verso l'esterno. Questo migliora il testing e la modularità.
+
+#quote([Una classe riceve le dipendenze, ovvero gli oggetti di cui ha bisogno per funzionare, dall'esterno piuttosto che essere essa a crearli.])
 
 Si elimina la dipendenza da `new` e Factory, semplificando la fase di testing e aumentando la modularità.
 Tipi di injection:
