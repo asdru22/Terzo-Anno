@@ -1,10 +1,15 @@
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+
 #set heading(numbering: "1.1")
 #set page(numbering: "1")
+
 #let solid_pattern(name: str, p: content, s: content) = [== #name] + [*Problema*: ] + p + [\ *Soluzione*: ] + s
 // bold unordered list
 #let bul(i, c) = [- *#i*: #c\;]
 #let dp(i, c) = [*#i*: #c]
+#let arr = $->$
 
+#align(outline(depth: 1, title: [Ingegneria Software]), center)
 
 = SOLID
 - _Single Responsibility Principle_ (SRP): una classe deve avere una sola responsabilità e una sola ragione per cambiare.
@@ -89,7 +94,7 @@ I pattern GRASP sono problemi ricorrenti ai quali si è trovata una soluzione ri
 
 Una corretta implementazione di PV aiuta a rispettare LSP.
 
-= AGILE software development
+= AGILE Software Development
 AGILE è una collezione di principi e pratiche per lo sviluppo software che enfatizza la collaborazione, la flessibilità e la consegna continua di valore.
 
 == Pratiche AGILE
@@ -189,9 +194,9 @@ Pratiche dell'extreme programming sono:
 Il testing è l'attività principale tra quelle di _validazione e verifica_, usate per controllare che il software testato sia conforme alle specifiche. Con il testing si rileva la presenza di un qualche tipo di errore logico.
 
 Livelli di testing:
-- Unit $->$ classe/metodo: poco costosi sia da scrivere che da eseguire
-- Integrazione $->$ gruppo di moduli
-- End to end $->$ intero sistema: si manda in esecuzione l'intera applicazione. Non sempre sono automatizzabili
+- Unit #arr classe/metodo: poco costosi sia da scrivere che da eseguire
+- Integrazione #arr gruppo di moduli
+- End to end #arr intero sistema: si manda in esecuzione l'intera applicazione. Non sempre sono automatizzabili
 
 *Analisi statica*: si controlla il codice per trovare bug, senza eseguire il codice. Si basa su metodi formali come _model checking_, _data-flow analysis_, _abstract interpolation_ e _symbolic execution_. Si usano pattern di bug per valutare la qualità del codice.
 
@@ -254,7 +259,7 @@ I test vengono validati creando mutazioni del codice che poi viene testato. Se q
   ),
 )
 
-== Pattern strutturali
+== Pattern Strutturali
 === Privilegiare la composizione rispetto all'ereditarietà
 Quando due o più classi condividono del comportamento comune, si hanno due opzioni:
 - Ereditarietà: creare una superclasse con il metodo comune da ereditare.
@@ -272,23 +277,28 @@ Si privilegia la composizione:
   - Si ha più controllo e minore accoppiamento.
 
 #dp(
-  [Facade],
-  [Consente di isolare un client dalla complessità interna di un sottosistema. Si definisce un'interfaccia di alto livello che rende un sottosistema più facile da usare.],
+  [Facade (GoF)],
+  [Si usa quando è necessaria un'interfaccia comune e unificata verso un insieme disparato di implementazioni o interfacce all'interno di un sottosistema. Il problema sorge quando c'è un accoppiamento indesiderato verso molti elementi interni del sottosistema, o quando l'implementazione del sottosistema è suscettibile al cambiamento. Con Facade si ha un unico punto di contatto verso il sottosistema. Fornisce protected variations rispetto ai cambiamenti nell'implementazione di un sottosistema e supporta low coupling tramite un oggetto Indirection #footnote([Indirection: introduzione di un livello intermedio tra due entità, con lo scopo di disaccoppiarle, aumentare la flessibilità, o ritardare una decisione di binding.]). Le facade sono accessibili tramite Singleton. Un Adapter che nasconde un sistema esterno può anche essere considerato una forma di Facade],
 )
 
 #dp(
   [Proxy],
-  [Permette di intercettare e controllare l'accesso ad un oggetto per indirizzare problemi ortogonali #footnote([I problemi ortogonali sono problemi significativi che non fanno parte del dominio del problema.]). Il proxy fornisce il sostituto o un segnaposto per un altro oggetto per controllare l'accesso ad esso.],
+  [Permette di intercettare e controllare l'accesso ad un oggetto per indirizzare problemi ortogonali #footnote([I problemi ortogonali sono problemi significativi che non fanno parte del dominio del problema.]). Il proxy fornisce il sostituto o un segnaposto per un altro oggetto per controllare l'accesso ad esso, aggiungendo un livello di indirection. Fornisce protected variations e low coupling.],
 )
 
 #dp(
-  [Decorator],
-  [Si usa per aggiungere responsabilità ad un oggetto in modo dinamico. I decorator forniscono una flessibilità maggiore rispetto all'ereditarietà perché possono essere combinati.],
+  [Decorator (GoF)],
+  [Si usa per aggiungere responsabilità ad un oggetto interno tramite incapsulamento. I decorator forniscono una flessibilità maggiore rispetto all'ereditarietà perché possono essere combinati. Un Decorator interpone un servizio sull'oggetto incapsulato.],
 )
 
 #dp(
-  [Adapter],
-  [ Permette a classi con interfacce incompatibili (parametri o tipi diversi) di collaborare tra loro, a differenza di Proxy dove l'intermediario ha la stessa interfaccia.],
+  [Adapter (GoF)],
+  [Permette a classi con interfacce incompatibili (parametri o tipi diversi) di collaborare tra loro, a differenza di Proxy dove l'intermediario ha la stessa interfaccia. Adapter coinvolge quattro componenti principali:
+    - Target: l'interfaccia attesa dal client.
+    - Client: utilizza l'interfaccia Target.
+    - Adaptee: la classe esistente con un'interfaccia incompatibile.
+    - Adapter: adatta l'interfaccia di Adaptee a quella di Target.
+  ],
 )
 
 #dp(
@@ -301,22 +311,32 @@ Si privilegia la composizione:
   [Si compongono gerarchie parte-tutto in strutture ad albero. Composite permette di trattare oggetti singoli e composizioni di oggetti in modo uniforme. Gli elementi dell'albero hanno due ruoli distinti: ruolo intermedio che rimanda ad altri elementi e ruolo terminale.],
 )
 
-#dp([Flyweight], [Si riduce l'uso di memoria condividendo quanti più dati possibili tra oggetti simili. Ha metodi per accedere allo stato condiviso. Il client non sa come è fatto l'oggetto, sa solo che può essere condiviso.])
+#dp(
+  [Flyweight],
+  [Si riduce l'uso di memoria condividendo quanti più dati possibili tra oggetti simili. Ha metodi per accedere allo stato condiviso. Il client non sa come è fatto l'oggetto, sa solo che può essere condiviso.],
+)
 
 
-== Pattern creazionali
+== Pattern Creazionali
 
 === `new` è pericoloso
 Ogni volta che si crea una classe concreta con new `new` si crea una dipendenza di cattiva qualità che viola DIP: se cambia il costruttore della classe concreta bisogna cambiare ogni occorrenza di `new` di quella classe.
 
 #dp(
-  [Abstract Factory],
-  [ Al posto di usare `new`, si delega la creazione dell'oggetto a una classe a parte, la Factory. Le factory separano il client #footnote([Con client si intende qualsiasi componente (classe, modulo, funzione, sistema...) che usa un altro componente per ottenere un servizio o una funzionalità.]) dal processo di istanziazione e delegano la creazione dell'oggetto a un'interfaccia comune. Questa è una dipendenza di buona qualità perché vi si possono solo aggiungere metodi. Nelle _Abstract Factory_, il client non sa come è fatto l'oggetto, ma sa che può essere creato.],
+  [Abstract Factory (GoF)],
+  [Al posto di usare `new`, si delega la creazione dell'oggetto a una classe a parte, la Factory. Le factory separano il client #footnote([Con client si intende qualsiasi componente (classe, modulo, funzione, sistema...) che usa un altro componente per ottenere un servizio o una funzionalità.]) dal processo di istanziazione e delegano la creazione dell'oggetto a un'interfaccia comune. Questa è una dipendenza di buona qualità perché vi si possono solo aggiungere metodi. La abstract factory si usa per creare famiglie di oggetti correlati che implementano un'interfaccia comune, favorendo la variabilità (protected variations).],
+)
+
+#dp(
+  [Factory],
+  [
+    Consente a una classe di delegare l'istanziazione di oggetti a sottoclassi, permettendo così di decidere quale classe concreta istanziare al momento dell'esecuzione. Si basa sull'ereditarietà: le sottoclassi sovrascrivono il metodo factory per creare oggetti specifici. Permette alle sottoclassi di modificare il tipo di oggetto creato. Viene utilizzato per separare la responsabilità della creazione complessa in oggetti ausiliari coesi. È un oggetto _pure fabrication_ la cui responsabilità è gestire la creazione di altri oggetti #footnote([ "Pure Fabrication" è una classe inventata per la convenienza del designer, non ispirata direttamente da un concetto del dominio]). Garantisce Low Coupling e aumenta il potenziale di riuso. Dato che in genere serve una sola istanza delle factory, sono spesso accessibili tramite il pattern Singleton. Factory è una semplificazione delle Abstract Factory: al posto di coordinare la creazione di famiglie di oggetti correlati, si concentra sulla creazione di un unico oggetto complesso.
+  ],
 )
 
 #dp(
   [Singleton],
-  [ Garantisce che una classe abbia una sola istanza, fornendo un punto di accesso globale ad essa. Sono un tipo di _code smell_. In genere sono Singleton Factory, Logger, Classi di configurazione e accesso alle risorse. Si usa il Singleton solo quando l'unicità è parte del dominio stesso, non solo dell'implementazione.],
+  [Garantisce che una classe abbia una sola istanza, fornendo un punto di accesso globale ad essa. Sono un tipo di _code smell_. In genere sono Singleton Factory, Logger, Classi di configurazione e accesso alle risorse. Si usa il Singleton solo quando l'unicità è parte del dominio stesso, non solo dell'implementazione.],
 )
 
 #dp(
@@ -330,7 +350,7 @@ Ogni volta che si crea una classe concreta con new `new` si crea una dipendenza 
 )
 
 
-== Pattern comportamentali
+== Pattern Comportamentali
 #dp(
   [Template Method],
   [ Si definisce lo scheletro di un algoritmo in un metodo #footnote([Questo metodo è il _template method_, in genere si trova in una classe astratta.]), delegando alcuni passi alle sottoclassi. I comportamenti più comuni saranno in cima all'albero di ereditarietà. In questo modo le dipendenze sono dirette verso elementi più stabili e si favorisce l'aderenza a OCP.],
@@ -390,3 +410,124 @@ Ogni volta che si crea una classe concreta con new `new` si crea una dipendenza 
 )
 
 == Pattern Moderni
+
+#dp(
+  [Principio Holliwoodiano],
+  [Si incoraggia a scrivere codice che non dipende da implementazioni specifiche, ma piuttosto da interfacce o astrazioni. Un componente di basso livello non controlla il flusso, ma è invitato a collaborare da un componente di livello superiore solo quando serve. Questo principio è spesso associato all'Inversione di Controllo #footnote([Sarà B ad attivare un comportamento di A, e non A ad attivarsi da sola.])],
+)
+
+#dp(
+  [Null Object],
+  [Si usa per specificare che un parametro non è inizializzato. Si ritorna un oggetto convenzionale al posto di `null` per far capire che l'oggetto non è istanziato. Il vantaggio di usare questa istanza convenzionale è che si può specificare questo oggetto implementando delle funzionalità di default per vari metodi.],
+)
+
+#dp(
+  [Dependency Injection (DI)],
+  [Si forniscono le dipendenze ad un oggetto dall'esterno piuttosto che crearle internamente (basato su IoC). Si riduce il coupling, facilitando il testing#footnote([Si elimina la dipendenza da `new` e Factory.]) e la modularità. Si fa injection, ovvero si passano gli oggetti come argomenti di costruttore, metodi setter, interfacce o un metodo specifico.],
+)
+
+#dp(
+  [Clean Dependency Injection],
+  [Sono delle linee guida per implementare DI aderendo ai principi SOLID, in particolare SRP e DIP.
+    - dipendenze che non cambiano nel ciclo di vita del dell'istanza #arr _constructor injection_;
+    - dipendenze necessarie durante l'invocazione del metodo #arr _dependency injection_;
+    - quando il binding (scelta dell'implementazione concreta) deve essere fatto a runtime, si passa una factory invece dell'oggetto stesso.
+    Clean DI avviene solo nella _composition root_, #footnote([La Composition Root è l'unico punto del sistema dove si conosce l'implementazione concreta di un'interfaccia.]) tutto il resto del codice dipende da astrazioni (interfacce).
+  ],
+)
+
+= Scrum
+Scrum è una metodologia per lo sviluppo software in aziende di piccole-medie dimensioni. Fa parte dei metodi AGILE, ma se non è una metodologia completa: si focalizza sugli aspetti di gestione del progetto ed è infatti comune usare Scrum con altre pratiche del mondo AGILE.
+
+Scrum ha un ciclo di vita iterativo: la fase di sprint si ripete più volte fino alla realizzazione di un prodotto potenzialmente rilasciabile.
+#text(
+  9pt,
+  diagram(
+    node-stroke: 1pt,
+    spacing: 4em,
+    node((0, 0), [Product\ Backlog]),
+    edge((0, 0), (1, 0), "->"),
+    node((1, 0), [Sprint\ Planning]),
+    edge((1, 0), (2, 0), "->"),
+    node((2, 0), [Sprint\ Backlog]),
+    edge((2, 0), (3, 0), "->"),
+    node((2.5, -1), [Sprint\ Retrospective]),
+    edge((3, 0), (4, 0), "->"),
+    node((3, 0), [Sprint\ Execution]),
+    node((3, 1), [Daily Scrum]),
+    node((4, 0), [Sprint\ Review]),
+    edge((4, 0), (5, 0), "->"),
+
+    node((5, 0), [Potentially\ Shippable\ Increment]),
+
+
+    edge((3, 0), (3, 1), "->", bend: -30deg),
+    edge((3, 1), (3, 0), "->", bend: -30deg),
+    edge((4, 0), (2.5, -1), "->", bend: -30deg),
+    edge((2.5, -1), (1, 0), "->", bend: -30deg),
+  ),
+)
+== Ruoli
+- *Core* (committed):
+  - _product owner_: proiezione degli stakeholder all'interno del progetto. Rappresenta le richieste del cliente e ha il compito di decidere le priorità, deadline e specifiche del progetto. Ha potere di veto sul lavoro che è stato svolto.
+  - _scrum master_: figura senior all'interno dell'organizzazione, attiva nello sviluppo, con buona conoscenza di scrum e al servizio dei colleghi. È responsabile della corretta applicazione delle pratiche scrum all'interno del progetto.
+  - _development team_: team composto da 5-9 persone che si occupa di realizzare le task .Le task sono l'insieme di attività che servono per ogni interazione, non imposte dal product owner, ma autoassegnate per realizzare il progetto. In questo team devono esserci tutte le figure necessarie per completare il progetto, non si vogliono avere dipendenze esterne per evitare tempi di attesa.
+- *Additional* (involved):
+  - clienti
+  - _executive manager_
+
+== Artefatti
+*Product backlog*: Lista di tutte le cose che devono essere fatte nel progetto. Verrà completato in più iterazioni. In questa lista, curata dal _product owner_, ci sono:
+- Requisiti funzionali (user stories)
+- bugfix
+- requisiti non funzionali
+- chores: elementi che vengono inseriti dai membri del team e che servono a produrre valore al team di sviluppo e non ai clienti, come aggiornare l'ambiente di sviluppo.
+
+*Storie, epiche e temi*
+
+*Sprint Backlog*: tutto cio che deve essere fatto all'interno dello sprint in un dato intervallo di tempo. Ad ogni task è associata un tempo per completarla (in genere inferiore ad una giornata).
+
+*Burn down chart*: diagramma che mostra come nel tempo varia il numero di task e le ore disponibili.
+
+== Sprint Planning
+Momento in cui si stabilisce come riempire lo sprint backlog. Solitamente si fa una riunione di 1-2 giorni e ci si organizza in due fasi:
++ Product owner definisce gli obiettivi e presenta gli elementi essenziali che vuole all'interno del prodotto e per ogni elemento viene indicato dettaglio e le richieste, stimando l'impegno e tempo necessario.
++ (Solo dal team) si selezionano gli elementi da dividere in task, popolando poi lo sprint backlog.
+
+== Scrum Estimation
+Si stabilisce quante task ad altra priorità scegliere. Le task si stimano in ore, mentre gli elementi nel product si valutano con le user stories. Queste vengono valutate in base alla loro complessita e agli story points che misurano il valore prodotto. L'assegnazione delle user stories avviene con il planning poker.\
+Il numero di storie da scegliere per completare lo sprint backlog può essere in base a:
+- *Capacity driven planning*: le storie vengono analizzate in base al tempo richiesto ed effort.
+- *Velocity driven planning*: le storie vengono scelte dal backlog in base ai _story points_ associati. Questa stima è accurata per team che conoscono la loro velocity #footnote([Velocity: metrica di avanzamento che indica quanti story point macina un team di sviluppo.]).
+
+== Daily Scrum
+Riunione giornaliera di 15 minuti dove ogni membro del team dice
+- cosa ha fatto ieri per contribuire allo sprint;
+- cosa farà oggi per contribuire allo sprint;
+- se prevede ostacoli per il raggiungimento del goal dello sprint.
+
+== Sprint Review
+Alla fine di uno sprint si fa la review con tutti i membri del team e gli stakeholder, dove vene presentato l'incremento con tutti i problemi e soluzioni. Si discute anche delle tempistiche di consegna.
+
+== Retrospecting
+Dopo allo _sprint review_, _scrum master_ e team di sviluppo discutono delle problematiche riscontrate nello sviluppo, cercando di identificare miglioramenti prima del prossimo sprint.
+
+== Scrum Considerato Dannoso/Pericoloso
+In caso di assenza dello _scrum master_, il compito viene svolto da uno o più membri del team di sviluppo. A rotazione, questo però potrebbe anche essere un vantaggio se dimostrato praticamente.
+
+== Kanban
+Kanban è un metodo di gestione del lavoro che nasce nella produzione industriale, adattato allo sviluppo software da David Anderson. Si basa su un approccio snello (lean) e just-in-time, cioè produce valore in modo continuo e sostenibile, limitando gli sprechi e migliorando il flusso di lavoro.\
+A differenza di Scrum che lavora a sprint, Kanban non ha iterazioni fisse: il lavoro avanza in modo continuo lungo una pipeline, composta da più stadi come:
+- To Do;
+- In Progress;
+- Testing;
+- Done
+Ogni elemento di lavoro (feature, bug, task) scorre attraverso questi stadi fino alla conclusione. \
+La Kanban board rappresenta visivamente la pipeline e consente al team di:
+- vedere lo stato attuale del lavoro;
+- identificare colli di bottiglia;
+- limitare il lavoro simultaneo.
+C'è un limite al lavoro in corso (WIP limit):
+Ogni stadio della pipeline ha un numero massimo di elementi che può contenere. Se uno stadio è pieno, non si possono aggiungere altri elementi finché non se ne libera uno. Questo previene colli di bottiglia, promuove il focus, e mantiene un ritmo di lavoro costante.\
+In Kanban, la metrica principale è il Cycle Time: il tempo medio che un task impiega per attraversare tutta la pipeline, dal primo stadio a "Done".
+Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadio, e serve a monitorare il carico di lavoro del team.
