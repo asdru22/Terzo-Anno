@@ -346,7 +346,6 @@ all'uscita da questo pseudostato non può essere associata né un evento né una
 = SOLID
 - _Single Responsibility Principle_ (SRP): una classe deve avere una sola responsabilità e una sola ragione per cambiare.
 - _Open-closed principle_ (OCP): le entità software devono essere aperte all'estensione, ma chiuse alla modifica. OCP può essere violato solo per fare refactoring.
-- _Open-closed principle_ (OCP): le entità software devono essere aperte all'estensione, ma chiuse alla modifica. OCP può essere violato solo per fare refactoring.
 - _Liskov Substitution Principle_ (LSP): si deve poter usare un tipo specifico (sottoclasse) al posto di quello generico (superclasse) senza alterare il comportamento atteso del sistema.
 - _Interface Segregation Principle_ (ISP): le interfacce devono essere specifiche e non generiche, evitando di forzare le classi a implementare metodi che non usano.
 - _Dependency Inversion Principle_ (DIP): le classi di alto livello non devono dipendere da quelle di basso livello, ma entrambe devono dipendere da astrazioni. Le astrazioni non devono dipendere dai dettagli, ma i dettagli dalle astrazioni.
@@ -762,7 +761,7 @@ Si privilegia la composizione:
 
 #dp(
   [Dependency Injection (DI)],
-  [Si forniscono le dipendenze ad un oggetto dall'esterno piuttosto che crearle internamente (basato su IoC). Si riduce il coupling, facilitando il testing footnote([Si elimina la dipendenza da `new` e Factory.]) e la modularità. Si fa injection, ovvero si passano gli oggetti come argomenti di costruttore, metodi setter, interfacce o un metodo specifico.],
+  [Si forniscono le dipendenze ad un oggetto dall'esterno piuttosto che crearle internamente (basato su IoC). Si riduce il coupling, facilitando il testing #footnote([Si elimina la dipendenza da `new` e Factory.]) e la modularità. Si fa injection, ovvero si passano gli oggetti come argomenti di costruttore, metodi setter, interfacce o un metodo specifico.],
 )
 
 #dp(
