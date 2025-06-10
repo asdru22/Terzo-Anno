@@ -25,10 +25,10 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Ingegneria del Software/riassunto-1.pdf"
+                "file": "Ingegneria del Software/pdf/14 - Agile.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "riassunto-1"
+              "title": "14 - Agile"
             }
           },
           {
@@ -128,8 +128,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 360.5,
-    "collapsed": true
+    "width": 360.5
   },
   "right": {
     "id": "1862c7bfef8b56af",
@@ -205,13 +204,13 @@
   },
   "active": "2c3890ce3ddb4ce9",
   "lastOpenFiles": [
+    "Ingegneria del Software/riassunto-1.pdf",
     "Ingegneria del Software/importante.xopp~",
     "Ingegneria del Software/BankSwEng2425-main/target/classes/it/unibo/sweng/bank/Account.class",
     "Ingegneria del Software/BankSwEng2425-main/target/classes/it/unibo/sweng/bank/Account$AccountBuilder.class",
     "Ingegneria del Software/BankSwEng2425-main/target/classes/it/unibo/sweng/bank/Account$NotificationType.class",
     "Ingegneria del Software/importante.pdfDI8R0R",
     "Ingegneria del Software/Appunti.pdf",
-    "Ingegneria del Software/riassunto-1.pdf",
     "Ingegneria del Software/pdf/04 - Use case.pdf",
     "Ingegneria del Software/pdf/03 - OO modeling and UML.pdf",
     "Ingegneria del Software/pdf/07 - Analisys model - domain.pdf",

@@ -870,9 +870,53 @@ Ogni stadio della pipeline ha un numero massimo di elementi che può contenere. 
 In Kanban, la metrica principale è il Cycle Time: il tempo medio che un task impiega per attraversare tutta la pipeline, dal primo stadio a "Done".
 Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadio, e serve a monitorare il carico di lavoro del team.
 
+= Modello di Analisi
+L'obiettivo è capire cosa deve fare il sistema, comunicare lo sviluppo al cliente e definire una serie di requisiti validabili.
+
+Gli *artefatti* analizzano punti diversi dello sviluppo: richieste, specifiche, glossario e modello dominante.
+
+I *requisiti* specificano quello che il software deve fare e i vincoli che deve rispettare. Sono indipendenti dall'implementazione. \
+Per scrivere un requisito formale si usa un linguaggio il meno ambiguo possibile.
+$
+  1. &"Se l'utente ha inserito le credenziali corrette" &"(condition)"\
+  2. & "il sistema" &"(Subject)"\
+  3. &"deve consentire l'accesso" &"(Action)"\
+  4. &"al panello di controllo"& "(Object)"\
+  5. &"entro 3 secondi" & "(Constraint)"
+$
+Un requisito deve essere non ambiguo, coinciso, completo, singolare, fattibile, verificabile e tracciabile.\
+Un gruppo di requisiti deve essere: completo, consistente, coveniente e vincolato.
+#table(
+  align: center,
+  columns: 3,
+  inset: 5pt,
+  table.cell(none, stroke: none, rowspan: 2), table.cell([Tipi di requisiti], colspan: 2),
+  [*Funzionali*], [*Non Funzionali*],
+  [*Obiettivo*], [Descrive cosa fa il prodotto], [Descrive come funziona il prodotto],
+  [*Risultato finale*], [Definisce le funzionalità del prodotto], [Definisce le proprietà del prodotto],
+  [*Focus*], [Requisiti dell'utente], [Aspettative dell'utente],
+  [*Origine*], [Utente], [Sviluppatore],
+  [*Testing*], [Prima dei non funzionali], [Dopo i funzionali]
+)
+
+Tassonomia *FURPS+* per i requisiti:
+- _Functional_;
+- _Usability_: sforzo cognitivo di un utente per giungere all'obiettivo;
+- _Reliability_;
+- _Performance_;
+- _Supportability_: manutenibilità;
+- _+_: Implementazione, interfaccia e packaging.
+
+== Object Oriented Principles
+- Astrazione: ci si concentra sulle caratteristiche essenziali di un oggetto;
+- Incapsulamento: si nascondono i dettagli di implementazione e si espongono solo le interfacce necessarie;
+- Ereditarietà: il comportamento e lo stato può essere specializzato, riutilizzando il codice e creando una gerarchia;
+- Polimorfismo: si possono usare oggetti di classi diverse in modo intercambiabile, purché implementino la stessa interfaccia.
+
+
 #pagebreak()
 
-
+#set page(margin: 0pt)
 
 #{
   let grasp = (
@@ -896,9 +940,10 @@ Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadi
   let n = none
 
 
-  let new_dp(name, gof, solid_in, grasp_in, design_patterns, pattern_type, ioc) = {
+  let new_dp(name, gof, solid_in, grasp_in, design_patterns, pattern_type, ioc, desc) = {
     let r = (name,)
 
+    r.push(scale(80%, desc, reflow: true))
 
     r.push(gof)
 
@@ -925,7 +970,7 @@ Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadi
     return r.map(x => [#x])
   }
 
-  let dp_c(name, gof, solid_in, grasp_in, design_patterns, ioc) = new_dp(
+  let dp_c(name, gof, solid_in, grasp_in, design_patterns, ioc, desc) = new_dp(
     name,
     gof,
     solid_in,
@@ -933,9 +978,10 @@ Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadi
     design_patterns,
     "Creational",
     ioc,
+    desc,
   )
 
-  let dp_s(name, gof, solid_in, grasp_in, design_patterns, ioc) = new_dp(
+  let dp_s(name, gof, solid_in, grasp_in, design_patterns, ioc, desc) = new_dp(
     name,
     gof,
     solid_in,
@@ -943,8 +989,9 @@ Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadi
     design_patterns,
     "Structural",
     ioc,
+    desc,
   )
-  let dp_b(name, gof, solid_in, grasp_in, design_patterns, ioc) = new_dp(
+  let dp_b(name, gof, solid_in, grasp_in, design_patterns, ioc, desc) = new_dp(
     name,
     gof,
     solid_in,
@@ -952,9 +999,10 @@ Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadi
     design_patterns,
     "Behavioural",
     ioc,
+    desc,
   )
 
-  let dp_m(name, solid_in, grasp_in, design_patterns, ioc) = new_dp(
+  let dp_m(name, solid_in, grasp_in, design_patterns, ioc, desc) = new_dp(
     name,
     n,
     solid_in,
@@ -962,34 +1010,42 @@ Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadi
     design_patterns,
     "Modern",
     ioc,
+    desc,
   )
 
-  let solid_start = 1
+  let solid_start = 2
 
 
   align(
     center,
     table(
-      fill: (x, y) => if (x == 1) { rgb("#f3f5ea") } else if (x > solid_start and x <= solid_start + solid.len()) {
+      fill: (x, y) => if (x == 2) { rgb("#f3f5ea") } else if (x > solid_start and x <= solid_start + solid.len()) {
         rgb("EAF2F5")
       } else if (
         x > solid_start + solid.len() and x <= solid_start + solid.len() + grasp.len()
       ) { rgb("#ecf5ea") } else if (x == solid_start + solid.len() + grasp.len() + 1 and y > 0) { rgb("#f5eaed") },
-      columns: 5 + solid.len() + grasp.len(),
-      inset: 4pt,
-      align: center,
-      table.cell(colspan: 2, none, stroke: none),
+      columns: 6 + solid.len() + grasp.len(),
+      inset: 1.7pt,
+      align: horizon + center,
+
+
+      table.cell(colspan: 3, none, stroke: none),
       table.cell(colspan: solid.len(), [_SOLID_]),
       table.cell(colspan: grasp.len(), [_Grasp_]),
       table.cell(colspan: 3, none, stroke: none),
       table.cell(
         none,
         stroke: none,
-      ), rotate(90deg, reflow: true, [*GoF*]), ..solid.map(x => rotate(
-        90deg,
-        reflow: true,
-        [*#x*],
-      )), ..grasp.map(x => [*#rotate(90deg, reflow: true, x)*]), rotate(
+        colspan: 1,
+      ),
+      rotate(90deg, reflow: true, [*Descrizione*]), rotate(90deg, reflow: true, [*GoF*]), ..solid.map(x => pad(
+        2pt,
+        rotate(
+          90deg,
+          reflow: true,
+          [*#x*],
+        ),
+      )), ..grasp.map(x => [*#pad(2pt, rotate(90deg, reflow: true, x))*]), rotate(
         90deg,
         reflow: true,
         [*Inversion of Control*],
@@ -998,33 +1054,137 @@ Il WIP (Work in Progress) è invece la quantità attuale di lavoro in ogni stadi
         reflow: true,
         [*Related Patterns*],
       ), rotate(90deg, reflow: true, [*Pattern Type*]),
-      ..dp_s("Facade", y, (m, n, n, n, m), (y, n, n, y, n, y), "Singleton, Adapter", n),
-      ..dp_s("Proxy", n, (m, m, m, n, n), (y, n, n, y, n, y), none, n),
-      ..dp_s("Decorator", y, (n, n, n, m, n), (n, n, n, y, n, n), none, n),
-      ..dp_s("Adapter", y, (m, m, n, n, m), (y, n, y, y, n, y), "Facade", n),
-      ..dp_s("Bridge", n, (m, m, n, n, m), (), "Adapter", n),
-      ..dp_s("Composite", n, (), (n, n, n, n, y, y), none, n),
-      ..dp_s("Flyweight", n, (m, m), (y,), none, n),
-      ..dp_c("Abstract Factory", y, (m, m, m, n, m), (y, n, n, n, n, y), none, n),
-      ..dp_c("Factory", n, (), (y, n, y), "Singleton, Abstract Factory", n),
-      ..dp_c("Singleton", y, (), (n, n, y), "Factory, Facade", n),
-      ..dp_c("Builder", n, (), (), none, n),
-      ..dp_c("Prototype", n, (), (), none, n),
-      ..dp_b("Template Method", y, (n, y), (), none, n),
-      ..dp_b("Strategy", y, (n, y), (y, n, y, n, y, y), none, n),
-      ..dp_b("State", y, (), (y, y), none, n),
-      ..dp_b("Observer", y, (), (y, n, n, n, y, y), "Facade", n),
-      ..dp_b("Memento", n, (), (), none, n),
-      ..dp_b("Iterator", n, (), (), none, n),
-      ..dp_b("Mediator", n, (), (y, n, n, y), none, n),
-      ..dp_b("Visitor", n, (), (), "Iterator", y),
-      ..dp_b("Command", y, (), (n, n, y), "Visitor, Composite", n),
-      ..dp_b("Chain of Responsibility", n, (), (), none, n),
-      ..dp_b("Interpreter", n, (), (), none, n),
-      ..dp_m("Hollywood Principle", (), (), none, y),
-      ..dp_m("Null Object", (), (), none, n),
-      ..dp_m("Dependency Injection", (), (y,), none, y),
-      ..dp_m("Clean Dependency Injection", (y, n, n, n, y), (), "Dependency Injection", n),
+      ..dp_s(
+        "Facade",
+        y,
+        (m, n, n, n, m),
+        (y, n, n, y, n, y),
+        "Singleton, Adapter",
+        n,
+        "Interfaccia comune e unificata",
+      ),
+      ..dp_s(
+        "Proxy",
+        n,
+        (m, m, m, n, n),
+        (y, n, n, y, n, y),
+        none,
+        n,
+        "Intercettare e controllare l'accesso ad un oggetto",
+      ),
+      ..dp_s(
+        "Decorator",
+        y,
+        (n, n, n, m, n),
+        (n, n, n, y, n, n),
+        none,
+        n,
+        "Aggiungere responsabilità ad un oggetto tramite incapsulamento",
+      ),
+      ..dp_s(
+        "Adapter",
+        y,
+        (m, m, n, n, m),
+        (y, n, y, y, n, y),
+        "Facade",
+        n,
+        "Permettere a classi con interfacce incompatibili di collaborare",
+      ),
+      ..dp_s("Bridge", n, (m, m, n, n, m), (), "Adapter", n, "Separare un'astrazione dalla sua implementazione"),
+      ..dp_s("Composite", n, (), (n, n, n, n, y, y), none, n, "Gestire un gruppo di oggetti allo stesso modo"),
+      ..dp_s("Flyweight", n, (m, m), (y,), none, n, "Ridurre l'uso di memoria condividendo dati tra oggetti simili"),
+      ..dp_c(
+        "Abstract Factory",
+        y,
+        (m, m, m, n, m),
+        (y, n, n, n, n, y),
+        none,
+        n,
+        "Creare famiglie di oggetti correlati che implementano un'interfaccia comune",
+      ),
+      ..dp_c(
+        "Factory",
+        n,
+        (),
+        (y, n, y),
+        "Singleton, Abstract Factory",
+        n,
+        "Delegare l'istanziazione di un unico oggetto complesso a sottoclassi",
+      ),
+      ..dp_c(
+        "Singleton",
+        y,
+        (),
+        (n, n, y),
+        "Factory, Facade",
+        n,
+        "Sola istanza di una classe con punto di accesso globale",
+      ),
+      ..dp_c("Builder", n, (), (), none, n, "Costruire oggetti complessi passo per passo"),
+      ..dp_c("Prototype", n, (), (), none, n, "Uso istanze di oggetti esistenti per creare nuovi tipi"),
+      ..dp_b(
+        "Template Method",
+        y,
+        (n, y),
+        (),
+        none,
+        n,
+        "Lo scheletro dell'algoritmo è definito in un metodo che a sua volta chiama metodi astratti",
+      ),
+      ..dp_b(
+        "Strategy",
+        y,
+        (n, y),
+        (y, n, y, n, y, y),
+        none,
+        n,
+        "Sostituire un algoritmo con un altro a runtime in base a condizioni esterne",
+      ),
+      ..dp_b("State", y, (), (y, y), "Strategy", n, "Come strategy ma con condizioni interne"),
+      ..dp_b(
+        "Observer",
+        y,
+        (),
+        (y, n, n, n, y, y),
+        "Facade",
+        n,
+        "I subscriber ricevono la notifica del cambiamento dal publisher: si propagano le modifiche",
+      ),
+      ..dp_b(
+        "Memento",
+        n,
+        (),
+        (),
+        none,
+        n,
+        "Esternalizzare lo stato di un oggetto per ripristinarlo in un momento successivo",
+      ),
+      ..dp_b(
+        "Iterator",
+        n,
+        (),
+        (),
+        none,
+        n,
+        "Accedere agli elementi di un oggetto aggregato senza esporre la sua rappresentazione interna",
+      ),
+      ..dp_b("Mediator", n, (), (y, n, n, y), none, n, "Oggetto che incapsula come insiemi di oggetti interagiscono."),
+      ..dp_b("Visitor", n, (), (), "Iterator", y, "Iterator ma con IoC"),
+      ..dp_b("Command", y, (), (n, n, y), "Visitor, Composite", n, "Richiesta incapsulata come oggetto command"),
+      ..dp_b("Chain of Responsibility", n, (), (), none, n, "Si passa una richiesta attraverso una catena di handler"),
+      ..dp_b("Interpreter", n, (), (), none, n, "Si definisce la grammatica di una lingua con una struttura ad albero"),
+      ..dp_m("Hollywood Principle", (), (), none, y, "Scrivere codice che dipende da interfacce o astrazioni"),
+      ..dp_m("Null Object", (), (), none, n, "Specifica che un parametro non è inizializzato"),
+      ..dp_m("Dependency Injection", (), (y,), none, y, "Fornire le dipendenze ad un oggetto dall'esterno"),
+      ..dp_m(
+        "Clean Dependency Injection",
+        (y, n, n, n, y),
+        (),
+        "Dependency Injection",
+        n,
+        "Implementazione di DI aderendo a SRP e DIP",
+      ),
     ),
   )
 }
+
