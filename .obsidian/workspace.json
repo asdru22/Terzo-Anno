@@ -25,38 +25,26 @@
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Ingegneria del Software/pdf/14 - Agile.pdf"
+                "file": "Ingegneria del Software/pdf/08 - UML Activities.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "14 - Agile"
+              "title": "08 - UML Activities"
             }
           },
           {
-            "id": "2c932ac21586f6fc",
+            "id": "64701d7cddfd4e90",
             "type": "leaf",
             "state": {
               "type": "pdf",
               "state": {
-                "file": "Ingegneria del Software/Appunti.pdf"
+                "file": "Ingegneria del Software/pdf/10 - UML State Machine.pdf"
               },
               "icon": "lucide-file-text",
-              "title": "Appunti"
-            }
-          },
-          {
-            "id": "b2a8de004c25a178",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Ingegneria del Software/pdf/18 - Scrum.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "18 - Scrum"
+              "title": "10 - UML State Machine"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -202,19 +190,19 @@
       "publish:Publish changes...": false
     }
   },
-  "active": "2c3890ce3ddb4ce9",
+  "active": "64701d7cddfd4e90",
   "lastOpenFiles": [
+    "Ingegneria del Software/pdf/08 - UML Activities.pdf",
+    "Ingegneria del Software/esercizi/final-2024-07-19-testo.xopp~",
+    "Ingegneria del Software/pdf/04 - Use case.pdf",
+    "Ingegneria del Software/esercizi/final-2024-07-19-testo.xopp",
+    "Ingegneria del Software/Appunti.pdf",
+    "Ingegneria del Software/pdf/18 - Scrum.pdf",
+    "Ingegneria del Software/pdf/14 - Agile.pdf",
     "Ingegneria del Software/riassunto-1.pdf",
     "Ingegneria del Software/importante.xopp~",
     "Ingegneria del Software/BankSwEng2425-main/target/classes/it/unibo/sweng/bank/Account.class",
     "Ingegneria del Software/BankSwEng2425-main/target/classes/it/unibo/sweng/bank/Account$AccountBuilder.class",
-    "Ingegneria del Software/BankSwEng2425-main/target/classes/it/unibo/sweng/bank/Account$NotificationType.class",
-    "Ingegneria del Software/importante.pdfDI8R0R",
-    "Ingegneria del Software/Appunti.pdf",
-    "Ingegneria del Software/pdf/04 - Use case.pdf",
-    "Ingegneria del Software/pdf/03 - OO modeling and UML.pdf",
-    "Ingegneria del Software/pdf/07 - Analisys model - domain.pdf",
-    "Ingegneria del Software/riassunto-2.pdf",
     "Tesi+Tirocinio/Limiti e problemi di .mcfunction.md",
     "Tesi+Tirocinio/ideal_mcfunction/Note.md",
     "Tesi+Tirocinio/ideal_mcfunction/img/Pasted image 20250314005147.png",
