@@ -25,3 +25,13 @@
 #let null = { smallcaps("null") }
 
 #let eacc = "È"
+
+#let tab(cols, titolo, ..content) = {
+  figure(table(
+    inset: 5pt,
+    columns: cols,
+    align: left,
+    table.cell(colspan: cols, align: center, text(weight: "bold", titolo)),
+    ..content
+  ))
+}

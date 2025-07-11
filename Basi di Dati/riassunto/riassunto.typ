@@ -932,7 +932,7 @@ REPLACE [LOW_PRIORITY | DELAYED]
 [INTO] nome_tabella [(nome_colonna, ...)]
 VALUES ({espressione | DEFAULT}, ...)
 ```
-Estensione MySQL del costrutto `INSERT`. Consente di rimpiazzare delle righe presistenti con delle nuove righe, qualora si verifichi un problema di inserimento con chiave doppia.
+Estensione MySQL del costrutto `INSERT`. Consente di rimpiazzare delle righe preesistenti con delle nuove righe, qualora si verifichi un problema di inserimento con chiave doppia.
 - `load`: popolamento dati
 ```
 LOAD DATA [LOCAL] INFILE 'file.txt'
@@ -1087,9 +1087,9 @@ Di default, la modalità `autocommit` è abilitata, quindi tutti gli aggiornamen
   SET AUTOCOMMIT = 0;
   START TRANSACTION
   INSERT INTO IMPIEGATO (Nome, Cognome, Salario)
-  VALUES (‘Michele’,’Rossi’,1200);
+  VALUES (‘Michele','Rossi',1200);
   INSERT INTO IMPIEGATO (Nome, Cognome, Salario)
-  VALUES (‘Carlo’,’Bianchi’,1000);
+  VALUES (‘Carlo','Bianchi',1000);
   COMMIT
   ```
 ]
@@ -1279,3 +1279,463 @@ Ad ogni oggetto $x$ si associano due indicatori:
   [repeatable read], [Applica S2PL anche in lettura],
   [serializable], [Applica S2PL con lock di predicato],
 )
+= NoSQL
+#def[*NoSQL*\
+  Movimento che promuove l'adozione di DBMS non basati sul modello relazionale. I sistemi NoSQ in genere:
+  - sono database distribuiti
+  - sono tool open source
+  - non dispongono di uno schema
+  - non supportano operazioni di join
+  - non implementano le proprietà ACID delle transazioni
+  - sono scalabili orrizzontalmente
+  - sono in grado di gestire grandi basi di dati
+  - supportano le repliche dei dati
+]
+== Motivi della diffusione dei database NoSQL
+- Gestione dei big data#footnote[Big data: moli di dati, eterogenei, destrutturati, difficili da gestire attraverso tecnologie tradizionali.
+  ]. Le quattro V dei big data
+  - Volume: grossi moli di dati
+  - Velocità: stream di dati
+  - Varietà: dati eterogenei, multi-sorgente
+  - Valore: possibilità di estrarre conoscenza dai big-data
+- Limitazioni del modello relazionale:
+  - SQL assume che i dati siano strutturati
+  - alcune operazioni non possono essere implementate in SQL
+  - scalabilità orrizzontale dei DBMS relazionali
+
+#def[*Scalabilità*\
+  Capacità di un sistema di migliorare le proprie prestazioni per un certo carico di lavoro, quando vengono aggiunte nuove risorse al sistema.
+  - Scalabilità *orrizzontale*: aggiungere più nodi al cluster.
+  - Scalabilità *verticale*: aggiungere più potenza di calcolo (RAM, CPU) a i nodi che gestiscono il DB.
+]
+- Teorema Cap
+#def[*Cap Theorem*\
+  Il teorema di Brewer (CAP Theorem) afferma che un sistema distribuito può soddisfare al massimo solo due di queste proprietà:
+  - Consistency: Tutti i nodi della rete vedono gli stessi dati. Se l'utente $A$ modifica il dato $X$ sul server $1$, e $B$ legge $X$ dal server $2$, $B$ legge l'ultima versione disponibile di $X$.
+  - Availability: Il servizio è sempre disponibile. Se un utente effettua una query sul server $A$ o $B$, la query restituisce un risultato.
+  - Partion Tolerance: Il servizio continua a funzionare correttamente anche in presenza di perdita di messaggi o di partizionamenti della rete.
+]
+== Proprietà Base dei Sistemi NoSQL
+- _Basically Available_: i nodi del sistema distribuito possono essere soggetti a guasti.
+- _Soft State_: la consistenza dei dati non è garantita in ogni istante
+- _Eventually Consistent_: il sistema diventa consistente dopo un certo intervallo di tempo, se le attività di modifica dei dati cessano.
+Il termine NoSQL identifica una varietà di DBMS non relazionali,
+basati su modelli logici differenti:
+- database chiave-valore
+- database document oriented (MongoDB)
+- database graph oriented
+
+= MongoDB
+MongoDB è un DBMS non relazionale basato su DB document-oriented. #eacc un database organizzato in collezioni, le collezioni contengono liste di documenti. Ogni documento è un insieme di campi.
+#figure(table(
+  inset: 5pt,
+  columns: 2,
+  [*MongoDB*], [*RDBMS*],
+  [collezione], [tabella],
+  [documento], [riga],
+  [campo], [colonna di una riga],
+))
+Si usano comandi javascript tramite shell MongoDB oppure applicazioni che si collegano a mongoDB. Utilizza il linguaggio JSON come input/output delle query di aggiornamento o selezione.
+#ex[Documeto JSON in MongoDB][
+  ```json
+  {"nome": "Mario",
+  "cognome": "Rossi",
+  "eta": 45,
+  "impiegato": false,
+  "salario": 1205.50,
+  "telefono": ["0243434", "064334343"],
+  "ufficio": [
+      {"nome": "A", "via": "Zamboni", "numero": 7},
+      {"nome": "B", "via": "Irnerio", "numero": 49}
+  ]}
+  ```
+]
+#align(center, table(
+  inset: 5pt,
+  columns: 2,
+  [*Comando*], [*Azione*],
+  [`mongod`], [avvio server],
+  [`mongo`], [avvio shell],
+  [`use provaDB`], [utilizzo/creazione di un DB],
+  [`db.createCollection("circoli")`], [creazione di una collezione vuota],
+  table.cell(colspan: 2)[*Comandi shell MongoDB*],
+  [`show DBS`], [mostra DB disponibili],
+  [`show collections`], [mostra collezioni del DB],
+  [`show users`], [mostra gli utenti del sistema],
+  [`show rules`], [mostra il sistema di accessi],
+  [`show logs`], [mostra i log disponibili],
+))
+#imp[Un documento in MongoDB è un oggetto JSON.]
+Nella stessa collezione, è possibile inserire documenti eterogenei, ossia con strutture campo/valore differenti.
+#ex[Inserimento di un documento in una collezione
+][
+  `db.NOMECOLLEZIONE.insert(DOCUMENTO)`
+
+  ```
+  db.anagrafica.insert({"name": "Marco", "cognome":
+  "Rossi", "eta": 22})
+  db.anagrafica.insert({"cognome: "Rossi", "eta": 22,
+  "domicilio":["Roma", "Bologna"]})
+  db.anagrafica.insert({"name": "Maria", "eta": 25})
+  ```
+]
+Ogni documento contiene un campo `_id`, che corrisponde alla chiave primaria della collezione.
+Il campo `_id` può essere definito esplicitamente, o viene aggiunto in maniera implicita da MongoDB. Può essere inserito esplicitamente, o aggiunto in automatico da MongoDB.
+#align(center, table(
+  inset: 5pt,
+  columns: 2,
+  table.cell(colspan: 2)[*Rimozione di un documento da una collezione*],
+  [*Comando*], [*Azione*],
+  [`db.collezione.remove`], [svuota la collezione],
+  [`db.NOMECOLLEZIONE.remove(SELETTORE)`],
+  [Elimina dalla collezione tutti i documenti che fanno matching con il selettore],
+))
+
+*Selettore*: Il selettore è un documento json che specifica un campo e un valore per filtrare i documenti in base a corrispondenze esatte.
+#ex[Cercare documenti con il campo nome "Mario" o cognome "Rossi"][
+  ```js
+  db.utenti.find({
+    $or: [
+      { "name": "Mario" },
+      { "cognome": "Rossi" }
+    ]
+  })
+  ```
+]
+
+*Operatori di Confonto*:
+#align(center, table(
+  inset: 5pt,
+  columns: 3,
+  [`$GT`], [maggiore], [`{"età":{$GT:30}}`],
+  [`$LT`], [minore], [`{"età":{$LT:30}}`],
+  [`$GTE`], [maggiore o uguale], [`{"età":{$GTE:30}}`],
+  [`$LTE`], [minore o uguale], [`{"età":{$LTE:30}}`],
+  [`$NE`], [diverso], [`{"età":{$NE:30}}`],
+  [`$IN`], [uno tra molti valori], [`{"nome":{$IN:["Mario","Lucia"]}}`],
+))
+#ex[Cercare utenti con età compresa tra i 18 e 30 anni][
+  ```js
+  db.utenti.find(
+      {"età":{
+          $GTE: 18,
+          $LTE: 30
+      }
+  })
+  ```
+]
+*Selettori Logici*
+#align(center, table(
+  inset: 5pt,
+  columns: 3,
+  [`$AND`], [e], [`{$AND:[{"età":{$GTE:18}},{"sesso":"M"}]}`],
+  [`$OR`], [o], [`{$OR:[{"età":{$GTE:18}},{"sesso":"M"}]}`],
+  [`$NOT`], [non], [`{"età":{$NOT:{$GT:30}}`],
+))
+#ex[Cercare utenti che siano uomini con almento 30 anni, oppire con nome Luca][
+  ```json
+  db.utenti.find(
+      {
+          $OR:[
+              {$AND:[
+                  {"sesso":"M"},
+                  {"età":{$GTE:30}}
+              ]},
+              {"nome":"Luca"}
+          ]
+      }
+  )
+  ```
+]
+
+`$exists` controlla se un campo esiste o meno.
+#ex[Cerca documenti con il campo `telefono`][
+  ```
+  db.utenti.find(
+      {"telefono":{
+          $EXIST:true
+      }
+  })
+  ```
+]
+#figure(
+  table(
+    inset: 5pt,
+    columns: 2,
+    align: left,
+    table.cell(colspan: 2, align: center)[*`update`*],
+    [```
+      db.nomecollezione.update(
+        selettore,campi
+        )```],
+    [Trova i documenti filtrati poi modifica tutti i campi inseriti (se non esiste lo aggiunge), ma cancella tutti quelli non specificati nell'`update`.\
+      ```
+      db.anagrafica.update(
+          {"name":"Mario"},
+          {"età":45}
+      )
+      ```
+      Il campo `"name":"Mario"` è cancellato#footnote[Perché non specificato nell'` update`] e viene inserito `"età":35`
+    ],
+    [```
+      db.NOMECOLLEZIONE.update(
+          SELETTORE,{$SET: CAMPI}
+          )
+      ```],
+    [Uguale alla forma sopra, ma i campi non specificati non vengono cancellati. Si modificano soli i camp inseririti.
+      ```
+      db.anagrafica.update(
+          {"name":"Mario"},
+          {$set:{"eta":45}})
+      ```
+      Nel documento relativo all'impiegato Mario, aggiorna il campo età ponendolo pari a 45
+    ],
+    [```
+      db.NOMECOLLEZIONE.update(
+          SELETTORE,{$PUSH:CAMPI}
+          )
+      ```],
+    [Aggiunge un elemento alla fine di un array specificato nel campo definito. Se il campo è un array, l'operatore `push` aggiunge un nuovo valore all'array esistente, altrimenti ne crea uno nuovo e aggiunge l'elemento.
+      ```
+      db.anagrafica.update(
+          {"name":"Mario"},
+          {$push:{"eta":45}})
+      ```
+      Nel documento relativo all'impiegato Mario, si aggiunge un nuovo campo età (array), settandolo pari a 45.
+
+    ],
+  ),
+)
+`$EACH` serve per inserire più valori nell'array in una sola operazione.
+#ex[`$EACH`][
+  ```
+  db.utenti.update(
+      {"_id":"1"},
+          {$PUSH:{
+              "hobby":{
+                  $EACH: ["scrittura", "sport"]
+              }
+          }
+      }
+  )
+  ```
+]
+#figure(table(
+  inset: 5pt,
+  columns: 2,
+  align: left,
+  table.cell(colspan: 2, align: center)[*`find`*],
+  [`db.nomecollezione.find()`], [Restituisce tutti i documenti presenti nella collezione.],
+  [`db.nomecollezione.find(condizone)`],
+  [Restituisce tutti i documenti, i cui campi rispettino la condizione espressa nella query.],
+  [```
+    db.NOMECOLLEZIONE.find(
+      SELETTORE,PROJECTION
+    )
+    ```],
+  [Filtra e con il `projection` si inseriscono i campi che si vuole vengano mostrati.],
+))
+
+#ex[`projection`][
+  Voglio solo i campi nomi ed età escludendo `_id`\
+  ```
+  db.utenti.find(
+      {"nome":"Mario"},
+      {"nome":true,"età":true,"_id":false}
+  )
+  ```
+  Se voglio che il campo sia incluso, lo imposto a `true` altrimenti a `false`.
+]
+
+#tab(
+  2,
+  [*Operatori*],
+  [`db.nomecollezione.
+    find(...).sort(campi)`],
+  [`1`: ordinamento crescente, `-1`: ordinamento decrescente. In caso di più campi si guarda il primo.\
+    ```
+    db.anagrafica.
+      find(...).sort({"età":1})
+    ```
+  ],
+  [`db.collezione.find(...).count()`],
+  [Conta i documenti],
+  [`db.collezione.find(...).
+  distinct(campo,condizione)`],
+  [Restituisce un array con i valori distinti del campo `<campo>` per tutti i documenti che soddisfano la condizione `<condizione>`.\
+    ```
+    db.anagrafica.distinct(
+      "età",
+      {"nome":"Marco"}
+    )
+    ```],
+)
+#eacc possibile i comandi MongoDB in uno script javascript, eseguito nella shell di MongoDB o in un applicazione esterna tipo node.js. Il file di script può contenere costrutti iterativi come `while`, `if`,`else`,`...`. I cursori vengono usati per scorrere il risultato di una query.
+#ex[Codice javascript che comunica con MongoDB][
+  ```js
+  conn = new Mongo();
+  db = conn.getDB("tennis2");
+  db.createCollection("soci");
+  cursor = db.collection.find({"name"="mario"});
+  while (cursor.hasNext()) {
+      printjson(cursor.next());
+  }
+  cursor = db.collection.find({"name"="mario"});
+  if (cursor.hasNext()) {
+      print("Trovato!");
+  }
+  ```
+]
+== Correlazioni tra collezioni
+Non esistono vincoli di integrità referenziale tra collezioni/tabelle.
+- Le correlazioni possono essere costruite esplicitamente mediante campi "replicati" tra più collezioni.
+```
+db.circoli.insert({"nome":"tennis2000", "citta": "Bologna" })
+db.soci.insert({"nome":"Mario", "cognome":"Rossi", "nomeCircolo":"tennis2000"})
+```
+- Le associazioni uno-a-molti, o molti-a-molti, tra documenti di diverse collezioni possono essere rappresentate sfruttando il fatto che in MongoDB il valore di un campo può essere anche un array, o una struttura complessa (es. documento annidato).
+```
+db.soci.insert({"name:"Mario", cognome:"Rossi",
+circolo:{...})
+```
+*Come fare query che implementano il join tra collezioni*
++ usi lookup table
++ usi due query (prima trovi l'id, poi con quello fai la seconda)
+== Aggregazione di dati
+L'operatore `aggregate` consente di implementare una pipeline di operazioni da eseguire su una base di dati. Ad ogni passo, vengono eseguite operazioni che prednono in input dei documenti json e producono in output documenti json.
+`collezione->operatore1->operatore2->risultato`
+#tab(
+  2,
+  [Operazioni],
+  [`$geonear`],
+  [Ordina i documenti dal più lontano al più vicino rispetto ad una posizione data.],
+  [`$match`],
+  [Seleziona solo alcuni documenti che soddisfano le condizioni],
+  [`$project`],
+  [Seleziona i campi prescelti],
+  [`$group`],
+  [Raggruppa in base a uno o più campi.],
+  [`$sort`],
+  [Ordina il json in base ad alcuni campi.],
+  [`$out`],
+  [Scrive l'output su una collezione.],
+  [`$lookup`],
+  [Consente di effettuare il `join` tra collezioni che appartengono allo stesso DB.\
+    ```
+    {
+        "lookup":{
+            "from": collezione su cui fare il join,
+            "local field": campo dalla collezione di partenza,
+            "foreign field": campo della collezione del from,
+            "as": nome del campo di destinazione
+        }
+    }
+    ```
+  ],
+)
+#ex[`aggregate`][
+  ```
+  db.anagrafica.aggregate([
+    {
+        $match: { "name":"A"}
+    },
+    {
+        $group: {
+            "_id":"$customId",
+            "total":{$sum: "$amount"}
+        }
+  ])
+  ```
+  + Fa il `match` prima: prende tutti i documenti con nome `A` ```json
+    {"_id":1,"name":"A","customId":101,"amount":10},
+    {"_id":3,"name":"A","customId":101,"amount":15},
+    {"_id":4,"name":"A","customId":103,"amount":5},
+    ```
+  + Raggruppa i documenti in base al campo `customId`. Verrà creato un documento per ogni valore unico di `customId`.
+  ```json
+  {"_id":101,"total":25},
+  {"_id":103,"total":5},
+  ```
+]
+= Progettazione di basi di dati
+Le basi di dati implementate fino ad ora si basavano su uno schema relazionale già definito. Come si realizza un sistema informativo da zero?
+- Problema 1: *dimensionamento del problema*\ Un DB di un sistema informativo di medie dimensioni può contenere decine di tavelle
+- Problema 2: *analisi dei requisiti*\ Identificare specifiche, dati di interesse e operazioni da gestire
+- Problema 3: *Traduzione nel modello logico* (relazionale)\ Passare da specifiche informali (testo scritto) a delle tabelle vere e proprie
+Senza una buona progettazione, possono emergere anomalie ed errori nella fase di trazione del modello logico, come le ridondanze.
+
+Esistono metodologie consolidate per progettare una buona base di dati a partire dai suoi requisiti.
+#tab(
+  1,
+  [Schema di vita di un sistema informativo],
+  [Studio di fattibilità],
+  [#text(fill: red)[Raccolta/analisi dei requisiti]],
+  [#text(fill: red)[Progettazione]],
+  [Implementazione],
+  [Validazione],
+  [Funzionamento],
+)
+
+Si raccolgono le informazioni sulle specifiche dei requisiti sui dati (testo grezzo), poi le informazioni sulle specifiche delle operazioni sui dati.
+
+== Analisi dei requisiti
+#tab(
+  2,
+  [Analisi dei Requisiti],
+  [*Fasi della progettazione*],
+  [*Risultati*],
+  [Progettazione concettuale],
+  [schema concettuale],
+  [Progettazione logica],
+  [schema logico],
+  [Progettazione fisica],
+  [schema fisico],
+)
+=== Progettazione Concettuale
+Ci si focalizza sul contenuto informativo dei dati ad alto livello di astrazione (senza concentrarsi sull'implementazione).
+Si produce un modello concettuale indipendente dallo schema logico e dal DBMS in uso.\
+Uno schema concettuale può essere prodotto con un modello E-R o con UML
+=== Progettazione Logica
+Traduzione dello schema concettuale in tabelle, ottimizzazione dello schema logico ottenuto.\ Dopo aver ottenuto lo schema logico, è neessario analizzare la qualità del prodotto finale:
+- si rimuovono le ridondanze#footnote[Questo processo si chiama normalizzazione]
+- si analizzano le prestazioni: si controlla se il costo delle singole operazioni rendono il prodotto efficiente.
+=== Progettazione fisica
+Si descrivono le strutture per la memorizzazione di dati su memoria secondaria, e l'accesso efficiente ai dati:
+- strutture ad albero
+- strutture sequenziali
+- strutture ad acesso diretto (hash)
+
+== Raccolta dei requisiti
+La raccolta dei requisiti consiste nella completa indiviudazione dei problemi che il sistema informativo da realizzare deve risolvere e le caratteristiche che il sistema informativo deve avere: quelle dei *dati* e quelle delle *applicazioni*.
+
+Queste informazioni vengono raccolte
+- dagli utenti dell'applicazione con interviste e documentazioni
+- da documentazioni esistenti
+  - normative
+  - procedure aziendali
+  - regolamenti interni
+- realizzazioni/applicazioni preesistenti
+
+=== Come trovare i dati da gestire e le operazioni sui dati consentite
++ Produrre un documento di specifica (testo grezzo). Dato che il linguaggio naturale è fonte di ambiguità e fraintendimenti bisogna:
+  - scegliere il corretto livello di astrazione
+  - standardizzare la struttura delle frasi
+  - evitare frasi contorte
+  - individuare omonimi/sinonimi
+  - esplicitare il riferimento tra termini
+  Può essere utile scomporre le specifiche in frasi omogenee, relative agli stessi concetti
++ Costruire un glossario dei termini che contiene descrizioni, sinonimi e collegamenti #figure(table(
+    columns: 4,
+    table.header([*Termine*], [*Descrizione*], [*Sinonimi*], [*Collegamenti*]),
+    [Partecipante], [...], [...], [...],
+    [Docente], [...], [...], [...],
+    [Corso], [...], [...], [...],
+  ))
++ Definire le operazioni sui dati. Questa fase è utile per
+    - Verificare la completezza dei modelli sviluppati nella fase di progettazione
+    - Valutare le prestazioni dei modelli sviluppati nella fase di progettazione
+    - Fornire linee guida per l'implementazione dei dati (procedure per le operazioni)
+
+= Diagramma Entità-Relazionale
+Sviluppato nella fase di progettazione concettuale, è indipendente dal modello logico (relazionale e non) e dal DBMS in uso.
+
