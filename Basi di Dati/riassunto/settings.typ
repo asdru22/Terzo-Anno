@@ -11,7 +11,12 @@
   )
 }
 
+
 #let def(content) = block(stroke: 1pt, inset: 6pt, radius: 1pt, width: 100%)[#smallcaps([def]): #content]
+
+#let ndef(nome, content) = {
+  def([*#nome*\ #content])
+}
 
 #let ex(nome, content) = block(
   stroke: 1pt,
@@ -34,4 +39,12 @@
     table.cell(colspan: cols, align: center, text(weight: "bold", titolo)),
     ..content
   ))
+}
+
+#let split(..content) = {
+  grid(
+    columns: 2,
+    inset: 5pt,
+    ..content
+  )
 }

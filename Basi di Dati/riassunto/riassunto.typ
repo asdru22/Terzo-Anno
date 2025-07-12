@@ -1732,10 +1732,356 @@ Queste informazioni vengono raccolte
     [Corso], [...], [...], [...],
   ))
 + Definire le operazioni sui dati. Questa fase è utile per
-    - Verificare la completezza dei modelli sviluppati nella fase di progettazione
-    - Valutare le prestazioni dei modelli sviluppati nella fase di progettazione
-    - Fornire linee guida per l'implementazione dei dati (procedure per le operazioni)
+  - Verificare la completezza dei modelli sviluppati nella fase di progettazione
+  - Valutare le prestazioni dei modelli sviluppati nella fase di progettazione
+  - Fornire linee guida per l'implementazione dei dati (procedure per le operazioni)
+
+#import "@preview/cetz:0.4.0"
 
 = Diagramma Entità-Relazionale
-Sviluppato nella fase di progettazione concettuale, è indipendente dal modello logico (relazionale e non) e dal DBMS in uso.
+Sviluppato nella fase di progettazione concettuale, è indipendente dal modello logico (relazionale e non) e dal DBMS in uso, ed è un derivato del testo grezzo.
+== Componenti del diagramma E-R
+#def[*Entità*\
+  #split[
+    #cetz.canvas({
+      import cetz.draw: *
+      rect((0, 0), (2, 1))
+    })
+  ][#eacc una classe di oggetti della realtà di interesse con esistenza autonoma (impiegato, studente, professore,...).]
+]
+In una prima approssimazione, un'entità può essere tradotta in una tabella (del modello relazionale) di cui ancora non è definito lo schema. Ogni entità ha un nome e per convenzione si usano i nomi al singolare.
+#def[*Istanza*\
+  Un'istanza è uno specifico oggetto appartenente a quell'entità.
+]
 
+#ndef[Relazione][
+  #split[
+    #cetz.canvas({
+      import cetz.draw: *
+      line((0, 0), (0.5, 0.5), (1, 0), (0.5, -0.5), close: true, anchor: "north")
+    })
+  ][#eacc un legame logico fra due o più entità, rilevante nel sistema che si sta modellando.]
+]
+Una relazione è collegata a due o più entità.
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
+#import fletcher.shapes: diamond
+
+#ex[Collegamento relazione][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Impiegato], shape: rect),
+    edge(),
+    node((1, 0), [Lavoro], shape: diamond),
+    edge(),
+    node((2, 0), [Dipartimento], shape: rect),
+  )
+]
+
+In una prima approssimazione, una relazione può essere tradotta in una tabella. Ogni relazione ha un nome, per convenzione al singolare.\ L'istanza della relazione è una combinazione di istanze dell'entità che prendono parte all'associazione.
+
+== Attributi
+
+#ndef[Attributo][
+  #split[
+    #diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [entità], shape: rect),
+      edge(stroke: red, marks: (none, "O")),
+      node((0, -1)),
+    )
+
+  ][#eacc una proprietà elementare di un'entità o di una relazione del modello. Ogni attributo è definito su un dominio specifico.
+    #align(center)[
+      #diagram(
+        node-stroke: black + 0.5pt,
+        node((0, 0), [Esame], shape: diamond),
+        edge(marks: (none, "O")),
+        node((0.5, -1), [Data], stroke: none),
+        edge((0, 0), (-0.5, -1), marks: (none, "O")),
+        node((-0.5, -1), [Voto], stroke: none),
+      ),
+    ]
+  ]
+]
+#ex[Attributo Composto][
+  #import fletcher.shapes: pill
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Impiegato], shape: rect),
+    edge(marks: (none, "O")),
+    node((0.5, -0.7), [Nome], stroke: none),
+    edge((0, 0), (-0.5, -0.7), marks: (none, "O")),
+    node((-0.5, -0.7), [Cognome], stroke: none),
+    node((1, 0), [#text(fill: red, [Recapito])], shape: pill, stroke: red),
+    edge((1, -0.5), marks: (none, "O"), stroke: red),
+    edge((1.5, -0.5), marks: (none, "O"), stroke: red),
+    node((1, -0.7), [#text(fill: red, [Via])], stroke: none),
+    node((1.5, -0.7), [#text(fill: red, [Numero])], stroke: none),
+    edge((0, 0), (1, 0)),
+  )
+]
+
+== Cardinalità
+
+#ex[Cardinalità delle relazioni][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Informatico], shape: rect),
+    edge()[$(1,30)$],
+    node((2, 0), [Partecipazione], shape: diamond),
+    edge()[$(0,100)$],
+    node((4, 0), [Progetto], shape: rect),
+  ) \
+  - Ogni istanza di informatico deve comparire in almeno un'istanza della relazione partecipazione.
+  - La stessa istanza di informatico può comparire al massimo 30 istanze delle relazione partecipazione.
+  -La stessa istanza di progetto può comparire al massimo in 100 istanze della relazione partecipazione.
+
+  Quindi un informatico può lavorare a 30 progetti diversi, e un progetto può essere preso a 100 informatici diversi.
+]
+
+Nella pratica si usano solo due valori per il *minimo*:
+- $0$: partecipazione opzionale dell'entità
+- $1$: partecipazione obbligatoria dell'entità
+#figure(
+  diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Paziente], shape: rect),
+    edge()[$(0,dots)$],
+    node((2, 0), [Cura], shape: diamond),
+    edge(),
+    node((4, 0), [Medico], shape: rect),
+  ),
+  caption: [Possono esistere pazienti che non sono in cura presso alcun medico.],
+)
+
+#figure(
+  diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Paziente], shape: rect),
+    edge()[$(1,dots)$],
+    node((2, 0), [Cura], shape: diamond),
+    edge(),
+    node((4, 0), [Medico], shape: rect),
+  ),
+  caption: [Ogni paziente deve essere in cura presso almeno un medico.],
+)
+
+
+Nella pratica si usano solo due valori per il *massimo*:
+- $1$: al massimo una entità coinvolta
+- $N$: non esiste un limite massimo
+#figure(
+  diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Paziente], shape: rect),
+    edge()[$(dots,1)$],
+    node((2, 0), [Cura], shape: diamond),
+    edge(),
+    node((4, 0), [Medico], shape: rect),
+  ),
+  caption: [Ad ogni paziente corrisponde al masimo un medico.],
+)
+
+#figure(
+  diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Paziente], shape: rect),
+    edge()[$(dots,N)$],
+    node((2, 0), [Cura], shape: diamond),
+    edge(),
+    node((4, 0), [Medico], shape: rect),
+  ),
+  caption: [Ogni paziente può essere in cura presso un numero arbitrario di medici],
+)
+#imp[
+  *Relazioni più importanti*:
+  - uno-ad-uno: $1-1$;
+  - uno-a-molti: $1-N$;
+  - molti-a-molti: $N-N$
+]
+Le cardinalità da usare dovrebbero emergere dal documento di specifica.
+#ex[Cardinalità degli attributi][
+  #import fletcher.shapes: pill
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Impiegato], shape: rect),
+    edge(marks: (none, "O")),
+    node((0.5, -0.7), [Nome], stroke: none),
+    edge((0, 0), (-0.5, -0.7), marks: (none, "O")),
+    node((-0.5, -0.7), [Codice], stroke: none),
+    node((1, 0), [Recapito], shape: pill),
+    edge((1, -0.7), marks: (none, "O")),
+    edge((2, -0.5), marks: (none, "O"))[$(0,N)$],
+    node((1, -0.7), [Indirizzo], stroke: none),
+    node((2, -0.5), [Telefono], stroke: none),
+    edge((0, 0), (1, 0))[$(1,N)$],
+  )\
+  Si può definire cardinalità minima e massima anche per attributi e attributi composti.
+]
+== Identificatori
+#ndef[Idefntificatore][
+  #split[
+    #diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [entità], shape: rect),
+      edge(stroke: red, marks: (none, "@")),
+      node((0, -1), stroke: none, text(fill: red)[Nome]),
+    )
+
+  ][#eacc uno strumenoto per identificare in maniera univoca le istanze di un entità. Corrisponde al concetto di chiave nel modello relazionale, quindi deve godere del requisito di minimalità.\
+    #imp[Ogni entità deve avere un identificatore, ma non le relazioni.]
+  ]
+]
+- Identificatore *interno*: composto da attributi dell'entità;
+- Identificatore *esterno*: Composto da attributi dell'entità ed entità esterne.
+
+#ex[Identificatore interno composto da più attributi][
+  #split(
+    diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [Impiegato], shape: rect, name: <0>),
+      node((1, -1), stroke: none, name: <1>, text(fill: red)[Data nascita]),
+      node((1, -0), stroke: none, name: <2>, text(fill: red)[Cognome]),
+      node((1, 1), stroke: none, name: <3>, [Nome]),
+      edge(<0>, <1>, stroke: red, marks: (none, "@")),
+      edge(<0>, <2>, stroke: red, marks: (none, "@")),
+      edge(<0>, <3>, marks: (none, "O")),
+    ),
+    figure(
+      diagram(
+        node-stroke: black + 0.5pt,
+        node((0, 0), [Impiegato], shape: rect, name: <0>),
+        node((1, -1), stroke: none, name: <1>, [Data nascita]),
+        node((1, -0), stroke: none, name: <2>, [Cognome]),
+        node((1, 1), stroke: none, name: <3>, [Nome]),
+        edge(<0>, <1>, marks: (none, "O")),
+        edge(<0>, <2>, marks: (none, "O")),
+        edge(<0>, <3>, marks: (none, "O")),
+        edge((0.5, 0.2), (0.5, -1), stroke: red, marks: (none, "@")),
+      ),
+      caption: [Rappresentazione preferita],
+    ),
+  )
+  Gli attributi che formano l'identificatore (interno) di
+  un'entità devono avere cardinalità $(1,1)$.
+]
+
+#ex[Identificatore esterno][
+  Include anche entità esterne, collegate attraverso relazioni all'entità corrente.
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 1), [Studente], shape: rect, name: <s>),
+    edge()[$(1,1)$],
+    node((2, 1), [Iscrizione], shape: diamond, name: <i>),
+    edge()[$(0,N)$],
+    node((4, 1), [Università], shape: rect, name: <u>),
+    node((-0.5, 0), stroke: none)[Cognome],
+    edge(<s>, marks: ("O", none)),
+    node((0.5, 0), stroke: none)[Matricola],
+    edge(<s>, marks: ("O", none)),
+    node((0, 2), stroke: none)[Anno],
+    edge(<s>, marks: ("O", none)),
+
+    node((4, 0), stroke: none)[Nome],
+    edge(<u>, marks: ("@", none)),
+    node((4, 2), stroke: none)[Indirizzo],
+    edge(<u>, marks: ("O", none)),
+
+    edge((0, 0.5), (0.75, 1.5), bend: 45deg, marks: (none, "@"), stroke: red),
+  )\
+
+  Uno studente è identificato dal suo numero di matricola e dall'università cui è iscritto. L'entità esterna deve essere in relazione $1-1$ con l'entità corrente.
+]
+
+== Generalizzazioni
+#let arrow(partial) = rotate(
+  -90deg,
+  scale(
+    10%,
+    cetz.canvas({
+      import cetz.draw: *
+      line(
+        (0, 5),
+        (9, 5),
+        (9, -.5),
+        (16, 6.5),
+        (9, 13.5),
+        (9, 8),
+        (0, 8),
+        close: true,
+        fill: partial,
+        stroke: black + 5pt,
+      )
+    }),
+    reflow: true,
+  ),
+  reflow: true,
+)
+
+#diagram(
+  node-stroke: black + 0.5pt,
+  node((1, 0), [Dipdendente], shape: rect),
+  node((1, 0.5), name: <i>),
+  edge((1, 0), "=>"),
+  node((0, 1), [Tecnico], shape: rect),
+  edge(<i>),
+  node((2, 1), [Sviluppatore], shape: rect),
+  edge(<i>),
+)\
+Definisce una gerarchia tra entità basata su sul concetto di ereditarietà. Tutti gli attributi di dipendente (padre) sono anche attributi di tecnico e sviluppatore (figli). Quest'ultimi sono detti specializzazioni. Le specializzazioni partecipano a tutte le relazioni del padre.\
+Le specializzazioni potrebbero avere attributi specializzati che il padre non possiede.\
+Ci sono due tipi di generalizzazioni:
+- Parziale #diagram(
+    node-stroke: black + 0.5pt,
+    edge((0, 0.25), (0, 0), "=>"),
+  ): esistono occorrenze che sono solo dell'entità padre. (posso avere un dipendente che non è né tenico, né sviluppatore).
+- Totale #diagram(
+    node-stroke: black + 0.5pt,
+    edge((0, 0.25), (0, 0), "=|>"),
+  ): per forza ogni occorrenza dell'entità padre è occorrenza di almeno una delle entità figlie (un dipendente è per forza o un tecnico o uno sviluppatore).
+#eacc possibile definire generalizzazioni a cascata.
+== Dizionario dei dati
+Il dizionario dei dati è una tabella contentente la descrizione delle entità/relazioni del modello E-R.
+#figure(
+  table(
+    columns: 4,
+    inset: 5pt,
+    [Entità],
+    [Descrizione],
+    [Attributi],
+    [Identificatore],
+    [...],[...],[...],[...],
+  ),
+  caption: [Dizionario entità],
+)
+#figure(
+  table(
+    columns: 4,
+    inset: 5pt,
+    [Relazione],
+    [Descrizione],
+    [Attributi],
+    [Identificatore],
+    [...],[...],[...],[...],
+  ),
+  caption: [Dizionario relazioni],
+)
+== Problemi del modello E-R
+Non tutti i vincoli presenti nelle specifiche sono esprimibili con il modello E-R. Ad esempio vincoli nei valori permessi negli attributi.
+Per esprimere tali vincoli si usano le _business rules_.
+#ndef[Business Rules][
+    Descrizione di un concetto rilevante per l'applicazione, reappresentato nel glossario dei dati.
+]
+Tramite le business rules vengono raccolti vincoli sui dati dell'applicazione e derivazioni di concetti.
+Le business rules possono essere raccolte in tabelle, e devono essere allegate al diagramma E-R.
+#ex[Business Rules][
+    #table(
+        inset: 5pt
+    )[*Regole di vincolo*][1. Il direttore di un dipartimento deve afferire a tale dipartimento.][
+        2. Un impiegato non deve avere uno stipendio maggiore del direttore del dipartimento al quale afferisce.
+    ][*Regole di derivazione*][
+        1. Il budget di un dipartimento si ottiene sommando il budget dei profitti afferenti a quel dipartimento.
+    ]
+]
+
+= Progettazione Concettuale
