@@ -2023,9 +2023,9 @@ Le cardinalità da usare dovrebbero emergere dal documento di specifica.
   node((1, 0), [Dipdendente], shape: rect),
   node((1, 0.5), name: <i>),
   edge((1, 0), "=>"),
-  node((0, 1), [Tecnico], shape: rect),
+  node((0.5, 1), [Tecnico], shape: rect),
   edge(<i>),
-  node((2, 1), [Sviluppatore], shape: rect),
+  node((1.5, 1), [Sviluppatore], shape: rect),
   edge(<i>),
 )\
 Definisce una gerarchia tra entità basata su sul concetto di ereditarietà. Tutti gli attributi di dipendente (padre) sono anche attributi di tecnico e sviluppatore (figli). Quest'ultimi sono detti specializzazioni. Le specializzazioni partecipano a tutte le relazioni del padre.\
@@ -2046,11 +2046,8 @@ Il dizionario dei dati è una tabella contentente la descrizione delle entità/r
   table(
     columns: 4,
     inset: 5pt,
-    [Entità],
-    [Descrizione],
-    [Attributi],
-    [Identificatore],
-    [...],[...],[...],[...],
+    [Entità], [Descrizione], [Attributi], [Identificatore],
+    [...], [...], [...], [...],
   ),
   caption: [Dizionario entità],
 )
@@ -2058,11 +2055,8 @@ Il dizionario dei dati è una tabella contentente la descrizione delle entità/r
   table(
     columns: 4,
     inset: 5pt,
-    [Relazione],
-    [Descrizione],
-    [Attributi],
-    [Identificatore],
-    [...],[...],[...],[...],
+    [Relazione], [Descrizione], [Attributi], [Identificatore],
+    [...], [...], [...], [...],
   ),
   caption: [Dizionario relazioni],
 )
@@ -2070,18 +2064,213 @@ Il dizionario dei dati è una tabella contentente la descrizione delle entità/r
 Non tutti i vincoli presenti nelle specifiche sono esprimibili con il modello E-R. Ad esempio vincoli nei valori permessi negli attributi.
 Per esprimere tali vincoli si usano le _business rules_.
 #ndef[Business Rules][
-    Descrizione di un concetto rilevante per l'applicazione, reappresentato nel glossario dei dati.
+  Descrizione di un concetto rilevante per l'applicazione, reappresentato nel glossario dei dati.
 ]
 Tramite le business rules vengono raccolti vincoli sui dati dell'applicazione e derivazioni di concetti.
 Le business rules possono essere raccolte in tabelle, e devono essere allegate al diagramma E-R.
 #ex[Business Rules][
-    #table(
-        inset: 5pt
-    )[*Regole di vincolo*][1. Il direttore di un dipartimento deve afferire a tale dipartimento.][
-        2. Un impiegato non deve avere uno stipendio maggiore del direttore del dipartimento al quale afferisce.
-    ][*Regole di derivazione*][
-        1. Il budget di un dipartimento si ottiene sommando il budget dei profitti afferenti a quel dipartimento.
-    ]
+  #table(
+    inset: 5pt
+  )[*Regole di vincolo*][1. Il direttore di un dipartimento deve afferire a tale dipartimento.][
+    2. Un impiegato non deve avere uno stipendio maggiore del direttore del dipartimento al quale afferisce.
+  ][*Regole di derivazione*][
+    1. Il budget di un dipartimento si ottiene sommando il budget dei profitti afferenti a quel dipartimento.
+  ]
 ]
 
 = Progettazione Concettuale
+La costruzione di uno schema concettuale deve tenere conto di alcune proprietà generali che né determinano la qualità:
+- Correttezza: utilizzo corretto (sintattio/semantico) del modello E-R;
+- Completezza: rappresentazione di tutte i dati di interesse (e delle operazioni) descritti nel documento di specifica.
+Queste proprietà dipendono dal progettista, ma esistono anche alcune metodologie di progettazione concettuale
+== Strategie di progettazione
+- *Top-down*: lo schema concettuale viene ottenuto attraverso una serie di raffinamenti successivi a partire da uno schema iniziale molto astratto;
+- *Bottom-up*: le specifiche iniziali sono suddivise in componenti sempre più piccoli, e i vari schemi sono integrati tra loro in un secondo momento.
+- *Inside out*: si individuano una serie di concetti importanti e poi si procede a partire da questi verso concentti correlati, con una estensione a macchia d'olio.
+- *Strategia Mista*: è una combinazione delle strategie precedenti:
+  + si individuano i concetti principali;
+  + si realizza uno schema "scheletro";
+  + si decompone lo schema;
+  + si raffina, espande e integra lo schema.
+In molti casi pratici, la strategia mista è la scelta migliore.
+
+== Pattern di progettazione
+Non esiste una rappresentazione univoca delle specifiche, nel dubbio ci si attiene alle regole concettuali (RC).
+#ndef[Regole Concettuali][
+  - RC1: se un concetto ha priorità significativa e descrive oggetti con esistenza autonoma è un entità;
+  - RC2: se un concetto correla due o più entità è una relazione;
+  - RC3: se un oggetto è un caso particolare dell'altro: è una generalizzazione
+]
+
+I *pattern* sono soluzioni di problemi ricorrenti. \
+#ndef[Pattern 1: composizione][
+  Concetti di tipo "parte-di" attraverso l'utilizzo di relazioni "uno a molti".\
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 1), [Dipartimento], shape: rect, name: <s>),
+    edge()[$(1,1)$],
+    node((2, 1), [Composizione], shape: diamond, name: <i>),
+    edge()[$(1,N)$],
+    node((4, 1), [Università], shape: rect, name: <u>),
+    node((0.5, 0), stroke: none)[Nome],
+    edge(<s>, marks: ("O", none)),
+
+
+    node((4, 0), stroke: none)[Nome],
+    edge(<u>, marks: ("@", none)),
+
+    edge((0, 0.5), (0.75, 1.5), bend: 45deg, marks: (none, "@")),
+  )\
+  Le parti dipendono dal tutto.
+]
+
+#ndef[Pattern 2: gestione duplicati][
+  #figure(
+    diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [Studente], shape: rect, name: <s>),
+      node((0, -1), [Matricola], stroke: none, name: <m>),
+      edge(<s>, <m>, marks: (none, "@")),
+      edge(<s>, <e>)[$(0,N)$],
+      node((2, 0), [Esame], shape: diamond, name: <e>),
+      node((1.5, -1), [Voto], stroke: none, name: <v>),
+      node((2.5, -1), [Data], stroke: none, name: <d>),
+      edge(<e>, <v>, marks: (none, "O")),
+      edge(<e>, <d>, marks: (none, "O")),
+      node((0, -1), [Matricola], stroke: none, name: <m>),
+      edge(<e>, <c>)[$(0,N)$],
+      node((4, 0), [Corso], shape: rect, name: <c>),
+      edge(<c>, <co>, marks: (none, "@")),
+      node((4, -1), [Codice], stroke: none, name: <co>),
+    ),
+    caption: [
+      Uno studente può fare l'esame di un corso una sola volta. Questo perché la relazione STUDENTE - ESAME - CORSO è trattata come una relazione ternaria, e ogni tripla (studente, corso, esame) rappresenta un'istanza unica, quindi non c'è spazio per ripetere lo stesso esame dello stesso corso (non corretto).
+    ],
+  ),
+  #figure(
+    diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [Studente], shape: rect, name: <s>),
+      node((0, -1), [Matricola], stroke: none, name: <m>),
+      edge(<s>, <m>, marks: (none, "@")),
+      edge(<s>, <se>)[$(0,N)$],
+
+      node((1, 0), [S-E], shape: diamond, name: <se>),
+      edge(<se>, <e>)[$(1,1)$],
+
+      node((2, 0), [Esame], shape: rect, name: <e>),
+      node((2, 1), [Voto], stroke: none, name: <v>),
+      node((2, -1), [Data], stroke: none, name: <d>),
+      edge(<e>, <v>, marks: (none, "O")),
+      edge(<e>, <d>, marks: (none, "O")),
+
+      node((3, 0), [E-C], shape: diamond, name: <ec>),
+
+      node((0, -1), [Matricola], stroke: none, name: <m>),
+      edge(<e>, <ec>)[$(1,1)$],
+      node((4, 0), [Corso], shape: rect, name: <c>),
+      edge(<ec>, <c>)[$(0,N)$],
+
+      edge(<c>, <co>, marks: (none, "@")),
+      node((4, -1), [Codice], stroke: none, name: <co>),
+
+      edge((2.5, 0.2), (1.5, 0.2), bend: -90deg, marks: (none, "@")),
+    ),
+    caption: [
+      Uno studente può sostenere più volte lo stesso esame per lo stesso corso. Questo avviene perché ora la relazione S-E (STUDENTE - ESAME) permette a uno studente di sostenere più esami (con date diverse, ad esempio). La combinazione delle chiavi (studente, corso, data) nell'entità ESAME consente di registrare esami separati, permettendo così più tentativi per lo stesso corso (corretto).
+    ],
+  )
+]
+
+#ndef[Pattern 3: storia di un concetto][
+  Si utilizzano le generalizzazioni per tenere traccia della storia di un concetto (ossia, della sua istanza attuale e di quelle pregresse).\
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((1, 0), [Software], shape: rect),
+    node((1, 0.5), name: <i>),
+    edge((1, 0), "=|>"),
+    node((0.5, 1), [Software\ Obsoleto], shape: rect),
+    edge(<i>),
+    node((1.5, 1), [Software\ Aggiornato], shape: rect),
+    edge(<i>),
+  )\
+  La generalizzazione consente di evitare duplicati tra le entità, inserendo solo gli attributi specifici del concetto aggiornato/storico.
+]
+
+#ndef[Pattern 4: evoluzione nel tempo di un concetto][
+  Si utilizzano le generalizzazioni per tenere traccia dell'evoluzione nel tempo di un certo concetto (ossia creazione di nuove istanze diverse dal concetto originario)\
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Progetto], shape: rect),
+    edge()[$(1,N)$],
+    node((2, 0), [Partecipazione], shape: diamond),
+    edge()[$(1,1)$],
+    node((4, 0), [Ricercatore], shape: rect),
+    edge((0, 1), (0, 0), "=>"),
+    node((0, 1), [Progetto Accettato], shape: rect),
+  )\
+  Un "Progetto" può diventare (o meno) un "Progetto Accettato" nel tempo.
+]
+== Analisi di prestazione
+Una volta realizzato il modello E-R è importante analizzare l'efficienza dal punto di vista prestazionale. Sono indici di prestazione:
+- Costo operazionale: numero di entità/associazioni mediamente visitate per implementare una certa operazione sui dati;
+- Occupazione di memoria: spazio di memoria necessario per memorizzare i dati.
+Per poter stimare l'efficienza prestazionale di uno schema E-R, servono informazioni aggiuntive:
+#ndef[Tavola dei Volumi][
+  La tavola dei volumi fornisce una stima del numero di occorrenze di entità/relazioni presenti nel modello E-R.
+  #table(
+    inset: 5pt,
+    columns: 3,
+    [*Concetto*], [*Tipo*], [*Volume*],
+    [Progetto], [E], [100],
+    [Release], [E], [1000],
+  )
+  Stima del numero medio di occorrenze di un'entità.
+]
+
+#ndef[Tavola delle operazioni][
+  Definisce:
+  - L'insieme delle operazioni che devono essere implementate;
+  - La tipologia delle operazioni (interattive/batch);
+  - La frequenza delle operazioni (es. 100/gg).
+  Le tavole vengono fornite dalla raccolta ed analisi dei requisiti.
+  + Si assegna un dipendente al progetto;
+  + Si visualizzano tutti i dati di un progetto, delle release e del direttore;
+  + Per ciascun progetto si visualizzano tutti i dati dei dipedenti associati.
+]
+#ndef[Costo di un'operazione][
+  Data un'operazione $O$ di tipo $T$, si definisce il suo costo $c(O_T)$ come $ c(O_T)= f(O_T) dot w_T dot (alpha dot N C_"write" + N C_"read") $
+  - $f(O_T)$: frequenza dell'operazione;
+  - $N C_"read"$: numero di accessi in lettura a componenti dello schema;
+  - $N C_"write"$: numero di accessi in scrittura a componenti dello schema;
+  - $w_T$: peso dell'operazione;
+  - $alpha$: coefficiente moltiplicativo delle operazioni in scrittura
+
+]
+
+#ndef[Costo dello schema][
+  Dato uno schema S, e un'insieme di operazioni sui dati $O^1, O^2, dots, O^N$ con costi $c(O^1), c(O^2),dots, c(O^n)$, il costo dello schema è definito come:
+  $ c(S)= sum^n_(i=1) c(O^i) $
+]
+L'obiettivo del progettista è quello di determinare lo schema E-R di costo minimo.
+
+#ndef[Occupazione di memoria][
+  Conoscendo la tavola dei volumi, il tipo di ciascun attributo e la sua dimensione su disco, è possible stimare l'occupazione di memoria dello schema.
+  $ M(S)= sigma_"entità" V("entità") dot "size"("entità") + sigma_"relazioni" V("relazioni") dot "size"("relazioni") $
+  - $V(e), "size"(e)$: Tabella dei volumi e dimensione in termini di occupazione di memoria dell'entità $e$;
+  - $V(r), "size"(r)$: Tabella dei volumi e dimensione in termini di occupazione di memoria della relazione $r$;
+]
+
+Si cerca di determinare il miglior trade-off tra occupazione di memoria e costo delle operazioni dello schema. Gli indici di prestazione di un diagramma E-R sono forniti come input alla fase di progettazione logica, e sono utilizzati per:
+- tradurre il modello concettuale;
+- analizzare le ridondanze.
+#imp[
+    + Analisi dei requisiti
+    + Progettazione concettuale
+        + Diagramma E-R;
+        + Dizionario entità;
+        + Dizionario relazioni;
+        + Tabella delle business rules;
+        + Analisi indici di stima
+]
+= Progettazione Logica
