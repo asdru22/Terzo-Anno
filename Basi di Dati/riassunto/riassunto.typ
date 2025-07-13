@@ -2265,12 +2265,484 @@ Si cerca di determinare il miglior trade-off tra occupazione di memoria e costo 
 - tradurre il modello concettuale;
 - analizzare le ridondanze.
 #imp[
-    + Analisi dei requisiti
-    + Progettazione concettuale
-        + Diagramma E-R;
-        + Dizionario entità;
-        + Dizionario relazioni;
-        + Tabella delle business rules;
-        + Analisi indici di stima
+  + Analisi dei requisiti
+  + Progettazione concettuale
+    + Diagramma E-R;
+    + Dizionario entità;
+    + Dizionario relazioni;
+    + Tabella delle business rules;
+    + Analisi indici di stima
 ]
 = Progettazione Logica
+L'obiettivo della progettazione logica è realizzare il modello logico (es. relazionale), a partiire dalle informazioni del modello E-R.
+#imp[Si vuole evitare di tradurre ogni entità e ogni relazione del modello in una tabella per evitare problemi di:
+  - Efficienza: troppe tabelle ricuono l'efficienza delle operazioni sui dati;
+  - Correttezza: dubbi sulla traduzzione delle generalizzazioni.
+]
+Per garantire la qualità dello schema prodotto, la progettazione logica tipicamente include due passaggi:
++ Ristrutturazione del modello concettuale: si modifica lo schema E-R al fine di abilitare la traduzione nel modello logico e di ottimizzare il progetto nel suo complesso.
++ Traduzione nel modello logico: traduzione dei costrutti del modello E-R nei costrutti equivalenti del modello relazionale.
+
+== Ristrutturazione
+Prima di tradurre il modello E-R, è necessario ristrutturarlo per motivi di correttezza/efficienza:
++ Eliminazione delle generalizzazioni
+#ex[Soluzione 1][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((1, 0), [$E_0$], shape: rect),
+    edge((0.5, -1), marks: (none, "@")),
+    node((0.5, -1), [$A_(01)$], stroke: none),
+
+    edge((1, 0), (1.5, -1), marks: (none, "O")),
+    node((1.5, -1), [$A_(02)$], stroke: none),
+
+
+    node((1, 0.5), name: <i>),
+    edge((1, 0), "=|>"),
+    node((0.5, 1), [$E_1$], shape: rect),
+    edge(<i>),
+    edge((0.5, 2), marks: (none, "O")),
+    node((0.5, 2), [$A_(11)$], stroke: none),
+    node((1.5, 1), [$E_2$], shape: rect),
+    edge(<i>),
+    edge((1.5, 2), marks: (none, "O")),
+    node((1.5, 2), [$A_(21)$], stroke: none),
+
+    edge((2, 0), (3, 0), "=>"),
+
+
+    node((4, 0), [$E_0$], shape: rect),
+    edge((3.5, -1), marks: (none, "@")),
+    node((3.5, -1), [$A_(01)$], stroke: none),
+
+    edge((4, 0), (4.5, -1), marks: (none, "O")),
+    node((4.5, -1), [$A_(02)$], stroke: none),
+
+    edge((4, 0), (5, 0), marks: (none, "O"), stroke: red),
+    node((5, 0), [#text(fill: red, $A_"tipo"$)], stroke: none),
+
+    edge((4, 0), (3.5, 1), marks: (none, "O")),
+    node((3.5, 1), [$A_(11)$], stroke: none),
+
+    edge((4, 0), (4.5, 1), marks: (none, "O")),
+    node((4.5, 1), [$A_(21)$], stroke: none),
+  )\
+  Accoppiamento delle entità figlie nelll'entità genitore, con accoppiamento dei relativi attributi e relazioni.
+]
+
+
+#ex[Soluzione 2][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((1, 0), [$E_0$], shape: rect),
+    edge((0.5, -1), marks: (none, "@")),
+    node((0.5, -1), [$A_(01)$], stroke: none),
+
+    edge((1, 0), (1.5, -1), marks: (none, "O")),
+    node((1.5, -1), [$A_(02)$], stroke: none),
+
+    edge((1, 0), (2, -0.5)),
+    node((2, -0.5), [$R_(1)$], shape: diamond),
+
+
+    node((1, 0.5), name: <i>),
+    edge((1, 0), "=|>"),
+    node((0.5, 1), [$E_1$], shape: rect),
+    edge(<i>),
+    edge((0.5, 2), marks: (none, "O")),
+    node((0.5, 2), [$A_(11)$], stroke: none),
+    node((1.5, 1), [$E_2$], shape: rect),
+    edge(<i>),
+    edge((1.5, 2), marks: (none, "O")),
+    node((1.5, 2), [$A_(21)$], stroke: none),
+
+    edge((2, 0), (3, 0), "=>"),
+
+    node((3.5, 0), [$E_1$], shape: rect),
+    edge((3, -1), marks: (none, "@")),
+    node((3, -1), [$A_(01)$], stroke: none),
+
+    edge((3.5, 0), (4, -1), marks: (none, "O")),
+    node((4, -1), [$A_(02)$], stroke: none),
+
+    edge((3.5, 0), (3.5, -1), marks: (none, "O")),
+    node((3.5, -1), [$A_(11)$], stroke: none),
+
+    edge((3.5, 0), (3.5, 1)),
+    node((3.5, 1), [$R_(1)$], shape: diamond),
+
+
+    node((5, 0), [$E_2$], shape: rect),
+    edge((4.5, -1), marks: (none, "@")),
+    node((4.5, -1), [$A_(01)$], stroke: none),
+
+    edge((5, 0), (5.5, -1), marks: (none, "O")),
+    node((5.5, -1), [$A_(02)$], stroke: none),
+
+    edge((5, 0), (5, -1), marks: (none, "O")),
+    node((5, -1), [$A_(21)$], stroke: none),
+
+    edge((5, 0), (5, 1)),
+    node((5, 1), [$R_(1)$], shape: diamond),
+  )\
+]
+
+#ex[Soluzione 3][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((1, 0), [$E_0$], shape: rect),
+    edge((0.5, -1), marks: (none, "@")),
+    node((0.5, -1), [$A_(01)$], stroke: none),
+
+    edge((1, 0), (1.5, -1), marks: (none, "O")),
+    node((1.5, -1), [$A_(02)$], stroke: none),
+
+    edge((1, 0), (2, -0.5)),
+    node((2, -0.5), [$R_(1)$], shape: diamond),
+
+
+    node((1, 0.5), name: <i>),
+    edge((1, 0), "=|>"),
+    node((0.5, 1), [$E_1$], shape: rect),
+    edge(<i>),
+    edge((0.5, 2), marks: (none, "O")),
+    node((0.5, 2), [$A_(11)$], stroke: none),
+    node((1.5, 1), [$E_2$], shape: rect),
+    edge(<i>),
+    edge((1.5, 2), marks: (none, "O")),
+    node((1.5, 2), [$A_(21)$], stroke: none),
+
+    edge((2, 0), (3, 0), "=>"),
+
+
+    node((3.5, 0), [$E_0$], shape: rect, name: <e0>),
+    edge((3, -1), marks: (none, "@")),
+    node((3, -1), [$A_(01)$], stroke: none),
+
+    edge((3.5, 0), (4, -1), marks: (none, "O")),
+    node((4, -1), [$A_(02)$], stroke: none),
+
+    edge((3.5, 0), (4.5, -0.5)),
+    node((4.5, -0.5), [$R_(1)$], shape: diamond),
+    node((3, 2), [$E_1$], shape: rect),
+    edge()[$(1,1)$],
+    node((3, 1), [$R_(01)$], shape: diamond, name: <r1>),
+    node((4, 1), [$R_(02)$], shape: diamond, name: <r2>),
+    edge((4, 2))[$(1,1)$],
+
+    node((4, 3), [$A_(21)$], stroke: none),
+    node((4, 2), [$E_2$], shape: rect),
+    node((3, 3), [$A_(11)$], stroke: none),
+
+    edge(<e0>, <r1>)[$(0,1)$],
+    edge(<e0>, <r2>)[$(0,1)$],
+
+    edge((3, 2), (3, 3), marks: (none, "O")),
+    edge((4, 2), (4, 3), marks: (none, "O")),
+
+    edge((2.75, 1.35), (3.25, 1.35), marks: (none, "@")),
+    edge((3.75, 1.35), (4.25, 1.35), marks: (none, "@")),
+  )
+]
+
+- Soluzione 1 introduce valori nulli ed un attributo aggiuntivo, ma è conveniente quando non ci sono troppe differenze concettuali tra $E_0, E_1, E_2$;
+- Soluzione 2 è possibile solo se la generalizzazione è totale, non introduce valori nulli, ma è conveniente quando ci sono operazioni che coinvolgono per lo più $E_1$ ed $E_2$ ma non l'entità genitore $E_0$;
+- Soluzione 3 non introduce valori nulli, ed è utile quando ci sono operazioni che si riferiscono solo ad istanze di $E_1$, $E_2$ ed $E_0$, ma presenta la necessità di introdurre dei vincoli:
+  - Un'occorrenza di $E_0$ non può partecipare in contemporanea a $R_(01)$ e $R_(02)$.
+  - Se la generalizzazione è totale, ogni occorrenza di $E_0$ deve partecipare a a $R_(01)$ o $R_(02)$.
+
+== Eliminazione degli attributi multi-valore
+Gli attributi multivalore non sono presenti nel modello logico, ma possono essere modellati anche con una relazione uno-a-molti.
+#ex[Eliminazione attributi multi-valore][
+  #diagram(
+    node-stroke: black + 0.5pt,
+
+
+    node((0, -2), [Persona], shape: rect, name: <s2>),
+    node((1, -2), [Telefono], stroke: none, name: <t>),
+
+    node((-0.5, -3), [Nome], stroke: none, name: <m2>),
+    node((0.5, -3), [Cognome], stroke: none, name: <cg2>),
+    edge(<s2>, <m2>, marks: (none, "@")),
+    edge(<s2>, <cg2>, marks: (none, "O")),
+    edge(<s2>, <t>, marks: (none, "O"))[$(1,N)$],
+
+    edge((0, -1.5), (0, -1), "=>"),
+
+
+    node((0, 0), [Persona], shape: rect, name: <s>),
+    node((-0.5, -1), [Nome], stroke: none, name: <m>),
+    node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+    edge(<s>, <m>, marks: (none, "@")),
+    edge(<s>, <cg>, marks: (none, "O")),
+    edge(<s>, <e>)[$(1,N)$],
+    node((2, 0), [R], shape: diamond, name: <e>),
+
+    edge(<e>, <c>)[$(1,1)$],
+    node((4, 0), [Telefono], shape: rect, name: <c>),
+  )\
+  La soluzione non introduce valori #null ma aumenta il numero di entità presenti nel sistema.
+]
+
+== Partizionamento/accorporamento di concetti
+Per un dato modello E-R, è possibile ridurre il numero di accessi:
+- Separando attributi che vengono acceduti separatamente (partizionamento);
+- Raggruppando attributi di entità diverse acceduti allo stesso tempo (accorporamento);
+- #eacc necessario avere una stima sul volume dei dati per valutare se/come partizionare/accorpare entità.
+
+== Analisi delle ridondanze
+Nel modello potrebbero essere presenti ridondanze sui dati, ossia informazioni significative derivabili da altre già presenti nel modello E-R.
+#tab(
+  2,
+  [Ridondanze],
+  [*Vantaggi*],
+  [*Svantaggi*],
+  [Operazioni sui dati più efficienti],
+  [Maggiore occupazione di memoria],
+  [],
+  [Maggiore complessità degli aggiornamenti
+  ],
+)
+Per scegliere cosa fare di un attributo ridondante, è possible utilizzare l'analisi del modello E-R visto nella progettazione concettuale.
+Sia $S$ lo schema E-R senza ridondanze, e $S_"RID"$ lo schema con ridondanze:
+Si calcolano il costo e l'occupazione di memoria di entrambi gli schemi e poi si valuta $C(S)$ vs $C(S_"RID")$.\
+Per effettuare l'analisi del modello E-R, è necessario disporre delle tavole dei volumi e delle operazioni.
+#ex[Analisi modello E-R][
+  - OP1: inserire una nuova persona (200/gg);
+  - OP2: visualizzare tutti i dati di una città (5/gg);
+  *Analisi dello schema $S_"RID"$* (con ridondanza)\
+  $
+    f("OP1")= 200, w_I = 1, alpha =2 \
+    c("OP1")=200 dot 1 dot (3 dot 2) = 1200 \
+    f("OP2")= 5, w_I = 1, alpha =2\
+    c("OP2")=5 dot 1 dot (0 dot 2 + 1) = 5
+  $
+
+  *Analisi dello schema $S$* (senza ridondanza)\
+  $
+    f("OP1")= 200, w_I = 1, alpha =2 \
+    c("OP1")=200 dot 1 dot (2 dot 2 + 0) = 800 \
+    f("OP2")= 5, w_I = 1, alpha =2\
+    c("OP2")=5 dot 1 dot (0 dot 2 + 5001) = 25005
+  $
+
+  $
+    c(S_"RID") & = 1200 + 5   \
+          c(S) & = 800 +25005
+  $
+  *Occupazione di memoria*\
+  $M(S)= X$ (byte)\
+  $M(S_"RID")= X+100 dot 4$ (byte)\
+  In questo caso, è conveniente mantenere l'attributo
+]
+
+== Traduzione nel modello logico
+Le entità diventano tabelle sugli stessi attributi; le relazioni del modello E-R diventano tabelle suglo identificatori delle entità coinvolte (con gli attributi propri). Sono possibili traduzioni differenti in base alle cardinalità.
+#ex[Traduzione di entità con identificatore interno][
+  #split[#diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [Impiegato], shape: rect, name: <0>),
+      node((1, -1), stroke: none, name: <1>, [Data nascita]),
+      node((1, -0), stroke: none, name: <2>, [Cognome]),
+      node((1, 1), stroke: none, name: <3>, [Nome]),
+      node((0, -1), stroke: none, name: <4>, [Matricola]),
+
+      edge(<0>, <1>, marks: (none, "O")),
+      edge(<0>, <2>, marks: (none, "O")),
+      edge(<0>, <3>, marks: (none, "O")),
+      edge(<0>, <4>, marks: (none, "@")),
+    ),][impiegato(#underline[Matricola],nome,cognome,data)]
+]
+#ex[Traduzione identificatore esterno][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 1), [Studente], shape: rect, name: <s>),
+    edge()[$(1,1)$],
+    node((2, 1), [Rel], shape: diamond, name: <i>),
+
+
+    edge()[$(1,N)$],
+    node((4, 1), [Università], shape: rect, name: <u>),
+    node((0.5, 0), stroke: none)[Matricola],
+    edge(<s>, marks: ("O", none)),
+
+
+    node((4, 0), stroke: none)[Nome],
+    edge(<u>, marks: ("@", none)),
+
+    edge((0, 0.5), (0.75, 1.5), bend: 45deg, marks: (none, "@")),
+
+    node((-0.5, 2), [Nome], stroke: none, name: <n>),
+    node((0.5, 2), [Cognome], stroke: none, name: <cg>),
+
+    edge(<s>, <n>, marks: (none, "O")),
+    edge(<s>, <cg>, marks: (none, "O")),
+
+    node((3.5, 2), [Città], stroke: none, name: <c>),
+    node((4.5, 2), [Indirizzo], stroke: none, name: <i>),
+
+    edge(<u>, <c>, marks: (none, "O")),
+    edge(<u>, <i>, marks: (none, "O")),
+  )\
+  studente(#underline[Matricola], #underline[Nome università], Nome, Cognome)\
+  università(#underline[Nome], città, indirizzo)
+]
+
+#ex[Molti a molti][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Impiegato], shape: rect, name: <i>),
+    node((-0.5, -1), [Matricola], stroke: none, name: <m>),
+    node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+
+    edge(<i>, <m>, marks: (none, "@")),
+    edge(<i>, <cg>, marks: (none, "O")),
+
+    edge(<i>, <l>)[$(0,N)$],
+    node((1.5, 0), [Lavoro], shape: diamond, name: <l>),
+    node((1.5, -1), [Data], stroke: none, name: <d>),
+    edge(<l>, <d>, marks: (none, "O")),
+    edge(<l>, <p>)[$(0,N)$],
+    node((3, 0), [Progetto], shape: rect, name: <p>),
+    edge(<p>, <co>, marks: (none, "@")),
+    node((3, -1), [Codice], stroke: none, name: <co>),
+    node((2.5, 1), [Descrizione], stroke: none, name: <de>),
+    node((3.5, 1), [Budget], stroke: none, name: <b>),
+
+    edge(<p>, <de>, marks: (none, "O")),
+    edge(<p>, <b>, marks: (none, "O")),
+  )\
+
+  impiegato(#underline[Matricola], cognome)\
+  progetto(#underline[Codice],descrizione, budget)\
+  lavoro(#underline[impiegato],#underline[codice progetto], data)
+]
+#ex[Uno a molti][
+  #diagram(
+    node-stroke: black + 0.5pt,
+    node((0, 0), [Giocatore], shape: rect, name: <g>),
+    node((-0.5, -1), [Nome], stroke: none, name: <m>),
+    node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+    node((0, 1), [Ruolo], stroke: none, name: <r>),
+
+    edge(<g>, <m>, marks: (none, "O")),
+    edge(<g>, <cg>, marks: (none, "O")),
+    edge(<g>, <r>, marks: (none, "O")),
+
+    edge(<g>, <co>)[$(1,1)$],
+    node((1.5, 0), [Contratto], shape: diamond, name: <co>),
+    node((1.5, -1), [Ingaggio], stroke: none, name: <i>),
+    edge(<co>, <i>, marks: (none, "O")),
+    edge(<co>, <s>)[$(0,N)$],
+    node((3, 0), [Squadra], shape: rect, name: <s>),
+    edge(<s>, <n>, marks: (none, "@")),
+    node((3, -1), [Nome], stroke: none, name: <n>),
+    node((2.5, 1), [Città], stroke: none, name: <ci>),
+    node((3.5, 1), [Sede], stroke: none, name: <se>),
+
+    edge(<s>, <ci>, marks: (none, "O")),
+    edge(<s>, <se>, marks: (none, "O")),
+
+    edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
+  )\
+  Ci sono due traduzioni:
+  + Si traduce la relazione come una tabella separata:\
+    giocatore(#underline[Nome], #underline[Cognome], ruolo)\
+    squadra(#underline[Nome],Città, Sede)\
+    contratto(#underline[Nome],#underline[Cognome],Nome Squadra, Ingaggio)
+
+  + Si ingloba la relazione nell'entità con cardinalità al massimo 1:\
+    giocatore(#underline[Nome], #underline[Cognome], ruolo, Nome Squadra, Ingaggio)\
+    squadra(#underline[Nome],Città, Sede)\
+]
+
+#let u(content) = underline(content)
+#ex[Uno ad uno][
+    Ci sono 3 Casi:
+    + #diagram(
+  node-stroke: black + 0.5pt,
+  node((0, 0), [Impiegato], shape: rect, name: <g>),
+  node((-0.5, -1), [Nome], stroke: none, name: <m>),
+  node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+  node((0, 1), [Stipendio], stroke: none, name: <r>),
+
+  edge(<g>, <m>, marks: (none, "O")),
+  edge(<g>, <cg>, marks: (none, "O")),
+  edge(<g>, <r>, marks: (none, "O")),
+
+  edge(<g>, <co>)[$(1,1)$],
+  node((1.5, 0), [Direzione], shape: diamond, name: <co>),
+  node((1.5, -1), [Data], stroke: none, name: <i>),
+  edge(<co>, <i>, marks: (none, "O")),
+  edge(<co>, <s>)[$(1,1)$],
+  node((3, 0), [Squadra], shape: rect, name: <s>),
+  edge(<s>, <n>, marks: (none, "@")),
+  node((3, -1), [Nome], stroke: none, name: <n>),
+  node((2.5, 1), [Città], stroke: none, name: <ci>),
+  node((3.5, 1), [Sede], stroke: none, name: <se>),
+
+  edge(<s>, <ci>, marks: (none, "O")),
+  edge(<s>, <se>, marks: (none, "O")),
+
+  edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
+)\ Si traduce il modello inglobando la relazione in una delle due entità:\ impiegato(#u[Nome],#u[Cognome], Stipendio, Data, Nome Ufficio)\ ufficio(#u[Nome], Città, Sede)\
++ #diagram(
+  node-stroke: black + 0.5pt,
+  node((0, 0), [Impiegato], shape: rect, name: <g>),
+  node((-0.5, -1), [Nome], stroke: none, name: <m>),
+  node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+  node((0, 1), [Stipendio], stroke: none, name: <r>),
+
+  edge(<g>, <m>, marks: (none, "O")),
+  edge(<g>, <cg>, marks: (none, "O")),
+  edge(<g>, <r>, marks: (none, "O")),
+
+  edge(<g>, <co>)[$(0,1)$],
+  node((1.5, 0), [Direzione], shape: diamond, name: <co>),
+  node((1.5, -1), [Data], stroke: none, name: <i>),
+  edge(<co>, <i>, marks: (none, "O")),
+  edge(<co>, <s>)[$(1,1)$],
+  node((3, 0), [Squadra], shape: rect, name: <s>),
+  edge(<s>, <n>, marks: (none, "@")),
+  node((3, -1), [Nome], stroke: none, name: <n>),
+  node((2.5, 1), [Città], stroke: none, name: <ci>),
+  node((3.5, 1), [Sede], stroke: none, name: <se>),
+
+  edge(<s>, <ci>, marks: (none, "O")),
+  edge(<s>, <se>, marks: (none, "O")),
+
+  edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
+)\ Si traduce inglobando la relazione nell'entità che ha la partecipazione obbligatoria:\  impiegato(#u[Nome],#u[Cognome], Stipendio)\ ufficio(#u[Nome], Città, Data, Nome Direttore, Cognome Direttore)\
++ #diagram(
+  node-stroke: black + 0.5pt,
+  node((0, 0), [Impiegato], shape: rect, name: <g>),
+  node((-0.5, -1), [Nome], stroke: none, name: <m>),
+  node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+  node((0, 1), [Stipendio], stroke: none, name: <r>),
+
+  edge(<g>, <m>, marks: (none, "O")),
+  edge(<g>, <cg>, marks: (none, "O")),
+  edge(<g>, <r>, marks: (none, "O")),
+
+  edge(<g>, <co>)[$(0,1)$],
+  node((1.5, 0), [Direzione], shape: diamond, name: <co>),
+  node((1.5, -1), [Data], stroke: none, name: <i>),
+  edge(<co>, <i>, marks: (none, "O")),
+  edge(<co>, <s>)[$(0,1)$],
+  node((3, 0), [Squadra], shape: rect, name: <s>),
+  edge(<s>, <n>, marks: (none, "@")),
+  node((3, -1), [Nome], stroke: none, name: <n>),
+  node((2.5, 1), [Città], stroke: none, name: <ci>),
+  node((3.5, 1), [Sede], stroke: none, name: <se>),
+
+  edge(<s>, <ci>, marks: (none, "O")),
+  edge(<s>, <se>, marks: (none, "O")),
+
+  edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
+)\ Si traduce il modello traducendo la relazione come una tabella a sé stante (analogo del caso uno-a-molti).\   impiegato(#u[Nome],#u[Cognome], Stipendio)\ ufficio(#u[Nome], Città, Sede)\ direzione(#u[Nome Ufficio],Nome Direttore, Cognome Direttore, Data)
+]
+Come per la fase di progettazione concettuale, è necessario associare lo schema logico con una opportuna documentazione perchè non tutti i vincoli sono esprimibili nello schema logico:
+- Tabella delle business rules (vista in precedenza)
+- Insieme dei vincoli di integrità referenziali
+    - Rappresentati attraverso tabella
+    - Rappresentati in maniera grafica (diagramma logico).
