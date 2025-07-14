@@ -14,6 +14,8 @@
   100%
 } else { auto })
 
+#pagebreak()
+
 = Introduzione ai DBMS
 *Modello relazionale*: organizza i dati in record di dimensione fissa mediante tabelle. \
 *Sistema informativo* (SI): componente di un'organizzazione il cui scopo è gestire le informazioni utili ai fini dell'organizzazione stessa. \
@@ -2656,93 +2658,447 @@ Le entità diventano tabelle sugli stessi attributi; le relazioni del modello E-
     squadra(#underline[Nome],Città, Sede)\
 ]
 
-#let u(content) = underline(content)
 #ex[Uno ad uno][
-    Ci sono 3 Casi:
-    + #diagram(
-  node-stroke: black + 0.5pt,
-  node((0, 0), [Impiegato], shape: rect, name: <g>),
-  node((-0.5, -1), [Nome], stroke: none, name: <m>),
-  node((0.5, -1), [Cognome], stroke: none, name: <cg>),
-  node((0, 1), [Stipendio], stroke: none, name: <r>),
+  Ci sono 3 Casi:
+  + #diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [Impiegato], shape: rect, name: <g>),
+      node((-0.5, -1), [Nome], stroke: none, name: <m>),
+      node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+      node((0, 1), [Stipendio], stroke: none, name: <r>),
 
-  edge(<g>, <m>, marks: (none, "O")),
-  edge(<g>, <cg>, marks: (none, "O")),
-  edge(<g>, <r>, marks: (none, "O")),
+      edge(<g>, <m>, marks: (none, "O")),
+      edge(<g>, <cg>, marks: (none, "O")),
+      edge(<g>, <r>, marks: (none, "O")),
 
-  edge(<g>, <co>)[$(1,1)$],
-  node((1.5, 0), [Direzione], shape: diamond, name: <co>),
-  node((1.5, -1), [Data], stroke: none, name: <i>),
-  edge(<co>, <i>, marks: (none, "O")),
-  edge(<co>, <s>)[$(1,1)$],
-  node((3, 0), [Squadra], shape: rect, name: <s>),
-  edge(<s>, <n>, marks: (none, "@")),
-  node((3, -1), [Nome], stroke: none, name: <n>),
-  node((2.5, 1), [Città], stroke: none, name: <ci>),
-  node((3.5, 1), [Sede], stroke: none, name: <se>),
+      edge(<g>, <co>)[$(1,1)$],
+      node((1.5, 0), [Direzione], shape: diamond, name: <co>),
+      node((1.5, -1), [Data], stroke: none, name: <i>),
+      edge(<co>, <i>, marks: (none, "O")),
+      edge(<co>, <s>)[$(1,1)$],
+      node((3, 0), [Squadra], shape: rect, name: <s>),
+      edge(<s>, <n>, marks: (none, "@")),
+      node((3, -1), [Nome], stroke: none, name: <n>),
+      node((2.5, 1), [Città], stroke: none, name: <ci>),
+      node((3.5, 1), [Sede], stroke: none, name: <se>),
 
-  edge(<s>, <ci>, marks: (none, "O")),
-  edge(<s>, <se>, marks: (none, "O")),
+      edge(<s>, <ci>, marks: (none, "O")),
+      edge(<s>, <se>, marks: (none, "O")),
 
-  edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
-)\ Si traduce il modello inglobando la relazione in una delle due entità:\ impiegato(#u[Nome],#u[Cognome], Stipendio, Data, Nome Ufficio)\ ufficio(#u[Nome], Città, Sede)\
-+ #diagram(
-  node-stroke: black + 0.5pt,
-  node((0, 0), [Impiegato], shape: rect, name: <g>),
-  node((-0.5, -1), [Nome], stroke: none, name: <m>),
-  node((0.5, -1), [Cognome], stroke: none, name: <cg>),
-  node((0, 1), [Stipendio], stroke: none, name: <r>),
+      edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
+    )\ Si traduce il modello inglobando la relazione in una delle due entità:\ impiegato(#u[Nome],#u[Cognome], Stipendio, Data, Nome Ufficio)\ ufficio(#u[Nome], Città, Sede)\
+  + #diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [Impiegato], shape: rect, name: <g>),
+      node((-0.5, -1), [Nome], stroke: none, name: <m>),
+      node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+      node((0, 1), [Stipendio], stroke: none, name: <r>),
 
-  edge(<g>, <m>, marks: (none, "O")),
-  edge(<g>, <cg>, marks: (none, "O")),
-  edge(<g>, <r>, marks: (none, "O")),
+      edge(<g>, <m>, marks: (none, "O")),
+      edge(<g>, <cg>, marks: (none, "O")),
+      edge(<g>, <r>, marks: (none, "O")),
 
-  edge(<g>, <co>)[$(0,1)$],
-  node((1.5, 0), [Direzione], shape: diamond, name: <co>),
-  node((1.5, -1), [Data], stroke: none, name: <i>),
-  edge(<co>, <i>, marks: (none, "O")),
-  edge(<co>, <s>)[$(1,1)$],
-  node((3, 0), [Squadra], shape: rect, name: <s>),
-  edge(<s>, <n>, marks: (none, "@")),
-  node((3, -1), [Nome], stroke: none, name: <n>),
-  node((2.5, 1), [Città], stroke: none, name: <ci>),
-  node((3.5, 1), [Sede], stroke: none, name: <se>),
+      edge(<g>, <co>)[$(0,1)$],
+      node((1.5, 0), [Direzione], shape: diamond, name: <co>),
+      node((1.5, -1), [Data], stroke: none, name: <i>),
+      edge(<co>, <i>, marks: (none, "O")),
+      edge(<co>, <s>)[$(1,1)$],
+      node((3, 0), [Squadra], shape: rect, name: <s>),
+      edge(<s>, <n>, marks: (none, "@")),
+      node((3, -1), [Nome], stroke: none, name: <n>),
+      node((2.5, 1), [Città], stroke: none, name: <ci>),
+      node((3.5, 1), [Sede], stroke: none, name: <se>),
 
-  edge(<s>, <ci>, marks: (none, "O")),
-  edge(<s>, <se>, marks: (none, "O")),
+      edge(<s>, <ci>, marks: (none, "O")),
+      edge(<s>, <se>, marks: (none, "O")),
 
-  edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
-)\ Si traduce inglobando la relazione nell'entità che ha la partecipazione obbligatoria:\  impiegato(#u[Nome],#u[Cognome], Stipendio)\ ufficio(#u[Nome], Città, Data, Nome Direttore, Cognome Direttore)\
-+ #diagram(
-  node-stroke: black + 0.5pt,
-  node((0, 0), [Impiegato], shape: rect, name: <g>),
-  node((-0.5, -1), [Nome], stroke: none, name: <m>),
-  node((0.5, -1), [Cognome], stroke: none, name: <cg>),
-  node((0, 1), [Stipendio], stroke: none, name: <r>),
+      edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
+    )\ Si traduce inglobando la relazione nell'entità che ha la partecipazione obbligatoria:\  impiegato(#u[Nome],#u[Cognome], Stipendio)\ ufficio(#u[Nome], Città, Data, Nome Direttore, Cognome Direttore)\
+  + #diagram(
+      node-stroke: black + 0.5pt,
+      node((0, 0), [Impiegato], shape: rect, name: <g>),
+      node((-0.5, -1), [Nome], stroke: none, name: <m>),
+      node((0.5, -1), [Cognome], stroke: none, name: <cg>),
+      node((0, 1), [Stipendio], stroke: none, name: <r>),
 
-  edge(<g>, <m>, marks: (none, "O")),
-  edge(<g>, <cg>, marks: (none, "O")),
-  edge(<g>, <r>, marks: (none, "O")),
+      edge(<g>, <m>, marks: (none, "O")),
+      edge(<g>, <cg>, marks: (none, "O")),
+      edge(<g>, <r>, marks: (none, "O")),
 
-  edge(<g>, <co>)[$(0,1)$],
-  node((1.5, 0), [Direzione], shape: diamond, name: <co>),
-  node((1.5, -1), [Data], stroke: none, name: <i>),
-  edge(<co>, <i>, marks: (none, "O")),
-  edge(<co>, <s>)[$(0,1)$],
-  node((3, 0), [Squadra], shape: rect, name: <s>),
-  edge(<s>, <n>, marks: (none, "@")),
-  node((3, -1), [Nome], stroke: none, name: <n>),
-  node((2.5, 1), [Città], stroke: none, name: <ci>),
-  node((3.5, 1), [Sede], stroke: none, name: <se>),
+      edge(<g>, <co>)[$(0,1)$],
+      node((1.5, 0), [Direzione], shape: diamond, name: <co>),
+      node((1.5, -1), [Data], stroke: none, name: <i>),
+      edge(<co>, <i>, marks: (none, "O")),
+      edge(<co>, <s>)[$(0,1)$],
+      node((3, 0), [Squadra], shape: rect, name: <s>),
+      edge(<s>, <n>, marks: (none, "@")),
+      node((3, -1), [Nome], stroke: none, name: <n>),
+      node((2.5, 1), [Città], stroke: none, name: <ci>),
+      node((3.5, 1), [Sede], stroke: none, name: <se>),
 
-  edge(<s>, <ci>, marks: (none, "O")),
-  edge(<s>, <se>, marks: (none, "O")),
+      edge(<s>, <ci>, marks: (none, "O")),
+      edge(<s>, <se>, marks: (none, "O")),
 
-  edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
-)\ Si traduce il modello traducendo la relazione come una tabella a sé stante (analogo del caso uno-a-molti).\   impiegato(#u[Nome],#u[Cognome], Stipendio)\ ufficio(#u[Nome], Città, Sede)\ direzione(#u[Nome Ufficio],Nome Direttore, Cognome Direttore, Data)
+      edge((0.5, -0.5), (-0.5, -0.5), marks: (none, "@")),
+    )\ Si traduce il modello traducendo la relazione come una tabella a sé stante (analogo del caso uno-a-molti).\   impiegato(#u[Nome],#u[Cognome], Stipendio)\ ufficio(#u[Nome], Città, Sede)\ direzione(#u[Nome Ufficio],Nome Direttore, Cognome Direttore, Data)
 ]
 Come per la fase di progettazione concettuale, è necessario associare lo schema logico con una opportuna documentazione perchè non tutti i vincoli sono esprimibili nello schema logico:
 - Tabella delle business rules (vista in precedenza)
 - Insieme dei vincoli di integrità referenziali
-    - Rappresentati attraverso tabella
-    - Rappresentati in maniera grafica (diagramma logico).
+  - Rappresentati attraverso tabella
+  - Rappresentati in maniera grafica (diagramma logico).
+
+= Normalizzazione dei dati
+Le ridondanze sui dati possono essere di due tipi:
++ *Ridondanza Concettuale*: Non ci sono duplicazioni dello stesso dato, ma sono memorizzate informazioni che possono essere ricavate da altre già contenute nel DB#footnote[Esempi di ridondanze concettuali che possono presentarsi già nel
+    diagramma E-R.].
++ *Ridondanza Fisica*: esistono duplicazioni sui dati, che possono generare anomalie nelle operazioni sui dati.
+#ex[Ridondanza Fisica][
+  #db(
+    6,
+    [Università],
+    [#u[Docente]],
+    [Livello],
+    [Salario],
+    [Dipartimento],
+    [Direttore],
+    [#u[Corso]],
+    [Rossi],
+    [4],
+    [15000],
+    [Fisica],
+    [Neri],
+    [Mat. Discreta],
+    [Rossi],
+    [4],
+    [15000],
+    [Chimica],
+    [Rossini],
+    [Analisi I],
+    [Bianchi],
+    [3],
+    [10000],
+    [Informatica],
+    [Viola],
+    [Basi di Dati],
+    [Neri],
+    [4],
+    [15000],
+    [Informatica],
+    [Viola],
+    [Programmazione],
+    [Neri],
+    [4],
+    [15000],
+    [Matematica],
+    [Bruni],
+    [Inf. di base],
+    [Rossi],
+    [3],
+    [15000],
+    [Matematica],
+    [Bruni],
+    [Geometria],
+  )
+  Questo provoca:
+  - Anomalia di aggiornamento: se varia lo stipendio, bisogna modificare tutte le tuple del docente.
+  - Anomalia di cancellazione: se un docente non ha corsi, bisogna eliminare tutti i suoi dati.
+  *Vincoli sui dati*:
+  - Ogni dipartimento ha un solo direttore;
+  - Ogni docente ha un solo stipendio anche se ha più corsi;
+  - Lo stipendio dipende dal livello e non dal dipartimento del corso tenuto.
+    #imp[#eacc stata usata un unica tabella per rappresentare informazioni eterogenee.]
+]
+Le ridondanze derivano da
+- traduzioni non corrette nel modello logico relazionale;
+- errori durante la progettazione concettuale
+Per risolvere questo tipo di anomalie, si introduce un nuovo
+concetto del modello relazionale: la Dipendenza Funzionale (DF).
+#ndef[Dipendenza Funzionale][Data una tabella su uno schema $R(X)$ e due attributi $Y={Y_0,Y_1,dots,Y_n}$ e $Z={Z_1,Z_2,dots,Z_n}$ di $X$, esiste la dipendenza funzionale $Y->Z$ se per ogni coppia di tuple $t_1$ e $t_2$ di $r$#footnote[Relazione, cioè una tabella istanziata sullo schema $R(X)$.]. con $t_1[Y]=t_2[Y]$, si ha anche che $t_1[Z]= t_2[Z]$.
+]
+#ex[Dipendenza Funzionale][
+  #db(
+    5,
+    [Azienda],
+    [#u[Impiegato]],
+    [Stipendio],
+    [#u[Progetto]],
+    [Sede],
+    [Ruolo],
+    [Rossi],
+    [20000],
+    [Marte],
+    [Roma],
+    [Tecnico],
+    [Verdi],
+    [35000],
+    [Giove],
+    [Bologna],
+    [Tecnico],
+    [Verdi],
+    [35000],
+    [Venere],
+    [Milano],
+    [Progettista],
+    [Neri],
+    [55000],
+    [Venere],
+    [Milano],
+    [Direttore],
+    [Neri],
+    [55000],
+    [Giove],
+    [Bologna],
+    [Direttore],
+    [Neri],
+    [55000],
+    [Marte],
+    [Roma],
+    [Tecnico],
+    [Bianchi],
+    [48000],
+    [Venere],
+    [Milano],
+    [Consulente],
+  )
+  - DF1: impiegato #arr stipendio (ogni impiegato ha un unico stipendio)
+  - DF2: progetto #arr sede (ogni progetto ha un'unica sede)
+  - DF3: impiegato #arr impiegato
+  - DF4: impiegato progetto #arr ruolo (un impiegato può coprire un unico ruolo per progetto)
+]
+#imp[Le dipendenze funzionali sono definite a livello di schema e non a livello di istanza: una dipendenza funzionale è una regola logica che riguarda come devono essere strutturati i dati in una tabella, indipendentemente dai dati effettivi presenti in quel momento.]
+
+#imp[Le dipendenze funzionali hanno sempre un verso.\ corso #arr docente ok, docente $<-$ corso no]
+
+Le dipendenze funzionali sono una generalizzazione del vincolo di chiave e superchiave.\
+Data una tabella con schema $R(X)$ e superchiave $K$, esiste un vincolo di dipendenza funzionale tra $K$ e qualsiasi attributo della tabella o combinazione degli stessi. $ K->X_1, X subset.eq X $
+#ex[Dipendenza Funzionale e chiavi][
+  #db(5, [Azienda], [#u[Impiegato]], [Stipendio], [#u[Progetto]], [Sede], [Ruolo])
+  Impiegato - Progetto è una superchiave della relazione. Non possono esistere due tuple con lo stesso valore della coppia `(impiegato, progetto)`.
+  - $"DF"_1$ impiegato progetto: stipendio;
+  - $"DF"_2$ impiegato progetto: sede;
+  - $"DF"_3$ impiegato progetto: ruolo;
+  - $"DF"_4$ impiegato progetto: sede ruolo;
+  - $dots$;
+  - $"DF"_N$ impiegato progetto: impiegato stipendio progetto sede ruolo
+]
+Dipendenze funzionali sono cattive se causano problemi come ridondanza, anomalie di aggiornamento o cancellazione. Una dipendenza è considerata buona quando non determina ridondanza.
+
+== Forma Normale di Boyce-Codd
+
+#ndef[Forma Normale di Boyce-Codd (FNBC)][Uno schema $R(X)$ si dice in forma normale di Boyce e Codd se per ogni dipendenza funzionale non banale#footnote[Dipendenza banale: $Z$ è contenuto in $Y$. Se non lo è si dice che è una dipendenza non banale.] $Y->Z$ definita su di esso, $Y$ è una superchiave di $R(X)$.\
+  Se una tabella è in FNBC non presenta anomalie e ridondanze. Se una tabella non è in FNBC, bisogna normalizzarla (se possibile) in FNBC.
+]
+Per normalizzare una tabella si creano tabelle separate per ogni dipendenza funzionale
+#ex[Normalizzazione][#grid(
+    columns: 2,
+    inset: 5pt,
+    db(2, [impiegato #arr stipendio], [#u[Impiegato]], [Stipendio]),
+    db(3, [impiegato, progetto #arr ruolo], [#u[Impiegato]], [#u[Progetto]], [Ruolo]),
+  )
+  #db(2, [progetto #arr sede], [#u[Progetto]], [Sede])
+  - DF1: impiegato #arr sede: ogni impiegato lavora in una sola sede;
+  - DF2: progetto #arr sede (ogni impiegato ha la stessa sede)
+]
+#ndef[Decomposizione][
+  La decomposizione di una tabella (relazione) è il processo con cui una tabella viene suddivisa in due o più tabelle più piccole, allo scopo di:
+  - Eliminare ridondanze;
+  - Evitare anomalie (di aggiornamento, cancellazione, inserimento);
+  - Rispettare le forme normali.
+]
+#imp[Se si combinano le due tabelle della decomposizione tramite operatore di `join`, non si riottiene la tabella di partenza  (decomposizione con perdita/aggiunta).]
+
+#ndef[Decomposizione senza perdita][Uno schema R(X) si decompone senza perdita se negli schemi $R_1(X_1)$ ed $R_2(X_2)$ se per ogni possibile istanza $r$ di $R(X)$, il join naturale delle $X_1$ ed $X_2$ produce la tabella di partenza.
+  $pi_X_1(r) #decomp pi_X_2(r) = r$
+]
+In caso di decomposizione con perdite/aggiunte, possono generarsi delle tuple *spurie* dopo il join.
+
+Anche se una decomposizione è senza perdite, può comunque
+presentare dei problemi di conservazione delle dipendenze.
+#imp[
+  La decomposizione deve soddisfare 3 prorpietà per essere buona:
+  + Soddisfare FNBC: ogni tabella deve essere in FNBC;
+  + Decomporre senza perdita: il `join` delle tabelle decomposte deve produrre la relazione originaria.
+  + Conservare le dipendenze: il `join` delle tabelle decomposte deve rispettare tutte le dipendenze funzionali dello schema originario.
+]
+
+Non è sempre possibile ottenere una decomposizione in FNBC, per questo si introduce una nuova forma normale meno restrittiva di quella di Boyce e Codd.
+
+== Terza Forma Normale
+
+#ndef[Terza Forma Normale (TFN)][
+  Una tabella $r$ è in terza forma normale se per ogni dipendenza funzionale $X->A$ non banale dello schema, almeno una delle seguenti condizioni è verificata:
+  - $X$ è una superchiave di $r$;
+  - $A$ appartiene ad almeno una chiave $K$ di $r$.
+]
+#db(
+  2,
+  [TFN rispetto a FNBC],
+  [Svantaggi],
+  [Vantaggi],
+  [Tollera alcune ridondanze e anomalie sui dati],
+  [Sempre ottenibile, qualsiasi sia la tabella tramite un algoritmo di normalizzazione],
+  [Certifica meno la qualità dello schema ottenuto],
+  [],
+)
+
+Data una relazione $r$ con schema $R(X)$ non in TFN, normalizzare in TFN implica decomporre $r$ nelle relazioni $r_1, r_2, dots, r_n$ garantendo che
+- Ogni $r_i (1 lt.eq i lt.eq n)$ è in TFN;
+- La decomposizione è senza perdite: $r_1 #decomp r_2 #decomp r_n = r$;
+- La decomposizione conserva tutte le dipendenze $F$ definite sullo schema $R(X)$ di partenza.
+
+
+Idee alla base dell'algoritmo di normalizzazione:
+- Semplificare l'insieme di dipendenze $F$, rimuovendo quelle non necessarie e trasformando ogni dipendenza in modo che nella parte destra compaia un singolo attributo;
+- Raggruppare gli attributi coinvolti nelle stesse dipendenze, e costruire le tabelle corrispondenti;
+- Assicurarsi che almeno una tabella prodotta contenga la chiave della tabella originaria
+
+#ndef[Implicazione Funzionale][Dato un insieme di dipendenze funzionali $F$, ed una dipendenza funzionale $f$, si dice che $F$ implica $f$ se ogni tabella che soddisfa $F$ soddisfa anche $f$\
+  $F: {"impiegato"->"Livello", space "Livello"->"Stipendio"}$\
+  $f: "impiegato"->"stipendio"$\
+  In questo caso $F$ implica $f$.
+
+]
+
+#ndef[Chiusura di una dipendenza funzionale][
+  Dato uno schema $R(U)$, con un insieme di dipendenze $F$, sia $X$ un insieme di attributi contenuti in $U$. Si definisce chiusura di $X$ rispetto ad $F$ $(X^+_F)$ l'insieme degli attributi che dipendono funzionalmente da $X$:
+  $
+    X^+_F={A|A in U and F "implica" X->A }
+  $
+]
+
+#ex[Chiusura di una dipendenza funzionale][
+  + $R=("ABCDE"), F={A->B,A->C}$. Vogliamo conoscere la chiusura di A. $A^+_F = {B,C}$.
+  + $R=("ABCDE"), F={A->B,A->C,C->D}$ Vogliamo conoscere la chiusura di A. $A^+_F = {B,C,D}$.
+]
+
+#ndef[Normalizzazione dei dati][
+  *Input*: $X$ (attributi), $F$ (dipendenze)\
+  *Output*: #chxf (chiusura di $X$ rispetto ad $F$)
+  $
+    1) & X^+_F = X                                                            \
+    2) & forall "dipendenza" f: Y->A in F                                     \
+       & "se" (Y subset.eq chxf) and (A in.not chxf) => chxf = chxf union {A} \
+    3) & "Ripeti 2 finchè non è possibile aggiungere nuovi elementi in" chxf.
+  $
+]
+
+#ex[Algoritmo di normalizzazione][
+  $
+          R & =("ABCDE"), F={A->B,"BC"->D,B->E,E->C}               \
+    1) chaf & = {A}                                                \
+    2) chaf & = {A,B}                                &    (f:A->B) \
+    3) chaf & = {A,B,E}                              &    (f:B->E) \
+    4) chaf & = {A,B,E,C}                            &    (f:E->C) \
+    5) chaf & = {A,B,E,C,D}                          & (f:"BC"->D)
+  $
+]
+
+#imp[
+  Come verificare se $F$ implica $f:X->Y$\
+  + Calcolare la chiusura #chxf
+  + Se $Y$ in #chxf, allora $F$ implica $f$
+  #ex(none)[
+    $
+      & R=("ABCDE"), F={A->B,"BC"->D,B->E,E->C}, f:A->E \
+      & chaf ={A,B,E,C,D}                               \
+      & "quindi" F "implica" A->E
+    $
+  ]
+]
+
+Data una tabella con schema $R(U)$, l'algoritmo per determinare la chiusura #chxf può essere usato anche per verificare se $X$ è una superchiave di $R$.\
+#imp[
+  Dato uno schema $R(U)$, con un insieme $F$ di dipendenze funzionali, allora un insieme di attributi $K$ è una (super)chiave di $R(U)$ se $F$ implica $K->U$
+]
+#ex[Usare alg. di normalizzazione per identificare una chiave][
+  $
+    R=("ABCDE"), F={A->B,"BC"->D,B->E,E->C}, f:A->E
+  $
+  Se $A$ è una chiave allora $F$ implica $A->"ABCDE"$\
+  $chaf ={A,B,E,C,D}$, quindi $A$ è una chiave.
+]
+
+#ndef[Insiemi di dipendenze funzionali equivalenti][
+  Dati due insiemi di dipendenze funzionali $F_1$ e $F_2$, essi si dicono equivalenti se $F_1$ implica ciascuna dipendenza funzionale di $F_2$ e viceversa.
+  #ex(none)[
+    $
+      F={A->B,"AB"->C} F_1={A->B,A->C}
+    $
+    $F$ e $F_1$ sono equivalenti.
+  ]
+]
+
+#ndef[Insiemi di dipendenze funzionali non ridondanti][
+  Dato un insieme di dipendenze funzionali $F$ definito su uno schema $R(U)$, esso si dice non ridondante se non esiste una dipendenza $f$ di $F$, tale che $F-{f}$ implica $f$.
+  #ex(none)[
+    $F={A->B,"AB"->C,A->C}$, $F$ è ridondante perché $F-{A->C}$ implica $A->C$.
+  ]
+]
+
+#ndef[Insiemi di dipendenze ridotte][
+  Dato un insieme di dipendenze funzionali $F$ definito su uno schema $R(U)$, esso si dice ridotto se:
+  + non è ridondante;
+  + non è possibile ottenere un insieme $F'$ equivalente eliminando attributi dai primi membri di una o più dipendenze di $F$.
+  #ex(none)[
+    $F={A->B,"AB"->C}$\
+    $F$ non è ridotto perché B può essere eliminato da $"AB"->C$ e si ottiene ancora un insieme $F_2$ equivalente ad $F$.
+  ]
+]
+
+Dato uno schema $R(U)$ con un insieme di dipendenze "F", per trovare una copertura ridotta di $F$ si procede in 3 passi:
++ *Sostituire $F$ con $F_1$, che ha tutti i secondi membri comnposti da un singolo attributo*.\ $ M->"RSDG", "MS"-> "CD", G->R, D->S, S->D,"MPD"->"AM"\
+  F_1={ M->R, M->S, M->D, M->G, "MS" -> C, \ "MS" ->D, G->R, D->S, S->D, "MPD" ->A, "MPD" -> M } $
++ *Eliminare gli attributi estranei*\
+  Supponiamo di avere $F={"AB"->C,A->B}$ e calcoliamo #chaf:
+  \ $chaf = {A,B,C}$. $C$ dipende solo da $A$, quindi l'attributo $B$ in $"AB"->C$ può essere eliminato preservando l'uguaglianza. $F_1={A->C,A->B}$\
+  Se si ha una dipendenza funzionale del tipo $A X->B$, si stabilisce se l'attributo $A$ può essere eliminato preservano l'uguaglianza ricalcolando $X^+$ e verificando se include $B$.
++ *Eliminare le dipendenze non necessarie*\
+  $F={B->C,B->A,C->A}$. $B->A$ è ridondante, in quanto bastano le dipendenze $B->C$ e $C->A$ per capire che $A$ dipende da $B$.\
+  Formalmente bisognerebbe dimostreare che $F-{B->A} "implica" {B->A}$, quindi verificare che $A in B^+_(F-{B->A})$. Se $A$ è incluso, si elimina la dipendenza funzionale.
+
+#ndef[Algoritmo di normalizzazione in TFN][
+  Dati $R(U)$, e un insieme di dipendenze $F$, l'algoritmo di normalizzazione in TFN procede come segue:
+  + Costruire una copertura ridotta $F_1$ di $F$.\ $     F & ={M->"RSDG","MS"->"CD",G arr D,D arr S, S arr D, "MPD" arr "AM"}     \
+    equiv                                                                        \
+      F_1 & = {M arr D, M arr G, M arr C, G arr R, D arr S, S arr D, "MP" arr A} $
+  + Decomporre $F_1$ nei sottonsiemi $F_1^((1)),F_1^((2)),dots, F_1^((n))$: ad ogni sottoinsieme appartengono dipendenze con gli stessi lati sinistri.\ $ F_1^((1)) & = {M arr D, M arr G, M arr C} \
+    F_1^((2)) & = {G arr R}                   \
+    F_1^((3)) & = {D arr S}                   \
+    F_1^((4)) & = {S arr D}                   \
+    F_1^((5)) & = {"MP" arr A} $
+  + Se due o più lati sinistri delle dipendenze si implicano a vicenda, si fondono i relativi insiemi\ $ F_1^((1)) & = {M arr D, M arr G, M arr C} \
+    F_1^((2)) & = {G arr R}                   \
+    F_1^((3)) & = {D arr S,S arr D}           \
+    F_1^((4)) & = {"MP" arr A} $
+  + Trasformare ciascun $F_1^((i))$ in una tabella $R^((i))$ con gli attributi contenuti in ciascuna dipendenza, il lato sinistro diventa la chiave della relazione.\ $ F_1^((1)) & = {M arr D, M arr G, M arr C}: & R^((1))(underline(M)"DGC") \
+    F_1^((2)) & = {G arr R} :                  &     R^((2))(underline(G)R) \
+    F_1^((3)) & = {D arr S,S arr D}:           &     R^((3))(underline(S)D) \
+    F_1^((4)) & = {"MP" arr A} :               &  R^((4))(underline("MP")A) $
+  + Se nessuna relazione $R^((i))$ così ottenuta contiene una chiave $K$ di $R(U)$, si inserisce una nuova tabella $R^((i+1))$ contenente gli attributi della chiave.\ Nel nostro caso la chiave è costituita da $("MP")$.\ $ R^((1))(underline(M)"DGC"), R^((2))(underline(G)R),R^((3))(underline(S)D) , R^((4))(underline("MP")A) $\
+  $R^((4))(underline("MP")A)$ contiene la chiave, quindi non serve aggiungere altre tabelle.
+]
+Si chiama _Terza_ Forma Normale perché, la prima si suppone sia sempre rispettata, la seconda è una variante debole della TFN.
+== Seconda Forma Normale
+#ndef[Seconda Forma Normale][Una relazione $r$ con schema $R(U)$ è in Seconda Forma Normale quando non presenta dipendenze parziali della forma $Y arr A$, dove:
+  - $Y$ è un sottoinsieme proprio della chiave;
+  - $A$ è un qualsiasi sottoinsieme di $R(U)$
+
+]
+$
+  & "impiegato"(underline("impiegato"),"stipendio",underline("progetto"),"budget") \
+  & "impiegato"->"stipendio"                                                       \
+  & "progetto"->"budget" "dipendenza parziale"
+$
+Non è né in SFN né in TFN.
+$
+  & "impiegato"(underline("impiegato"),"categoria","stipendio") \
+  & "impiegato"->"categoria"                                    \
+  & "categoria"->"stipendio"
+$#ndef[Quarta Forma Normale][Una tabella con schema $R(U)$ è in Quarta Forma Normale (4FN) se non presenta dipendenze multivalore non banali diverse da una chiave della tabella ($X->Y$ space $X->Z$)]
+Non è SFN, ma non in TFN.
+
+
+#ndef[Quarta Forma Normale][Una tabella con schema $R(U)$ è in Quarta Forma Normale (4FN) se non presenta dipendenze multivalore non banali diverse da una chiave della tabella ($X->Y$ space $X->Z$)]
+
+#ndef[Quinta Forma Normale][Una tabella con schema $R(U)$ è in Quinta Forma Normale (5FN) se non è possibile decomporre ulteriormente la tabella senza perdere informazioni.]

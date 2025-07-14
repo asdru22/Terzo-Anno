@@ -6,7 +6,7 @@
     columns: col,
     fill: (x, y) => if y == 1 { (rgb("#d2d2d2")) },
 
-    table.cell(colspan: 3, align: left)[#nome],
+    table.cell(colspan: col, align: left)[#nome],
     ..content
   )
 }
@@ -48,3 +48,26 @@
     ..content
   )
 }
+
+#let u(content) = underline(content)
+
+#let arr = $->$
+
+#let decomp = $triangle.r triangle.l$
+#let chxf = $X^+_F$
+#let chaf = $A^+_F$
+
+#let __dr = ex[Normalizzazione in TFN][
+  Data la relazione $R("ACDGMPRS")$, con dipendenze funzionali
+  $
+        F={           \
+        M-> & "RSDG", \
+     "MS"-> & "CD",   \
+        G-> & R,      \
+        D-> & S,      \
+        S-> & D,      \
+    "MPD"-> & "AM"    \
+          }
+  $
+  La decomposizione in 3FN si ottiene con l'algoritmo di normalizzazione
+]
