@@ -23,7 +23,7 @@
 *Base di dati*: collezione di dati gestita da un DBMS. \
 == Architettura a livelli del DBMS
 Ogni livello è indipendente dall'altro
-- *Schema esterno*: come si presenta il DB, e come varia in base ai permessi di accesso.
+- *Schema#footnote[Descrizione della struttura del database.] esterno*: come si presenta il DB, e come varia in base ai permessi di accesso.
 - *Schema logico*: come sono strutturati i dati e che relazioni hanno. In genere il modello logico utilizzato è quello relazionale, dove i dati sono organizzati in tabelle. Si usano delle regole per modellare eventuali vincoli e restrizioni sui dati.
 - *Schema fisico*: come/dove sono memorizzati i dati.
 #hb
@@ -89,16 +89,16 @@ Una base di dati può essere costituita da molte tabelle. Spesso, le informazion
 
 Nella progettazione, bisogna tradurre le informazioni in dati del modello relazionale. Ci si chiede quali dati devono essere gestiti e quante tabelle servono. \
 == Schema matematico del modello relazionale
-#def()[Dati $n$ insiemi $D_1,D_2,dots,D_n$, una relazione matematica su questi insiemi è un sottoinsieme del prodotto cartesiano $D_1 times D_2 times dots times D_n$.]
+#ndef[Relazione Matematica][Dati $n$ insiemi $D_1,D_2,dots,D_n$, una relazione matematica su questi insiemi è un sottoinsieme del prodotto cartesiano $D_1 times D_2 times dots times D_n$.]
 
-#def()[Il prodotto cartesiano degli insiemi $D_1,D_2,dots,D_n$ è l'insieme di tutte le ennuple ordinate $(d_1,d_2,dots,d_n)$ con $d_i in D_i, forall i =1,dots,n$.]
+#ndef[Prodotto Cartesiano][Il prodotto cartesiano degli insiemi $D_1,D_2,dots,D_n$ è l'insieme di tutte le ennuple ordinate $(d_1,d_2,dots,d_n)$ con $d_i in D_i, forall i =1,dots,n$.]
 
 #ex([Relazione])[$A={a,b,c,d,e},space B = {1,2,3}\ A times B = {(a,1),(a,2),(a,3),(b,1),(b,2), \ (b,3),(c,1),(c,2),(c,3),(d,1),(d,2),(d,3),(e,1),(e,2),(e,3)}\ R_1 subset.eq A times B = {(a,1),(a,2),(a,3)}\ R_2 subset.eq A times B = {(a,2),(b,1),(d,3),(e,3)}$\ $A$ e $B$ sono due tabelle con un solo campo. $a,b,c,dots,1,2,3$ sono le istanze. Il prodotto cartesiano unisce tutte le istanze facendo tutte le combinazioni possibili. Le istanze di $A times B$ sono tutte le combinazioni di $A$ e $B$. Le relazioni $R_1$ e $R_2$ sono sottoinsiemi del prodotto cartesiano, quindi sono relazioni.]
 Una ennupla su un di attributi $X$ è una funzione che associa a ciascun attributo $A$ in $X$ un valore del dominio di $A$. \
 $T[A]$ indica il valore dell'ennupla $T$ nell'attributo $A$. \
 
 == Informazioni incomplete
-In una relazione le ennuple devono essere omogenee, ossia avere tutte la stessa struttura. Se il valore di un attributo non è noto, si usa il valore #null.
+In una relazione le ennuple devono essere omogenee, ossia avere tutte la stessa struttura. Se il valore di un attributo non è noto, si usa il valore #null. \
 $T[A] in A or$ #null $forall "attributo" A$.\
 Per definizione, il valore #null non è uguale a nessun altro valore, nemmeno a se stesso #footnote([#null $eq.not$ #null.]). \
 
@@ -180,8 +180,8 @@ Contiene i costrutti necessari per la creazione e modifica dello schema della ba
   [`character[<lunghezza max>][<lunghezza>]` alternativa `varchar(<lunghezza>)`],
   [Se la lunghezza non è specificata accetta un singolo carattere],
   [
-    -`numeric[(Precisione [,Scala])])`
-    -`decimal[(Precisione [,Scala])])`
+    - `numeric[(Precisione [,Scala])])`
+    - `decimal[(Precisione [,Scala])])`
     - `integer`
     - `smallint`
   ],
@@ -323,7 +323,7 @@ modificato il vincolo di integrità referenziale nella tabella interna potrebbe 
   - `cascade`: elimina/aggiorna righe (della tabella interna)
   - `set default`: ripristina il valore di default
   - `no action`: non consente l'azione (sulla tabella esterna)
-  - `set null` : setta i valori a #null
+  - `set null` : imposta i valori a #null
 ]
 
 #eacc possibile modificare gli schemi di dati precedentemente creati tramite le primitive di `alter` (modifica) e `drop` (cancellazione).
@@ -530,7 +530,7 @@ comune dell'attributo specificato nell'operatore. Ogni gruppo produce una sola r
     ```
     I valori non specificati di default sono #null.],
   [`delete`],
-  [Cancellare tutte le righe che soddisfano una condizione(cancella tutto se non specificata).
+  [Cancellare tutte le righe che soddisfano una condizione (cancella tutto se non specificata).
     ```sql
     DELETE FROM IMPIEGATI
     DELETE FROM IMPIEGATI WHERE (UFFICIO="A")
@@ -560,8 +560,7 @@ comune dell'attributo specificato nell'operatore. Ogni gruppo produce una sola r
   ```sql
   SELECT Modello
   FROM GUIDATORI JOIN VEICOLI
-  ON GUIDATORI.NrPatente
-  =VEICOLI.NrPatente
+  ON GUIDATORI.NrPatente = VEICOLI.NrPatente
   WHERE (Nome="Sara")
   ```
 ]
@@ -758,8 +757,8 @@ I trigger sono meccanismi di gestione della base di dati basati sul paradigma EC
 - Azione: sequenza di istruzioni SQL, talvolta procedure SQL specifiche del DBMS.
 
 Ci sono due modalità di esecuzione:
-- immediata: il trigger viene attivato e completato subito, prima o dopo l'operazione che lo ha causato.
-- differita: il trigger non viene eseguito immediatamente, ma alla fine della transazione corrente. Attenderà fino a quando tutte le modifiche della transazione saranno completate per poi essere eseguito come passaggio finale.
+- *immediata*: il trigger viene attivato e completato subito, prima o dopo l'operazione che lo ha causato.
+- *differita*: il trigger non viene eseguito immediatamente, ma alla fine della transazione corrente. Attenderà fino a quando tutte le modifiche della transazione saranno completate per poi essere eseguito come passaggio finale.
 #ex[Trigger][
   ```sql
   CREATE TRIGGER CHECKAUMENTO
@@ -1125,7 +1124,7 @@ Il tool MySQLDump consente di effettuare backup del contenuto di un database (o 
 = Gestione delle Transazioni
 #ex[Sistema va in crash tra due operazioni che modificano tabelle][
   ```
-  UPDATE ITEM SET Quantita=Quantita-1 WHERe (Codice=CodiceScelto));
+  UPDATE ITEM SET Quantita=Quantita-1 WHERE (Codice=CodiceScelto));
   ! X-> CRASH !
   INSERT INTO ORDINE(Data,Ordinante,ItemOrdinato) VALUES (NOW(),
   ```
@@ -1260,7 +1259,7 @@ I protocolli 2PL e S2PL possono generare schedule con situazioni di deadlock. Pe
 + Deadlock avoidance: prevenire le configurazioni che potrebbero portare ad un deadlock tramite:
   - Lock/Unlock di tutte le risorse allo stesso tempo.
   - Utilizzo di time-stamp o di classi di priorità tra transazioni (può causare starvation!)
-+ Deadlock detection:  utilizzare algoritmi per identificare eventuali situazioni di deadlock, e prevedere meccanismi di recovery dal deadlock.
++ Deadlock detection:  utilizzare algoritmi per identificare eventuali situazioni di deadlock, e prevedere meccanismi di recovery.
 
 == Timestamp (TS)
 TS è un metodo alternativo al 2PL per la gestione della concorrenza che utilizza i time-stamp delle transazioni.
@@ -1503,7 +1502,7 @@ Il campo `_id` può essere definito esplicitamente, o viene aggiunto in maniera 
           {"name":"Mario"},
           {$push:{"eta":45}})
       ```
-      Nel documento relativo all'impiegato Mario, si aggiunge un nuovo campo età (array), settandolo pari a 45.
+      Nel documento relativo all'impiegato Mario, si aggiunge un nuovo campo età (array), impostandolo a 45.
 
     ],
   ),
@@ -1604,7 +1603,7 @@ circolo:{...})
 + usi lookup table
 + usi due query (prima trovi l'id, poi con quello fai la seconda)
 == Aggregazione di dati
-L'operatore `aggregate` consente di implementare una pipeline di operazioni da eseguire su una base di dati. Ad ogni passo, vengono eseguite operazioni che prednono in input dei documenti json e producono in output documenti json.
+L'operatore `aggregate` consente di implementare una pipeline di operazioni da eseguire su una base di dati. Ad ogni passo, vengono eseguite operazioni che prendono in input dei documenti json e producono in output documenti json.
 `collezione->operatore1->operatore2->risultato`
 #tab(
   2,
@@ -1836,7 +1835,7 @@ In una prima approssimazione, una relazione può essere tradotta in una tabella.
   ) \
   - Ogni istanza di informatico deve comparire in almeno un'istanza della relazione partecipazione.
   - La stessa istanza di informatico può comparire al massimo 30 istanze delle relazione partecipazione.
-  -La stessa istanza di progetto può comparire al massimo in 100 istanze della relazione partecipazione.
+  - La stessa istanza di progetto può comparire al massimo in 100 istanze della relazione partecipazione.
 
   Quindi un informatico può lavorare a 30 progetti diversi, e un progetto può essere preso a 100 informatici diversi.
 ]
@@ -2447,9 +2446,9 @@ Prima di tradurre il modello E-R, è necessario ristrutturarlo per motivi di cor
   )
 ]
 
-- Soluzione 1 introduce valori nulli ed un attributo aggiuntivo, ma è conveniente quando non ci sono troppe differenze concettuali tra $E_0, E_1, E_2$;
-- Soluzione 2 è possibile solo se la generalizzazione è totale, non introduce valori nulli, ma è conveniente quando ci sono operazioni che coinvolgono per lo più $E_1$ ed $E_2$ ma non l'entità genitore $E_0$;
-- Soluzione 3 non introduce valori nulli, ed è utile quando ci sono operazioni che si riferiscono solo ad istanze di $E_1$, $E_2$ ed $E_0$, ma presenta la necessità di introdurre dei vincoli:
+- Soluzione 1 introduce valori #null ed un attributo aggiuntivo, ma è conveniente quando non ci sono troppe differenze concettuali tra $E_0, E_1, E_2$;
+- Soluzione 2 è possibile solo se la generalizzazione è totale, non introduce valori #null, ma è conveniente quando ci sono operazioni che coinvolgono per lo più $E_1$ ed $E_2$ ma non l'entità genitore $E_0$;
+- Soluzione 3 non introduce valori #null, ed è utile quando ci sono operazioni che si riferiscono solo ad istanze di $E_1$, $E_2$ ed $E_0$, ma presenta la necessità di introdurre dei vincoli:
   - Un'occorrenza di $E_0$ non può partecipare in contemporanea a $R_(01)$ e $R_(02)$.
   - Se la generalizzazione è totale, ogni occorrenza di $E_0$ deve partecipare a a $R_(01)$ o $R_(02)$.
 
@@ -2868,7 +2867,7 @@ concetto del modello relazionale: la Dipendenza Funzionale (DF).
 ]
 #imp[Le dipendenze funzionali sono definite a livello di schema e non a livello di istanza: una dipendenza funzionale è una regola logica che riguarda come devono essere strutturati i dati in una tabella, indipendentemente dai dati effettivi presenti in quel momento.]
 
-#imp[Le dipendenze funzionali hanno sempre un verso.\ corso #arr docente ok, docente $<-$ corso no]
+#imp[Le dipendenze funzionali hanno sempre un verso.\ corso #arr docente _ok_, docente $<-$ corso _no_]
 
 Le dipendenze funzionali sono una generalizzazione del vincolo di chiave e superchiave.\
 Data una tabella con schema $R(X)$ e superchiave $K$, esiste un vincolo di dipendenza funzionale tra $K$ e qualsiasi attributo della tabella o combinazione degli stessi. $ K->X_1, X subset.eq X $
@@ -2983,7 +2982,7 @@ Idee alla base dell'algoritmo di normalizzazione:
   $
 ]
 
-#ex[Algoritmo di normalizzazione][
+#ex[Normalizzazione dei dati][
   $
           R & =("ABCDE"), F={A->B,"BC"->D,B->E,E->C}               \
     1) chaf & = {A}                                                \
@@ -3046,8 +3045,8 @@ Data una tabella con schema $R(U)$, l'algoritmo per determinare la chiusura #chx
   ]
 ]
 
-Dato uno schema $R(U)$ con un insieme di dipendenze "F", per trovare una copertura ridotta di $F$ si procede in 3 passi:
-+ *Sostituire $F$ con $F_1$, che ha tutti i secondi membri comnposti da un singolo attributo*.\ $ M->"RSDG", "MS"-> "CD", G->R, D->S, S->D,"MPD"->"AM"\
+Dato uno schema $R(U)$ con un insieme di dipendenze $F$, per trovare una copertura ridotta di $F$ si procede in 3 passi:
++ *Sostituire $F$ con $F_1$, che ha tutti i secondi membri composti da un singolo attributo*\ $ M->"RSDG", "MS"-> "CD", G->R, D->S, S->D,"MPD"->"AM"\
   F_1={ M->R, M->S, M->D, M->G, "MS" -> C, \ "MS" ->D, G->R, D->S, S->D, "MPD" ->A, "MPD" -> M } $
 + *Eliminare gli attributi estranei*\
   Supponiamo di avere $F={"AB"->C,A->B}$ e calcoliamo #chaf:
@@ -3095,8 +3094,8 @@ $
   & "impiegato"(underline("impiegato"),"categoria","stipendio") \
   & "impiegato"->"categoria"                                    \
   & "categoria"->"stipendio"
-$#ndef[Quarta Forma Normale][Una tabella con schema $R(U)$ è in Quarta Forma Normale (4FN) se non presenta dipendenze multivalore non banali diverse da una chiave della tabella ($X->Y$ space $X->Z$)]
-Non è SFN, ma non in TFN.
+$
+#eacc è in SFN, ma non in TFN.
 
 
 #ndef[Quarta Forma Normale][Una tabella con schema $R(U)$ è in Quarta Forma Normale (4FN) se non presenta dipendenze multivalore non banali diverse da una chiave della tabella ($X->Y$ space $X->Z$)]
