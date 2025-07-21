@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/../../BOSTARTER-DB/sql/utente.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/laboratorio/es1.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/laboratorio/es1_new.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/laboratorio/es2.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/laboratorio/es2_new.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/laboratorio/frisbee clothes.sql" dialect="MySQL" />
   </component>
 </project>

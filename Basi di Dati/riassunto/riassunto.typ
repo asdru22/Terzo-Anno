@@ -1148,7 +1148,7 @@ Le transazioni sono unità di lavoro elementari (insiemi di istruzioni SQL) che 
 - Isolamento: L'esecuzione di una transazione deve essere indipendente dalle altre.
 - Persistenza: L'effetto di una transazione che ha fatto commit work non deve essere perso.
 
-#imp[Il gestore dell'affidabilità garantisce atomicità e persistenza tramite log e checkpoint. Il gestore della concorrenza carantisce isolamento in caso di esecuzione concorrente di più transazioni].
+#imp[Il gestore dell'affidabilità garantisce atomicità e persistenza tramite log e checkpoint. Il gestore della concorrenza carantisce isolamento in caso di esecuzione concorrente di più transazioni.]
 #def[*Schedule*\
   Dato un insieme di transazioni $T_1, T_2,dots,T_n$ di cui ciascuna formata da un certo insieme di operazioni di _writing_ $w_i$ e _reading_ $r_i$#footnote[#smallcaps[ex]: $T_1 = r_1(x) space r_2(x) space r_3(x) space w_1(x) space dots$], si definisce schedule la sequenza di operazioni di tutte le transazioni così come eseguite sulla base di dati: $r_1(x) space r_2(y) space r_1(y) space w_4(y) space w_2(z)$
 ]
@@ -2870,7 +2870,7 @@ concetto del modello relazionale: la Dipendenza Funzionale (DF).
 #imp[Le dipendenze funzionali hanno sempre un verso.\ corso #arr docente _ok_, docente $<-$ corso _no_]
 
 Le dipendenze funzionali sono una generalizzazione del vincolo di chiave e superchiave.\
-Data una tabella con schema $R(X)$ e superchiave $K$, esiste un vincolo di dipendenza funzionale tra $K$ e qualsiasi attributo della tabella o combinazione degli stessi. $ K->X_1, X subset.eq X $
+Data una tabella con schema $R(X)$ e superchiave $K$, esiste un vincolo di dipendenza funzionale tra $K$ e qualsiasi attributo della tabella o combinazione degli stessi. $ K->X_1, X_1 subset.eq X $
 #ex[Dipendenza Funzionale e chiavi][
   #db(5, [Azienda], [#u[Impiegato]], [Stipendio], [#u[Progetto]], [Sede], [Ruolo])
   Impiegato - Progetto è una superchiave della relazione. Non possono esistere due tuple con lo stesso valore della coppia `(impiegato, progetto)`.
