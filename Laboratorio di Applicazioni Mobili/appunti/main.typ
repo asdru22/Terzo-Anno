@@ -479,7 +479,8 @@ System Apps are pre-installed applications that come with the Android operating 
   ```)][#figure(caption: [Declarative Approach], ```xml<TextView android.text=@string/hello" android:textcolor=@color/blue
   android:layout_width="fill_parent" android:layout_height="wrap_content" />
   <Button android.id="@+id/Button01" android:textcolor="@color/blue"
-  android:layout_width="fill_parent" android:layout_height="wrap_content" />```)]
+  android:layout_width="fill_parent" android:layout_height="wrap_content" />
+  ```)]
 
 XML layouts can be defined for different screen sizes and orientations. At runtime, android detects the current device configuration and loads the appropriate layout and resources.\
 
@@ -557,7 +558,7 @@ Activity lifecycles are important so that
   node((0, 5), stroke: gray, corner-radius: 10pt, [New activity is started])
   node((0, 6), [`onFreeze()`#footnote[Not used since 2008]])
   node((0, 7), [`onPause()`])
-  node((0, 8), stroke: gray, corner-radius: 10pt,[The activity is\ no longer visible])
+  node((0, 8), stroke: gray, corner-radius: 10pt, [The activity is\ no longer visible])
   node((0, 9), [`onStop()`])
   node((0, 10), [`onDestroy()`])
   node((0, 11), stroke: red, corner-radius: 10pt, [Activity is shut down])
@@ -583,25 +584,734 @@ Activity lifecycles are important so that
   edge((0, 10), (0, 11), "->")
   edge((0, 7), "ll,u", "-")
   edge((0, 9), "ll,uu", "-")
-    edge((-2, 4), (-2, 2), "->")
-    edge((-2, 2),"u,rr", "->")
+  edge((-2, 4), (-2, 2), "->")
+  edge((-2, 2), "u,rr", "->")
   edge((0, 7), "r,uu", "-")
   edge((1, 5), "u,u,l", "->")
   edge((0, 9), "rr,uu", "-")
-
 }))
 
 == Activity Lifecycle methods
 / `onCreate()`: called when the activity is first created. It should contain the startup logic to be executed only once. It has a `Bundle` parameter that contains the activity's previously saved state. When `onCreate()` terminates, `onStart()` is called.\ `onCreate()` is responsible for drawing the UI with `setContentView()` and initializing essential components\ ```
+  override fun onCreate(savedInstanceState: Bundle?) {
+      super.onCreate(savedInstanceState)
+      setContentView(R.layout.activity_main)
+  }
+  ```
+/ `onStart()`: called right before it is visible to the user, where the code that maintains the UI is initialized.\ ```
+  override fun onStart() {
+      super.onStart()
+  }
+  ```
+
+/ `onResume()`: if it successfully terminates, then the activity is running. It restores the components that were disposed of during `onPause()`.\ ```
+  override fun onResume() {
+      super.onResume()
+  }
+  ```
+
+/ `onPause()`: is called when something interrupts the activity (e.g. a call or a message). It should release resources that may affect battery life and CPU usage while the activity is not in the foreground. It should also save any unsaved data (e.g. in a database) since there is no guarantee that `onStop()` will be called.\ ```
+  override fun onPause() {
+      super.onPause()
+  }
+  ```\ It's called when
+  - a component from a different activity requests the foreground;
+  - a component comes in the foreground partially hiding the activity (e.g. a dialog);
+  - another window in a multi window application is selected;
+  - any other event that will also trigger `onStop()`.
+
+/ `onRestart()`: called when the activity is coming back to interact with the user after being stopped. It is followed by `onStart()`.\ ```
+  override fun onRestart() {
+      super.onRestart()
+  }
+  ```
+
+/ `onStop()`: called when the activity is no longer visible to the user. It could be called because:
+  - the activity is about to be destroyed;
+  - another activity is coming to the foreground\ It's used to perform CPU-intensive shutdown operations.\ ```
+    override fun onStop() {
+        super.onStop()
+    }
+    ```
+
+== Lifecycle loops
+/ Entire Lifetime:
+  - between onCreate and onDestroy;
+  - setup of global state in onCreate;
+  - release remaining resources in onDestroy;
+
+/ Visible Lifetime:
+  - between onStart and onStop;
+  - maintain resources that have to be shown to the user;
+
+/ Foreground Lifetime:
+  - between onResume and onPause;
+  - code should be light;
+
+== Logging
+The logcat window helps debug your app by displaying logs from your device in real time.
+```
+Log.v ("LABEL", "message") // VERBOSE
+Log.d ("LABEL", "message") // DEBUG
+Log.i ("LABEL", "message") // INFORMATION
+Log.w ("LABEL", "message") // WARNING
+Log.e ("LABEL", "message") // ERROR
+Log.wtf ("LABEL", "message") // SHOULD NEVER HAPPEN IN LIFE
+```
+
+== Recreating activities
+When an activity is destroyed and then navigated back, the system recreates a new instance. Usually we want everything as it was: this state is saved in a bundle called Instance State.\
+Android keeps the state of each view: each of them should have an unique id and no explicit code is needed for basic behavior.\
+
+If you want to save more date, you override `onSaveInstanceState()` and `onRestoreInstanceState()` and/or use a `ViewModel`.\ `onSaveInstanceState()` is called right before `onStop()`.
+```
+override fun onSaveInstanceState(savedInstanceState : Bundle) {
+    super.onSaveInstanceState(savedInstanceState)
+    outstate.putInt(
+        STATE_SCORE, myCurrentScore
+    )
+}
+companion object { val STATE_SCORE = "playerScore" }
+
+```
+
+`onRestoreInstanceState()` is called right after `onStart()`
+```
+override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+// Call the superclass to restore the views
+super.onRestoreInstanceState(savedInstanceState)
+myCurrentScore = savedInstanceState.getInt(STATE_SCORE)
+}
+```
+
+== Tasks and BackStack
+Activities in the same app can occur on top of each other. In these cases, the previous activity is stopped and put in the backstack. By navigating back, the user pops the current activity from the backstack and destroys it, restoring the one on top.
+
+#figure(diagram(node-stroke: 1pt, {
+  node((-1, 3), [Activity 1])
+  node((1, 3), [Activity 2])
+  node((1, 4), [Activity 1])
+  node((3, 3), [Activity 3])
+  node((3, 4), [Activity 2])
+  node((3, 5), [Activity 1])
+  node((5, 3), [Activity 2])
+  node((5, 4), [Activity 1])
+  edge((-1, 3), (1, 3), [start activity 2], label-side: left, "->", bend: 36deg)
+  edge((1, 3), (3, 3), [start activity 3], label-side: left, "->", bend: 36deg)
+  edge((3, 3), (5, 3), [navigate back], label-side: left, "->", bend: 36deg)
+}))
+
+Launching the same activity in two different phases of the same storyline causes the creation of two separate instances by default. This can be avoided by using flags in the calling Intent.
+
+Navigating back to the root activity causes the app to terminate (android 11-) or brings the current task in the background (android 12+). You need intents in order to navigate trough activities.
+
+A task is a cohesive unit that contains a storyline (a BackStack) and can be in the foreground (if the top activity is running), or in the background if all activities are stopped.
+A task in the background can be seen in the "recent activities" UI.
+An app can be made of multiple tasks (and therefore multiple BackStacks).
+
+Launching an app from the home screen by default lands you in the same task. When you open an activity in Android, you can decide how it should start and behave. You can set this either:
+- in the manifest: fixed rules written once for that activity.
+- with flags in the Intent: temporary rules you choose at the moment you launch it.
+
+== The main thread
+Normally, each application runs on its own linux process, called the main thread. Activities are running and keeping the main thread alive, but other components may influence it so we should be careful.
+
+== Contexts
+A class activity or AppCompatActivity (like others) implement the abstract class Context.\
+Context is a handle to the system, providing environment references and used for:
+- loading a resource;
+- launching a new activity;
+- creating views;
+- obtaining system services.
+
+== Toasts
+They are tiny messages displayed over an activity, they take the context as input. They are used to signal user confirmation or little errors. Their duration can be controlled.
+```
+Toast.makeText(this, "Hello world, I am a toast.", Toast.LENGTH_SHORT).show()
+```
+
+= Views
+Android views are the standard for building responsive UIs. They are built on the concept of view: any self-contained object on the screen (including containers of other views). They are the basic building blocks for user interface components.
+
+Views occupy a rectangular area of the screen, they are responsible for drawing and event handling.
+
+/ Declarative Views: declared in an XML layout file:
+```xml
+<TextView
+android:id = "@+id/myTextView"
+android:layout_width = "match_parent"
+android:layout_height = "wrap_content"
+android:text = "Hello World"
+android:textAlignment = "center"
+/>
+ <!-- This is in res/layout/activity_main.xml -->
+```
+They can be accessed in Java/Kotlin trough findViewById
+```
+lateinit var textView : TextView
+textView = findViewById(R.id.myTextView)
+```
+
+/ Programmatic Views: are created directly in Java/Kotlin by giving them a context. However, they must also be given all their visual properties in the code.
+```
+lateinit var textView : TextView
+textView = TextView(this);
+```
+
+== Handling Events
+```xml
+<Button
+android:id= "@+id/button1"
+android:text= "First Button"
+/>
+```
+
+```
+lateinit var button: Button
+button = findViewById(R.id.button1)
+```
+Views are interactive components: upon certain actions, an approrpiate event will be fired (click, long click, focus, items selected, items checked, drag...)
+These events can be handled by
+/ XML Callbacks: this is possible only for a limited set of components.
+```
+<Button
+    android:id = "@+id/button1"
+    android:text= "First Button"
+    android:onClick="doSomething"
+/>
+```
+/ Event Handlers: we extend the view class and override the call (e.g. `onTouchEvent()`). This is impractical, its much better to have a separate class that handles all the logic.
+/ Event Listeners: each view can delegate the reaction to one to an object that implements the dedicated listener interface. Each listener is a Single Abstract Method (SAM) interface. Each listener handles a single type of event and contains a single callback method.
+
+e.g. assign the `clickListener` to the `View` trough `setOnClickListener()`
+
+```
+lateinit var button : Button
+class MainActivity : AppCompatActivity(), OnClickListener {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        button = findViewById(R.id.button1)
+        button.setOnClickListener(this)
+    }
+    override fun onClick(v: View?) { /* Behavior */ }
+}
+```
+Or, you can make an anonymous object:
+```
+button.setOnClickListener(object: OnClickListener {
+    override fun onClick(v : View?) { /* Behavior */ }
+})
+```
+The most common implementation is with lambdas:
+```
+button.setOnClickListener { view ->
+    // 'view' is the button (or view) that was clicked
+    Toast.makeText(this, "You clicked on view with ID: ${view.id}", Toast.LENGTH_SHORT).show()
+}
+```
+
+
+#let view = `View`
+#let viewgroup = `ViewGroup`
+#let layout = `Layout`
+
+
+== View Hierarchy
+#view objects are invisible containers that define the layout for the views declared in them. #viewgroup is a sublcass of #view.
+
+A #layout must extend a #viewgroup. Every view in a #layout needs to specify `android:layout_height`, `android:layout_width` and a dimension or one between `match_parent` or `wrap_content`.
+#figure(```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android=
+"http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent">
+	<TextView
+ android:id="@+id/textView"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="TextView"
+ android:textAlignment="center" />
+	<Button
+ android:id="@+id/button1"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="First Button" />
+	<Button
+ android:id="@+id/button2"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="Second Button" />
+</LinearLayout>
+```)
+
+Your layout is then compiled into a #view resourrce that has to be loaded by the #activity making use of it.
+
+```
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 }
 ```
-/ `onStart()`: called right before it is visible to the user, where the code that maintains the UI is initialized.\ ```
-override fun onStart() {
-super.onStart()
+Each #view can have an ID (`android:id="@+id/button1"`). `@` means "parse and expand the rest of the string as an id resource";
+`+` means "this is going to be added as a new id in R.java"
+
+== Layouts
+XML layout attributes named `layout_<something>` define layout parameters for the view that are appropriate for the #viewgroup in which it resides. Each parent #layout specifies `LayoutParams` that each children `View` must implement.
+Each layout needs the children #view;s to implement `layout_width` and `layout_height`, which can be:
+- `match_parent`;
+- `wrap_content`;
+- `0dp`: take up all available space (a dp is a density independent pixel)
+- a custom value
+
+Android also supports `padding` and `margin`. Padding is a #view property and margin is a #layout property.
+The most common static layouts are
+- `LinearLayout`
+- `RelativeLayout`
+- `TableLayout`
+- `FrameLayout`
+- `ConstraintLayout`
+
+A #layout can be declared inside another #layout.
+=== Linear Layout
+Organizes views on a single row or column, depending on `android:layout_orientation`: either vertical or horizontal
+```xml
+<LinearLayout LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent">
+	<Button
+ android:id="@+id/button1"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="First Button" />
+	<Button
+ android:id="@+id/button2"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Second Button" />
+	<Button
+ android:id="@+id/button3"
+ android:layout_width="wrap_content"
+ android:layout_height="match_parent"
+ android:layout_gravity="center_horizontal"
+ android:text="Third Button" />
+</LinearLayout>
+```
+if one of the views has a weight, then the views will take up the entire dimension. Weights tell us how important that #view is. The best value is usually `0dp`.
+
+If the elements do not fit, the layout can be wrapped in a `ScrollView` or `HorizontalScrollView`
+
+=== ConstraintLayout
+They define constraints (top/bottom/left/right) for each #view. Each constraint has to be defined to another previously declared #view, layout or invisible guideline. It's a flat #view hierarchy and it's the default one.
+
+Each view needs at least one constraint per plane (either horizontal or vertical). Constraints can only be defined between anchor points sharing the same plane. Each handle can define one constraint. Multiple handles can define a constraint to a single anchor point. Adding two opposite constraints places the view in the middle and can adjust the ratio by setting the `bias`.
+
+A size of `0dp` means "match constraint" or "take all available space".
+
+=== RelativeLayout
+`RelativeLayout` displays child views in relative positions The position of each view can be specified as relative to siblings elements (such as to the left-of or below another view) or in postions relative to the parent `RelativeLayout` area (such as aligned to the bottom, left or center).
+
+=== TableLayout
+`TableLayout` positions its children into rows and columns. TableLayout containers do not display border lines for their rows, columns or cells. The table will have as many columns as the row with the most cells. A table can leave cells empty. Cells can span multiple columns, just like in HTML.
+
+== Dynamic Layouts
+Sometimes the layouts need to be populated at runtime with views (`ListView`, `GridView`)... These layouts subclass `AdapterView`: they can use an adapter to retriece data from another source and map it into the elements of the `AdapterView`.
+`AdapterView` is a `ViewGroup` subclass: its subchildren are determined by an `Adapter`. Some subclasses are:
+- `ListView`;
+- `GridView`;
+- `Spinner`;
+- `Gallery`;
+- `ExpandableListView`;
+- `TabLayout`;
+
+`Adapters` are used to visualize dynamic data (e.g. `ArrayAdapter`)
+
+```
+// Create a list adapter for a string list
+String[] data = {“First”, “Second”, “Third”};
+ArrayAdapter<String> adapter =
+new ArrayAdapter<String>(
+    this,
+    android.R.layout.simple_list_item_1,
+    data
+);
+ListView listView = findViewById(R.id.listView);
+listView.setAdapter(adapter);
+```
+
+The `Adapter` takes in input:
+- the context;
+- A layout to be inflated in the single element of the dynamic layout
+- the data structure that holds the actual data
+
+```
+// Create a list adapter for a string list
+val data: Array<String> = arrayOf("First", "Second", "Third")
+val adapter = ArrayAdapter<String>(
+    this,
+    android.R.layout.simple_list_item_1,
+    data
+)
+val listView: ListView = findViewById(R.id.listView)
+listView.adapter = adapter
+```
+
+== Widgets
+
+`Views` are organized in a hierarchy of classes. Widgets are `Views` with their own behavior implemented.
+
+== TextView
+`TextViews` are not directly editable by users, and display static information.
+```xml
+<TextView
+    android:text="Hello World!"
+    android:id="@+id/textLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content”
+/>
+```
+Simple strings can be turned into links automatically
+```
+Linkify.addLinks(textView,
+    Linkify.WEB_URLS or
+    Linkify.EMAIL_ADDRESSES or
+    Linkify.PHONE_NUMBERS
+    )
+```
+
+== EditText
+Similar to a `TextView` but editable by thie users.
+```xml
+<EditText
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:ems="10"
+ android:inputType="text"
+ android:text="Insert your input here" />
+```
+
+== AutocompleteTextView
+As soon as the user starts typing, hints are displayed. A list of hints is given trough an `Adapter`.
+```
+val autocompleteTextView: AutoCompleteTextView = findViewById(R.id.autoCompleteText)
+autocompleteTextView.setAdapter( ArrayAdapter<String> (
+ this,
+ android.R.layout.simple_dropdown_item_1line,
+ arrayOf("Darth Vader", "Darth Sidious", "Darth Tyranus")
+))
+```
+
+== Spinner
+Provides a quick way to select values from a set. The value can be defined in the XML entries tag or trough the `SpinnerAdapter`.
+```
+val spinner: Spinner = findViewById(R.id.spinner)
+val spinnerAdapter = ArrayAdapter<String>(
+this, android.R.layout.simple_spinner_item,
+    arrayOf("Anakin Skywalker", "Sheev Palpatine", "Count Dooku"))
+spinnerAdapter.setDropDownViewResource(
+    android.R.layout.simple_spinner_dropdown_item
+)
+spinner.adapter = spinnerAdapter
+```
+
+== CompoundButton
+A subclass of `Button`. Represents a button with a state:
+- `CheckBox`;
+- `ToggleButton`;
+- `Switch`;
+- `RadioButton`
+It responds to `OnCheckedChangeListener()`
+
+If enclosed in a `RadioGroup`, it will imply a mutually exclusive multiple selection.
+```
+val radioGroup: RadioGroup = findViewById(R.id.radioGroup)
+radioGroup.setOnCheckedChangeListener { _, checkedId ->
+    when(checkedId) {
+        R.id.radioRed -> /* Do your stuff */
+        R.id.radioGreen -> /* Do your stuff */
+        R.id.radioBlue -> /* Do your stuff */
+        else -> /* Do your stuff */
+    }
 }
 ```
 
-/ `onResume()`: 
+== RecyclerView
+RecyclerView makes it easy to efficiently display large sets of data. You supply the data and define how each item looks, and the `RecyclerView` library dynamically creates the elements when they're needed.
+When elements go off screen, they (their view) isn't destroyed, it is instead resued for elements that come on the screen.
+
+It's like a highly customizable `ListView`, where you can add, remove and update elements at runtime without redrawing it completely everytime something changes.
++ call `notifyDataSetChanged()`
++ `notifyItemInserted()` or `notifyItemRemoved()`
+
+/ Step 1: Define the layout of a single element. A `CardView` is a styled container that displays data, using elevation and shadow, sticking to a consistent look across the platform.
+```xml
+<androidx.cardview.widget.CardView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content">
+	<LinearLayout
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:orientation="horizontal">
+		<TextView
+ android:id="@+id/todoTitle"
+ android:layout_width="0dp"
+ android:layout_height="wrap_content"
+ android:layout_weight="1"
+ android:textSize="20sp" />
+		<CheckBox
+ android:id="@+id/todoCheck"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_weight="0"
+ android:text="Done?" />
+	</LinearLayout>
+</androidx.cardview.widget.CardView>
+```
+
+/ Step 2: define a companion class for the element to hold the data. The TODO has a title that goes into the `TextView` and a boolean value for the `CheckBox`.
+```
+data class Todo(
+    var todoTitle: String,
+    var done: Boolean = false
+)
+```
+/ Step 3: define a `ViewHolder` which is the runtime container that will get externally inflated with the element layout and then holds the references to its children Views, so that they can be customized at runtime.
+```
+class TodoViewHolder(itemView: View): ViewHolder(itemView) {
+    val tvTodoTitle: TextView = itemView.findViewById(R.id.todoTitle)
+    val cbDone: CheckBox = itemView.findViewById(R.id.todoCheck)
+}
+```
+
+/ Step 4: define the `Adapter` which takes in input the data (a list of TODOs) and generates a `ViewHolder` for each entry, overriding `RecyclerView.adapter`
+```
+ass TodoAdapter (private val todos: MutableList<Todo>): Adapter<TodoViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder { ... }
+    override fun onBindViewHolder(holder: TodoViewHolder, position: Int) { ... }
+    override fun getItemCount(): Int { ... }
+}
+```
+
+/ Step 4a: `onCreateViewGolder` is invoked when a new elements needs to be drawn. It is expected to return the right `ViewHolder`, inflated with the right layout. The parent is the empty container reserved for this element.
+```
+override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
+    return TodoViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.todo_card, parent, false)
+    )
+}
+```
+
+/ Step 4b: `onBindViewHolder` is invoked when then ew element is given a position within the `RecyclerView`. Here we first need to populate the fields of the element.
+```
+override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
+ holder.apply {
+    tvTodoTitle.text = todos[position].todoTitle
+    cbDone.apply{
+        isChecked = todos[position].done
+        setOnCheckedChangeListener { _, b -> todos[position].done = b }
+        }
+    }
+}
+```
+
+/ Step 4c: `getItemCount()` needs to output the number of items in our data structure:
+```
+override fun getItemCount(): Int {
+    return todos.size
+}
+```
+
+/ Step 5: Assign a `LayoutManager` when creating the `RecyclerView`. It will arrange the items in a defined fashion.
+```
+val recyclerTodo: RecyclerView = findViewById(R.id.recyclerTodo)
+recyclerTodo.adapter = TodoAdapter(mutableListOf())
+recyclerTodo.layoutManager = LinearLayoutManager(this)
+```
+
+= Resources
+An app must be able to tolerate feature variability and provide a flexible user interface that adapts to different screen configurations.
+Android separates the code from the application's resources.
+Resources are defined with a declarative XML-based approach.
+#emph[Resources are everything that is not code], including XML layout files, language packs, images, audio/video files
+
+Data presentation is separated from the data management. It provides alternative resources to support specific device configurations.
+Different resources are used for different device configurations.
+
++ Define two XML layouts for two different devices;
++ At runtime, android detects the current device configuration and loads the appropriate resources for the app without having to recompile.
+```
+My Project
+├── java
+└── res
+    ├── layout (application XML layouts)
+    ├── values (application lables)
+    └── drawable (application images)
+```
+Each resource has a name/identifier.
+`values/string.xml` contains all the text that the application uses, like the name of buttons, labels, default text etc.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <string name="hello”> Hello world! </string>
+ <string name="labelButton"> Insert your username </string>
+</resources>
+```
+The `R` class connects code and resources. It's an automatically generated file, recreated in case of changes in the `res/` directory.
+
+Each resource is associated with an unique identifier (ID), that allows its access, composed of
+- resource type: string, color, menu, drawable,...;
++ resource name: either the filename without the extension, or the value in the XML `android:attribute` attribute.
+
+When the resource is a #view, the ID must be specified explicitly and does not use the `type + name` scheme.
+`android:id="@+id/button1"` means that the view will be seen as an `id` resource.
+
+== Resource Access
+/ From XML: `@[<package_name>:]<resource_type>/<resource_name>`
+  - `<package_name>` is the name of the package in which the resource is located;
+  - `<resource_type>` is the name of the resource type;
+  - `<resource_name>` is the name of the resource filename without the extension or the `android:name` attribute value in the XML element.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="my_red"> #FF3333 </color>
+    <string name="labelButton"> Press Here! </string>
+    <string name="labelText"> Hello world! </string>
+</resources>
+```
+
+/ From Java/Kotlin Code: `[package_name.]R.resource_type.resource_name`
+  - `package_name` is the name of the package in which the resource is located (not required when referencing resources from the same package)
+  - `resource_type` is the name of the resource type
+  - `resource_name` is the name of the resource filename without the extension or the `android:name` attribute value in the XML element.
+```
+// Get a string resource from the string.xml file
+// when assigning to a variable use context.getResources()
+val hello: String = this.getResources().getString(R.string.hello)
+// Get a color resource from the string.xml file
+val myRed: Color = getResources().getColor(R.color.my_red)
+// Load a custom layout for the current screen
+setContentView(R.layout.layout_main)
+// Set the text on a TextView object using a resource ID
+// keyword as is equivalent to explicit cast
+val msgTextView = findViewById(R.id.label1) as TextView
+msgTextView.setText(R.string.labelText)
+```
+/ Values Example:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_title"> Example Application </string>
+	<string name="label"> Hello world! </string>
+	<integer name="value"> 53 </integer>
+	<string-array name="nameArray">
+		<item> John Bonham </item>
+		<item> Frank Zappa </item>
+	</string-array>
+	<integer-array name="valArray">
+		<item> 1 </item>
+		<item> 2 </item>
+	</integer-array>
+</resources>
+```
+
+#table(
+  inset: 5pt,
+  columns: 2
+)[px][pixel units][in][inch units][mm][millimeter units][pt][points of 1/72 inch][dp#footnote[These units are relative to a 160 dpi (dots per inch) screen, on which 1dp is roughly equal to 1px. When running on a higher density screen, the number of pixels used to draw 1dp is scaled up by a factor appropriate for the screen's dpi. ]][abstract unit, independent from pixel density][sp][abstract unit, independent from pixel density of a display (font)]
+
+== Style
+A style is a set of attributes that can be applied to a specific component of the gui or to the whole screen or app (theme) to change their appearance. A style is an XML resource that is referenced using the value provided in the name attribute. Styles can be organized in a hierarchical structure. A style can inherit properties from another style, trough the parent attribute.
+#figure(caption: [Defining a theme])[```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/coin_yellow</item>
+        <item name="colorSecondary">@color/hound_grey</item>
+    </style>
+</resources>
+```]
+
+#figure(caption: [Applying a style to a #view])[```xml
+<Button style="@style/MyTheme"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Push me" />
+```]
+
+== Drawables
+A drawable resource is a general concept for a graphic that can be drawn:
+- images;
+- XML resources with attribute such as `android:drawable` and `android:icon`
+
+An `XMLBitmap` is an XML resource that points to a bitmap file.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/tile"
+    android:tileMode="repeat" />
+```
+A BitMap file is a `.png`, `.jpg` or a `gif` file. Android creates a BitMap resource for any of these files saved in the `res/drawable` directory.
+```
+val drawing: Drawable = theme.resources.getDrawable(R.drawable.AndroidQuestion)
+// theme is the property access syntax for getTheme()
+// theme.resources uses the resources for the theme associated with the context
+// alternative syntax for getDrawable(id, theme), similar to getColor
+```
+
+The most common view that displays images is the `ImageView` with XML tag `<ImageView>`
+
+== MipMap
+
+The mipmap directory is dedicated to all images that are used as icons for:
+- app launcher;
+- app notifications;
+- app bar
+Icons are retrieved by the manifest file
+```xml
+<application ...
+android:icon="@mipmap/ic_launcher"
+ android:roundIcon="@mipmap/ic_launcher_round"
+> ... </ application>
+```
+Image Asset Studio is a tool to create icons
+
+== Other Resources
+/ Raw: is used for resources that have no runtime optimization (audio/video files). They can be accessed as a stream of bytes: `val inputStream: InputStream = resources.openRawResource(R.raw.videoFile)`
+/ XML: `res/xml` contains arbitrary xml files that can be read at runtime trough `R.xml.<filename>`. They can be parsed trough an XML parser: `val xmlParser: XmlResourceParser = resources.getXml(R.xml.my_repository)`.
+
+== Resource Alternatives
+
+Android applications should provide alternative resources to support specific device configurations (languages, screen orientations).
+To specify configuration-specific alternatives you create a new directory in `res/` named like `<resources-name>-<qualifier>`, and save the respective alternative resources in this directory.
+```
+res
+├── values-en
+└── values-it
+```
+`resources_name` is the directory name of the corresponding default resources, `qualifier` is a name that specifies an individual configuration for which these resources are to be used.
+
+When the application requests a resource for which there are multiple altneratives, android selects which alternatve resource to use at runtime, depending on the current device configuration.
+#figure(diagram(node-stroke: 1pt, {
+  node((0, 0), [Eliminate qualifiers that contradict\ the device configuration])
+  edge("->")
+  node((0, 1))[Identify the next qualifier\ in the table]
+  edge("->")
+  node((0, 2), shape: diamond)[Do any resource\ directories use\ this qualifier?]
+  edge("->")[yes]
+  node((0, 3))[Eliminate directories that do\ not include this qualifier]
+  edge((0, 3), "r,u,u,l","->")[continue until only\ one directory for the\ desired resource is left]
+  edge((0,2),"l,u,r","->")[no]
+}))
+/ Best practices:
+    - provide default resources for your application;
+    - provide alternative resources based on the target market of your application;
+    - avoid unnecessary or unused resource alternatives;
+    - use alias to reduce the duplicated resources;
+
+= Intents

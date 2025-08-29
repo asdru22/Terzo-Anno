@@ -16,6 +16,8 @@
   doc
 }
 
-#let null = `null`
-
 #let split(..content) = grid(columns: 2, inset: 2pt,..content)
+
+#let null = `null`
+#let activity = `Activity`
+#let context_ = `Context`
