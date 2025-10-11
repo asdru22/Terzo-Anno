@@ -1305,13 +1305,220 @@ When the application requests a resource for which there are multiple altnerativ
   node((0, 2), shape: diamond)[Do any resource\ directories use\ this qualifier?]
   edge("->")[yes]
   node((0, 3))[Eliminate directories that do\ not include this qualifier]
-  edge((0, 3), "r,u,u,l","->")[continue until only\ one directory for the\ desired resource is left]
-  edge((0,2),"l,u,r","->")[no]
+  edge((0, 3), "r,u,u,l", "->")[continue until only\ one directory for the\ desired resource is left]
+  edge((0, 2), "l,u,r", "->")[no]
 }))
 / Best practices:
-    - provide default resources for your application;
-    - provide alternative resources based on the target market of your application;
-    - avoid unnecessary or unused resource alternatives;
-    - use alias to reduce the duplicated resources;
+  - provide default resources for your application;
+  - provide alternative resources based on the target market of your application;
+  - avoid unnecessary or unused resource alternatives;
+  - use alias to reduce the duplicated resources;
 
 = Intents
+Intents are used to navigate between activities. They are facilities for late run-time binding between components in the same or different application#footnote[Android Intents let your app say “I want something done” without knowing “who exactly will do it” until runtime. The system matches your request to the right component (inside your app or another app).].\
+They can call a component from another component, or pass data between them. They can also reuse already installed applications and components
+
+An intent object is basically a bundle of information:
+- interests of the receiver (e.g. name);
+- interest for the android system (e.g. category);
+
+`val intent: Intent = Intent()`
+#figure(
+  table(inset: 2pt, columns: 1)[Component Name][Action Name][Data][Category][Extra][Flags],
+  caption: [Structure of an intent],
+)
+
+Intents can be of two types:
+/ Explicit: the developer knows the target receiver component explicitly, used to launch specific activities. The component that should handle the intent is optional.\ ```
+  intent.setComponent(ComponentName(
+      "com.example.MyApplication",
+      "com.example.MyApplication.MyActivity")
+  )
+
+  intent.setComponent(ComponentName(
+      this,
+      MyActivity::class.java)
+  )
+
+  // How to navigate to a new activity within the same application:
+  val intent: Intent = Intent()
+  intent.component = ComponentName(this, ActivityTwo::class.java)
+  startActivity(intent)
+  // or simply
+  val intent: Intent = Intent(this, ActivityTwo::class.java)
+  startActivity(intent)
+  ```\ With `startActivity` we are explicitly saying that the component handling the intent must be an Activity.
+/ Implicit: the developer knows what the target receiver component must do, the system chooses the receiver that matches the request. They do not name a target, the component name is left blank.\ When an intent is launched, android checks out which component can handle the intent. If one is found, such component is started. If two or more are found, the user is prompted to choose one. If none is found, an error is raised.\ Binding occurs at runtime, when the intent is launched:
+  - an activity fires an intent;
+  - the android system looks for suitable activities by looking at the manifests of all apps. when one is found, it is called.
+  - if multiple are found, the user is prompted to choose one.
+
+== Intent Action
+/ Action Name: a string naming thew action to be performed. its mandatory for implicit intents, and can be defined by the developer from predefined ones.\
+```
+intent.action = Intent.ACTION_EDIT
+intent.action = "com.example.MyApplication.MY_ACTION"
+```
+- `ACTION_VIEW` is called when the receiving activity shows something to the users;
+- `ACTION_SEND` is called when the receiving activity is able to send the data received trough the Intent using some dedicated channel (e.g. email, a message app...);
+
+#link("https://developer.android.com/reference/android/content/Intent)")[Predefined Actions]
+
+== Intent Data
+The data passed from the caller to the called component. It is usually a URI (Uniform Resource Identifier) that identifies the data to be acted on and its type.\
+```
+intent.data = "https://www.unibo.it/"
+intent.type = "text/html"
+```
+Do not call `setData()` and `setType()` if you need to set both because they nullify each other: call `setDataAndType()`
+/ Data: is specified by a name or a type: `scheme://host:port/path`
+- `tel://+1-330-555-0125`
+- `content://contacts/people`
+- `http://www.cs.unibo.it/`
+*type*: MIME (Multipurpose Internet Mail Extensions)-type
+Composed by two parts: a type and a subtype: image/gif, image/jpeg, image/png, image/tiff...
+
+== Intent Category
+A String that gives additional information about the action to execute. Its used for special intents that have additional features to consider: `intent.addCategory(Intent.CATEGORY_BROWSABLE)`.
+#link("https://developer.android.com/reference/android/content/Intent")[Predefined Categories]
+
+== Intent Extras
+Additional information that should be delivered to the handler (e.g. parameters). They are key-value pairs, where the key is a string and the value can be of different types (int, float, string, boolean, arrays...).\
+```
+val intent: Intent = Intent(Intent.ACTION_SEND)
+intent.putExtra (Intent.EXTRA_EMAIL,"federico.montori2@unibo.it")
+```
+Extras can be predefined: most actions expect extras. Even your own can be specified
+
+== Intent Flags
+Intent flags are a bitwise or of integers containing additional information that instructs android how to launch a component, and how to treat it after its executed.
+```
+intent.flags =
+    Intent.FLAG_ACTIVITY_NEW_TASK or
+    Intent.FLAG_ACTIVITY_NO_ANIMATION
+```
+
+== Sender Side Intent Resolution
+Implicit intents can be used to re-use code and launch external applications.
+```
+val intent: Intent = Intent(Intent.ACTION_SEND)
+intent.putExtra(Intent.EXTRA_TEXT, "Hello World!")
+intent.type = "text/plain"
+val chooser =
+Intent.createChooser(intent, "You HAVE to choose!")
+if (intent.resolveActivity(packageManager) != null)
+ startActivity(chooser))
+```
+We can force the user to select one of the possible activities that can handle the intent by using `Intent.createChooser()`
+
+== Receiver Side Intent Resolution
+An activity can declare in its manifest that it is able to handle certain implicit intents. This is done by declaring an `intent-filter` in the manifest file of the activity.
+```xml
+<activity android:name=".MainActivity" android:exported="true">
+    <intent-filter>
+        <action android:name="com.example.ACTION_ECHO" />
+    </intent-filter>
+</activity>
+```
+`exported` indicates whether the activity can be invoked by another application.\
+If you specify more than one intent-filter, your activity should handle the received intent differently, since there are different entry points to the activity.
+
+If you specify more than one instance of the same tag within the same intent-filter, your activity should handle each combination of these.
+
+The intent resolution process resolves the Intent-filter that can handle a given event. Three tests must be passed:
+/ Action field test: an intent filter always needs to specify at least one action. The action specified in the intent must match one of the actions listed in the filter.
+/ Category field test: an intent filter for activities always needs to specify at least one category. Every category in the intent must match the category of the filter. If the category is not specified in the intent, android assumes it to be `CATEGORY_DEFAULT`.
+/ Data field test: : The URI of the intent is compared with the parts of the URI mentioned in the filter (this part might be incomplete or using wildcards such as \* ).
+  - Both URI and MIME-types are compared (4 different sub-cases).
+  - All parts specified by the filter need to be matched by the Intent (not vice-versa).
+  If all tests are passed, the activity is a match for the intent.
+
+== Intent with result
+Activities can be invoked to return results (e.g. pick an image from the gallery)\
+Sender side: invoke the `startActivityForResult` (deprecated)
+
+```
+val ACTIVITY_CODE = 0
+val intent: Intent = Intent(this, ActivityPrefix::class.java)
+startActivityForResult(intent, ACTIVITY_CODE).
+...
+override fun onActivityResult
+(requestCode: Int, resultCode: Int, data: Intent?) {
+ // Invoked when SecondActivity completes its operations
+}
+```
+
+Receiver side: invoke the `setResult()`\
+```
+val intent = getIntent() // in Kotlin this line is not even needed
+setResult(RESULT_OK, intent)
+intent.putExtra("response", "whatever you wanted")
+finish() // The result is not returned until finish() is called
+```
+#link("https://developer.android.com/training/basics/intents/result")[Activity Result API]
+
+To overcome cases when the calling activity is destroyed and recreated while the called one is running, the new Activity Result API is used. With the activity result API basically the callback is registered whenever the caller is recreated, decoupling the callback from the activity lifecycle.
+
+Registering can be called when declaring state variables:
+- `getContent()` is a default contract constructor that is used to pick a piece of content. In this case you get an uri from the called activity. The contract specifies the input and output types of the intent. `registerForActivityResult()` takes in input the contract and a lambda that is called when the result is returned.
+```
+val mLauncher: ActivityResultLauncher<String> = registerForActivityResult(
+    ActivityResultContracts.GetContent(),
+    ActivityResultCallback<Uri?>() { uri: Uri? -> /* Handle the Uri */ }
+)
+```
+`mLauncher.launch("image/*")` use it by passing the data type that you want the user to choose from (in this case an image from the gallery).
+
+== Android Permission System
+If your app offers functionality that might require access to restricted data or actions, you need to ask permissions. They are declared in the manifest.
+`<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />`.
+
+Request the permission using the activity result api for a solid experience. The launcher should look like:
+```
+val requestPermissionLauncher = registerForActivityResult (ActivityResultContracts.RequestPermission()) {
+     isGranted: Boolean ->
+        if (isGranted) {
+            // Permission is granted.
+    } else {
+        // Permission is denied.
+        }
+}
+```
+Request the permission
+```
+val REQUEST_CODE = 0
+when {
+    ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED -> {
+ // Permission is already granted.
+}
+ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) -> {
+// Show an explanation.
+}
+else -> { requestPermissionLauncher.launch( Manifest.permission.REQUESTED_PERMISSION) } }
+```
+
+== WebView
+A `WebView` is a view that displays web pages. It uses the same rendering engine as the android browser. It can be used to display online content or static HTML content stored in the app.
+It is the container for It is the container for Capacitor Hybrid apps.
+It has two main methods:
+- `loadUrl()`: loads a web page from a URL;
+- `loadData()`: loads static HTML content.
+It needs the `INTERNET` permission in the manifest.
+Its possible to modify the visualization options of a WebView trough the WebSettings class.
+Override the behavior for which links in the WebView open in the WebView (they in fact don't throw an intent) with a WebViewClient.
+
+By default, the WebView UI does not include any navigation button. However, callbacks methods are defined:
+- `goBack()`;
+- `goForward()`;
+- `reload()`;
+- `clearHistory()`;
+```
+override fun onKeyDown (keyCode: Int, event: KeyEvent?): Boolean {
+/* Is there a page in the history? */
+    if (keyCode == KeyEvent.KEYCODE_BACK && initialized && webView.canGoBack()) {
+        webView.goBack()
+        return true
+    }
+     else return super.onKeyDown(keyCode, event)
+}
+```
