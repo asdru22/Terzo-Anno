@@ -6,7 +6,7 @@
 / Android Runtime (ART): Implementazione specifica della Java Virtual Machine (JVM) per Android, ottimizzata per dispositivi con vincoli di memoria.\ Interpreta il codice Java in Bytecode (APK), assieme a risorse e librerie. In seguito interpreta il Bytecode in codice macchina.\ Utilizza due tipi di compilazione:
     - Ahead of time (AOT): ART compila l'app al momento dell'installazione, in modo da averla già precompilata quando dovrà eseguirla.
     - Just in time (JIT): ART compila le parti più critiche del codice durante l'esecuzione, per tenerle sempre aggiornate.
-    ART una un daemon per controllare e compilare periodicamente app non precompilate.
+    ART usa un daemon per controllare e compilare periodicamente app non precompilate.
 / Dalvik: Implementazione della JVM prima di ART (fino ad Android KitKat). Compilava JIT i file DEX bytecode al momento dell'esecuzione dell'app. ART invece dispone di uno stack più capiente, migliore gestione degli errori, ottimizzazione del garbage collector e usa compilazione AOT per prestazioni migliori.
 / Componenti: Punti di accesso all'app, dichiarati nel manifest.
     + Activity: singola schermata con logica e UI;
@@ -14,7 +14,7 @@
     + Broadcast Receiver: rimane in ascolto di eventi, li riceve ed esegue brevi operazioni in base ad essi;
     + Content provider: gestisce l'accesso ai dati tra app diverse.
     Ogni componente ha un lifecycle definito, ed è attivabile tramite intent#footnote[Tranne i Content Provider.]. Il sistema gestisce il loro ciclo di vita e possono essere terminati in ordine di priorità se sono necessarie risorse. Ogni componente viene eseguito in un processo separato (sandbox) come utente Linux.
-/ Activity: Schermata con cui l'utente interagisce (entrypoint) con un layout proprio. Un'applicazione può avere più activities che si susseguono nella navigazione. Un'activity può attivarne un altra tramite intent. Come gli altri componenti, ha un lifecycle.
+/ Activity: Schermata con cui l'utente interagisce (entrypoint) con un layout proprio. Un'applicazione può avere più activities che si susseguono nella navigazione. Un'activity può attivarne un'altra tramite intent. Come gli altri componenti, ha un lifecycle.
     + #m("Create"): si occupa di creare l'activity, ma non la rende ancora visibile;
     + #m("Start"): rende visibile l'activity, ma non ci si può ancora interagire;
     + #m("Resume"): l'activity è visibile e interattiva (running). Solo un'activity alla volta può essere in questo stato;
@@ -31,9 +31,9 @@
 / Portrait e Landscape Mode: Quando si ruota il telefono, Android distrugge l'activity e la ricrea per adattare le risorse alla configurazione. Lo stesso vale quando si cambia lingua o tema.
     + Distrugge l'activity: #m("Pause") #sym.arrow #m("Stop") #sym.arrow #m("Destroy")\;
     + Ricrea l'activity #m("Create") #sym.arrow #m("Start") #sym.arrow #m("Resume").
-    Si tiene traccia della dei dati in un bundle chiamato instance state dell'activity. Con esso, Android tiene traccia dello stato di ogni view.
-    + Prima di essere stoppata , l'activity salava il bundle (override di #m("saveInstanceState"));
-    + Prima di essere riavviata, l'activity carica i dati (override di #m("restoreInstanceState")).
+    Si tiene traccia dei dati in un bundle chiamato instance state dell'activity. Con esso, Android tiene traccia dello stato di ogni view.
+    + Prima di essere stoppata , l'activity salva il bundle (override di #m("SaveInstanceState"));
+    + Prima di essere riavviata, l'activity carica i dati (override di #m("RestoreInstanceState")).
     Questo metodo è pensato per la persistenza di piccoli dati. Per quantità di dati maggiori si utilizza un ViewModel, che sopravvive ai cambi di configurazione e permette una gestione migliore.
 / Activity Backstack e Task: In un'app, le activities sono memorizzate una sopra l'altra, e per crearne una si usano gli intent. Quando l'utente preme "indietro", Android preleva l'elemento precedente dallo stack delle activity eliminando il primo. Questa operazione è fatta dal ActivityManagerService. Quando una nuova attività è avviata, viene messa in cima allo stack. Quella sottostante esiste ancora ma è congelata. Navigando a ritroso si esegue un pop delle activity. Se si preme indietro nella root activity, quindi quando lo stack è vuoto, l'app viene terminata su Android $lt.eq 11$, mentre su Android $gt.eq 12$ il task va in background.\ Un task è una collezione (backstack) di activity correlate. Un task può essere in primo piano se la sua activity in cima è "running", altrimenti è in background viene mostrato nella UI "recent activities". Una singola app può avere più task distinti, ciascuno con il proprio backstack.
 / View: Classe base di tutti i componenti grafici della UI. È l'oggetto che rappresenta e gestisce gli eventi di un elemento visivo sullo schermo, come un pulsante, un campo di testo o un'immagine. Le view sono il paradigma per la costruzione di una ui responsiva in Android.\ Le view possono essere create in 2 modi:
@@ -60,15 +60,15 @@
 / Resources: Dato che Android deve girare su tanti dispositivi diversi tra loro, con feature e UI variabile, si separa il codice dalle risorse. Questo è un approccio dichiarativo basato su file XML: tutto ciò che non è codice è una risorsa. L'accesso alle risorse nel codice avviene tramite la classe R: un file generato e mantenuto da Android che contiene gli id per tutte le risorse nella directory `res`. Ogni risorsa ha associato un ID composto da:
     - tipo della risorsa (string, color,...);
     - nome della risorsa (attributo XML `android:name`).
-    Se la risorsa è una view, l'id va specificato esplicitamente con `android:id="@+id/nome-view"` (`@` indica che la stringa a seguire sarà un ID e `+`, che la classe R deve aggiungerlo). Un app Android dovrebbe fornire risorse alternative per supportare specifiche configurazioni di device. A runtime, Android analizza la configurazione del dispositivo e carica le risorse corrette.
-/ Intent: Utilizzati per navigare tra le activity di un app o app esterne. Un intent è un oggetto messaggero che descrive un operazione da fare e un bundle di dati su cui eseguirla. Permette il late runtime binding tra componenti. Esistono due tipi di intent:
+    Se la risorsa è una view, l'id va specificato esplicitamente con `android:id="@+id/nome-view"` (`@` indica che la stringa a seguire sarà un ID e `+`, che la classe R deve aggiungerlo). Un'app Android dovrebbe fornire risorse alternative per supportare specifiche configurazioni di device. A runtime, Android analizza la configurazione del dispositivo e carica le risorse corrette.
+/ Intent: Utilizzati per navigare tra le activity di un'app o app esterne. Un intent è un oggetto messaggero che descrive un operazione da fare e un bundle di dati su cui eseguirla. Permette il late runtime binding tra componenti. Esistono due tipi di intent:
     / Espliciti: si specifica direttamente il nome del componente destinatario (package e classe). Sono usati per la navigazione interna dell'app.
     / Impliciti: si dichiara un'azione, un URI e una category, lasciando al SO il compito di risolvere a runtime il componente più idoneo. Se ci sono più destinatari possibili, l'utente sceglie quello da usare tramite una choose activity.
 
     I componenti di un intent sono:
     - Name del componente destinatario, opzionale solo per gli intent impliciti;
     - Action: stringa che identifica l'operazione da eseguire, permette di identificare quale componente può eseguire l'operazione;
-    - Data e Type: URI e MIME type dei dati su cui operare;
+    - Data e Type: URI e tipo MIME dei dati su cui operare;
     - Category: altre informazioni di routing;
     - Extras: coppie chiave-valore per parametri addizionali;
     - Flags: istruzioni aggiuntive su come avviare il componente.
@@ -77,7 +77,7 @@
     + Action field test: almeno una delle actions deve combaciare;
     + Category field test: almeno una delle categorie deve combaciare;
     + Data field test: l'URI dei dati dell'intent viene confrontato con parti dell'URI specificate nel filter.
-/ Intent con Risultati: utilizzati quando si vuole avviare un activity tramite un intent per ottenerne dei risultati, ad esempio scegliere un immagine dalla galleria. Per ottenere risultati da un intent si utilizza l'Activity Result API: permette al sender dell'intent di ricevere dal receiver l'intent originale arricchito con i risultati richiesti.
+/ Intent con risultati: utilizzati quando si vuole avviare un activity tramite un intent per ottenerne dei risultati, ad esempio scegliere un'immagine dalla galleria. Per ottenere risultati da un intent si utilizza l'Activity Result API: permette al sender dell'intent di ricevere dal receiver l'intent originale arricchito con i risultati richiesti.
     + Il sender crea l'intent utilizzando `registerActivityForResult()`, che restituisce un launcher. Il launcher specifica quale risultato dovrà aspettarsi il sender e rimane in attesa di esso con una callback.
     + Per definire il tipo di risultato atteso, il launcher usa un contract;
     + Se non si usano i contract, si ottiene in risposta un'ActivityResult.
@@ -134,7 +134,7 @@
         [
             *Consigliato per esecuzioni continue in background.*
             - Un service è un componente che può eseguire operazioni di durata prolungata e task in background;
-            - Ha un suo lifecycle (#m("Start"),#m("Create"),...) come un'activity, ma non ha una UI;
+            - Ha un suo lifecycle (#m("Start"), #m("Create"), ...) come un'activity, ma non ha una UI;
             - Sopravvive alla chiusura dell'app.
         ],
     ) Un foreground service rimane attivo continuamente, non può essere scartato dal sistema per recuperare memoria. Va inserito nel manifest il permesso `FOREGROUND_SERVICE`.\ Un service può essere avviato con `startService()`, oppure essere legato ad un componente con `bindService()`. Un bound service termina quando tutti i componenti associati fanno unbind.\ Un service viene eseguito come qualsiasi altro componente sul main thread. Se fa operazioni complesse bisogna comunque usare coroutine o thread. Se il main thread non è impegnato, un service è l'unico componente in grado di mantenerlo attivo.
@@ -142,17 +142,17 @@
 / Data Management e Room: Si può utilizzare un database locale con SQLlite. Per utilizzarlo si crea un DBHelper che contiene i metodi per gestire il database. L'output di ogni query sul database è un cursor: un puntatore alle colonne ottenute dalla query. Le operazioni sui db sono bloccanti e vengono eseguite in thread separati.\ Room è il framework raccomandato per android. Genera codice SQL a partire da annotazioni (insert, update, delete e query). Room fornisce un abstraction layer su SQLite, semplificandone l'utilizzo.
     - Database: contiene il database holder, rappresenta il punto di accesso al database;
     - Data Access Object (DAO): interfacce con metodi per accedere alle tabelle dei db;
-    - Entities: per ogni entity, room crea una tabella nel db.
-    Room supporta le observable queries: queries che ritornano oggetti live data, così le modifiche al database vengono immediatamente notificate al live data. L'aggiornamento dei database avviene tramite il migration environment di room: ogni migration class definisce una startVersion e una endVersion del db.\
+    - Entities: per ogni entity, Room crea una tabella nel db.
+    Room supporta le observable queries: queries che ritornano oggetti live data, così le modifiche al database vengono immediatamente notificate al live data. L'aggiornamento dei database avviene tramite il migration environment di room: ogni migration class deprecato una startVersion e una endVersion del db.\
     Il database Room è una Single Source of Truth (SSOT): assicura che la richiesta per i dati sia sempre fatta verso una singola sorgente. Ogni volta che si chiede un dato salvato nel db, si fornisce il LiveData del db. Una classe intermedia repository fornisce una classe che gestisce le chiamata alle risorse in maniera univoca.
 / HTTP: Comunicazioni con la rete avvengono tramite il sistema richiesta-risposta di HTTP. I client HTTP sono implementati con:
-    - HTTPClient (deprecato):
+    - HTTPClient (deprecato);
     - HTTPUrlConnection: implementazione lightweight di un client HTTP, utile per applicazioni client-server.
     Le connessioni HTTP devono essere gestite su un thread separato. Ci sono librerie più specifiche per gestire le chiamate HTTP:
     - Volley: meccanismi di caching e chiamate async;
     - Retrofit: serializzazione e de-serializzazione automatica dei contenuti.
 / Content Provider: Interfaccia standard che permette a un'app di esporre i propri dati (come contatti, immagini, file, note, ecc.) ad altre app, oppure di accedere a dati provenienti da altre applicazioni. Un ContentProvider è un componente simile ad un REST web service, utile per accedere a dati condivisi da altre app. Alle app esterne appare come un'interfaccia per il db tramite cui è possibile fare query. Il content provider deve essere registrato nel manifest per poter essere visibile dalle altre app.
-/ Geolocalization API: Fa parte del context-aware computing: la computazione dipende dal contesto esterno. I dati di contesto possono essere primari se grezzi, e secondari se hanno subito manipolazioni. La geolocalizzazione è possibile tramite:
+/ Geolocation API: Fa parte del context-aware computing: la computazione dipende dal contesto esterno. I dati di contesto possono essere primari se grezzi, e secondari se hanno subito manipolazioni. La geolocalizzazione è possibile tramite:
     - Global Positioning System (GPS): triangola la posizione basandosi sul delay della ricezione di segnali da 3 satelliti.
     - Wi-Fi localization: localizzazione basata sulla posizione dei punti di accesso Wi-Fi memorizzati nel database Google Location Service.
     - Cellular localization: localizzazione basata sulla posizione del ripetitore telefonico a cui è connesso lo smartphone, memorizzata in un database pubblico.
@@ -160,26 +160,26 @@
     - ACCESS_FINE_LOCATION: posizione esatta solo ad app aperta;
     - ACCESS_COARSE_LOCATION: posizione approssimativa solo ad app aperta;
     - ACCESS_BACKGROUND_LOCATION: posizione ad app chiusa.
-    FusedLocationProvider è un servizio di Android che ottimizza le richieste GPS delle varie app per migliorare la durata della batteria. Sostituisce il LocationListener inefficiente.  Il FusedLocationProviderClient invia la location request ad intervalli predefiniti, e il servizio risponde appena riesce.\ Il geocoding converte un indirizzo in latitudine/longitudine, implementato dalla classe Geocoder.\ Il geofencing è una permette di ottenere informazioni su quando l'utente entra/esce da un'area precisa, basata su "recinti geografici". GeofencingClient prende in input coordinate e raggio dell'area da recintare, e un pending intent. Quando avviene un geofencing event, il pending intent viene lanciato. Si usa un broadcast receiver per catturare gli intent di geofencing.
-/ System Services: Componenti che espongono le funzionalità del framework Android per interagire direttamente con l'hardware. Alcuni permettono di programmare un'azione da eseguire nel futuro:
+    FusedLocationProvider è un servizio di Android che ottimizza le richieste GPS delle varie app per migliorare la durata della batteria. Sostituisce il LocationListener inefficiente.  Il FusedLocationProviderClient invia la location request ad intervalli predefiniti, e il servizio risponde appena riesce.\ Il geocoding converte un indirizzo in latitudine/longitudine, implementato dalla classe Geocoder.\ Il geofencing permette di ottenere informazioni su quando l'utente entra/esce da un'area precisa, basata su "recinti geografici". GeofencingClient prende in input coordinate e raggio dell'area da recintare, e un pending intent. Quando avviene un geofencing event, il pending intent viene lanciato. Si usa un broadcast receiver per catturare gli intent di geofencing.
+/ System Services: Componenti che espongono le funzionalità del framework Android per interagire direttamente con l'hardware. Alcuni permettono di programmare un'azione da eseguire in un momento futuro:
     - AlarmManager: permette di lanciare intent (passando un pending intent) nel futuro, specificando in maniera esatta quando avvenire (anche in maniera ripetitiva). Specificando WAKEUP l'intent verrà lanciato anche se il dispositivo è in standby. In caso di riavvio del dispositivo bisogna reimpostare gli alarms.
     - JobScheduler;
     - WorkManager: permette di eseguire task nel futuro, in maniera asincrona e senza necessità di reimpostarlo nel caso si riavvii il dispositivo. L'azione viene eseguita in un intervallo di tempo flessibile nel futuro, in base alle risorse di cui ha bisogno il sistema. Sfrutta JobScheduler, AlarmManager e BroadcastReceiver, ma non sostituisce l'alarm manager per programmare task in un momento esatto nel futuro. Sfrutta una classe Worker che definisce il task da eseguire nel metodo `doWork()`.
-/ Sensori e Activity Recognition API: Sensori del telefono forniscono informazioni di contesto primario, tra cui movimento, ambiente e posizione.\ L'activity recognition API aggrega informazioni di contesto primario dei vari sensori per riconoscere tipi di attività che l'utente sta svolgendo. Per accedere ai sensori non sono necessari i permessi, ma per l'activity recognition API si.\ Tramite l'activity recognition API è possibile specificare una lista di ActivityTransitions da monitorare e un PendingIntent da lanciare quando almeno una di queste avviene.
+/ Sensori e Activity Recognition API: Sensori del telefono forniscono informazioni di contesto primario, tra cui movimento, ambiente e posizione.\ L'activity recognition API aggrega informazioni di contesto primario dei vari sensori per riconoscere tipi di attività che l'utente sta svolgendo. Per accedere ai sensori non sono necessari i permessi, ma per l'activity recognition API si.\ Tramite l'activity recognition API è possibile specificare un elenco di ActivityTransition da monitorare e un PendingIntent da lanciare quando almeno una di queste avviene.
 / Creazione di app in iOS e Android: #table(columns: (1fr,)
-            * 3)[][*Android*][*iOS*][*Linguaggio*][Java/Kotlin][Objective C/Swift][*Pattern strutturale*][MVVM][MVC][*IDE*][Android Studio][XCode][*View/Component lifecycle*][Ciclo di vita completo con numerose fasi][Ciclo di vita ridotto, dettato interamente dal OS][*Gestione eventi*][Listeners per events, Observables e LiveData per interagire con la UI][Actions con Targets e Outlets per interagire con la UI][*Architettura OS*][Basata su Linux][Darwin, basato su Unix (vantaggi simili ad Android)][*Applicazioni/Processi*][User Linux con UserID][User Darwin con UserID][*Compilazione app*][ART#sym.arrow AOT+JIT][Compilata in codice macchina prima di consegnare l'app allo user. Le app sul app store sono gia in codice macchina.][*Deploy e rilascio*][Play store come app bundle/APK modulare][App store come app unica][*Focus*][Portabilità][Prestazioni]
+            * 3)[][*Android*][*iOS*][*Linguaggio*][Java/Kotlin][Objective C/Swift][*Pattern strutturale*][MVVM][MVC][*IDE*][Android Studio][XCode][*View/Component lifecycle*][Ciclo di vita completo con numerose fasi][Ciclo di vita ridotto, dettato interamente dal OS][*Gestione eventi*][Listeners per events, Observables e LiveData per interagire con la UI][Actions con Targets e Outlets per interagire con la UI][*Architettura OS*][Basata su Linux][Darwin, basato su Unix (vantaggi simili ad Android)][*Applicazioni/Processi*][User Linux con UserID][User Darwin con UserID][*Compilazione app*][ART#sym.arrow AOT+JIT][Compilata in codice macchina prima di consegnare l'app allo user. Le app sul app store sono già in codice macchina.][*Deploy e rilascio*][Play store come app bundle/APK modulare][App store come app unica][*Focus*][Portabilità][Prestazioni]
 / Architettura iOS e Android: Entrambe sono a livelli, ma:
     - iOS è costruito su una base di OS Unix chiamata Darwin, mentre Android è costruito direttamente sul kernel Linux. In entrambi i casi le app sono user, eseguiti in un sandbox dedicato;
     - iOS esegue Address Space Layout Randomization (ASLR) per proteggere la memoria da attacchi di tipo buffer overflow;
     - Android Fornisce solamente delle linee guida per il design, mentre iOS impone vincoli per le componenti grafiche (Cocoa Touch), garantendo un'estetica consistente tra le app. Dunque la UI di iOS è meno personalizzabile di quella Android.
     - iOS non necessita di un HAL globale: dato che l'hardware è proprietario, il SO si interfaccia direttamente con le componenti. Non c'è necessità di garantire una compatibilità più ampia, a differenza di Android dove dove l'architettura hardware non è nota a priori. #table(columns: (1fr,) * 2)[*Architettura iOS*][*Architettura Android*][Core OS: kernel costruito su UNIX, media l'interazione con le componenti hardware.][Linux Kernel: si interfaccia con l'hardware, gestendo portabilità, sicurezza e batteria.][][Hardware Abstraction Layer: interfaccia standard definita da android e implementata dai costruttori del dispositivo per interfacciarsi con i componenti hardware.][Core Services: fornisce i servizi essenziali alle app, a partire dai costrutti fondamentali di livello inferiore.][C/C++ Librarie (NDK): scrivere codice che interagisce direttamente con l'hardware.][Media: gestisce i servizi audio, video, grafica e animazione messi a disposizione delle applicazioni.][Android Runtime (ART): implementazione della JVM per compilare java in bytecode (AOT+JIT) e interpretare bytecode.][Cocoa Touch: layer di astrazione, fornisce librerie per al programmazione di app iOS (estetica, multitasking, notifiche,...)][Api Framework: API che espongono alle app i servizi forniti da Android.\ System App: applicazioni di default del sistema (con privilegi).]
 
-/ Play Store e App Store: Dato che Swift è un linguaggio compilato, non può essere interpretato a runtime, ma è per la sua interezza da compilare prima del suo rilascio. Nei file .app dell'app store è presente codice macchina. Dunque è più pesante di un'app Android perché è già compilata, così come lo sarà quando installata sul telefono. La app è la stessa per ogni dispositivo: iOS richiede ceh all'interno dell'app sia incluso il supporto per tutte le architetture, le risorse per tutte le lingue supportate, gli asset e il codice compilato universalmente per tutti i dispositivi.\ Android invece usa APK modulari o App bundle più leggere, poiché include solo:
+/ Play Store e App Store: Dato che Swift è un linguaggio compilato, non può essere interpretato a runtime, ma è per la sua interezza da compilare prima del suo rilascio. Nei file .app dell'app store è presente codice macchina. Dunque è più pesante di un'app Android perché è già compilata, così come lo sarà quando installata sul telefono. La app è la stessa per ogni dispositivo: iOS richiede che all'interno dell'app sia incluso il supporto per tutte le architetture, le risorse per tutte le lingue supportate, gli asset e il codice compilato universalmente per tutti i dispositivi.\ Android invece usa APK modulari o App bundle più leggere, poiché include solo:
     - Architettura della CPU richiesta;
     - Densità di schermo corretta;
     - Lingua selezionata dall'utente.
     Sarà poi ART a compilare l'app scaricata nella versione corretta.\
-    L'approccio di Apple è possible solo perché possiede anche l'hardware proprietario. Il numero limitato di dispositivi permette di precompilare il codice, includendo la compatibilità per ogni dispositivo possibile. Il codice macchina garantisce prestazioni migliori.\ Dato che Android si interfaccia con molti dispositivi, necessita di determinare quello giusto al momento del download, e compilare l'app nella versione compatibile. Per questo l'app Android è più leggera di quella iOS. ART fornisce maggiore portabilità.
+    L'approccio di Apple è possibile solo perché possiede anche l'hardware proprietario. Il numero limitato di dispositivi permette di precompilare il codice, includendo la compatibilità per ogni dispositivo possibile. Il codice macchina garantisce prestazioni migliori.\ Dato che Android si interfaccia con molti dispositivi, necessita di determinare quello giusto al momento del download, e compilare l'app nella versione compatibile. Per questo l'app Android è più leggera di quella iOS. ART fornisce maggiore portabilità.
 / Compilazione iOS e compilazione Android: #table(columns: (
             auto,
             1fr,
@@ -188,7 +188,7 @@
         - Swift Intermediate Language (SIL): ottimizza Swift per ridurre il gap di astrazione tra Swift e IR ed esegue un analisi per cercare errori.
         - Intermediate Representation (IR): traduce il codice in una rappresentazione più generale usata dal LLVM#footnote[Low Level Virtual Machine (LLVM): compilatore che ottimizza il codice, generando codice eseguibile dal processore.] per generare codice macchina.
     ][Il codice viene compilato in DEX bytecode (Dalvik Executable) e caricato sul Play Store.][*Dispositivo*][Scarica il codice macchina già compilato dal App Store. L'interprete esegue direttamente il codice macchina quando l'app viene lanciata (maggiore efficienza).][DEX viene eseguito da ART:
-        - AOT compilation converte il DEX in un file `.OAT` installato sul dispositivo, che èp machine code eseguibile direttamente. Un daemon ART controlla periodicamente se ci sono app da ricompilare.
+        - AOT compilation converte il DEX in un file `.OAT` installato sul dispositivo, che è machine code eseguibile direttamente. Un daemon ART controlla periodicamente se ci sono app da ricompilare.
         - JIT compilation compila il codice al momento dell'esecuzione.
         Sarebbe possibile anche l'interpretazione diretta del DEX bytecode ma è meno efficiente.
     ]
